@@ -1,15 +1,15 @@
-# Memory Bank System Upgrade: From Monolithic to Modular
+# Memory Bank 系统升级：从单体到模块化
 
-## Introduction
+## 介绍
 
-I'm excited to introduce a significant upgrade to the Memory Bank system – evolving from a monolithic all-in-one approach to a modular, graph-based system that integrates with Cursor's custom modes. This document explains the reasons behind this transition, its benefits, and how to get the most out of the new system.
+我很高兴介绍 Memory Bank 系统的重大升级——从单体一体化方法演进为模块化、基于图的系统，与 Cursor 的自定义模式集成。本文档解释了这种转换的原因、好处以及如何充分利用新系统。
 
 ```mermaid
 graph TD
-    Old["Old System<br>Monolithic Approach"] --> New["New System<br>Modular JIT Architecture"]
+    Old["旧系统<br>单体方法"] --> New["新系统<br>模块化 JIT 架构"]
     
-    Old --- OldFeatures["• Single file structure<br>• All rules loaded at once<br>• Fixed workflow"]
-    New --- NewFeatures["• Mode-specific rules<br>• Just-in-time loading<br>• Visual process maps<br>• Cursor custom modes integration"]
+    Old --- OldFeatures["• 单文件结构<br>• 一次性加载所有规则<br>• 固定工作流"]
+    New --- NewFeatures["• 模式特定规则<br>• 即时加载<br>• 可视化流程图<br>• Cursor 自定义模式集成"]
     
     style Old fill:#f8d486,stroke:#e8b84d
     style New fill:#4da6ff,stroke:#0066cc,color:white
@@ -17,29 +17,29 @@ graph TD
     style NewFeatures fill:#cce6ff,stroke:#80bfff
 ```
 
-## Why I'm Upgrading
+## 为什么要升级
 
-The old Memory Bank system served well, providing a structured approach to task management with its adaptive complexity levels and comprehensive documentation. However, as projects grew in complexity, I identified several limitations:
+旧的 Memory Bank 系统运行良好，通过其自适应复杂性级别和全面文档提供了结构化的任务管理方法。然而，随着项目复杂性的增长，我发现了几个限制：
 
-1. **Context Inefficiency**: Loading all rules at once regardless of relevance
-2. **Limited Visual Guidance**: Text-heavy instructions without visual process maps
-3. **Token Waste**: Consuming context window with irrelevant rules
-4. **One-Size-Fits-All Approach**: Less tailored to specific development phases
-5. **Scalability Challenges**: Difficulty in maintaining a growing single-file system
+1. **上下文效率低下**：无论相关性如何，一次性加载所有规则
+2. **有限的视觉指导**：文本繁重的指令，缺乏可视化流程图
+3. **令牌浪费**：用不相关的规则消耗上下文窗口
+4. **一刀切方法**：对特定开发阶段的定制较少
+5. **可扩展性挑战**：维护不断增长的单文件系统的困难
 
-While the new system offers significant advantages in efficiency and scalability, I acknowledge it does introduce a steeper learning curve. This trade-off is intentional – the increased initial complexity enables more powerful capabilities, better organization, and improved long-term development outcomes for complex projects.
+虽然新系统在效率和可扩展性方面提供了显著优势，但我承认它确实引入了更陡峭的学习曲线。这种权衡是有意的——增加的初始复杂性使得更强大的能力、更好的组织和改进的复杂项目长期开发结果成为可能。
 
-## The New Isolation-Focused Architecture
+## 新的隔离聚焦架构
 
-The new system addresses these limitations through a modular, Just-In-Time (JIT) architecture that loads only the rules you need when you need them.
+新系统通过模块化、即时（JIT）架构解决了这些限制，该架构仅在需要时加载所需的规则。
 
 ```mermaid
 graph TD
-    Command["User Mode Command"] --> ModeSwitch["Mode Switch"]
-    ModeSwitch --> LoadRules["Load Only<br>Relevant Rules"]
-    LoadRules --> ExecuteProcess["Execute Mode-Specific<br>Process"]
-    ExecuteProcess --> UpdateMemory["Update<br>Memory Bank"]
-    UpdateMemory --> NextMode["Transition to<br>Next Mode"]
+    Command["用户模式命令"] --> ModeSwitch["模式切换"]
+    ModeSwitch --> LoadRules["仅加载<br>相关规则"]
+    LoadRules --> ExecuteProcess["执行模式特定<br>流程"]
+    ExecuteProcess --> UpdateMemory["更新<br>Memory Bank"]
+    UpdateMemory --> NextMode["转换到<br>下一个模式"]
     
     style Command fill:#f8d486,stroke:#e8b84d
     style ModeSwitch fill:#d971ff,stroke:#a33bc2,color:white
@@ -49,31 +49,31 @@ graph TD
     style NextMode fill:#ff5555,stroke:#cc0000,color:white
 ```
 
-Importantly, the new system preserves the foundational 4-level complexity scale from the original system. This scale (Level 1: Quick Bug Fix, Level 2: Simple Enhancement, Level 3: Intermediate Feature, Level 4: Complex System) remains central to determining workflow paths and documentation requirements, ensuring continuity for users familiar with the original approach.
+重要的是，新系统保留了原始系统的基础 4 级复杂性量表。这个量表（级别 1：快速错误修复，级别 2：简单增强，级别 3：中级功能，级别 4：复杂系统）仍然是确定工作流路径和文档要求的核心，确保了熟悉原始方法的用户的连续性。
 
-### Key Features of the New System
+### 新系统的关键特性
 
-1. **Mode-Specific Visual Maps**: Clear visual representations for each development phase
-2. **Just-In-Time Rule Loading**: Load only the rules needed for your current task
-3. **Visual Decision Trees**: Guided workflows with clear checkpoints
-4. **Technical Validation**: Dedicated QA processes to verify implementation readiness
-5. **Platform-Aware Commands**: Automatically adapts commands to your operating system
+1. **模式特定的可视化图表**：每个开发阶段的清晰可视化表示
+2. **即时规则加载**：仅加载当前任务所需的规则
+3. **可视化决策树**：带有清晰检查点的引导工作流
+4. **技术验证**：专门的 QA 流程来验证实现准备情况
+5. **平台感知命令**：自动适应您的操作系统
 
-### Graph-Based Efficiency
+### 基于图的效率
 
-A fundamental enabler of the new system's capabilities is its graph-based architecture:
+新系统能力的基本推动因素是其基于图的架构：
 
-- **Optimized Path Navigation**: The system uses directed graphs to navigate complex decision trees with minimal overhead
-- **Contextual Relationships**: Graph structures explicitly model relationships between development phases and components, enabling smarter transitions
-- **Resource Optimization**: Each node in the graph loads only the resources needed for that specific step
-- **Parallel Processing Potential**: The graph structure makes it easier to identify components that can be addressed in parallel
+- **优化路径导航**：系统使用有向图以最小开销导航复杂决策树
+- **上下文关系**：图结构明确建模开发阶段和组件之间的关系，实现更智能的转换
+- **资源优化**：图中的每个节点仅加载该特定步骤所需的资源
+- **并行处理潜力**：图结构使识别可以并行处理的组件变得更容易
 
 ```mermaid
 graph TD
-    Start[Entry Point] --> A[Decision Node]
-    A -->|Condition 1| B[Process B]
-    A -->|Condition 2| C[Process C]
-    B --> D[Next Step]
+    Start[入口点] --> A[决策节点]
+    A -->|条件 1| B[流程 B]
+    A -->|条件 2| C[流程 C]
+    B --> D[下一步]
     C --> D
     
     style Start fill:#f9d77e,stroke:#d9b95c
@@ -83,40 +83,40 @@ graph TD
     style D fill:#d9b3ff,stroke:#b366ff
 ```
 
-**Before**: Linear execution paths with redundant rule evaluations.
+**之前**：具有冗余规则评估的线性执行路径。
 
-**After**: Optimized traversal through decision points with clear conditionals and merge points.
+**之后**：通过具有清晰条件和合并点的决策点进行优化遍历。
 
-This graph-based approach is particularly effective when working with large, complex projects where different components have varied requirements and dependencies. The system can efficiently navigate these complexities without overwhelming the context window.
+这种基于图的方法在处理大型复杂项目时特别有效，其中不同组件具有不同的要求和依赖关系。系统可以有效地导航这些复杂性，而不会压倒上下文窗口。
 
-### CREATIVE Mode and Claude's "Think" Tool
+### CREATIVE 模式和 Claude 的"Think"工具
 
-One notable aspect of the new system is that the CREATIVE mode is conceptually based on Anthropic's Claude "Think" tool methodology, as described in their [engineering blog](https://www.anthropic.com/engineering/claude-think-tool). This approach has been enhanced and integrated into the Memory Bank workflow:
+新系统的一个值得注意的方面是 CREATIVE 模式在概念上基于 Anthropic 的 Claude "Think" 工具方法论，如其[工程博客](https://www.anthropic.com/engineering/claude-think-tool)中所述。这种方法已被增强并集成到 Memory Bank 工作流中：
 
-- **Structured Exploration**: The CREATIVE mode guides users through systematic exploration of design options
-- **Explicit Reasoning**: Requires documentation of pros and cons for different approaches
-- **Component Breakdown**: Helps break complex problems into manageable components
-- **Decision Documentation**: Creates formal records of design decisions with clear rationales
-- **Continuous Refinement**: The implementation will continue to evolve as Claude's capabilities advance
+- **结构化探索**：CREATIVE 模式引导用户系统性地探索设计选项
+- **明确推理**：要求为不同方法记录利弊
+- **组件分解**：帮助将复杂问题分解为可管理的组件
+- **决策文档化**：创建具有清晰理由的设计决策正式记录
+- **持续改进**：随着 Claude 能力的进步，实现将继续发展
 
-This methodology has proven particularly effective for complex design decisions, ensuring that all options are thoroughly considered before implementation begins.
+这种方法论已被证明对复杂设计决策特别有效，确保在开始实现之前彻底考虑所有选项。
 
-## Integration with Cursor Custom Modes
+## 与 Cursor 自定义模式的集成
 
-The new system takes full advantage of Cursor's custom modes feature, which allows for specialized AI behaviors for different tasks.
+新系统充分利用了 Cursor 的自定义模式功能，该功能允许为不同任务配置专门的 AI 行为。
 
-### What Are Cursor Custom Modes?
+### 什么是 Cursor 自定义模式？
 
-Cursor custom modes allow you to configure different AI behaviors with specific tools and custom instructions. The new Memory Bank system creates specialized modes for each development phase:
+Cursor 自定义模式允许您配置具有特定工具和自定义指令的不同 AI 行为。新的 Memory Bank 系统为每个开发阶段创建专门的模式：
 
 ```mermaid
 graph LR
-    subgraph "Memory Bank Modes"
-        VAN["VAN MODE<br>Initialization"]
-        PLAN["PLAN MODE<br>Task Planning"]
-        CREATIVE["CREATIVE MODE<br>Design Decisions"]
-        IMPLEMENT["IMPLEMENT MODE<br>Code Implementation"]
-        QA["QA MODE<br>Validation"]
+    subgraph "Memory Bank 模式"
+        VAN["VAN 模式<br>初始化"]
+        PLAN["PLAN 模式<br>任务规划"]
+        CREATIVE["CREATIVE 模式<br>设计决策"]
+        IMPLEMENT["IMPLEMENT 模式<br>代码实现"]
+        QA["QA 模式<br>验证"]
     end
     
     VAN --> PLAN
@@ -131,57 +131,57 @@ graph LR
     style QA fill:#ff8080,stroke:#ff5555
 ```
 
-Each mode loads only its required rule set, optimizing context usage and providing specialized guidance:
+每个模式仅加载其所需的规则集，优化上下文使用并提供专门指导：
 
-| Mode | Purpose | Key Features |
-|------|---------|-------------|
-| VAN | Initialization | Platform detection, file verification, complexity determination |
-| PLAN | Task Planning | Requirements analysis, component identification, implementation strategy |
-| CREATIVE | Design Decisions | Multiple options exploration, pros/cons analysis, design recommendations |
-| IMPLEMENT | Code Implementation | Systematic building, command execution, testing |
-| QA | Technical Validation | Dependency verification, configuration validation, build testing |
+| 模式 | 目的 | 关键特性 |
+|------|------|----------|
+| VAN | 初始化 | 平台检测、文件验证、复杂性确定 |
+| PLAN | 任务规划 | 需求分析、组件识别、实现策略 |
+| CREATIVE | 设计决策 | 多选项探索、利弊分析、设计建议 |
+| IMPLEMENT | 代码实现 | 系统性构建、命令执行、测试 |
+| QA | 技术验证 | 依赖验证、配置验证、构建测试 |
 
-### Beyond Cursor's Standard Custom Modes Implementation
+### 超越 Cursor 标准自定义模式实现
 
-While Cursor's [documentation on custom modes](https://docs.cursor.com/chat/custom-modes) describes them primarily as standalone configurations with adjusted prompts and tool selections, Memory Bank significantly extends this concept:
+虽然 Cursor 的[自定义模式文档](https://docs.cursor.com/chat/custom-modes)主要将其描述为具有调整提示和工具选择的独立配置，但 Memory Bank 显著扩展了这个概念：
 
-#### Standard Cursor Custom Modes Approach
+#### 标准 Cursor 自定义模式方法
 
-According to Cursor's documentation, custom modes typically consist of:
-- Setting a name, icon, and shortcut
-- Enabling or disabling specific tools
-- Adding custom instructions (prompts)
+根据 Cursor 的文档，自定义模式通常包括：
+- 设置名称、图标和快捷方式
+- 启用或禁用特定工具
+- 添加自定义指令（提示）
 
-Their example modes (Teach, Refactor, Plan, etc.) function as isolated configurations without inherent connections between them. Each mode is essentially a separate AI personality with specific instructions.
+他们的示例模式（教学、重构、计划等）作为独立配置运行，彼此之间没有固有连接。每个模式本质上是具有特定指令的独立 AI 个性。
 
-#### Memory Bank's Enhanced Custom Modes Approach
+#### Memory Bank 的增强自定义模式方法
 
 ```mermaid
 graph TD
-    subgraph "Cursor's Standard Approach"
-        M1["Mode 1<br>Static Instructions"]
-        M2["Mode 2<br>Static Instructions"]
-        M3["Mode 3<br>Static Instructions"]
+    subgraph "Cursor 的标准方法"
+        M1["模式 1<br>静态指令"]
+        M2["模式 2<br>静态指令"]
+        M3["模式 3<br>静态指令"]
     end
     
-    subgraph "Memory Bank's Approach"
-        MB1["VAN Mode<br>Dynamic Rules"]
-        MB2["PLAN Mode<br>Dynamic Rules"]
-        MB3["CREATIVE Mode<br>Dynamic Rules"]
-        MB4["IMPLEMENT Mode<br>Dynamic Rules"]
-        MB5["QA Mode<br>Dynamic Rules"]
+    subgraph "Memory Bank 的方法"
+        MB1["VAN 模式<br>动态规则"]
+        MB2["PLAN 模式<br>动态规则"]
+        MB3["CREATIVE 模式<br>动态规则"]
+        MB4["IMPLEMENT 模式<br>动态规则"]
+        MB5["QA 模式<br>动态规则"]
         
-        MB1 -->|"Passes Context"| MB2
-        MB2 -->|"Passes Context"| MB3
-        MB3 -->|"Passes Context"| MB4
-        MB4 -->|"Passes Context"| MB5
+        MB1 -->|"传递上下文"| MB2
+        MB2 -->|"传递上下文"| MB3
+        MB3 -->|"传递上下文"| MB4
+        MB4 -->|"传递上下文"| MB5
         
-        MemBank["Memory Bank Files<br>(Shared State)"]
-        MB1 <-->|"Read/Write"| MemBank
-        MB2 <-->|"Read/Write"| MemBank
-        MB3 <-->|"Read/Write"| MemBank
-        MB4 <-->|"Read/Write"| MemBank
-        MB5 <-->|"Read/Write"| MemBank
+        MemBank["Memory Bank 文件<br>(共享状态)"]
+        MB1 <-->|"读/写"| MemBank
+        MB2 <-->|"读/写"| MemBank
+        MB3 <-->|"读/写"| MemBank
+        MB4 <-->|"读/写"| MemBank
+        MB5 <-->|"读/写"| MemBank
     end
     
     style M1 fill:#f8d486,stroke:#e8b84d
@@ -196,98 +196,98 @@ graph TD
     style MemBank fill:#f9d77e,stroke:#d9b95c,stroke-width:3px
 ```
 
-Memory Bank transforms custom modes into a comprehensive, interconnected system:
+Memory Bank 将自定义模式转换为一个全面的、相互连接的系统：
 
-1. **Graph-Based Architecture**: 
-   - Modes represent nodes in a development workflow with explicit transitions
-   - Each mode understands its place in the overall development process
-   - Visual process maps guide users through the appropriate sequence
+1. **基于图的架构**：
+   - 模式表示开发工作流中具有明确转换的节点
+   - 每个模式了解其在整体开发过程中的位置
+   - 可视化流程图引导用户通过适当的序列
 
-2. **Workflow Integration**: 
-   - Modes form a cohesive development process (VAN → PLAN → CREATIVE → IMPLEMENT → QA)
-   - Each mode is aware of preceding and subsequent modes
-   - Transitions between modes are formalized with specific entry/exit criteria
+2. **工作流集成**：
+   - 模式形成一个有凝聚力的开发过程（VAN → PLAN → CREATIVE → IMPLEMENT → QA）
+   - 每个模式都知道前面和后续的模式
+   - 模式间的转换通过特定的进入/退出标准正式化
 
-3. **Shared Memory**: 
-   - Persistent state maintained across mode transitions via Memory Bank files
-   - Tasks.md serves as the central source of truth across all modes
-   - Each mode contributes specific types of information to the shared knowledge base
+3. **共享内存**：
+   - 通过 Memory Bank 文件在模式转换间维护持久状态
+   - Tasks.md 作为所有模式的中央真实来源
+   - 每个模式向共享知识库贡献特定类型的信息
 
-4. **Just-In-Time Rule Loading**: 
-   - Each mode dynamically loads only its specific rule set
-   - Rules are specialized for the current development phase
-   - Context window is preserved for productive work
-   - Rules can adapt based on project complexity level
+4. **即时规则加载**：
+   - 每个模式动态加载仅其特定规则集
+   - 规则专门针对当前开发阶段
+   - 为生产性工作保留上下文窗口
+   - 规则可以根据项目复杂性级别进行调整
 
-5. **Visual Process Maps**: 
-   - Each mode contains embedded Mermaid diagrams
-   - Visual guidance for decision points and workflow options
-   - Clear checkpoints to track progress within each phase
+5. **可视化流程图**：
+   - 每个模式包含嵌入的 Mermaid 图表
+   - 决策点和工作流选项的可视化指导
+   - 跟踪每个阶段内进度的清晰检查点
 
-6. **Complexity-Adaptive Behavior**: 
-   - Modes adjust their behavior based on the complexity level determined during initialization
-   - Simpler projects follow streamlined processes
-   - Complex projects receive more comprehensive guidance
+6. **复杂性自适应行为**：
+   - 模式根据初始化期间确定的复杂性级别调整其行为
+   - 简单项目遵循简化流程
+   - 复杂项目接受更全面的指导
 
-### Benefits of This Approach
+### 这种方法的好处
 
-This enhanced approach to custom modes offers several advantages:
+这种增强的自定义模式方法提供了几个优势：
 
-1. **Improved Context Utilization**: By loading only relevant rules, more context is available for actual development work
-2. **Coherent Development Process**: Modes work together as a unified system rather than disconnected tools
-3. **Phase-Appropriate Guidance**: Each development phase receives specialized guidance optimized for its needs
-4. **Knowledge Persistence**: Important information is preserved across mode transitions
-5. **Reduced Cognitive Overhead**: Developers can focus on the current phase without being distracted by irrelevant guidance
+1. **改善上下文利用**：通过仅加载相关规则，更多上下文可用于实际开发工作
+2. **连贯的开发过程**：模式作为统一系统而不是断开的工具一起工作
+3. **阶段适当的指导**：每个开发阶段接受针对其需求优化的专门指导
+4. **知识持久性**：重要信息在模式转换间得以保存
+5. **减少认知开销**：开发人员可以专注于当前阶段，而不会被不相关的指导分散注意力
 
-### Potential Future Enhancements
+### 潜在的未来增强
 
-If this approach proves successful through testing, it could potentially inspire several enhancements to how custom modes are used:
+如果这种方法通过测试证明成功，它可能会激发对自定义模式使用方式的几个增强：
 
-1. **Formalized Mode Transitions**: More explicit handoffs between development phases
-2. **Enhanced Visual Guidance**: More sophisticated process maps and decision trees
-3. **Deeper Integration with Memory Bank**: More specialized document types for different development phases
-4. **Custom Mode Templates**: Pre-configured mode sequences for different project types
-5. **Team Collaboration**: Coordinated use of modes across multiple team members
+1. **正式化模式转换**：开发阶段间更明确的交接
+2. **增强的可视化指导**：更复杂的流程图和决策树
+3. **与 Memory Bank 的更深集成**：为不同开发阶段提供更专门的文档类型
+4. **自定义模式模板**：为不同项目类型预配置的模式序列
+5. **团队协作**：跨多个团队成员协调使用模式
 
-While this implementation introduces more complexity in setup compared to standard custom modes, it offers significantly more powerful capabilities for structured development processes. The system transforms custom modes from isolated AI behaviors into components of a comprehensive development methodology.
+虽然与标准自定义模式相比，这种实现在设置上引入了更多复杂性，但它为结构化开发过程提供了显著更强大的能力。系统将自定义模式从孤立的 AI 行为转换为全面开发方法论的组件。
 
-## Real-World Benefits: Evidence from Projects
+## 真实世界的好处：来自项目的证据
 
-My testing with real-world projects (including a complex Todo application) demonstrated significant benefits from the new system:
+我对真实世界项目（包括复杂的 Todo 应用程序）的测试证明了新系统的显著好处：
 
-1. **Enforced Development Discipline**: Mode switching created natural phase separations, reducing the tendency to jump directly to implementation
-2. **Comprehensive Documentation**: Each mode produced specialized documentation with explicit design decisions
-3. **Systematic Development**: Components were built according to plan in logical dependency order
-4. **Flexibility When Needed**: Hybrid approaches (like QA in IMPLEMENT) worked effectively without losing structure
+1. **强制开发纪律**：模式切换创建了自然的阶段分离，减少了直接跳到实现的倾向
+2. **全面文档**：每个模式产生具有明确设计决策的专门文档
+3. **系统性开发**：组件按照计划以逻辑依赖顺序构建
+4. **需要时的灵活性**：混合方法（如 IMPLEMENT 中的 QA）在不失去结构的情况下有效工作
 
-From the analysis document:
+来自分析文档：
 
-> "I observed tangible differences in development approach between modes. Each mode successfully optimized for its specific phase of development. The quality of the final application benefited from this structured approach."
+> "我观察到模式间开发方法的明显差异。每个模式都成功地针对其特定的开发阶段进行了优化。最终应用程序的质量受益于这种结构化方法。"
 
-## Comparison: Old vs. New System
+## 比较：旧系统 vs 新系统
 
-| Aspect | Old System | New System |
-|--------|------------|------------|
-| **Structure** | Single file | Multiple specialized files |
-| **Context Usage** | Loads everything at once | Just-in-time loading |
-| **Guidance** | Text-based instructions | Visual process maps + text |
-| **Decision Making** | Basic decision points | Comprehensive decision trees |
-| **Technical Validation** | Basic verification | Dedicated QA processes |
-| **Platform Awareness** | Limited | Comprehensive adaptation |
-| **Memory Bank** | Same core files | Same core files with improved organization |
-| **Documentation** | Standardized formats | Mode-specific specialized formats |
-| **Complexity Levels** | 4-level scale | Same 4-level scale with enhanced process flows |
+| 方面 | 旧系统 | 新系统 |
+|------|--------|--------|
+| **结构** | 单文件 | 多个专门文件 |
+| **上下文使用** | 一次性加载所有内容 | 即时加载 |
+| **指导** | 基于文本的指令 | 可视化流程图 + 文本 |
+| **决策制定** | 基本决策点 | 全面决策树 |
+| **技术验证** | 基本验证 | 专门的 QA 流程 |
+| **平台感知** | 有限 | 全面适应 |
+| **Memory Bank** | 相同的核心文件 | 相同的核心文件，改进组织 |
+| **文档** | 标准化格式 | 模式特定的专门格式 |
+| **复杂性级别** | 4 级量表 | 相同的 4 级量表，增强流程 |
 
-## When to Use Each System
+## 何时使用每个系统
 
 ```mermaid
 graph TD
-    Start["Which system<br>should I use?"] --> Question{"What's your<br>experience level?"}
+    Start["我应该使用<br>哪个系统？"] --> Question{"您的<br>经验水平如何？"}
     
-    Question -->|"Beginner"| Old["Start with Old System<br>• Simpler to understand<br>• All in one place<br>• Easier learning curve"]
-    Question -->|"Intermediate/<br>Advanced"| New["Use New System<br>• More powerful capabilities<br>• Better for complex projects<br>• Optimized context usage"]
+    Question -->|"初学者"| Old["从旧系统开始<br>• 更容易理解<br>• 全部在一个地方<br>• 更容易的学习曲线"]
+    Question -->|"中级/<br>高级"| New["使用新系统<br>• 更强大的能力<br>• 更适合复杂项目<br>• 优化的上下文使用"]
     
-    Old --> Progress["As you gain experience..."]
+    Old --> Progress["随着经验的积累..."]
     Progress --> New
     
     style Start fill:#f8d486,stroke:#e8b84d
@@ -297,51 +297,51 @@ graph TD
     style Progress fill:#d9b3ff,stroke:#b366ff
 ```
 
-### Guidelines for Trying the New System
+### 尝试新系统的指导原则
 
-- **New Projects**: The new system works best when starting fresh projects rather than converting existing ones
-- **Testing Approach**: If you want to try it with an existing project, make a backup first and experiment in a safe environment
-- **No Formal Migration Path**: I haven't developed a formal migration path from old to new systems - it's currently designed for new implementations
-- **Learning Projects**: Use the old system for simpler projects if you're still getting comfortable with the Memory Bank concept
-- **Complex Projects**: The new system shines with multi-component projects requiring careful planning
+- **新项目**：新系统在开始新项目时效果最佳，而不是转换现有项目
+- **测试方法**：如果您想在现有项目上尝试，请先备份并在安全环境中实验
+- **无正式迁移路径**：我没有开发从旧系统到新系统的正式迁移路径——它目前是为新实现设计的
+- **学习项目**：如果您仍在熟悉 Memory Bank 概念，请对简单项目使用旧系统
+- **复杂项目**：新系统在需要仔细规划的多组件项目中表现出色
 
-## Getting Started with the New System
+## 开始使用新系统
 
-### Basic Commands
+### 基本命令
 
-To activate different modes in the new system:
+要在新系统中激活不同模式：
 
 ```
-VAN - Initialize project and determine complexity
-PLAN - Create detailed implementation plan
-CREATIVE - Explore design options for complex components
-IMPLEMENT - Systematically build planned components
-QA - Validate technical implementation
+VAN - 初始化项目并确定复杂性
+PLAN - 创建详细的实现计划
+CREATIVE - 为复杂组件探索设计选项
+IMPLEMENT - 系统性地构建计划的组件
+QA - 验证技术实现
 ```
 
-### Example Workflow
+### 示例工作流
 
-1. Begin with `VAN` to initialize the project and determine complexity
-2. For Level 2-4 tasks, transition to `PLAN` to create a comprehensive implementation plan
-3. For components requiring design decisions, use `CREATIVE` to explore options
-4. Implement the planned changes with `IMPLEMENT`
-5. Validate the implementation with `QA` before completing
+1. 从 `VAN` 开始初始化项目并确定复杂性
+2. 对于级别 2-4 任务，转换到 `PLAN` 创建全面的实现计划
+3. 对于需要设计决策的组件，使用 `CREATIVE` 探索选项
+4. 使用 `IMPLEMENT` 实现计划的更改
+5. 在完成之前使用 `QA` 验证实现
 
-The complexity level (1-4) determined during the VAN mode will significantly influence your path through the workflow:
-- **Level 1 tasks** may proceed directly to IMPLEMENT after VAN
-- **Level 2-4 tasks** follow the full workflow with increasingly comprehensive planning and documentation
+在 VAN 模式期间确定的复杂性级别（1-4）将显著影响您通过工作流的路径：
+- **级别 1 任务**可能在 VAN 后直接进入 IMPLEMENT
+- **级别 2-4 任务**遵循完整工作流，具有越来越全面的规划和文档
 
-## Deep Dive: The Technical Architecture
+## 深入探讨：技术架构
 
-For those interested in the technical details, the new system uses a graph-based approach with isolated rule files loaded just-in-time:
+对于对技术细节感兴趣的人，新系统使用基于图的方法，通过即时加载隔离的规则文件：
 
 ```mermaid
 graph TD
-    Main["main.mdc<br>Core Rules"] --> Platform["platform-awareness.mdc<br>OS Detection"]
-    Main --> FileV["file-verification.mdc<br>File Structure"]
-    Main --> ComplexityDT["complexity-decision-tree.mdc<br>Task Classification"]
+    Main["main.mdc<br>核心规则"] --> Platform["platform-awareness.mdc<br>操作系统检测"]
+    Main --> FileV["file-verification.mdc<br>文件结构"]
+    Main --> ComplexityDT["complexity-decision-tree.mdc<br>任务分类"]
     
-    subgraph "Mode-Specific Maps"
+    subgraph "模式特定图表"
         VanMap["van-mode-map.mdc"]
         PlanMap["plan-mode-map.mdc"]
         CreativeMap["creative-mode-map.mdc"]
@@ -351,11 +351,11 @@ graph TD
     
     Main --> VanMap & PlanMap & CreativeMap & ImplementMap & QAMap
     
-    VanMap --> VanFiles["Platform Detection<br>File Verification<br>Complexity Determination"]
-    PlanMap --> PlanFiles["Task Tracking<br>Planning Process<br>Component Identification"]
-    CreativeMap --> CreativeFiles["Design Patterns<br>Creative Phase Enforcement<br>Options Analysis"]
-    ImplementMap --> ImplementFiles["Command Execution<br>Implementation Guide<br>Testing Strategy"]
-    QAMap --> QAFiles["Dependency Verification<br>Configuration Validation<br>Build Testing"]
+    VanMap --> VanFiles["平台检测<br>文件验证<br>复杂性确定"]
+    PlanMap --> PlanFiles["任务跟踪<br>规划过程<br>组件识别"]
+    CreativeMap --> CreativeFiles["设计模式<br>创意阶段强制<br>选项分析"]
+    ImplementMap --> ImplementFiles["命令执行<br>实现指南<br>测试策略"]
+    QAMap --> QAFiles["依赖验证<br>配置验证<br>构建测试"]
     
     style Main fill:#f8d486,stroke:#e8b84d,stroke-width:2px
     style VanMap fill:#80bfff,stroke:#4da6ff,stroke-width:2px
@@ -365,24 +365,24 @@ graph TD
     style QAMap fill:#ff8080,stroke:#ff5555,stroke-width:2px
 ```
 
-### Memory Bank Continuity
+### Memory Bank 连续性
 
-While the rules are modularized, the Memory Bank files maintain continuity across modes:
+虽然规则是模块化的，但 Memory Bank 文件在模式间保持连续性：
 
 ```mermaid
 graph LR
-    subgraph "Memory Bank Files"
-        Tasks["tasks.md<br>Source of Truth"]
-        Active["activeContext.md<br>Current Focus"]
-        Progress["progress.md<br>Implementation Status"]
-        Creative["creative-*.md<br>Design Decisions"]
+    subgraph "Memory Bank 文件"
+        Tasks["tasks.md<br>真实来源"]
+        Active["activeContext.md<br>当前焦点"]
+        Progress["progress.md<br>实现状态"]
+        Creative["creative-*.md<br>设计决策"]
     end
     
-    VAN["VAN MODE"] -.-> Tasks & Active
-    PLAN["PLAN MODE"] -.-> Tasks & Active
-    CREATIVE["CREATIVE MODE"] -.-> Tasks & Creative
-    IMPLEMENT["IMPLEMENT MODE"] -.-> Tasks & Progress
-    QA["QA MODE"] -.-> Tasks & Progress
+    VAN["VAN 模式"] -.-> Tasks & Active
+    PLAN["PLAN 模式"] -.-> Tasks & Active
+    CREATIVE["CREATIVE 模式"] -.-> Tasks & Creative
+    IMPLEMENT["IMPLEMENT 模式"] -.-> Tasks & Progress
+    QA["QA 模式"] -.-> Tasks & Progress
     
     style Tasks fill:#f9d77e,stroke:#d9b95c,stroke-width:3px
     style Active fill:#a8d5ff,stroke:#88b5e0
@@ -396,102 +396,102 @@ graph LR
     style QA fill:#ff8080,stroke:#ff5555
 ```
 
-## Practical Example: Todo App Development
+## 实际示例：Todo 应用开发
 
-Here's how I used the new system to develop a complex Todo application:
+以下是我如何使用新系统开发复杂 Todo 应用程序的过程：
 
-1. **VAN Mode**: Analyzed requirements, set up project structure, determined Level 3 complexity
-2. **PLAN Mode**: Created comprehensive component hierarchy, identified dependencies, flagged components for creative exploration
-3. **CREATIVE Mode**: Explored multiple options for state management and filtering implementation, documented pros/cons
-4. **IMPLEMENT Mode**: Built components in logical sequence following the plan, with integrated QA validation
-5. **Results**: More disciplined development process, better documentation, and higher quality final product
+1. **VAN 模式**：分析需求，设置项目结构，确定级别 3 复杂性
+2. **PLAN 模式**：创建全面的组件层次结构，识别依赖关系，标记需要创意探索的组件
+3. **CREATIVE 模式**：探索状态管理和过滤实现的多个选项，记录利弊
+4. **IMPLEMENT 模式**：按照计划以逻辑顺序构建组件，集成 QA 验证
+5. **结果**：更有纪律的开发过程，更好的文档，更高质量的最终产品
 
-## Future Plans and Development Roadmap
+## 未来计划和开发路线图
 
-This Memory Bank system is a personal hobby project that brings me joy to build and develop. I plan to continue evolving it based on user needs and my own experiments. Here are some areas I'm exploring for future development:
+这个 Memory Bank 系统是一个个人爱好项目，构建和开发它给我带来了快乐。我计划根据用户需求和我自己的实验继续发展它。以下是我正在探索的未来开发领域：
 
-### Near-Term Improvements
+### 近期改进
 
-1. **Further Optimization of JIT Rules**: Refining the rule loading system to provide even more efficient context utilization and faster response times
-2. **User Feedback Integration**: Establishing a structured feedback loop to gather insights from early adopters and refine the system based on real-world usage patterns
-3. **PRD Mode Development**: Creating a dedicated Product Requirements Document mode that leverages Cursor's advanced AI models to help users construct comprehensive product specifications within the same environment as their development work
+1. **进一步优化 JIT 规则**：改进规则加载系统，提供更高效的上下文利用和更快的响应时间
+2. **用户反馈集成**：建立结构化反馈循环，收集早期采用者的见解，并基于真实世界使用模式改进系统
+3. **PRD 模式开发**：创建专门的产品需求文档模式，利用 Cursor 的高级 AI 模型帮助用户在与开发工作相同的环境中构建全面的产品规范
 
-### Additional Possibilities Under Consideration
+### 考虑中的其他可能性
 
-4. **Team Collaboration Features**: Enhancing Memory Bank to support multiple users working simultaneously with shared context and coordinated mode transitions
-5. **Customizable Modes**: Providing tools for users to create their own specialized modes beyond the current set, with custom rule configurations and process maps
-6. **Cross-Project Memory**: Enabling the Memory Bank system to maintain relevant context across different projects, improving knowledge transfer and consistency
-7. **Analytics Dashboard**: Developing tools to analyze development patterns, mode usage, and project progression to provide insights and suggest process improvements
-8. **Integration with Version Control**: Creating deeper connections between Memory Bank documentation and code version history for better traceability
+4. **团队协作功能**：增强 Memory Bank 以支持多个用户同时工作，具有共享上下文和协调的模式转换
+5. **可定制模式**：为用户提供工具，创建超出当前集合的自己的专门模式，具有自定义规则配置和流程图
+6. **跨项目内存**：使 Memory Bank 系统能够在不同项目间维护相关上下文，改善知识转移和一致性
+7. **分析仪表板**：开发工具来分析开发模式、模式使用和项目进展，提供见解并建议流程改进
+8. **与版本控制的集成**：在 Memory Bank 文档和代码版本历史之间创建更深层的连接，以获得更好的可追溯性
 
-### Development Philosophy
+### 开发理念
 
-As I develop these new features, I remain committed to these core principles:
-- Creating enjoyable, powerful tools for structured development
-- Focusing on new implementations rather than migration paths
-- Balancing power and complexity with appropriate learning resources
-- Preserving the foundational 4-level complexity scale that has proven effective
+在开发这些新功能时，我仍然致力于这些核心原则：
+- 为结构化开发创建令人愉快、强大的工具
+- 专注于新实现而不是迁移路径
+- 平衡功能和复杂性与适当的学习资源
+- 保留已被证明有效的基础 4 级复杂性量表
 
-I welcome community input on which of these potential directions would be most valuable to prioritize in the development roadmap.
+我欢迎社区对这些潜在方向中哪些最有价值优先考虑在开发路线图中的意见。
 
-## Conclusion: The Path Forward
+## 结论：前进的道路
 
-The new isolation-focused Memory Bank system represents a significant evolution in my approach to structured development. While it introduces a steeper learning curve, the benefits in terms of efficiency, guidance, and scalability make it worthwhile for complex projects.
+新的隔离聚焦 Memory Bank 系统代表了我在结构化开发方法上的重大演进。虽然它引入了更陡峭的学习曲线，但在效率、指导和可扩展性方面的好处使其对复杂项目是值得的。
 
-My recommendations:
-- **Beginners**: Start with the old system until comfortable with the core concepts
-- **New Projects**: Use the new system primarily for new projects rather than trying to migrate existing ones
-- **Testing**: If you want to try the new system with an existing project, make a backup first and experiment in a safe environment
-- **Advanced Users**: Consider the new system for substantial development work on complex projects
+我的建议：
+- **初学者**：在熟悉核心概念之前从旧系统开始
+- **新项目**：主要为新项目使用新系统，而不是尝试迁移现有项目
+- **测试**：如果您想在现有项目上尝试新系统，请先备份并在安全环境中实验
+- **高级用户**：考虑为复杂项目的大量开发工作使用新系统
 
-This is an experimental system that I've created as a personal hobby project. I encourage you to try it, provide feedback, and adapt it to your own workflows. By leveraging Cursor's custom modes and visual process maps, the new Memory Bank system provides a powerful framework for disciplined, systematic development that scales with project complexity.
+这是我作为个人爱好项目创建的实验性系统。我鼓励您尝试它，提供反馈，并将其适应您自己的工作流。通过利用 Cursor 的自定义模式和可视化流程图，新的 Memory Bank 系统为有纪律的、系统性的开发提供了一个强大的框架，该框架随项目复杂性而扩展。
 
 ---
 
-## Resources
+## 资源
 
-- [Cursor Custom Modes Documentation](https://docs.cursor.com/chat/custom-modes)
-- Memory Bank Reference Files (in .cursor/rules/isolation_rules/)
-- Mode-specific instruction files (van_instructions.md, plan_instructions.md, etc.)
-- [CREATIVE Mode and Claude's "Think" Tool](creative_mode_think_tool.md)
+- [Cursor 自定义模式文档](https://docs.cursor.com/chat/custom-modes)
+- Memory Bank 参考文件（在 .cursor/rules/isolation_rules/ 中）
+- 模式特定指令文件（van_instructions.md、plan_instructions.md 等）
+- [CREATIVE 模式和 Claude 的"Think"工具](creative_mode_think_tool.md)
 
-## The Need for Change
+## 变更的必要性
 
-The previous Memory Bank implementation had several limitations:
+之前的 Memory Bank 实现有几个限制：
 
-- **Limited Context Capacity**: All rules and commands were loaded into a single context, reducing the available tokens for productive work
-- **Fixed Workflow**: Little flexibility for adapting to different project complexities
-- **Redundant Rule Loading**: Even simple tasks loaded the full ruleset, inefficient use of context
-- **No Visual Guidance**: Difficult to understand the system's decision-making process
-- **Limited Platform Awareness**: Platform-specific commands required manual adaptation
+- **有限的上下文容量**：所有规则和命令都加载到单个上下文中，减少了用于生产性工作的可用令牌
+- **固定工作流**：适应不同项目复杂性的灵活性很少
+- **冗余规则加载**：即使简单任务也加载完整规则集，上下文使用效率低下
+- **无视觉指导**：难以理解系统的决策过程
+- **有限的平台感知**：平台特定命令需要手动适应
 
-## Key Architectural Improvements
+## 关键架构改进
 
-The new Memory Bank system addresses these limitations through:
+新的 Memory Bank 系统通过以下方式解决这些限制：
 
-![Architectural Changes](/path-to-diagram.png)
+![架构变更](/path-to-diagram.png)
 
-### 1. Just-In-Time (JIT) Rule Loading
+### 1. 即时（JIT）规则加载
 
-Instead of loading all rules upfront, the system now:
+系统现在不是预先加载所有规则，而是：
 
-- Loads only the rules relevant to the current development phase
-- Uses visual maps to determine which rules to load at what time
-- Dynamically adjusts rule complexity based on task requirements
-- Preserves valuable context space for productive work
+- 仅加载与当前开发阶段相关的规则
+- 使用可视化图表确定何时加载哪些规则
+- 根据任务要求动态调整规则复杂性
+- 为生产性工作保留宝贵的上下文空间
 
 ```mermaid
 graph TD
-    subgraph "Old System"
-        OldMain[All Rules Loaded at Start]
+    subgraph "旧系统"
+        OldMain[启动时加载所有规则]
     end
     
-    subgraph "New System"
-        Entry[Entry Point]
-        Core[Core Rules]
-        Phase1[Phase 1 Rules]
-        Phase2[Phase 2 Rules]
-        Phase3[Phase 3 Rules]
+    subgraph "新系统"
+        Entry[入口点]
+        Core[核心规则]
+        Phase1[阶段 1 规则]
+        Phase2[阶段 2 规则]
+        Phase3[阶段 3 规则]
         
         Entry --> Core
         Core --> Phase1
@@ -507,25 +507,25 @@ graph TD
     style Phase3 fill:#ccffcc,stroke:#99ff99
 ```
 
-**Before**: All 25+ rules were loaded at initialization, consuming approximately 70% of the available context.
+**之前**：在初始化时加载所有 25+ 规则，消耗大约 70% 的可用上下文。
 
-**After**: Only 3-7 rules are loaded at any given time, reducing context usage to approximately 15-20%.
+**之后**：在任何给定时间仅加载 3-7 个规则，将上下文使用减少到大约 15-20%。
 
-### 2. Graph-Based Efficiency
+### 2. 基于图的效率
 
-The graph-based structure is a fundamental efficiency enabler in the new system:
+基于图的结构是新系统中的基本效率推动因素：
 
-- **Optimized Path Navigation**: The system uses directed graphs to navigate complex decision trees with minimal overhead
-- **Contextual Relationships**: Graph structures explicitly model relationships between development phases and components, enabling smarter transitions
-- **Resource Optimization**: Each node in the graph loads only the resources needed for that specific step
-- **Parallel Processing Potential**: The graph structure makes it easier to identify components that can be addressed in parallel
+- **优化路径导航**：系统使用有向图以最小开销导航复杂决策树
+- **上下文关系**：图结构明确建模开发阶段和组件之间的关系，实现更智能的转换
+- **资源优化**：图中的每个节点仅加载该特定步骤所需的资源
+- **并行处理潜力**：图结构使识别可以并行处理的组件变得更容易
 
 ```mermaid
 graph TD
-    Start[Entry Point] --> A[Decision Node]
-    A -->|Condition 1| B[Process B]
-    A -->|Condition 2| C[Process C]
-    B --> D[Next Step]
+    Start[入口点] --> A[决策节点]
+    A -->|条件 1| B[流程 B]
+    A -->|条件 2| C[流程 C]
+    B --> D[下一步]
     C --> D
     
     style Start fill:#f9d77e,stroke:#d9b95c
@@ -535,25 +535,25 @@ graph TD
     style D fill:#d9b3ff,stroke:#b366ff
 ```
 
-**Before**: Linear execution paths with redundant rule evaluations.
+**之前**：具有冗余规则评估的线性执行路径。
 
-**After**: Optimized traversal through decision points with clear conditionals and merge points.
+**之后**：通过具有清晰条件和合并点的决策点进行优化遍历。
 
-### 3. Mode-Specific Visual Process Maps
+### 3. 模式特定的可视化流程图
 
-Each mode now has its own visual process map that:
+每个模式现在都有自己的可视化流程图：
 
-- Clearly illustrates the workflow for that specific development phase
-- Provides explicit decision points and conditional branches
-- Adapts to project complexity levels
-- Offers visual checkpoints to track progress
+- 清楚地说明该特定开发阶段的工作流
+- 提供明确的决策点和条件分支
+- 适应项目复杂性级别
+- 提供跟踪进度的可视化检查点
 
 ```mermaid
 graph TD
-    Start[Start] --> Assess[Assess Project]
-    Assess --> Complexity{Complexity Level?}
-    Complexity -->|Simple| SimplePath[Simple Path]
-    Complexity -->|Complex| ComplexPath[Complex Path]
+    Start[开始] --> Assess[评估项目]
+    Assess --> Complexity{复杂性级别？}
+    Complexity -->|简单| SimplePath[简单路径]
+    Complexity -->|复杂| ComplexPath[复杂路径]
     
     style Start fill:#c5e8b7,stroke:#a5c897
     style Assess fill:#a8d5ff,stroke:#88b5e0
@@ -562,11 +562,11 @@ graph TD
     style ComplexPath fill:#f4b8c4,stroke:#d498a4
 ```
 
-### 4. Technical Validation and Platform Awareness
+### 4. 技术验证和平台感知
 
-The system now includes:
+系统现在包括：
 
-- **Automated Platform Detection**: Automatically adapts commands for Windows, MacOS, or Linux
-- **File Structure Verification**: Validates project structure before proceeding
-- **QA Checkpoints**: Dedicated technical validation phase with specific validation criteria
-- **More Accurate Command Generation**: Platform-specific commands with higher success rates 
+- **自动平台检测**：自动为 Windows、MacOS 或 Linux 适应命令
+- **文件结构验证**：在继续之前验证项目结构
+- **QA 检查点**：具有特定验证标准的专门技术验证阶段
+- **更准确的命令生成**：具有更高成功率的平台特定命令 

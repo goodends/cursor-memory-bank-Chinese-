@@ -1,127 +1,127 @@
-# Memory Bank System Release Notes
+# Memory Bank 系统发布说明
 
-> **Personal Note**: Memory Bank is my personal hobby project that I develop for my own use in coding projects. As this is a personal project, I don't maintain an issues tracker or actively collect feedback. However, if you're using these rules and encounter issues, one of the great advantages is that you can ask the Cursor AI directly to modify or update the rules to better suit your specific workflow. The system is designed to be adaptable by the AI, allowing you to customize it for your own needs without requiring external support.
+> **个人说明**：Memory Bank 是我开发的个人爱好项目，用于我自己的编程项目。作为个人项目，我不维护问题跟踪器或主动收集反馈。但是，如果您在使用这些规则时遇到问题，一个很大的优势是您可以直接要求 Cursor AI 修改或更新规则以更好地适应您的特定工作流。该系统设计为可由 AI 适应，允许您根据自己的需求进行定制，而无需外部支持。
 
-## Version 0.7-beta - Token-Optimized Workflows
+## 版本 0.7-beta - 令牌优化工作流
 
-> Building upon the architectural foundations established in v0.6-beta.1, this release introduces significant token efficiency optimizations and enhanced workflow capabilities with substantial improvements in context management.
+> 基于 v0.6-beta.1 中建立的架构基础，此版本引入了显著的令牌效率优化和增强的工作流能力，在上下文管理方面有重大改进。
 
-### 🌟 Major Features
+### 🌟 主要功能
 
-#### Hierarchical Rule Loading System _(New)_
-- Just-In-Time (JIT) loading of specialized rules
-- Core rule caching across mode transitions
-- Complexity-based rule selection
-- Significant reduction in rule-related token usage
+#### 分层规则加载系统 _(新功能)_
+- 专门规则的即时（JIT）加载
+- 跨模式转换的核心规则缓存
+- 基于复杂性的规则选择
+- 显著减少规则相关的令牌使用
 
-#### Progressive Documentation Framework _(New)_
-- Concise templates that scale with task complexity
-- Tabular formats for efficient option comparison
-- "Detail-on-demand" approach for creative phases
-- Streamlined documentation without sacrificing quality
+#### 渐进式文档框架 _(新功能)_
+- 随任务复杂性扩展的简洁模板
+- 高效选项比较的表格格式
+- 创意阶段的"按需详细"方法
+- 在不牺牲质量的情况下简化文档
 
-#### Optimized Mode Transitions _(Enhanced)_
-- Unified context transfer protocol
-- Standardized transition documents
-- Selective context preservation
-- Improved context retention between modes
+#### 优化的模式转换 _(增强)_
+- 统一的上下文传输协议
+- 标准化转换文档
+- 选择性上下文保存
+- 改进模式间的上下文保留
 
-#### Enhanced Multi-Level Workflow System _(Enhanced)_
-- **Level 1: Quick Bug Fix Pipeline**
-  - Ultra-compact documentation templates
-  - Consolidated memory bank updates
-  - Streamlined 3-phase workflow
+#### 增强的多级工作流系统 _(增强)_
+- **级别 1：快速错误修复流水线**
+  - 超紧凑文档模板
+  - 合并的内存库更新
+  - 简化的 3 阶段工作流
 
-- **Level 2: Enhancement Pipeline**
-  - Balanced 4-phase workflow
-  - Simplified planning templates
-  - Faster documentation process
+- **级别 2：增强流水线**
+  - 平衡的 4 阶段工作流
+  - 简化的规划模板
+  - 更快的文档过程
 
-- **Level 3: Feature Development Pipeline**
-  - Comprehensive planning system
-  - Optimized creative phase exploration
-  - Improved context efficiency
+- **级别 3：功能开发流水线**
+  - 全面的规划系统
+  - 优化的创意阶段探索
+  - 改进的上下文效率
 
-- **Level 4: Enterprise Pipeline**
-  - Advanced 6-phase workflow
-  - Tiered documentation templates
-  - Enhanced governance controls
+- **级别 4：企业流水线**
+  - 高级 6 阶段工作流
+  - 分层文档模板
+  - 增强的治理控制
 
-### 🔄 Process Improvements
+### 🔄 流程改进
 
-#### Token-Optimized Architecture
-- Reduced context usage for system rules
-- More context available for actual development tasks
-- Adaptive complexity scaling based on task requirements
-- Differential memory bank updates to minimize token waste
+#### 令牌优化架构
+- 减少系统规则的上下文使用
+- 更多上下文可用于实际开发任务
+- 基于任务要求的自适应复杂性缩放
+- 差异化内存库更新以最小化令牌浪费
 
-#### Mode-Based Optimization
-- **VAN Mode**: Efficient complexity determination with minimal overhead
-- **PLAN Mode**: Complexity-appropriate planning templates
-- **CREATIVE Mode**: Progressive documentation with tabular comparisons
-- **IMPLEMENT Mode**: Streamlined implementation guidance
-- **REFLECT Mode**: Context-aware review mechanisms
-- **ARCHIVE Mode**: Efficient knowledge preservation
+#### 基于模式的优化
+- **VAN 模式**：以最小开销高效确定复杂性
+- **PLAN 模式**：适应复杂性的规划模板
+- **CREATIVE 模式**：具有表格比较的渐进式文档
+- **IMPLEMENT 模式**：简化的实现指导
+- **REFLECT 模式**：上下文感知的回顾机制
+- **ARCHIVE 模式**：高效的知识保存
 
-#### Advanced Workflow Optimization
-- Intelligent level transition system
-- Clear complexity assessment criteria
-- Streamlined mode switching
-- Enhanced task tracking capabilities
+#### 高级工作流优化
+- 智能级别转换系统
+- 清晰的复杂性评估标准
+- 简化的模式切换
+- 增强的任务跟踪能力
 
-### 📚 Documentation Enhancements
-- Level-specific documentation templates
-- Progressive disclosure model for complex documentation
-- Standardized comparison formats for design decisions
-- Enhanced context preservation between documentation phases
+### 📚 文档增强
+- 特定级别的文档模板
+- 复杂文档的渐进式披露模型
+- 设计决策的标准化比较格式
+- 增强文档阶段间的上下文保存
 
-### 🛠 Technical Improvements
-- Graph-based rule architecture for efficient navigation
-- Rule dependency tracking for optimal loading
-- Context compression techniques for memory bank files
-- Adaptive rule partitioning for targeted loading
+### 🛠 技术改进
+- 用于高效导航的基于图的规则架构
+- 用于最优加载的规则依赖跟踪
+- 内存库文件的上下文压缩技术
+- 用于目标加载的自适应规则分区
 
-### 📋 Known Issues
-- None reported in current release
+### 📋 已知问题
+- 当前版本中未报告任何问题
 
-### 🧠 The Determinism Challenge in AI Workflows
+### 🧠 AI 工作流中的确定性挑战
 
-While Memory Bank provides robust structure through visual maps and process flows, it's important to acknowledge an inherent limitation: the non-deterministic nature of AI agents. Despite our best efforts to create well-defined pathways and structured processes, language models fundamentally operate on probability distributions rather than fixed rules.
+虽然 Memory Bank 通过可视化图表和流程提供了强大的结构，但重要的是要承认一个固有限制：AI 代理的非确定性本质。尽管我们尽最大努力创建明确定义的路径和结构化流程，但语言模型从根本上是基于概率分布而不是固定规则运行的。
 
-This creates what I call the "determinism paradox" – we need structure for reliability, but rigidity undermines the adaptability that makes AI valuable. Memory Bank addresses this through:
+这创造了我称之为"确定性悖论"的问题——我们需要结构来保证可靠性，但刚性会破坏使 AI 有价值的适应性。Memory Bank 通过以下方式解决这个问题：
 
-- **Guiding rather than forcing**: Using visual maps that shape behavior without rigid constraints
-- **Bounded flexibility**: Creating structured frameworks within which creative problem-solving can occur
-- **Adaptive complexity**: Adjusting guidance based on task requirements rather than enforcing one-size-fits-all processes
+- **引导而非强制**：使用塑造行为而不是严格约束的可视化图表
+- **有界灵活性**：创建结构化框架，在其中可以进行创造性问题解决
+- **自适应复杂性**：根据任务要求调整指导，而不是强制执行一刀切的流程
 
-As a companion to Memory Bank, I'm developing an MCP Server (Model-Context-Protocol) project that aims to further address this challenge by integrating deterministic code checkpoints with probabilistic language model capabilities. This hybrid approach creates a system where AI can operate flexibly while still following predictable workflows – maintaining the balance between structure and adaptability that makes Memory Bank effective.
+作为 Memory Bank 的补充，我正在开发一个 MCP 服务器（模型-上下文-协议）项目，旨在通过将确定性代码检查点与概率语言模型能力集成来进一步解决这一挑战。这种混合方法创建了一个系统，其中 AI 可以灵活操作，同时仍然遵循可预测的工作流——保持使 Memory Bank 有效的结构和适应性之间的平衡。
 
-When using Memory Bank, you may occasionally need to guide the agent back to the intended workflow. This isn't a failure of the system but rather a reflection of the fundamental tension between structure and flexibility in AI systems.
+使用 Memory Bank 时，您可能偶尔需要引导代理回到预期的工作流。这不是系统的失败，而是反映了 AI 系统中结构和灵活性之间的基本张力。
 
-### 🔜 Upcoming Features
-- Dynamic template generation based on task characteristics
-- Automatic context summarization for long-running tasks
-- Cross-task knowledge preservation
-- Partial rule loading within specialized rule files
-- MCP integration for improved workflow adherence
+### 🔜 即将推出的功能
+- 基于任务特征的动态模板生成
+- 长期运行任务的自动上下文摘要
+- 跨任务知识保存
+- 专门规则文件内的部分规则加载
+- 用于改进工作流遵循的 MCP 集成
 
-### 📝 Notes
-- This release builds upon v0.6-beta.1's architectural foundation
-- Significantly enhances JIT Rule Loading efficiency 
-- No manual migration required
-- New files added to `.cursor/rules/isolation_rules/` directory
+### 📝 注释
+- 此版本基于 v0.6-beta.1 的架构基础
+- 显著增强 JIT 规则加载效率
+- 无需手动迁移
+- 新文件添加到 `.cursor/rules/isolation_rules/` 目录
 
-### 🔧 Requirements
-- Requires Cursor version 0.48 or higher
-- Compatible with Claude 3.7 Sonnet (recommended) and newer models
-- Compatible with all existing Memory Bank v0.6-beta.1 installations
+### 🔧 要求
+- 需要 Cursor 版本 0.48 或更高版本
+- 与 Claude 3.7 Sonnet（推荐）和更新模型兼容
+- 与所有现有 Memory Bank v0.6-beta.1 安装兼容
 
-### 📈 Optimization Approaches
-- **Rule Loading**: Hierarchical loading with core caching and specialized lazy-loading
-- **Creative Phase**: Progressive documentation with tabular comparisons
-- **Mode Transitions**: Unified context transfer with selective preservation
-- **Level 1 Workflow**: Ultra-compact templates with consolidated updates
-- **Memory Bank**: Differential updates and context compression
+### 📈 优化方法
+- **规则加载**：具有核心缓存和专门延迟加载的分层加载
+- **创意阶段**：具有表格比较的渐进式文档
+- **模式转换**：具有选择性保存的统一上下文传输
+- **级别 1 工作流**：具有合并更新的超紧凑模板
+- **Memory Bank**：差异化更新和上下文压缩
 
 ---
-Released on: May 7, 2025
+发布日期：2025年5月7日
