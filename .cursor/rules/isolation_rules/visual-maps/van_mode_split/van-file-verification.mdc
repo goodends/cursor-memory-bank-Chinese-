@@ -3,48 +3,48 @@ description: Visual process map for VAN mode file verification
 globs: van-file-verification.mdc
 alwaysApply: false
 ---
-# OPTIMIZED FILE VERIFICATION SYSTEM
+# 优化文件验证系统
 
-🚨 CRITICAL: MEMORY BANK VERIFICATION REQUIRED 🚨
-Memory Bank structure MUST exist before any file operations
-This check MUST be executed first in all verification processes
+🚨 关键：需要MEMORY BANK验证 🚨
+Memory Bank结构必须在任何文件操作之前存在
+此检查必须在所有验证流程中首先执行
 
-> **TL;DR:** This system provides a structured approach to verify file structure integrity before task implementation, with emphasis on efficient checks and clear status reporting.
+> **简要说明：** 此系统提供结构化方法来验证任务实现前的文件结构完整性，重点是高效检查和清晰状态报告。
 
-## 🔍 FILE VERIFICATION WORKFLOW
+## 🔍 文件验证工作流
 
 ```mermaid
 graph TD
-    %% Critical Memory Bank verification - MUST be first
-    Start["Start File Verification"] --> MemBankCheck{"Memory Bank<br>Exists?"}
-    MemBankCheck -->|"No"| CreateMemBank["CREATE MEMORY BANK<br>[CRITICAL]"]
-    MemBankCheck -->|"Yes"| VerifyMemBankComplete["Verify Memory Bank<br>Structure Complete"]
+    %% 关键Memory Bank验证 - 必须首先执行
+    Start["开始文件验证"] --> MemBankCheck{"Memory Bank<br>存在？"}
+    MemBankCheck -->|"否"| CreateMemBank["创建MEMORY BANK<br>[关键]"]
+    MemBankCheck -->|"是"| VerifyMemBankComplete["验证Memory Bank<br>结构完整"]
     CreateMemBank --> VerifyMemBankComplete
     
-    VerifyMemBankComplete --> PassCheck{"All Critical<br>Checks Pass?"}
-    PassCheck -->|"No"| AbortAll["⛔ ABORT ALL OPERATIONS<br>Fix Memory Bank First"]
-    PassCheck -->|"Yes"| MainVerification
+    VerifyMemBankComplete --> PassCheck{"所有关键<br>检查通过？"}
+    PassCheck -->|"否"| AbortAll["⛔ 中止所有操作<br>首先修复Memory Bank"]
+    PassCheck -->|"是"| MainVerification
 
-    %% Regular verification flow continues here
-    MainVerification["Start Full<br>File Verification"] --> BatchVerify["Batch Verification<br>Using Patterns"]
-    BatchVerify --> BrokenLinks["Check for<br>Broken References"]
-    BrokenLinks --> DirectoryStructure["Verify Directory<br>Structure"]
-    DirectoryStructure --> Status{"All Verifications<br>Successful?"}
+    %% 常规验证流程在此继续
+    MainVerification["开始完整<br>文件验证"] --> BatchVerify["批量验证<br>使用模式"]
+    BatchVerify --> BrokenLinks["检查<br>损坏引用"]
+    BrokenLinks --> DirectoryStructure["验证目录<br>结构"]
+    DirectoryStructure --> Status{"所有验证<br>成功？"}
     
-    Status -->|"Yes"| Complete["Verification<br>Complete ✓"]
-    Status -->|"No"| Diagnose["Diagnose<br>Issues"]
-    Diagnose --> Attempt{"Attempt Auto<br>Resolution?"}
+    Status -->|"是"| Complete["验证<br>完成 ✓"]
+    Status -->|"否"| Diagnose["诊断<br>问题"]
+    Diagnose --> Attempt{"尝试自动<br>解决？"}
     
-    Attempt -->|"Yes"| AutoFix["Auto-Fix<br>Issues"]
-    Attempt -->|"No"| ReportIssue["Report Issues to<br>User"]
+    Attempt -->|"是"| AutoFix["自动修复<br>问题"]
+    Attempt -->|"否"| ReportIssue["向用户报告<br>问题"]
     
-    AutoFix --> Recheck{"Issues<br>Resolved?"}
-    Recheck -->|"Yes"| ReportSuccess["Report Success<br>to User"]
-    Recheck -->|"No"| ReportIssue
+    AutoFix --> Recheck{"问题<br>已解决？"}
+    Recheck -->|"是"| ReportSuccess["向用户报告<br>成功"]
+    Recheck -->|"否"| ReportIssue
     
     ReportSuccess --> Complete
-    ReportIssue --> UserAction["Wait for<br>User Action"]
-    UserAction --> ReVerify["Re-Verify<br>After User Action"]
+    ReportIssue --> UserAction["等待<br>用户操作"]
+    UserAction --> ReVerify["用户操作后<br>重新验证"]
     ReVerify --> Status
     
     style MemBankCheck fill:#ff0000,stroke:#990000,color:white,stroke-width:3px
@@ -56,21 +56,21 @@ graph TD
     style Complete fill:#10b981,stroke:#059669,color:white
 ```
 
-## 🧩 MEMORY BANK VERIFICATION - CRITICAL COMPONENT
+## 🧩 MEMORY BANK验证 - 关键组件
 
-Memory Bank verification MUST be executed first in any file verification process:
+Memory Bank验证必须在任何文件验证流程中首先执行：
 
 ```javascript
 function verifyMemoryBank() {
-  // Check if Memory Bank exists
+  // 检查Memory Bank是否存在
   const memoryBankExists = checkDirectoryExists("memory-bank");
   if (!memoryBankExists) {
-    console.error("⛔ CRITICAL ERROR: Memory Bank does not exist");
+    console.error("⛔ 关键错误：Memory Bank不存在");
     createMemoryBankStructure();
     return verifyMemoryBankCreation();
   }
   
-  // Check required subdirectories
+  // 检查必需的子目录
   const requiredDirs = [
     "memory-bank/active-context",
     "memory-bank/system-patterns",
@@ -80,12 +80,12 @@ function verifyMemoryBank() {
   
   const missingDirs = requiredDirs.filter(dir => !checkDirectoryExists(dir));
   if (missingDirs.length > 0) {
-    console.error(`⛔ CRITICAL ERROR: Missing Memory Bank directories: ${missingDirs.join(", ")}`);
+    console.error(`⛔ 关键错误：缺失Memory Bank目录：${missingDirs.join(", ")}`);
     createMissingDirectories(missingDirs);
     return verifyMemoryBankCreation();
   }
   
-  // Check critical files
+  // 检查关键文件
   const criticalFiles = [
     "memory-bank/active-context/activeContext.md",
     "memory-bank/system-patterns/systemPatterns.md"
@@ -93,55 +93,55 @@ function verifyMemoryBank() {
   
   const missingFiles = criticalFiles.filter(file => !checkFileExists(file));
   if (missingFiles.length > 0) {
-    console.error(`⛔ CRITICAL ERROR: Missing critical files: ${missingFiles.join(", ")}`);
+    console.error(`⛔ 关键错误：缺失关键文件：${missingFiles.join(", ")}`);
     createMissingFiles(missingFiles);
     return verifyMemoryBankCreation();
   }
   
-  return true; // Memory Bank verification successful
+  return true; // Memory Bank验证成功
 }
 
-// MANDATORY: This must be called before any other verification
+// 强制：必须在任何其他验证之前调用
 const memoryBankVerified = verifyMemoryBank();
 if (!memoryBankVerified) {
-  throw new Error("⛔ MEMORY BANK VERIFICATION FAILED - CANNOT PROCEED");
+  throw new Error("⛔ MEMORY BANK验证失败 - 无法继续");
 }
 ```
 
-## 📋 MEMORY BANK VERIFICATION CHECKLIST
+## 📋 MEMORY BANK验证检查清单
 
 ```
-✓ MEMORY BANK VERIFICATION CHECKLIST
-- Memory Bank directory exists? [YES/NO]
-- Required subdirectories exist? [YES/NO]
-- Critical files exist? [YES/NO]
-- File content is valid? [YES/NO]
+✓ MEMORY BANK验证检查清单
+- Memory Bank目录存在？ [是/否]
+- 必需子目录存在？ [是/否]
+- 关键文件存在？ [是/否]
+- 文件内容有效？ [是/否]
 
-→ If ALL YES: Memory Bank verification passed - Continue file verification
-→ If ANY NO: STOP ALL PROCESSING and FIX MEMORY BANK
+→ 如果全部是：Memory Bank验证通过 - 继续文件验证
+→ 如果有否：停止所有处理并修复MEMORY BANK
 ```
 
-## 🔍 BATCH VERIFICATION WORKFLOW
+## 🔍 批量验证工作流
 
-## 📋 OPTIMIZED DIRECTORY CREATION
+## 📋 优化目录创建
 
 ```mermaid
 graph TD
-    Start["Directory<br>Creation"] --> DetectOS["Detect Operating<br>System"]
-    DetectOS -->|"Windows"| WinCmd["Batch Create<br>Windows Command"]
-    DetectOS -->|"Mac/Linux"| UnixCmd["Batch Create<br>Unix Command"]
-    WinCmd & UnixCmd --> Verify["Verify<br>Creation Success"]
-    Verify --> Complete["Directory Setup<br>Complete"]
+    Start["目录<br>创建"] --> DetectOS["检测操作<br>系统"]
+    DetectOS -->|"Windows"| WinCmd["批量创建<br>Windows命令"]
+    DetectOS -->|"Mac/Linux"| UnixCmd["批量创建<br>Unix命令"]
+    WinCmd & UnixCmd --> Verify["验证<br>创建成功"]
+    Verify --> Complete["目录设置<br>完成"]
 ```
 
-### Platform-Specific Commands
+### 平台特定命令
 
 #### Windows (PowerShell)
 ```powershell
-# Create all directories in one command
+# 一个命令创建所有目录
 mkdir memory-bank, docs, docs\archive -ErrorAction SilentlyContinue
 
-# Create all required files
+# 创建所有必需文件
 $files = @(".cursorrules", "tasks.md", 
            "memory-bank\projectbrief.md", 
            "memory-bank\productContext.md",
@@ -159,10 +159,10 @@ foreach ($file in $files) {
 
 #### Mac/Linux (Bash)
 ```bash
-# Create all directories in one command
+# 一个命令创建所有目录
 mkdir -p memory-bank docs/archive
 
-# Create all required files
+# 创建所有必需文件
 touch .cursorrules tasks.md \
       memory-bank/projectbrief.md \
       memory-bank/productContext.md \
@@ -172,9 +172,9 @@ touch .cursorrules tasks.md \
       memory-bank/progress.md
 ```
 
-## 📝 STREAMLINED VERIFICATION PROCESS
+## 📝 简化验证流程
 
-Instead of checking each component separately, perform batch verification:
+不是单独检查每个组件，而是执行批量验证：
 
 ```powershell
 # Windows - PowerShell
@@ -189,9 +189,9 @@ $missingMBFiles = $mbFiles | ForEach-Object { "memory-bank\$_" } |
                   Where-Object { -not (Test-Path $_) -or (Test-Path $_ -PathType Container) }
 
 if ($missingDirs.Count -eq 0 -and $missingFiles.Count -eq 0 -and $missingMBFiles.Count -eq 0) {
-    Write-Output "✓ All required components verified"
+    Write-Output "✓ 所有必需组件已验证"
 } else {
-    # Create all missing items at once
+    # 一次创建所有缺失项目
     if ($missingDirs.Count -gt 0) {
         $missingDirs | ForEach-Object { mkdir $_ -Force }
     }
@@ -202,43 +202,43 @@ if ($missingDirs.Count -eq 0 -and $missingFiles.Count -eq 0 -and $missingMBFiles
 }
 ```
 
-## 📝 TEMPLATE INITIALIZATION
+## 📝 模板初始化
 
-Optimize template creation with a single script:
+优化模板创建脚本：
 
 ```powershell
 # Windows - PowerShell
 $templates = @{
     "tasks.md" = @"
-# Memory Bank: Tasks
+# Memory Bank: 任务
 
-## Current Task
-[Task not yet defined]
+## 当前任务
+[任务尚未定义]
 
-## Status
-- [ ] Task definition
-- [ ] Implementation plan
-- [ ] Execution
-- [ ] Documentation
+## 状态
+- [ ] 任务定义
+- [ ] 实现计划
+- [ ] 执行
+- [ ] 文档
 
-## Requirements
-[No requirements defined yet]
+## 要求
+[尚未定义要求]
 "@
 
     "memory-bank\activeContext.md" = @"
-# Memory Bank: Active Context
+# Memory Bank: 活跃上下文
 
-## Current Focus
-[No active focus defined]
+## 当前焦点
+[未定义活跃焦点]
 
-## Status
-[No status defined]
+## 状态
+[未定义状态]
 
-## Latest Changes
-[No changes recorded]
+## 最新更改
+[未记录更改]
 "@
 
-    # Add other templates here
+    # 在此添加其他模板
 }
 
 foreach ($file in $templates.Keys) {
@@ -248,55 +248,55 @@ foreach ($file in $templates.Keys) {
 }
 ```
 
-## 🔍 PERFORMANCE OPTIMIZATION BEST PRACTICES
+## 🔍 性能优化最佳实践
 
-1. **Batch Operations**: Always use batch operations instead of individual commands
+1. **批量操作**：始终使用批量操作而不是单独命令
    ```
-   # GOOD: Create all directories at once
+   # 好：一次创建所有目录
    mkdir memory-bank docs docs\archive
    
-   # BAD: Create directories one at a time
+   # 坏：一次创建一个目录
    mkdir memory-bank
    mkdir docs
    mkdir docs\archive
    ```
 
-2. **Pre-Check Optimization**: Check all requirements first, then create only what's missing
+2. **预检查优化**：首先检查所有要求，然后再创建缺失的
    ```
-   # First check what's missing
+   # 首先检查缺失的内容
    $missingItems = ...
    
-   # Then create only what's missing
+   # 然后只创建缺失的
    if ($missingItems) { ... }
    ```
 
-3. **Error Handling**: Include error handling in all commands
+3. **错误处理**：在所有命令中包含错误处理
    ```
    mkdir memory-bank, docs, docs\archive -ErrorAction SilentlyContinue
    ```
 
-4. **Platform Adaptation**: Auto-detect platform and use appropriate commands
+4. **平台适应**：自动检测平台并使用适当的命令
    ```
    if ($IsWindows) {
-       # Windows commands
+       # Windows命令
    } else {
-       # Unix commands
+       # Unix命令
    }
    ```
 
-5. **One-Pass Verification**: Verify directory structure in a single pass
+5. **一次验证**：在单次验证中验证目录结构
    ```
    $requiredPaths = @("memory-bank", "docs", "docs\archive", ".cursorrules", "tasks.md")
    $missingPaths = $requiredPaths | Where-Object { -not (Test-Path $_) }
    ```
 
-## 📝 VERIFICATION REPORT FORMAT
+## 📝 验证报告格式
 
 ```
-✅ VERIFICATION COMPLETE
-- Created directories: [list]
-- Created files: [list]
-- All components verified
+✅ 验证完成
+- 创建的目录：[列表]
+- 创建的文件：[列表]
+- 所有组件已验证
 
-Memory Bank system ready for use.
+Memory Bank系统准备就绪。
 ``` 

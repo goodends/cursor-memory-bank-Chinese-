@@ -3,50 +3,50 @@ description: Visual process map for VAN mode (Initialization)
 globs: van-mode-map.mdc
 alwaysApply: false
 ---
-# VAN MODE: INITIALIZATION PROCESS MAP
+# VAN模式：初始化流程图
 
-> **TL;DR:** This visual map defines the VAN mode process for project initialization, task analysis, and technical validation. It guides users through platform detection, file verification, complexity determination, and technical validation to ensure proper setup before implementation.
+> **简要说明：** 这个可视化图定义了VAN模式的项目初始化、任务分析和技术验证流程。它指导用户完成平台检测、文件验证、复杂度确定和技术验证，以确保在实现之前正确设置。
 
-## 🧭 VAN MODE PROCESS FLOW
+## 🧭 VAN模式流程图
 
 ```mermaid
 graph TD
-    Start["START VAN MODE"] --> PlatformDetect["PLATFORM DETECTION"]
-    PlatformDetect --> DetectOS["Detect Operating System"]
-    DetectOS --> CheckPath["Check Path Separator Format"]
-    CheckPath --> AdaptCmds["Adapt Commands if Needed"]
-    AdaptCmds --> PlatformCP["⛔ PLATFORM CHECKPOINT"]
+    Start["启动VAN模式"] --> PlatformDetect["平台检测"]
+    PlatformDetect --> DetectOS["检测操作系统"]
+    DetectOS --> CheckPath["检查路径分隔符格式"]
+    CheckPath --> AdaptCmds["根据需要调整命令"]
+    AdaptCmds --> PlatformCP["⛔ 平台检查点"]
     
-    %% Basic File Verification with checkpoint
-    PlatformCP --> BasicFileVerify["BASIC FILE VERIFICATION"]
-    BasicFileVerify --> BatchCheck["Batch Check Essential Components"]
-    BatchCheck --> BatchCreate["Batch Create Essential Structure"]
-    BatchCreate --> BasicFileCP["⛔ BASIC FILE CHECKPOINT"]
+    %% 基本文件验证与检查点
+    PlatformCP --> BasicFileVerify["基本文件验证"]
+    BasicFileVerify --> BatchCheck["批量检查基本组件"]
+    BatchCheck --> BatchCreate["批量创建基本结构"]
+    BatchCreate --> BasicFileCP["⛔ 基本文件检查点"]
     
-    %% Early Complexity Determination
-    BasicFileCP --> EarlyComplexity["EARLY COMPLEXITY DETERMINATION"]
-    EarlyComplexity --> AnalyzeTask["Analyze Task Requirements"]
-    AnalyzeTask --> EarlyLevelCheck{"Complexity Level?"}
+    %% 早期复杂度确定
+    BasicFileCP --> EarlyComplexity["早期复杂度确定"]
+    EarlyComplexity --> AnalyzeTask["分析任务需求"]
+    AnalyzeTask --> EarlyLevelCheck{"复杂度级别？"}
     
-    %% Level handling paths
-    EarlyLevelCheck -->|"Level 1"| ComplexityCP["⛔ COMPLEXITY CHECKPOINT"]
-    EarlyLevelCheck -->|"Level 2-4"| CRITICALGATE["🚫 CRITICAL GATE: FORCE MODE SWITCH"]
-    CRITICALGATE --> ForceExit["Exit to PLAN mode"]
+    %% 级别处理路径
+    EarlyLevelCheck -->|"级别1"| ComplexityCP["⛔ 复杂度检查点"]
+    EarlyLevelCheck -->|"级别2-4"| CRITICALGATE["🚫 关键门：强制模式切换"]
+    CRITICALGATE --> ForceExit["退出到PLAN模式"]
     
-    %% Level 1 continues normally
-    ComplexityCP --> InitSystem["INITIALIZE MEMORY BANK"]
-    InitSystem --> Complete1["LEVEL 1 INITIALIZATION COMPLETE"]
+    %% 级别1正常继续
+    ComplexityCP --> InitSystem["初始化MEMORY BANK"]
+    InitSystem --> Complete1["级别1初始化完成"]
     
-    %% For Level 2+ tasks after PLAN and CREATIVE modes
-    ForceExit -.-> OtherModes["PLAN → CREATIVE modes"]
-    OtherModes -.-> VANQA["VAN QA MODE"]
-    VANQA --> QAProcess["Technical Validation Process"]
-    QAProcess --> QACheck{"All Checks Pass?"}
-    QACheck -->|"Yes"| BUILD["To BUILD MODE"]
-    QACheck -->|"No"| FixIssues["Fix Technical Issues"]
+    %% 对于级别2+任务在PLAN和CREATIVE模式之后
+    ForceExit -.-> OtherModes["PLAN → CREATIVE模式"]
+    OtherModes -.-> VANQA["VAN QA模式"]
+    VANQA --> QAProcess["技术验证流程"]
+    QAProcess --> QACheck{"所有检查通过？"}
+    QACheck -->|"是"| BUILD["到BUILD模式"]
+    QACheck -->|"否"| FixIssues["修复技术问题"]
     FixIssues --> QAProcess
     
-    %% Style nodes
+    %% 样式节点
     style PlatformCP fill:#f55,stroke:#d44,color:white
     style BasicFileCP fill:#f55,stroke:#d44,color:white
     style ComplexityCP fill:#f55,stroke:#d44,color:white
@@ -58,55 +58,55 @@ graph TD
     style FixIssues fill:#ff5555,stroke:#dd3333,color:white
 ```
 
-## 🌐 PLATFORM DETECTION PROCESS
+## 🌐 平台检测流程
 
 ```mermaid
 graph TD
-    PD["Platform Detection"] --> CheckOS["Detect Operating System"]
+    PD["平台检测"] --> CheckOS["检测操作系统"]
     CheckOS --> Win["Windows"]
     CheckOS --> Mac["macOS"]
     CheckOS --> Lin["Linux"]
     
-    Win & Mac & Lin --> Adapt["Adapt Commands<br>for Platform"]
+    Win & Mac & Lin --> Adapt["为平台调整<br>命令"]
     
-    Win --> WinPath["Path: Backslash (\\)"]
-    Mac --> MacPath["Path: Forward Slash (/)"]
-    Lin --> LinPath["Path: Forward Slash (/)"]
+    Win --> WinPath["路径：反斜杠 (\\)"]
+    Mac --> MacPath["路径：正斜杠 (/)"]
+    Lin --> LinPath["路径：正斜杠 (/)"]
     
-    Win --> WinCmd["Command Adaptations:<br>dir, icacls, etc."]
-    Mac --> MacCmd["Command Adaptations:<br>ls, chmod, etc."]
-    Lin --> LinCmd["Command Adaptations:<br>ls, chmod, etc."]
+    Win --> WinCmd["命令调整：<br>dir, icacls等"]
+    Mac --> MacCmd["命令调整：<br>ls, chmod等"]
+    Lin --> LinCmd["命令调整：<br>ls, chmod等"]
     
-    WinPath & MacPath & LinPath --> PathCP["Path Separator<br>Checkpoint"]
-    WinCmd & MacCmd & LinCmd --> CmdCP["Command<br>Checkpoint"]
+    WinPath & MacPath & LinPath --> PathCP["路径分隔符<br>检查点"]
+    WinCmd & MacCmd & LinCmd --> CmdCP["命令<br>检查点"]
     
-    PathCP & CmdCP --> PlatformComplete["Platform Detection<br>Complete"]
+    PathCP & CmdCP --> PlatformComplete["平台检测<br>完成"]
     
     style PD fill:#4da6ff,stroke:#0066cc,color:white
     style PlatformComplete fill:#10b981,stroke:#059669,color:white
 ```
 
-## 📁 FILE VERIFICATION PROCESS
+## 📁 文件验证流程
 
 ```mermaid
 graph TD
-    FV["File Verification"] --> CheckFiles["Check Essential Files"]
-    CheckFiles --> CheckMB["Check Memory Bank<br>Structure"]
-    CheckMB --> MBExists{"Memory Bank<br>Exists?"}
+    FV["文件验证"] --> CheckFiles["检查基本文件"]
+    CheckFiles --> CheckMB["检查Memory Bank<br>结构"]
+    CheckMB --> MBExists{"Memory Bank<br>存在？"}
     
-    MBExists -->|"Yes"| VerifyMB["Verify Memory Bank<br>Contents"]
-    MBExists -->|"No"| CreateMB["Create Memory Bank<br>Structure"]
+    MBExists -->|"是"| VerifyMB["验证Memory Bank<br>内容"]
+    MBExists -->|"否"| CreateMB["创建Memory Bank<br>结构"]
     
-    CheckFiles --> CheckDocs["Check Documentation<br>Files"]
-    CheckDocs --> DocsExist{"Docs<br>Exist?"}
+    CheckFiles --> CheckDocs["检查文档<br>文件"]
+    CheckDocs --> DocsExist{"文档<br>存在？"}
     
-    DocsExist -->|"Yes"| VerifyDocs["Verify Documentation<br>Structure"]
-    DocsExist -->|"No"| CreateDocs["Create Documentation<br>Structure"]
+    DocsExist -->|"是"| VerifyDocs["验证文档<br>结构"]
+    DocsExist -->|"否"| CreateDocs["创建文档<br>结构"]
     
-    VerifyMB & CreateMB --> MBCP["Memory Bank<br>Checkpoint"]
-    VerifyDocs & CreateDocs --> DocsCP["Documentation<br>Checkpoint"]
+    VerifyMB & CreateMB --> MBCP["Memory Bank<br>检查点"]
+    VerifyDocs & CreateDocs --> DocsCP["文档<br>检查点"]
     
-    MBCP & DocsCP --> FileComplete["File Verification<br>Complete"]
+    MBCP & DocsCP --> FileComplete["文件验证<br>完成"]
     
     style FV fill:#4da6ff,stroke:#0066cc,color:white
     style FileComplete fill:#10b981,stroke:#059669,color:white
@@ -114,25 +114,25 @@ graph TD
     style DocsCP fill:#f6546a,stroke:#c30052,color:white
 ```
 
-## 🧩 COMPLEXITY DETERMINATION PROCESS
+## 🧩 复杂度确定流程
 
 ```mermaid
 graph TD
-    CD["Complexity<br>Determination"] --> AnalyzeTask["Analyze Task<br>Requirements"]
+    CD["复杂度<br>确定"] --> AnalyzeTask["分析任务<br>需求"]
     
-    AnalyzeTask --> CheckKeywords["Check Task<br>Keywords"]
-    CheckKeywords --> ScopeCheck["Assess<br>Scope Impact"]
-    ScopeCheck --> RiskCheck["Evaluate<br>Risk Level"]
-    RiskCheck --> EffortCheck["Estimate<br>Implementation Effort"]
+    AnalyzeTask --> CheckKeywords["检查任务<br>关键词"]
+    CheckKeywords --> ScopeCheck["评估<br>范围影响"]
+    ScopeCheck --> RiskCheck["评估<br>风险级别"]
+    RiskCheck --> EffortCheck["估算<br>实现工作量"]
     
-    EffortCheck --> DetermineLevel{"Determine<br>Complexity Level"}
-    DetermineLevel -->|"Level 1"| L1["Level 1:<br>Quick Bug Fix"]
-    DetermineLevel -->|"Level 2"| L2["Level 2:<br>Simple Enhancement"]
-    DetermineLevel -->|"Level 3"| L3["Level 3:<br>Intermediate Feature"]
-    DetermineLevel -->|"Level 4"| L4["Level 4:<br>Complex System"]
+    EffortCheck --> DetermineLevel{"确定<br>复杂度级别"}
+    DetermineLevel -->|"级别1"| L1["级别1：<br>快速错误修复"]
+    DetermineLevel -->|"级别2"| L2["级别2：<br>简单增强"]
+    DetermineLevel -->|"级别3"| L3["级别3：<br>中级功能"]
+    DetermineLevel -->|"级别4"| L4["级别4：<br>复杂系统"]
     
-    L1 --> CDComplete["Complexity Determination<br>Complete"]
-    L2 & L3 & L4 --> ModeSwitch["Force Mode Switch<br>to PLAN"]
+    L1 --> CDComplete["复杂度确定<br>完成"]
+    L2 & L3 & L4 --> ModeSwitch["强制模式切换<br>到PLAN"]
     
     style CD fill:#4da6ff,stroke:#0066cc,color:white
     style CDComplete fill:#10b981,stroke:#059669,color:white
@@ -140,43 +140,43 @@ graph TD
     style DetermineLevel fill:#f6546a,stroke:#c30052,color:white
 ```
 
-## 🔄 COMPLETE WORKFLOW WITH QA VALIDATION
+## 🔄 包含QA验证的完整工作流
 
-The full workflow includes technical validation before implementation:
+完整工作流包括实现前的技术验证：
 
 ```mermaid
 flowchart LR
-    VAN1["VAN MODE 
-    (Initial Analysis)"] --> PLAN["PLAN MODE
-    (Task Planning)"]
-    PLAN --> CREATIVE["CREATIVE MODE
-    (Design Decisions)"]
-    CREATIVE --> VANQA["VAN QA MODE
-    (Technical Validation)"] 
-    VANQA --> BUILD["BUILD MODE
-    (Implementation)"]
+    VAN1["VAN模式 
+    (初始分析)"] --> PLAN["PLAN模式
+    (任务规划)"]
+    PLAN --> CREATIVE["CREATIVE模式
+    (设计决策)"]
+    CREATIVE --> VANQA["VAN QA模式
+    (技术验证)"] 
+    VANQA --> BUILD["BUILD模式
+    (实现)"]
 ```
 
-## 🔍 TECHNICAL VALIDATION OVERVIEW
+## 🔍 技术验证概述
 
-The VAN QA technical validation process consists of four key validation points:
+VAN QA技术验证流程包含四个关键验证点：
 
 ```mermaid
 graph TD
-    VANQA["VAN QA MODE"] --> FourChecks["FOUR-POINT VALIDATION"]
+    VANQA["VAN QA模式"] --> FourChecks["四点验证"]
     
-    FourChecks --> DepCheck["1️⃣ DEPENDENCY VERIFICATION<br>Check all required packages"]
-    DepCheck --> ConfigCheck["2️⃣ CONFIGURATION VALIDATION<br>Verify format & compatibility"]
-    ConfigCheck --> EnvCheck["3️⃣ ENVIRONMENT VALIDATION<br>Check build environment"]
-    EnvCheck --> MinBuildCheck["4️⃣ MINIMAL BUILD TEST<br>Test core functionality"]
+    FourChecks --> DepCheck["1️⃣ 依赖验证<br>检查所有必需包"]
+    DepCheck --> ConfigCheck["2️⃣ 配置验证<br>验证格式和兼容性"]
+    ConfigCheck --> EnvCheck["3️⃣ 环境验证<br>检查构建环境"]
+    EnvCheck --> MinBuildCheck["4️⃣ 最小构建测试<br>测试核心功能"]
     
-    MinBuildCheck --> ValidationResults{"All Checks<br>Passed?"}
-    ValidationResults -->|"Yes"| SuccessReport["GENERATE SUCCESS REPORT"]
-    ValidationResults -->|"No"| FailureReport["GENERATE FAILURE REPORT"]
+    MinBuildCheck --> ValidationResults{"所有检查<br>通过？"}
+    ValidationResults -->|"是"| SuccessReport["生成成功报告"]
+    ValidationResults -->|"否"| FailureReport["生成失败报告"]
     
-    SuccessReport --> BUILD["Proceed to BUILD MODE"]
-    FailureReport --> FixIssues["Fix Technical Issues"]
-    FixIssues --> ReValidate["Re-validate"]
+    SuccessReport --> BUILD["进入BUILD模式"]
+    FailureReport --> FixIssues["修复技术问题"]
+    FixIssues --> ReValidate["重新验证"]
     ReValidate --> ValidationResults
     
     style VANQA fill:#4da6ff,stroke:#0066cc,color:white
@@ -186,59 +186,59 @@ graph TD
     style FixIssues fill:#ff5555,stroke:#dd3333,color:white
 ```
 
-## 📝 VALIDATION STATUS FORMAT
+## 📝 验证状态格式
 
-The QA Validation step includes clear status indicators:
+QA验证步骤包含清晰的状态指示器：
 
 ```
-╔═════════════════ 🔍 QA VALIDATION STATUS ═════════════════╗
-│ ✓ Design Decisions   │ Verified as implementable          │
-│ ✓ Dependencies       │ All required packages installed    │
-│ ✓ Configurations     │ Format verified for platform       │
-│ ✓ Environment        │ Suitable for implementation        │
+╔═════════════════ 🔍 QA验证状态 ═════════════════╗
+│ ✓ 设计决策       │ 已验证可实现                    │
+│ ✓ 依赖           │ 所有必需包已安装                │
+│ ✓ 配置           │ 平台格式已验证                  │
+│ ✓ 环境           │ 适合实现                        │
 ╚════════════════════════════════════════════════════════════╝
-✅ VERIFIED - Clear to proceed to BUILD mode
+✅ 已验证 - 可以进入BUILD模式
 ```
 
-## 🚨 MODE TRANSITION TRIGGERS
+## 🚨 模式转换触发器
 
-### VAN to PLAN Transition
-For complexity levels 2-4:
+### VAN到PLAN转换
+对于复杂度级别2-4：
 ```
-🚫 LEVEL [2-4] TASK DETECTED
-Implementation in VAN mode is BLOCKED
-This task REQUIRES PLAN mode
-You MUST switch to PLAN mode for proper documentation and planning
-Type 'PLAN' to switch to planning mode
-```
-
-### CREATIVE to VAN QA Transition
-After completing the CREATIVE mode:
-```
-⏭️ NEXT MODE: VAN QA
-To validate technical requirements before implementation, please type 'VAN QA'
+🚫 检测到级别[2-4]任务
+VAN模式中的实现被阻止
+此任务需要PLAN模式
+您必须切换到PLAN模式进行适当的文档和规划
+输入'PLAN'切换到规划模式
 ```
 
-### VAN QA to BUILD Transition
-After successful validation:
+### CREATIVE到VAN QA转换
+完成CREATIVE模式后：
 ```
-✅ TECHNICAL VALIDATION COMPLETE
-All prerequisites verified successfully
-You may now proceed to BUILD mode
-Type 'BUILD' to begin implementation
+⏭️ 下一模式：VAN QA
+要在实现前验证技术要求，请输入'VAN QA'
 ```
 
-## 🔒 BUILD MODE PREVENTION MECHANISM
+### VAN QA到BUILD转换
+成功验证后：
+```
+✅ 技术验证完成
+所有先决条件验证成功
+您现在可以进入BUILD模式
+输入'BUILD'开始实现
+```
 
-The system prevents moving to BUILD mode without passing QA validation:
+## 🔒 BUILD模式防护机制
+
+系统防止在未通过QA验证的情况下进入BUILD模式：
 
 ```mermaid
 graph TD
-    Start["User Types: BUILD"] --> CheckQA{"QA Validation<br>Completed?"}
-    CheckQA -->|"Yes and Passed"| AllowBuild["Allow BUILD Mode"]
-    CheckQA -->|"No or Failed"| BlockBuild["BLOCK BUILD MODE"]
-    BlockBuild --> Message["Display:<br>⚠️ QA VALIDATION REQUIRED"]
-    Message --> ReturnToVANQA["Prompt: Type VAN QA"]
+    Start["用户输入：BUILD"] --> CheckQA{"QA验证<br>完成？"}
+    CheckQA -->|"是且通过"| AllowBuild["允许BUILD模式"]
+    CheckQA -->|"否或失败"| BlockBuild["阻止BUILD模式"]
+    BlockBuild --> Message["显示：<br>⚠️ 需要QA验证"]
+    Message --> ReturnToVANQA["提示：输入VAN QA"]
     
     style CheckQA fill:#f6546a,stroke:#c30052,color:white
     style BlockBuild fill:#ff0000,stroke:#990000,color:white,stroke-width:3px
@@ -246,21 +246,21 @@ graph TD
     style ReturnToVANQA fill:#4da6ff,stroke:#0066cc,color:white
 ```
 
-## 🔄 QA COMMAND PRECEDENCE
+## 🔄 QA命令优先级
 
-QA validation can be called at any point in the process flow, and takes immediate precedence over any other current steps, including forced mode switches:
+QA验证可以在流程的任何时点调用，并立即优先于任何其他当前步骤，包括强制模式切换：
 
 ```mermaid
 graph TD
-    UserQA["User Types: QA"] --> HighPriority["⚠️ HIGH PRIORITY COMMAND"]
-    HighPriority --> CurrentTask["Pause Current Task/Process"]
-    CurrentTask --> LoadQA["Load QA Mode Map"]
-    LoadQA --> RunQA["Execute QA Validation Process"]
-    RunQA --> QAResults{"QA Results"}
+    UserQA["用户输入：QA"] --> HighPriority["⚠️ 高优先级命令"]
+    HighPriority --> CurrentTask["暂停当前任务/流程"]
+    CurrentTask --> LoadQA["加载QA模式图"]
+    LoadQA --> RunQA["执行QA验证流程"]
+    RunQA --> QAResults{"QA结果"}
     
-    QAResults -->|"PASS"| ResumeFlow["Resume Prior Process Flow"]
-    QAResults -->|"FAIL"| FixIssues["Fix Identified Issues"]
-    FixIssues --> ReRunQA["Re-run QA Validation"]
+    QAResults -->|"通过"| ResumeFlow["恢复之前的流程"]
+    QAResults -->|"失败"| FixIssues["修复识别的问题"]
+    FixIssues --> ReRunQA["重新运行QA验证"]
     ReRunQA --> QAResults
     
     style UserQA fill:#f8d486,stroke:#e8b84d,color:black
@@ -270,81 +270,81 @@ graph TD
     style QAResults fill:#f6546a,stroke:#c30052,color:white
 ```
 
-### QA Interruption Rules
+### QA中断规则
 
-When a user types **QA** at any point:
+当用户在任何时点输入**QA**时：
 
-1. **The QA command MUST take immediate precedence** over any current operation, including the "FORCE MODE SWITCH" triggered by complexity assessment.
-2. The system MUST:
-   - Immediately load the QA mode map
-   - Execute the full QA validation process
-   - Address any failures before continuing
-3. **Required remediation steps take priority** over any pending mode switches or complexity rules
-4. After QA validation is complete and passes:
-   - Resume the previously determined process flow
-   - Continue with any required mode switches
-
-```
-⚠️ QA OVERRIDE ACTIVATED
-All other processes paused
-QA validation checks now running...
-Any issues found MUST be remediated before continuing with normal process flow
-```
-
-## 📋 CHECKPOINT VERIFICATION TEMPLATE
-
-Each major checkpoint in VAN mode uses this format:
+1. **QA命令必须立即优先**于任何当前操作，包括复杂度评估触发的"强制模式切换"。
+2. 系统必须：
+   - 立即加载QA模式图
+   - 执行完整的QA验证流程
+   - 在继续之前解决任何失败
+3. **必需的修复步骤优先**于任何待定的模式切换或复杂度规则
+4. QA验证完成并通过后：
+   - 恢复之前确定的流程
+   - 继续任何必需的模式切换
 
 ```
-✓ SECTION CHECKPOINT: [SECTION NAME]
-- Requirement 1? [YES/NO]
-- Requirement 2? [YES/NO]
-- Requirement 3? [YES/NO]
-
-→ If all YES: Ready for next section
-→ If any NO: Fix missing items before proceeding
+⚠️ QA覆盖激活
+所有其他流程暂停
+QA验证检查正在运行...
+发现的任何问题必须在继续正常流程之前修复
 ```
 
-## 🚀 VAN MODE ACTIVATION
+## 📋 检查点验证模板
 
-When the user types "VAN", respond with a confirmation and start the process:
-
-```
-User: VAN
-
-Response: OK VAN - Beginning Initialization Process
-```
-
-After completing CREATIVE mode, when the user types "VAN QA", respond:
+VAN模式中的每个主要检查点使用此格式：
 
 ```
-User: VAN QA
+✓ 部分检查点：[部分名称]
+- 要求1？ [是/否]
+- 要求2？ [是/否]
+- 要求3？ [是/否]
 
-Response: OK VAN QA - Beginning Technical Validation
+→ 如果全部是：准备进入下一部分
+→ 如果有否：在继续之前修复缺失项目
 ```
 
-This ensures clear communication about which phase of VAN mode is active. 
+## 🚀 VAN模式激活
 
-## 🔍 DETAILED QA VALIDATION PROCESS
+当用户输入"VAN"时，用确认回应并开始流程：
 
-### 1️⃣ DEPENDENCY VERIFICATION
+```
+用户：VAN
 
-This step verifies that all required packages are installed and compatible:
+回应：OK VAN - 开始初始化流程
+```
+
+完成CREATIVE模式后，当用户输入"VAN QA"时，回应：
+
+```
+用户：VAN QA
+
+回应：OK VAN QA - 开始技术验证
+```
+
+这确保了关于VAN模式哪个阶段处于活动状态的清晰沟通。
+
+## 🔍 详细QA验证流程
+
+### 1️⃣ 依赖验证
+
+此步骤验证所有必需的包都已安装且兼容：
 
 ```mermaid
 graph TD
-    Start["Dependency Verification"] --> ReadDeps["Read Required Dependencies<br>from Creative Phase"]
-    ReadDeps --> CheckInstalled["Check if Dependencies<br>are Installed"]
-    CheckInstalled --> DepStatus{"All Dependencies<br>Installed?"}
+    Start["依赖验证"] --> ReadDeps["从创意阶段读取<br>必需依赖"]
+    ReadDeps --> CheckInstalled["检查依赖<br>是否已安装"]
+    CheckInstalled --> DepStatus{"所有依赖<br>已安装？"}
     
-    DepStatus -->|"Yes"| VerifyVersions["Verify Versions<br>and Compatibility"]
-    DepStatus -->|"No"| InstallMissing["Install Missing<br>Dependencies"]
+    DepStatus -->|"是"| VerifyVersions["验证版本<br>和兼容性"]
+    DepStatus -->|"否"| InstallMissing["安装缺失<br>依赖"]
     InstallMissing --> VerifyVersions
     
-    VerifyVersions --> VersionStatus{"Versions<br>Compatible?"}
-    VersionStatus -->|"Yes"| DepSuccess["Dependencies Verified<br>✅ PASS"]
-    VersionStatus -->|"No"| UpgradeVersions["Upgrade/Downgrade<br>as Needed"]
-    UpgradeVersions --> RetryVerify["Retry Verification"]
+    VerifyVersions --> VersionStatus{"版本<br>兼容？"}
+    VersionStatus -->|"是"| DepSuccess["依赖验证<br>✅ 通过"]
+    VersionStatus -->|"否"| UpgradeVersions["根据需要<br>升级/降级"]
+    UpgradeVersions --> RetryVerify["重试验证"]
     RetryVerify --> VersionStatus
     
     style Start fill:#4da6ff,stroke:#0066cc,color:white
@@ -353,9 +353,9 @@ graph TD
     style VersionStatus fill:#f6546a,stroke:#c30052,color:white
 ```
 
-#### Windows (PowerShell) Implementation:
+#### Windows (PowerShell) 实现：
 ```powershell
-# Example: Verify Node.js dependencies for a React project
+# 示例：验证React项目的Node.js依赖
 function Verify-Dependencies {
     $requiredDeps = @{
         "node" = ">=14.0.0"
@@ -365,60 +365,60 @@ function Verify-Dependencies {
     $missingDeps = @()
     $incompatibleDeps = @()
     
-    # Check Node.js version
+    # 检查Node.js版本
     $nodeVersion = $null
     try {
         $nodeVersion = node -v
         if ($nodeVersion -match "v(\d+)\.(\d+)\.(\d+)") {
             $major = [int]$Matches[1]
             if ($major -lt 14) {
-                $incompatibleDeps += "node (found $nodeVersion, required >=14.0.0)"
+                $incompatibleDeps += "node (找到 $nodeVersion，需要 >=14.0.0)"
             }
         }
     } catch {
         $missingDeps += "node"
     }
     
-    # Check npm version
+    # 检查npm版本
     $npmVersion = $null
     try {
         $npmVersion = npm -v
         if ($npmVersion -match "(\d+)\.(\d+)\.(\d+)") {
             $major = [int]$Matches[1]
             if ($major -lt 6) {
-                $incompatibleDeps += "npm (found $npmVersion, required >=6.0.0)"
+                $incompatibleDeps += "npm (找到 $npmVersion，需要 >=6.0.0)"
             }
         }
     } catch {
         $missingDeps += "npm"
     }
     
-    # Display results
+    # 显示结果
     if ($missingDeps.Count -eq 0 -and $incompatibleDeps.Count -eq 0) {
-        Write-Output "✅ All dependencies verified and compatible"
+        Write-Output "✅ 所有依赖验证且兼容"
         return $true
     } else {
         if ($missingDeps.Count -gt 0) {
-            Write-Output "❌ Missing dependencies: $($missingDeps -join ', ')"
+            Write-Output "❌ 缺失依赖：$($missingDeps -join ', ')"
         }
         if ($incompatibleDeps.Count -gt 0) {
-            Write-Output "❌ Incompatible versions: $($incompatibleDeps -join ', ')"
+            Write-Output "❌ 不兼容版本：$($incompatibleDeps -join ', ')"
         }
         return $false
     }
 }
 ```
 
-#### Mac/Linux (Bash) Implementation:
+#### Mac/Linux (Bash) 实现：
 ```bash
 #!/bin/bash
 
-# Example: Verify Node.js dependencies for a React project
+# 示例：验证React项目的Node.js依赖
 verify_dependencies() {
     local missing_deps=()
     local incompatible_deps=()
     
-    # Check Node.js version
+    # 检查Node.js版本
     if command -v node &> /dev/null; then
         local node_version=$(node -v)
         if [[ $node_version =~ v([0-9]+)\.([0-9]+)\.([0-9]+) ]]; then
@@ -431,7 +431,7 @@ verify_dependencies() {
         missing_deps+=("node")
     fi
     
-    # Check npm version
+    # 检查npm版本
     if command -v npm &> /dev/null; then
         local npm_version=$(npm -v)
         if [[ $npm_version =~ ([0-9]+)\.([0-9]+)\.([0-9]+) ]]; then
@@ -444,7 +444,7 @@ verify_dependencies() {
         missing_deps+=("npm")
     fi
     
-    # Display results
+    # 显示结果
     if [ ${#missing_deps[@]} -eq 0 ] && [ ${#incompatible_deps[@]} -eq 0 ]; then
         echo "✅ All dependencies verified and compatible"
         return 0
@@ -460,26 +460,26 @@ verify_dependencies() {
 }
 ```
 
-### 2️⃣ CONFIGURATION VALIDATION
+### 2️⃣ 配置验证
 
-This step validates configuration files format and compatibility:
+此步骤验证配置文件格式和兼容性：
 
 ```mermaid
 graph TD
-    Start["Configuration Validation"] --> IdentifyConfigs["Identify Configuration<br>Files"]
-    IdentifyConfigs --> ReadConfigs["Read Configuration<br>Files"]
-    ReadConfigs --> ValidateSyntax["Validate Syntax<br>and Format"]
-    ValidateSyntax --> SyntaxStatus{"Syntax<br>Valid?"}
+    Start["配置验证"] --> IdentifyConfigs["识别配置<br>文件"]
+    IdentifyConfigs --> ReadConfigs["读取配置<br>文件"]
+    ReadConfigs --> ValidateSyntax["验证语法<br>和格式"]
+    ValidateSyntax --> SyntaxStatus{"语法<br>有效？"}
     
-    SyntaxStatus -->|"Yes"| CheckCompatibility["Check Compatibility<br>with Platform"]
-    SyntaxStatus -->|"No"| FixSyntax["Fix Syntax<br>Errors"]
-    FixSyntax --> RetryValidate["Retry Validation"]
+    SyntaxStatus -->|"是"| CheckCompatibility["检查兼容性<br>与平台"]
+    SyntaxStatus -->|"否"| FixSyntax["修复语法<br>错误"]
+    FixSyntax --> RetryValidate["重试验证"]
     RetryValidate --> SyntaxStatus
     
-    CheckCompatibility --> CompatStatus{"Compatible with<br>Platform?"}
-    CompatStatus -->|"Yes"| ConfigSuccess["Configurations Validated<br>✅ PASS"]
-    CompatStatus -->|"No"| AdaptConfigs["Adapt Configurations<br>for Platform"]
-    AdaptConfigs --> RetryCompat["Retry Compatibility<br>Check"]
+    CheckCompatibility --> CompatStatus{"与平台兼容？"}
+    CompatStatus -->|"是"| ConfigSuccess["配置验证<br>✅ 通过"]
+    CompatStatus -->|"否"| AdaptConfigs["适应平台<br>配置"]
+    AdaptConfigs --> RetryCompat["重试兼容性<br>检查"]
     RetryCompat --> CompatStatus
     
     style Start fill:#4da6ff,stroke:#0066cc,color:white
@@ -488,9 +488,9 @@ graph TD
     style CompatStatus fill:#f6546a,stroke:#c30052,color:white
 ``` 
 
-#### Configuration Validation Implementation:
+#### 配置验证实现：
 ```powershell
-# Example: Validate configuration files for a web project
+# 示例：验证web项目的配置文件
 function Validate-Configurations {
     $configFiles = @(
         "package.json",
@@ -503,7 +503,7 @@ function Validate-Configurations {
     
     foreach ($configFile in $configFiles) {
         if (Test-Path $configFile) {
-            # Check JSON syntax for JSON files
+            # 检查JSON语法对于JSON文件
             if ($configFile -match "\.json$") {
                 try {
                     Get-Content $configFile -Raw | ConvertFrom-Json | Out-Null
@@ -513,10 +513,10 @@ function Validate-Configurations {
                 }
             }
             
-            # Specific configuration compatibility checks
+            # 特定配置兼容性检查
             if ($configFile -eq "vite.config.js") {
                 $content = Get-Content $configFile -Raw
-                # Check for React plugin in Vite config
+                # 检查vite.config.js中是否包含React插件
                 if ($content -notmatch "react\(\)") {
                     $incompatibleConfigs += "$configFile (Missing React plugin for React project)"
                 }
@@ -526,7 +526,7 @@ function Validate-Configurations {
         }
     }
     
-    # Display results
+    # 显示结果
     if ($invalidConfigs.Count -eq 0 -and $incompatibleConfigs.Count -eq 0) {
         Write-Output "✅ All configurations validated and compatible"
         return $true
@@ -542,25 +542,25 @@ function Validate-Configurations {
 }
 ```
 
-### 3️⃣ ENVIRONMENT VALIDATION
+### 3️⃣ 环境验证
 
-This step checks if the environment is properly set up for the implementation:
+此步骤检查环境是否正确设置以进行实现：
 
 ```mermaid
 graph TD
-    Start["Environment Validation"] --> CheckEnv["Check Build Environment"]
-    CheckEnv --> VerifyBuildTools["Verify Build Tools"]
-    VerifyBuildTools --> ToolsStatus{"Build Tools<br>Available?"}
+    Start["环境验证"] --> CheckEnv["检查构建环境"]
+    CheckEnv --> VerifyBuildTools["验证构建工具"]
+    VerifyBuildTools --> ToolsStatus{"构建工具<br>可用？"}
     
-    ToolsStatus -->|"Yes"| CheckPerms["Check Permissions<br>and Access"]
-    ToolsStatus -->|"No"| InstallTools["Install Required<br>Build Tools"]
-    InstallTools --> RetryTools["Retry Verification"]
+    ToolsStatus -->|"是"| CheckPerms["检查权限<br>和访问"]
+    ToolsStatus -->|"否"| InstallTools["安装必需<br>构建工具"]
+    InstallTools --> RetryTools["重试验证"]
     RetryTools --> ToolsStatus
     
-    CheckPerms --> PermsStatus{"Permissions<br>Sufficient?"}
-    PermsStatus -->|"Yes"| EnvSuccess["Environment Validated<br>✅ PASS"]
-    PermsStatus -->|"No"| FixPerms["Fix Permission<br>Issues"]
-    FixPerms --> RetryPerms["Retry Permission<br>Check"]
+    CheckPerms --> PermsStatus{"权限<br>足够？"}
+    PermsStatus -->|"是"| EnvSuccess["环境验证<br>✅ 通过"]
+    PermsStatus -->|"否"| FixPerms["修复权限<br>问题"]
+    FixPerms --> RetryPerms["重试权限<br>检查"]
     RetryPerms --> PermsStatus
     
     style Start fill:#4da6ff,stroke:#0066cc,color:white
@@ -569,9 +569,9 @@ graph TD
     style PermsStatus fill:#f6546a,stroke:#c30052,color:white
 ```
 
-#### Environment Validation Implementation:
+#### 环境验证实现：
 ```powershell
-# Example: Validate environment for a web project
+# 示例：验证web项目的构建环境
 function Validate-Environment {
     $requiredTools = @(
         @{Name = "git"; Command = "git --version"},
@@ -582,7 +582,7 @@ function Validate-Environment {
     $missingTools = @()
     $permissionIssues = @()
     
-    # Check build tools
+    # 检查构建工具
     foreach ($tool in $requiredTools) {
         try {
             Invoke-Expression $tool.Command | Out-Null
@@ -591,7 +591,7 @@ function Validate-Environment {
         }
     }
     
-    # Check write permissions in project directory
+    # 检查项目目录的写权限
     try {
         $testFile = ".__permission_test"
         New-Item -Path $testFile -ItemType File -Force | Out-Null
@@ -600,7 +600,7 @@ function Validate-Environment {
         $permissionIssues += "Current directory (write permission denied)"
     }
     
-    # Check if port 3000 is available (commonly used for dev servers)
+    # 检查端口3000是否可用（通常用于开发服务器）
     try {
         $listener = New-Object System.Net.Sockets.TcpListener([System.Net.IPAddress]::Loopback, 3000)
         $listener.Start()
@@ -609,7 +609,7 @@ function Validate-Environment {
         $permissionIssues += "Port 3000 (already in use or access denied)"
     }
     
-    # Display results
+    # 显示结果
     if ($missingTools.Count -eq 0 -and $permissionIssues.Count -eq 0) {
         Write-Output "✅ Environment validated successfully"
         return $true
@@ -625,25 +625,25 @@ function Validate-Environment {
 }
 ```
 
-### 4️⃣ MINIMAL BUILD TEST
+### 4️⃣ 最小构建测试
 
-This step performs a minimal build test to ensure core functionality:
+此步骤执行最小构建测试以确保核心功能：
 
 ```mermaid
 graph TD
-    Start["Minimal Build Test"] --> CreateTest["Create Minimal<br>Test Project"]
-    CreateTest --> BuildTest["Attempt<br>Build"]
-    BuildTest --> BuildStatus{"Build<br>Successful?"}
+    Start["最小构建测试"] --> CreateTest["创建最小<br>测试项目"]
+    CreateTest --> BuildTest["尝试<br>构建"]
+    BuildTest --> BuildStatus{"构建<br>成功？"}
     
-    BuildStatus -->|"Yes"| RunTest["Run Basic<br>Functionality Test"]
-    BuildStatus -->|"No"| FixBuild["Fix Build<br>Issues"]
-    FixBuild --> RetryBuild["Retry Build"]
+    BuildStatus -->|"是"| RunTest["运行基本<br>功能测试"]
+    BuildStatus -->|"否"| FixBuild["修复构建<br>问题"]
+    FixBuild --> RetryBuild["重试构建"]
     RetryBuild --> BuildStatus
     
-    RunTest --> TestStatus{"Test<br>Passed?"}
-    TestStatus -->|"Yes"| TestSuccess["Minimal Build Test<br>✅ PASS"]
-    TestStatus -->|"No"| FixTest["Fix Test<br>Issues"]
-    FixTest --> RetryTest["Retry Test"]
+    RunTest --> TestStatus{"测试<br>通过？"}
+    TestStatus -->|"是"| TestSuccess["最小构建测试<br>✅ 通过"]
+    TestStatus -->|"否"| FixTest["修复测试<br>问题"]
+    FixTest --> RetryTest["重试测试"]
     RetryTest --> TestStatus
     
     style Start fill:#4da6ff,stroke:#0066cc,color:white
@@ -652,25 +652,25 @@ graph TD
     style TestStatus fill:#f6546a,stroke:#c30052,color:white
 ```
 
-#### Minimal Build Test Implementation:
+#### 最小构建测试实现：
 ```powershell
-# Example: Perform minimal build test for a React project
+# 示例：执行React项目的最小构建测试
 function Perform-MinimalBuildTest {
     $buildSuccess = $false
     $testSuccess = $false
     
-    # Create minimal test project
+    # 创建最小测试项目
     $testDir = ".__build_test"
     if (Test-Path $testDir) {
         Remove-Item -Path $testDir -Recurse -Force
     }
     
     try {
-        # Create minimal test directory
+        # 创建最小测试目录
         New-Item -Path $testDir -ItemType Directory | Out-Null
         Push-Location $testDir
         
-        # Initialize minimal package.json
+        # 初始化最小package.json
         @"
 {
   "name": "build-test",
@@ -683,16 +683,16 @@ function Perform-MinimalBuildTest {
 }
 "@ | Set-Content -Path "package.json"
         
-        # Attempt build
+        # 尝试构建
         npm run build | Out-Null
         $buildSuccess = $true
         
-        # Create minimal test file
+        # 创建最小测试文件
         @"
 console.log('Test successful');
 "@ | Set-Content -Path "index.js"
         
-        # Run basic test
+        # 运行基本测试
         node index.js | Out-Null
         $testSuccess = $true
         
@@ -705,7 +705,7 @@ console.log('Test successful');
         }
     }
     
-    # Display results
+    # 显示结果
     if ($buildSuccess -and $testSuccess) {
         Write-Output "✅ Minimal build test passed successfully"
         return $true
@@ -721,32 +721,32 @@ console.log('Test successful');
 }
 ```
 
-## 📋 COMPREHENSIVE QA REPORT FORMAT
+## 📋 综合QA报告格式
 
-After running all validation steps, a comprehensive report is generated:
+运行所有验证步骤后，生成综合报告：
 
 ```
-╔═════════════════════ 🔍 QA VALIDATION REPORT ══════════════════════╗
+╔═════════════════════ 🔍 QA验证报告 ══════════════════════╗
 │                                                                     │
 │  PROJECT: [Project Name]                                            │
 │  TIMESTAMP: [Current Date/Time]                                     │
 │                                                                     │
-│  1️⃣ DEPENDENCY VERIFICATION                                         │
+│  1️⃣ 依赖验证                                                    │
 │  ✓ Required: [List of required dependencies]                        │
 │  ✓ Installed: [List of installed dependencies]                      │
 │  ✓ Compatible: [Yes/No]                                            │
 │                                                                     │
-│  2️⃣ CONFIGURATION VALIDATION                                        │
+│  2️⃣ 配置验证                                                    │
 │  ✓ Config Files: [List of configuration files]                      │
 │  ✓ Syntax Valid: [Yes/No]                                          │
 │  ✓ Platform Compatible: [Yes/No]                                   │
 │                                                                     │
-│  3️⃣ ENVIRONMENT VALIDATION                                          │
+│  3️⃣ 环境验证                                                    │
 │  ✓ Build Tools: [Available/Missing]                                │
 │  ✓ Permissions: [Sufficient/Insufficient]                          │
 │  ✓ Environment Ready: [Yes/No]                                     │
 │                                                                     │
-│  4️⃣ MINIMAL BUILD TEST                                              │
+│  4️⃣ 最小构建测试                                                │
 │  ✓ Build Process: [Successful/Failed]                              │
 │  ✓ Functionality Test: [Passed/Failed]                             │
 │  ✓ Build Ready: [Yes/No]                                           │
@@ -756,46 +756,46 @@ After running all validation steps, a comprehensive report is generated:
 ╚═════════════════════════════════════════════════════════════════════╝
 ```
 
-## ❌ FAILURE REPORT FORMAT
+## ❌ 失败报告格式
 
-If any validation step fails, a detailed failure report is generated:
+如果任何验证步骤失败，则生成详细失败报告：
 
 ```
-⚠️⚠️⚠️ QA VALIDATION FAILED ⚠️⚠️⚠️
+⚠️⚠️⚠️ QA验证失败 ⚠️⚠️⚠️
 
-The following issues must be resolved before proceeding to BUILD mode:
+以下问题必须解决后才能继续进行BUILD模式：
 
-1️⃣ DEPENDENCY ISSUES:
-- [Detailed description of dependency issues]
-- [Recommended fix]
+1️⃣ 依赖问题：
+- [详细描述依赖问题]
+- [推荐修复]
 
-2️⃣ CONFIGURATION ISSUES:
-- [Detailed description of configuration issues]
-- [Recommended fix]
+2️⃣ 配置问题：
+- [详细描述配置问题]
+- [推荐修复]
 
-3️⃣ ENVIRONMENT ISSUES:
-- [Detailed description of environment issues]
-- [Recommended fix]
+3️⃣ 环境问题：
+- [详细描述环境问题]
+- [推荐修复]
 
-4️⃣ BUILD TEST ISSUES:
-- [Detailed description of build test issues]
-- [Recommended fix]
+4️⃣ BUILD测试问题：
+- [详细描述BUILD测试问题]
+- [推荐修复]
 
-⚠️ BUILD MODE IS BLOCKED until these issues are resolved.
-Type 'VAN QA' after fixing the issues to re-validate.
+⚠️ BUILD模式被阻止，直到这些问题得到解决。
+输入'VAN QA'修复问题后重新验证。
 ```
 
-## 🔄 INTEGRATION WITH DESIGN DECISIONS
+## 🔄 与设计决策集成
 
-The VAN QA mode reads and validates design decisions from the CREATIVE phase:
+VAN QA模式从CREATIVE阶段读取并验证设计决策：
 
 ```mermaid
 graph TD
-    Start["Read Design Decisions"] --> ReadCreative["Parse Creative Phase<br>Documentation"]
-    ReadCreative --> ExtractTech["Extract Technology<br>Choices"]
-    ExtractTech --> ExtractDeps["Extract Required<br>Dependencies"]
-    ExtractDeps --> BuildValidationPlan["Build Validation<br>Plan"]
-    BuildValidationPlan --> StartValidation["Start Four-Point<br>Validation Process"]
+    Start["读取设计决策"] --> ReadCreative["解析创意阶段<br>文档"]
+    ReadCreative --> ExtractTech["提取技术<br>选择"]
+    ExtractTech --> ExtractDeps["提取必需<br>依赖"]
+    ExtractDeps --> BuildValidationPlan["构建验证<br>计划"]
+    BuildValidationPlan --> StartValidation["开始四点<br>验证流程"]
     
     style Start fill:#4da6ff,stroke:#0066cc,color:white
     style ExtractTech fill:#f6546a,stroke:#c30052,color:white
@@ -803,27 +803,27 @@ graph TD
     style StartValidation fill:#f6546a,stroke:#c30052,color:white
 ```
 
-### Technology Extraction Process:
+### 技术提取过程：
 ```powershell
-# Example: Extract technology choices from creative phase documentation
+# 示例：从创意阶段文档中提取技术选择
 function Extract-TechnologyChoices {
     $techChoices = @{}
     
-    # Read from systemPatterns.md
+    # 从systemPatterns.md中读取
     if (Test-Path "memory-bank\systemPatterns.md") {
         $content = Get-Content "memory-bank\systemPatterns.md" -Raw
         
-        # Extract framework choice
+        # 提取框架选择
         if ($content -match "Framework:\s*(\w+)") {
             $techChoices["framework"] = $Matches[1]
         }
         
-        # Extract UI library choice
+        # 提取UI库选择
         if ($content -match "UI Library:\s*(\w+)") {
             $techChoices["ui_library"] = $Matches[1]
         }
         
-        # Extract state management choice
+        # 提取状态管理选择
         if ($content -match "State Management:\s*([^\\n]+)") {
             $techChoices["state_management"] = $Matches[1].Trim()
         }
@@ -833,12 +833,12 @@ function Extract-TechnologyChoices {
 }
 ```
 
-## 🚨 IMPLEMENTATION PREVENTION MECHANISM
+## 🚨 实现防护机制
 
-If QA validation fails, the system prevents moving to BUILD mode:
+如果QA验证失败，系统防止移动到BUILD模式：
 
 ```powershell
-# Example: Enforce QA validation before allowing BUILD mode
+# 示例：在允许BUILD模式之前强制QA验证
 function Check-QAValidationStatus {
     $qaStatusFile = "memory-bank\.qa_validation_status"
     
@@ -849,54 +849,54 @@ function Check-QAValidationStatus {
         }
     }
     
-    # Display block message
+    # 显示阻止消息
     Write-Output "`n`n"
     Write-Output "🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫"
-    Write-Output "⛔️ BUILD MODE BLOCKED: QA VALIDATION REQUIRED"
-    Write-Output "⛔️ You must complete QA validation before proceeding to BUILD mode"
+    Write-Output "⛔️ BUILD模式被阻止：QA验证需要"
+    Write-Output "⛔️ 您必须完成QA验证才能继续进行BUILD模式"
     Write-Output "`n"
-    Write-Output "Type 'VAN QA' to perform technical validation"
+    Write-Output "输入'VAN QA'进行技术验证"
     Write-Output "`n"
-    Write-Output "🚫 NO IMPLEMENTATION CAN PROCEED WITHOUT VALIDATION 🚫"
+    Write-Output "🚫 没有验证就不能进行实现🚫"
     Write-Output "🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫"
     
     return $false
 }
 ```
 
-## 🧪 COMMON QA VALIDATION FIXES
+## 🧪 常见QA验证修复
 
-Here are common fixes for issues encountered during QA validation:
+以下是QA验证期间遇到的常见问题及其修复方法：
 
-### Dependency Issues:
-- **Missing Node.js**: Install Node.js from https://nodejs.org/
-- **Outdated npm**: Run `npm install -g npm@latest` to update
-- **Missing packages**: Run `npm install` or `npm install [package-name]`
+### 依赖问题：
+- **缺失Node.js**：从https://nodejs.org/安装Node.js
+- **过时npm**：运行`npm install -g npm@latest`更新
+- **缺失包**：运行`npm install`或`npm install [package-name]`
 
-### Configuration Issues:
-- **Invalid JSON**: Use a JSON validator to check syntax
-- **Missing React plugin**: Add `import react from '@vitejs/plugin-react'` and `plugins: [react()]` to vite.config.js
-- **Incompatible TypeScript config**: Update `tsconfig.json` with correct React settings
+### 配置问题：
+- **无效JSON**：使用JSON验证器检查语法
+- **缺失React插件**：在vite.config.js中添加`import react from '@vitejs/plugin-react'`和`plugins: [react()]`
+- **不兼容TypeScript配置**：更新`tsconfig.json`以正确设置React
 
-### Environment Issues:
-- **Permission denied**: Run terminal as administrator (Windows) or use sudo (Mac/Linux)
-- **Port already in use**: Kill process using the port or change the port in configuration
-- **Missing build tools**: Install required command-line tools
+### 环境问题：
+- **权限拒绝**：以管理员身份运行终端（Windows）或使用sudo（Mac/Linux）
+- **端口已占用**：杀死使用端口或更改配置中的端口
+- **缺失构建工具**：安装必需的命令行工具
 
-### Build Test Issues:
-- **Build fails**: Check console for specific error messages
-- **Test fails**: Verify minimal configuration is correct
-- **Path issues**: Ensure paths use correct separators for the platform
+### BUILD测试问题：
+- **构建失败**：检查控制台以获取特定错误消息
+- **测试失败**：验证最小配置是否正确
+- **路径问题**：确保路径使用平台正确的分隔符
 
-## 🔒 FINAL QA VALIDATION CHECKPOINT
+## 🔒 最终QA验证检查点
 
 ```
-✓ SECTION CHECKPOINT: QA VALIDATION
-- Dependency Verification Passed? [YES/NO]
-- Configuration Validation Passed? [YES/NO]
-- Environment Validation Passed? [YES/NO]
-- Minimal Build Test Passed? [YES/NO]
+✓ 部分检查点：QA验证
+- 依赖验证通过？ [是/否]
+- 配置验证通过？ [是/否]
+- 环境验证通过？ [是/否]
+- 最小构建测试通过？ [是/否]
 
-→ If all YES: Ready for BUILD mode
-→ If any NO: Fix identified issues before proceeding
+→ 如果全部是：准备进入BUILD模式
+→ 如果有否：在继续之前修复识别的问题
 ``` 

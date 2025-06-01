@@ -3,35 +3,35 @@ description: Visual process map for VAN QA mode (Technical Validation Entry Poin
 globs: van-qa-main.mdc
 alwaysApply: false
 ---
-# VAN MODE: QA TECHNICAL VALIDATION (Main Entry)
+# VAN模式：QA技术验证（主入口）
 
-> **TL;DR:** This is the entry point for the QA validation process that executes *after* CREATIVE mode and *before* BUILD mode. It ensures technical requirements are met before implementation begins.
+> **简要说明：** 这是QA验证流程的入口点，在CREATIVE模式*之后*和BUILD模式*之前*执行。它确保在实现开始之前满足技术要求。
 
-## 📣 HOW TO USE THESE QA RULES
+## 📣 如何使用这些QA规则
 
-To access any QA validation rule or component, use the `fetch_rules` tool with exact rule names:
+要访问任何QA验证规则或组件，请使用`fetch_rules`工具和确切的规则名称：
 
 ```
-// CRITICAL: Always use fetch_rules to load validation components
-// For detailed examples and guidance, load:
+// 关键：始终使用fetch_rules加载验证组件
+// 有关详细示例和指导，请加载：
 // isolation_rules/visual-maps/van-qa-utils/rule-calling-guide
 ```
 
-## 🚀 VAN QA MODE ACTIVATION
+## 🚀 VAN QA模式激活
 
-After completing CREATIVE mode, when the user types "VAN QA", respond:
+完成CREATIVE模式后，当用户输入"VAN QA"时，回应：
 
 ```mermaid
 graph TD
-    UserQA["User Types: QA"] --> HighPriority["⚠️ HIGH PRIORITY COMMAND"]
-    HighPriority --> CurrentTask["Pause Current Task/Process"]
-    CurrentTask --> LoadQA["Load QA Main Map (This File)"]
-    LoadQA --> RunQA["Execute QA Validation Process"]
-    RunQA --> QAResults{"QA Results"}
+    UserQA["用户输入：QA"] --> HighPriority["⚠️ 高优先级命令"]
+    HighPriority --> CurrentTask["暂停当前任务/流程"]
+    CurrentTask --> LoadQA["加载QA主图（此文件）"]
+    LoadQA --> RunQA["执行QA验证流程"]
+    RunQA --> QAResults{"QA结果"}
     
-    QAResults -->|"PASS"| ResumeFlow["Resume Prior Process Flow"]
-    QAResults -->|"FAIL"| FixIssues["Fix Identified Issues"]
-    FixIssues --> ReRunQA["Re-run QA Validation"]
+    QAResults -->|"通过"| ResumeFlow["恢复之前的流程"]
+    QAResults -->|"失败"| FixIssues["修复识别的问题"]
+    FixIssues --> ReRunQA["重新运行QA验证"]
     ReRunQA --> QAResults
     
     style UserQA fill:#f8d486,stroke:#e8b84d,color:black
@@ -41,48 +41,48 @@ graph TD
     style QAResults fill:#f6546a,stroke:#c30052,color:white
 ```
 
-### QA Interruption Rules
+### QA中断规则
 
-1. **Immediate Precedence:** `QA` command interrupts everything.
-2. **Load & Execute:** Load this map (`van-qa-main.mdc`) and its components (see below).
-3. **Remediation Priority:** Fixes take priority over pending mode switches.
-4. **Resume:** On PASS, resume the previous flow.
+1. **立即优先：** `QA`命令中断一切。
+2. **加载和执行：** 加载此图（`van-qa-main.mdc`）及其组件（见下文）。
+3. **修复优先：** 修复优先于待定的模式切换。
+4. **恢复：** 通过时，恢复之前的流程。
 
 ```
-⚠️ QA OVERRIDE ACTIVATED
-All other processes paused
-QA validation checks now running...
-Any issues found MUST be remediated before continuing with normal process flow
+⚠️ QA覆盖激活
+所有其他流程暂停
+QA验证检查正在运行...
+发现的任何问题必须在继续正常流程之前修复
 ```
 
-## 🔍 TECHNICAL VALIDATION OVERVIEW
+## 🔍 技术验证概述
 
-Four-point validation process with selective loading:
+四点验证流程与选择性加载：
 
 ```mermaid
 graph TD
-    VANQA["VAN QA MODE"] --> FourChecks["FOUR-POINT VALIDATION"]
+    VANQA["VAN QA模式"] --> FourChecks["四点验证"]
     
-    FourChecks --> DepCheck["1️⃣ DEPENDENCY VERIFICATION
-    Load: van-qa-checks/dependency-check.mdc"]
-    DepCheck --> ConfigCheck["2️⃣ CONFIGURATION VALIDATION
-    Load: van-qa-checks/config-check.mdc"]
-    ConfigCheck --> EnvCheck["3️⃣ ENVIRONMENT VALIDATION
-    Load: van-qa-checks/environment-check.mdc"]
-    EnvCheck --> MinBuildCheck["4️⃣ MINIMAL BUILD TEST
-    Load: van-qa-checks/build-test.mdc"]
+    FourChecks --> DepCheck["1️⃣ 依赖验证
+    加载：van-qa-checks/dependency-check.mdc"]
+    DepCheck --> ConfigCheck["2️⃣ 配置验证
+    加载：van-qa-checks/config-check.mdc"]
+    ConfigCheck --> EnvCheck["3️⃣ 环境验证
+    加载：van-qa-checks/environment-check.mdc"]
+    EnvCheck --> MinBuildCheck["4️⃣ 最小构建测试
+    加载：van-qa-checks/build-test.mdc"]
     
-    MinBuildCheck --> ValidationResults{"All Checks<br>Passed?"}
-    ValidationResults -->|"Yes"| SuccessReport["GENERATE SUCCESS REPORT
-    Load: van-qa-utils/reports.mdc"]
-    ValidationResults -->|"No"| FailureReport["GENERATE FAILURE REPORT
-    Load: van-qa-utils/reports.mdc"]
+    MinBuildCheck --> ValidationResults{"所有检查<br>通过？"}
+    ValidationResults -->|"是"| SuccessReport["生成成功报告
+    加载：van-qa-utils/reports.mdc"]
+    ValidationResults -->|"否"| FailureReport["生成失败报告
+    加载：van-qa-utils/reports.mdc"]
     
-    SuccessReport --> BUILD_Transition["Trigger BUILD Mode
-    Load: van-qa-utils/mode-transitions.mdc"]
-    FailureReport --> FixIssues["Fix Technical Issues
-    Load: van-qa-utils/common-fixes.mdc"]
-    FixIssues --> ReValidate["Re-validate (Re-run VAN QA)"]
+    SuccessReport --> BUILD_Transition["触发BUILD模式
+    加载：van-qa-utils/mode-transitions.mdc"]
+    FailureReport --> FixIssues["修复技术问题
+    加载：van-qa-utils/common-fixes.mdc"]
+    FixIssues --> ReValidate["重新验证（重新运行VAN QA）"]
     ReValidate --> FourChecks
     
     style VANQA fill:#4da6ff,stroke:#0066cc,color:white
@@ -92,17 +92,17 @@ graph TD
     style FixIssues fill:#ff5555,stroke:#dd3333,color:white
 ```
 
-## 🔄 INTEGRATION WITH DESIGN DECISIONS
+## 🔄 与设计决策集成
 
-Reads Creative Phase outputs to inform validation:
+读取创意阶段输出以指导验证：
 
 ```mermaid
 graph TD
-    Start["Read Design Decisions"] --> ReadCreative["Parse Creative Phase<br>Documentation"]
-    ReadCreative --> ExtractTech["Extract Technology<br>Choices"]
-    ExtractTech --> ExtractDeps["Extract Required<br>Dependencies"]
-    ExtractDeps --> BuildValidationPlan["Build Validation<br>Plan"]
-    BuildValidationPlan --> StartValidation["Start Four-Point<br>Validation Process"]
+    Start["读取设计决策"] --> ReadCreative["解析创意阶段<br>文档"]
+    ReadCreative --> ExtractTech["提取技术<br>选择"]
+    ExtractTech --> ExtractDeps["提取必需<br>依赖"]
+    ExtractDeps --> BuildValidationPlan["构建验证<br>计划"]
+    BuildValidationPlan --> StartValidation["开始四点<br>验证流程"]
     
     style Start fill:#4da6ff,stroke:#0066cc,color:white
     style ExtractTech fill:#f6546a,stroke:#c30052,color:white
@@ -110,33 +110,33 @@ graph TD
     style StartValidation fill:#f6546a,stroke:#c30052,color:white
 ```
 
-## 📋 COMPONENT LOADING SEQUENCE
+## 📋 组件加载序列
 
-The QA validation process follows this selective loading sequence:
+QA验证流程遵循此选择性加载序列：
 
-1. **Main Entry (This File)**: `van-qa-main.mdc`
-2. **Validation Checks**:
+1. **主入口（此文件）**：`van-qa-main.mdc`
+2. **验证检查**：
    - `van-qa-checks/dependency-check.mdc`
    - `van-qa-checks/config-check.mdc`
    - `van-qa-checks/environment-check.mdc`
    - `van-qa-checks/build-test.mdc`
-3. **Utilities (As Needed)**:
+3. **实用工具（根据需要）**：
    - `van-qa-utils/reports.mdc`
    - `van-qa-utils/common-fixes.mdc`
    - `van-qa-utils/mode-transitions.mdc`
 
-## 📋 FINAL QA VALIDATION CHECKPOINT
+## 📋 最终QA验证检查点
 
 ```
-✓ SECTION CHECKPOINT: QA VALIDATION
-- Dependency Verification Passed? [YES/NO]
-- Configuration Validation Passed? [YES/NO]
-- Environment Validation Passed? [YES/NO]
-- Minimal Build Test Passed? [YES/NO]
+✓ 部分检查点：QA验证
+- 依赖验证通过？ [是/否]
+- 配置验证通过？ [是/否]
+- 环境验证通过？ [是/否]
+- 最小构建测试通过？ [是/否]
 
-→ If all YES: Ready for BUILD mode transition.
-→ If any NO: Fix identified issues and re-run VAN QA.
+→ 如果全部是：准备进入BUILD模式转换。
+→ 如果有否：修复识别的问题并重新运行VAN QA。
 ```
 
-**Next Step (on PASS):** Trigger BUILD mode (load `van-qa-utils/mode-transitions.mdc`).
-**Next Step (on FAIL):** Address issues (load `van-qa-utils/common-fixes.mdc`) and re-run `VAN QA`. 
+**下一步（通过时）：** 触发BUILD模式（加载`van-qa-utils/mode-transitions.mdc`）。
+**下一步（失败时）：** 解决问题（加载`van-qa-utils/common-fixes.mdc`）并重新运行`VAN QA`。 

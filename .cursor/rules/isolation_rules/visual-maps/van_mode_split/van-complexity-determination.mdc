@@ -3,38 +3,38 @@ description: Visual process map for VAN mode complexity determination
 globs: van-complexity-determination.mdc
 alwaysApply: false
 ---
-# VAN MODE: COMPLEXITY DETERMINATION
+# VAN模式：复杂度确定
 
-> **TL;DR:** This component determines the appropriate complexity level (1-4) for the current task and directs the workflow accordingly.
+> **简要说明：** 此组件确定当前任务的适当复杂度级别（1-4），并相应地指导工作流程。
 
-## 🔍 COMPLEXITY DECISION TREE
+## 🔍 复杂度决策树
 
 ```mermaid
 graph TD
-    Start["New Task"] --> Q1{"Bug fix or<br>error correction?"}
-    Q1 -->|Yes| Q1a{"Affects single<br>component?"}
-    Q1a -->|Yes| L1["Level 1:<br>Quick Bug Fix"]
-    Q1a -->|No| Q1b{"Affects multiple<br>components?"}
-    Q1b -->|Yes| L2["Level 2:<br>Simple Enhancement"]
-    Q1b -->|No| Q1c{"Affects system<br>architecture?"}
-    Q1c -->|Yes| L3["Level 3:<br>Intermediate Feature"]
-    Q1c -->|No| L2
+    Start["新任务"] --> Q1{"错误修复或<br>错误纠正？"}
+    Q1 -->|是| Q1a{"影响单个<br>组件？"}
+    Q1a -->|是| L1["级别1：<br>快速错误修复"]
+    Q1a -->|否| Q1b{"影响多个<br>组件？"}
+    Q1b -->|是| L2["级别2：<br>简单增强"]
+    Q1b -->|否| Q1c{"影响系统<br>架构？"}
+    Q1c -->|是| L3["级别3：<br>中级功能"]
+    Q1c -->|否| L2
     
-    Q1 -->|No| Q2{"Adding small<br>feature or<br>enhancement?"}
-    Q2 -->|Yes| Q2a{"Self-contained<br>change?"}
-    Q2a -->|Yes| L2
-    Q2a -->|No| Q2b{"Affects multiple<br>components?"}
-    Q2b -->|Yes| L3
-    Q2b -->|No| L2
+    Q1 -->|否| Q2{"添加小功能<br>或增强？"}
+    Q2 -->|是| Q2a{"自包含<br>更改？"}
+    Q2a -->|是| L2
+    Q2a -->|否| Q2b{"影响多个<br>组件？"}
+    Q2b -->|是| L3
+    Q2b -->|否| L2
     
-    Q2 -->|No| Q3{"Complete feature<br>requiring multiple<br>components?"}
-    Q3 -->|Yes| Q3a{"Architectural<br>implications?"}
-    Q3a -->|Yes| L4["Level 4:<br>Complex System"]
-    Q3a -->|No| L3
+    Q2 -->|否| Q3{"需要多个<br>组件的完整<br>功能？"}
+    Q3 -->|是| Q3a{"架构<br>影响？"}
+    Q3a -->|是| L4["级别4：<br>复杂系统"]
+    Q3a -->|否| L3
     
-    Q3 -->|No| Q4{"System-wide or<br>architectural<br>change?"}
-    Q4 -->|Yes| L4
-    Q4 -->|No| L3
+    Q3 -->|否| Q4{"系统级或<br>架构<br>更改？"}
+    Q4 -->|是| L4
+    Q4 -->|否| L3
 
     style Start fill:#4da6ff,stroke:#0066cc,color:white
     style L1 fill:#10b981,stroke:#059669,color:white
@@ -43,100 +43,100 @@ graph TD
     style L4 fill:#f6546a,stroke:#c30052,color:white
 ```
 
-## 📋 LEVEL INDICATORS
+## 📋 级别指标
 
-### Level 1: Quick Bug Fix
-- **Keywords**: fix, bug, error, crash, issue
-- **Scope**: Single component
-- **Time**: Minutes to hours
-- **Risk**: Low, isolated
-- **Example**: Button not working, styling issue
+### 级别1：快速错误修复
+- **关键词**：修复、错误、崩溃、问题
+- **范围**：单个组件
+- **时间**：分钟到小时
+- **风险**：低，隔离的
+- **示例**：按钮不工作、样式问题
 
-### Level 2: Simple Enhancement
-- **Keywords**: add, improve, update, enhance
-- **Scope**: Single component/subsystem
-- **Time**: Hours to 1-2 days
-- **Risk**: Moderate, contained
-- **Example**: Add form field, improve validation
+### 级别2：简单增强
+- **关键词**：添加、改进、更新、增强
+- **范围**：单个组件/子系统
+- **时间**：小时到1-2天
+- **风险**：中等，受控的
+- **示例**：添加表单字段、改进验证
 
-### Level 3: Intermediate Feature
-- **Keywords**: implement, create, develop
-- **Scope**: Multiple components
-- **Time**: Days to 1-2 weeks
-- **Risk**: Significant
-- **Example**: User authentication, dashboard
+### 级别3：中级功能
+- **关键词**：实现、创建、开发
+- **范围**：多个组件
+- **时间**：天到1-2周
+- **风险**：重大
+- **示例**：用户认证、仪表板
 
-### Level 4: Complex System
-- **Keywords**: system, architecture, redesign
-- **Scope**: Multiple subsystems
-- **Time**: Weeks to months
-- **Risk**: High, architectural
-- **Example**: Payment system, microservices
+### 级别4：复杂系统
+- **关键词**：系统、架构、重新设计
+- **范围**：多个子系统
+- **时间**：周到月
+- **风险**：高，架构性
+- **示例**：支付系统、微服务
 
-## 📋 COMPLEXITY CHECKLIST
+## 📋 复杂度检查清单
 
 ```
-✓ COMPLEXITY DETERMINATION
-- Task type identified? [YES/NO]
-- Scope assessed? [YES/NO]
-- Time estimated? [YES/NO]
-- Risk evaluated? [YES/NO]
-- Dependencies mapped? [YES/NO]
+✓ 复杂度确定
+- 任务类型已识别？ [是/否]
+- 范围已评估？ [是/否]
+- 时间已估算？ [是/否]
+- 风险已评估？ [是/否]
+- 依赖已映射？ [是/否]
 
-→ If all YES: Proceed with level-specific workflow
-→ If any NO: Complete assessment
+→ 如果全部是：继续级别特定工作流程
+→ 如果有否：完成评估
 ```
 
-## 🔄 LEVEL TRANSITION TRIGGERS
+## 🔄 级别转换触发器
 
 ```mermaid
 graph TD
-    Current["Current Level"] --> Higher["Level Up Triggers"]
-    Current --> Lower["Level Down Triggers"]
+    Current["当前级别"] --> Higher["升级触发器"]
+    Current --> Lower["降级触发器"]
     
-    Higher --> H1["Multiple Components"]
-    Higher --> H2["Design Decisions"]
-    Higher --> H3["System Impact"]
+    Higher --> H1["多个组件"]
+    Higher --> H2["设计决策"]
+    Higher --> H3["系统影响"]
     
-    Lower --> L1["Isolated Change"]
-    Lower --> L2["Simple Fix"]
-    Lower --> L3["No Design Needed"]
+    Lower --> L1["隔离更改"]
+    Lower --> L2["简单修复"]
+    Lower --> L3["无需设计"]
 
     style Current fill:#4da6ff,stroke:#0066cc,color:white
     style Higher fill:#f6546a,stroke:#c30052,color:white
     style Lower fill:#10b981,stroke:#059669,color:white
 ```
 
-## 📋 WORKFLOW LOADING
+## 📋 工作流程加载
 
-Based on determined level:
-- Level 1: Continue in VAN mode
-- Level 2-4: Transition to PLAN mode
+基于确定的级别：
+- 级别1：在VAN模式中继续
+- 级别2-4：转换到PLAN模式
 
-**Next Step:** Load appropriate level-specific workflow
+**下一步：** 加载适当的级别特定工作流程
 
-## 🚨 MODE TRANSITION TRIGGER (VAN to PLAN)
+## 🚨 模式转换触发器（VAN到PLAN）
 
-If complexity is determined to be Level 2, 3, or 4:
-
-```
-🚫 LEVEL [2-4] TASK DETECTED
-Implementation in VAN mode is BLOCKED
-This task REQUIRES PLAN mode
-You MUST switch to PLAN mode for proper documentation and planning
-Type 'PLAN' to switch to planning mode
-```
-
-## 📋 CHECKPOINT VERIFICATION TEMPLATE (Example)
+如果复杂度确定为级别2、3或4：
 
 ```
-✓ SECTION CHECKPOINT: COMPLEXITY DETERMINATION
-- Task Analyzed? [YES/NO]
-- Complexity Level Determined? [YES/NO]
-
-→ If Level 1: Proceed to VAN Mode Completion.
-→ If Level 2-4: Trigger PLAN Mode transition.
+🚫 检测到级别[2-4]任务
+VAN模式中的实现被阻止
+此任务需要PLAN模式
+您必须切换到PLAN模式进行适当的文档和规划
+输入'PLAN'切换到规划模式
 ```
 
-**Next Step (Level 1):** Complete VAN Initialization (e.g., initialize Memory Bank if needed).
-**Next Step (Level 2-4):** Exit VAN mode and initiate PLAN mode. 
+## 📋 检查点验证模板（示例）
+
+```
+✓ 部分检查点：复杂度确定
+- 任务已分析？ [是/否]
+- 复杂度级别已确定？ [是/否]
+
+→ 如果级别1：继续VAN模式完成。
+→ 如果级别2-4：触发PLAN模式转换。
+```
+
+**下一步（级别1）：** 完成VAN初始化（例如，如果需要，初始化Memory Bank）。
+**下一步（级别2-4）：** 退出VAN模式并启动PLAN模式。 

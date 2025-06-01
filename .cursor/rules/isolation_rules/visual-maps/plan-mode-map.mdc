@@ -3,72 +3,71 @@ description: Visual process map for PLAN mode (Code Implementation)
 globs: plan-mode-map.mdc
 alwaysApply: false
 ---
+# 规划模式：任务规划流程图
 
-# PLAN MODE: TASK PLANNING PROCESS MAP
+> **简要说明：** 此可视化图表指导规划模式流程，专注于基于初始化期间确定的复杂度级别创建详细的实现计划，在实现前必须进行技术验证。
 
-> **TL;DR:** This visual map guides the PLAN mode process, focusing on creating detailed implementation plans based on the complexity level determined during initialization, with mandatory technology validation before implementation.
-
-## 🧭 PLAN MODE PROCESS FLOW
+## 🧭 规划模式流程
 
 ```mermaid
 graph TD
-    Start["START PLANNING"] --> ReadTasks["Read tasks.md<br>Core/task-tracking.md"]
+    Start["开始规划"] --> ReadTasks["读取 tasks.md<br>Core/task-tracking.md"]
     
-    %% Complexity Level Determination
-    ReadTasks --> CheckLevel{"Determine<br>Complexity Level"}
-    CheckLevel -->|"Level 2"| Level2["LEVEL 2 PLANNING<br>Level2/enhancement-planning.md"]
-    CheckLevel -->|"Level 3"| Level3["LEVEL 3 PLANNING<br>Level3/feature-planning.md"]
-    CheckLevel -->|"Level 4"| Level4["LEVEL 4 PLANNING<br>Level4/system-planning.md"]
+    %% 复杂度级别确定
+    ReadTasks --> CheckLevel{"确定<br>复杂度级别"}
+    CheckLevel -->|"级别 2"| Level2["级别 2 规划<br>Level2/enhancement-planning.md"]
+    CheckLevel -->|"级别 3"| Level3["级别 3 规划<br>Level3/feature-planning.md"]
+    CheckLevel -->|"级别 4"| Level4["级别 4 规划<br>Level4/system-planning.md"]
     
-    %% Level 2 Planning
-    Level2 --> L2Review["Review Code<br>Structure"]
-    L2Review --> L2Document["Document<br>Planned Changes"]
-    L2Document --> L2Challenges["Identify<br>Challenges"]
-    L2Challenges --> L2Checklist["Create Task<br>Checklist"]
-    L2Checklist --> L2Update["Update tasks.md<br>with Plan"]
-    L2Update --> L2Tech["TECHNOLOGY<br>VALIDATION"]
-    L2Tech --> L2Verify["Verify Plan<br>Completeness"]
+    %% 级别 2 规划
+    Level2 --> L2Review["审查代码<br>结构"]
+    L2Review --> L2Document["记录<br>计划变更"]
+    L2Document --> L2Challenges["识别<br>挑战"]
+    L2Challenges --> L2Checklist["创建任务<br>检查清单"]
+    L2Checklist --> L2Update["更新 tasks.md<br>记录计划"]
+    L2Update --> L2Tech["技术<br>验证"]
+    L2Tech --> L2Verify["验证计划<br>完整性"]
     
-    %% Level 3 Planning
-    Level3 --> L3Review["Review Codebase<br>Structure"]
-    L3Review --> L3Requirements["Document Detailed<br>Requirements"]
-    L3Requirements --> L3Components["Identify Affected<br>Components"]
-    L3Components --> L3Plan["Create Comprehensive<br>Implementation Plan"]
-    L3Plan --> L3Challenges["Document Challenges<br>& Solutions"]
-    L3Challenges --> L3Update["Update tasks.md<br>with Plan"]
-    L3Update --> L3Tech["TECHNOLOGY<br>VALIDATION"]
-    L3Tech --> L3Flag["Flag Components<br>Requiring Creative"]
-    L3Flag --> L3Verify["Verify Plan<br>Completeness"]
+    %% 级别 3 规划
+    Level3 --> L3Review["审查代码库<br>结构"]
+    L3Review --> L3Requirements["记录详细<br>需求"]
+    L3Requirements --> L3Components["识别受影响的<br>组件"]
+    L3Components --> L3Plan["创建全面<br>实现计划"]
+    L3Plan --> L3Challenges["记录挑战<br>和解决方案"]
+    L3Challenges --> L3Update["更新 tasks.md<br>记录计划"]
+    L3Update --> L3Tech["技术<br>验证"]
+    L3Tech --> L3Flag["标记需要<br>创意的组件"]
+    L3Flag --> L3Verify["验证计划<br>完整性"]
     
-    %% Level 4 Planning
-    Level4 --> L4Analysis["Codebase Structure<br>Analysis"]
-    L4Analysis --> L4Requirements["Document Comprehensive<br>Requirements"]
-    L4Requirements --> L4Diagrams["Create Architectural<br>Diagrams"]
-    L4Diagrams --> L4Subsystems["Identify Affected<br>Subsystems"]
-    L4Subsystems --> L4Dependencies["Document Dependencies<br>& Integration Points"]
-    L4Dependencies --> L4Plan["Create Phased<br>Implementation Plan"]
-    L4Plan --> L4Update["Update tasks.md<br>with Plan"]
-    L4Update --> L4Tech["TECHNOLOGY<br>VALIDATION"]
-    L4Tech --> L4Flag["Flag Components<br>Requiring Creative"]
-    L4Flag --> L4Verify["Verify Plan<br>Completeness"]
+    %% 级别 4 规划
+    Level4 --> L4Analysis["代码库结构<br>分析"]
+    L4Analysis --> L4Requirements["记录全面<br>需求"]
+    L4Requirements --> L4Diagrams["创建架构<br>图表"]
+    L4Diagrams --> L4Subsystems["识别受影响的<br>子系统"]
+    L4Subsystems --> L4Dependencies["记录依赖关系<br>和集成点"]
+    L4Dependencies --> L4Plan["创建分阶段<br>实现计划"]
+    L4Plan --> L4Update["更新 tasks.md<br>记录计划"]
+    L4Update --> L4Tech["技术<br>验证"]
+    L4Tech --> L4Flag["标记需要<br>创意的组件"]
+    L4Flag --> L4Verify["验证计划<br>完整性"]
     
-    %% Technology Validation Gate - NEW
-    L2Tech & L3Tech & L4Tech --> TechGate["⛔ TECHNOLOGY<br>VALIDATION GATE"]
-    TechGate --> TechSelection["Document Technology<br>Stack Selection"]
-    TechSelection --> TechHelloWorld["Create Hello World<br>Proof of Concept"]
-    TechHelloWorld --> TechDependencies["Verify Required<br>Dependencies"]
-    TechDependencies --> TechConfig["Validate Build<br>Configuration"]
-    TechConfig --> TechBuild["Complete Test<br>Build"]
-    TechBuild --> TechVerify["⛔ TECHNOLOGY<br>CHECKPOINT"]
+    %% 技术验证门 - 新增
+    L2Tech & L3Tech & L4Tech --> TechGate["⛔ 技术<br>验证门"]
+    TechGate --> TechSelection["记录技术<br>栈选择"]
+    TechSelection --> TechHelloWorld["创建 Hello World<br>概念验证"]
+    TechHelloWorld --> TechDependencies["验证所需<br>依赖"]
+    TechDependencies --> TechConfig["验证构建<br>配置"]
+    TechConfig --> TechBuild["完成测试<br>构建"]
+    TechBuild --> TechVerify["⛔ 技术<br>检查点"]
     
-    %% Verification & Completion
-    L2Verify & L3Verify & L4Verify & TechVerify --> CheckCreative{"Creative<br>Phases<br>Required?"}
+    %% 验证和完成
+    L2Verify & L3Verify & L4Verify & TechVerify --> CheckCreative{"是否需要<br>创意<br>阶段？"}
     
-    %% Mode Transition
-    CheckCreative -->|"Yes"| RecCreative["NEXT MODE:<br>CREATIVE MODE"]
-    CheckCreative -->|"No"| RecImplement["NEXT MODE:<br>IMPLEMENT MODE"]
+    %% 模式转换
+    CheckCreative -->|"是"| RecCreative["下一个模式：<br>创意模式"]
+    CheckCreative -->|"否"| RecImplement["下一个模式：<br>实现模式"]
     
-    %% Style for Technology Gate
+    %% 技术门样式
     style TechGate fill:#ff5555,stroke:#dd3333,color:white,stroke-width:3px
     style TechVerify fill:#ff5555,stroke:#dd3333,color:white,stroke-width:3px
     style TechSelection fill:#4da6ff,stroke:#0066cc,color:white
@@ -78,32 +77,32 @@ graph TD
     style TechBuild fill:#4da6ff,stroke:#0066cc,color:white
 ```
 
-## 📋 LEVEL-SPECIFIC PLANNING APPROACHES
+## 📋 按级别的规划方法
 
 ```mermaid
 graph TD
-    subgraph "Level 2: Enhancement"
-        L2A["Basic Requirements<br>Analysis"]
-        L2B["Simple Component<br>Identification"]
-        L2C["Linear Implementation<br>Plan"]
-        L2D["Basic Checklist<br>Creation"]
+    subgraph "级别 2：增强"
+        L2A["基础需求<br>分析"]
+        L2B["简单组件<br>识别"]
+        L2C["线性实现<br>计划"]
+        L2D["基础检查清单<br>创建"]
     end
     
-    subgraph "Level 3: Feature"
-        L3A["Detailed Requirements<br>Analysis"]
-        L3B["Component Mapping<br>with Dependencies"]
-        L3C["Multi-Phase<br>Implementation Plan"]
-        L3D["Comprehensive<br>Checklist"]
-        L3E["Creative Phase<br>Identification"]
+    subgraph "级别 3：功能"
+        L3A["详细需求<br>分析"]
+        L3B["组件映射<br>包含依赖"]
+        L3C["多阶段<br>实现计划"]
+        L3D["全面<br>检查清单"]
+        L3E["创意阶段<br>识别"]
     end
     
-    subgraph "Level 4: System"
-        L4A["Architectural<br>Requirements Analysis"]
-        L4B["System Component<br>Mapping"]
-        L4C["Subsystem<br>Integration Plan"]
-        L4D["Phased Implementation<br>Strategy"]
-        L4E["Risk Assessment<br>& Mitigation"]
-        L4F["Multiple Creative<br>Phase Requirements"]
+    subgraph "级别 4：系统"
+        L4A["架构<br>需求分析"]
+        L4B["系统组件<br>映射"]
+        L4C["子系统<br>集成计划"]
+        L4D["分阶段实现<br>策略"]
+        L4E["风险评估<br>和缓解"]
+        L4F["多个创意<br>阶段需求"]
     end
     
     L2A --> L2B --> L2C --> L2D
@@ -111,21 +110,21 @@ graph TD
     L4A --> L4B --> L4C --> L4D --> L4E --> L4F
 ```
 
-## 🔧 TECHNOLOGY VALIDATION WORKFLOW
+## 🔧 技术验证工作流
 
 ```mermaid
 graph TD
-    Start["Technology<br>Validation Start"] --> Select["Technology<br>Stack Selection"]
-    Select --> Document["Document Chosen<br>Technologies"]
-    Document --> POC["Create Minimal<br>Proof of Concept"]
-    POC --> Build["Verify Build<br>Process Works"]
-    Build --> Dependencies["Validate All<br>Dependencies"]
-    Dependencies --> Config["Confirm Configuration<br>Files Are Correct"]
-    Config --> Test["Complete Test<br>Build/Run"]
-    Test --> Success{"All Checks<br>Pass?"}
+    Start["技术<br>验证开始"] --> Select["技术<br>栈选择"]
+    Select --> Document["记录选择的<br>技术"]
+    Document --> POC["创建最小<br>概念验证"]
+    POC --> Build["验证构建<br>过程有效"]
+    Build --> Dependencies["验证所有<br>依赖"]
+    Dependencies --> Config["确认配置<br>文件正确"]
+    Config --> Test["完成测试<br>构建/运行"]
+    Test --> Success{"所有检查<br>通过？"}
     
-    Success -->|"Yes"| Ready["Ready for<br>Implementation"]
-    Success -->|"No"| Fix["Fix Technology<br>Issues"]
+    Success -->|"是"| Ready["准备<br>实现"]
+    Success -->|"否"| Fix["修复技术<br>问题"]
     Fix --> Document
     
     style Start fill:#4da6ff,stroke:#0066cc,color:white
@@ -135,141 +134,141 @@ graph TD
     style Ready fill:#10b981,stroke:#059669,color:white
 ```
 
-## 📊 REQUIRED FILE STATE VERIFICATION
+## 📊 必需的文件状态验证
 
-Before planning can begin, verify the file state:
-
-```mermaid
-graph TD
-    Start["File State<br>Verification"] --> CheckTasks{"tasks.md<br>initialized?"}
-    
-    CheckTasks -->|"No"| ErrorTasks["ERROR:<br>Return to VAN Mode"]
-    CheckTasks -->|"Yes"| CheckActive{"activeContext.md<br>exists?"}
-    
-    CheckActive -->|"No"| ErrorActive["ERROR:<br>Return to VAN Mode"]
-    CheckActive -->|"Yes"| ReadyPlan["Ready for<br>Planning"]
-```
-
-## 📝 TASKS.MD UPDATE FORMAT
-
-During planning, update tasks.md with this structure:
-
-```
-# Task: [Task name]
-
-## Description
-[Detailed description]
-
-## Complexity
-Level: [2/3/4]
-Type: [Enhancement/Feature/Complex System]
-
-## Technology Stack
-- Framework: [Selected framework]
-- Build Tool: [Selected build tool]
-- Language: [Selected language]
-- Storage: [Selected storage mechanism]
-
-## Technology Validation Checkpoints
-- [ ] Project initialization command verified
-- [ ] Required dependencies identified and installed
-- [ ] Build configuration validated
-- [ ] Hello world verification completed
-- [ ] Test build passes successfully
-
-## Status
-- [x] Initialization complete
-- [x] Planning complete
-- [ ] Technology validation complete
-- [ ] [Implementation steps]
-
-## Implementation Plan
-1. [Step 1]
-   - [Subtask 1.1]
-   - [Subtask 1.2]
-2. [Step 2]
-   - [Subtask 2.1]
-   - [Subtask 2.2]
-
-## Creative Phases Required
-- [ ] [Component 1] Design
-- [ ] [Component 2] Architecture
-- [ ] [Component 3] Data Model
-
-## Dependencies
-- [Dependency 1]
-- [Dependency 2]
-
-## Challenges & Mitigations
-- [Challenge 1]: [Mitigation strategy]
-- [Challenge 2]: [Mitigation strategy]
-```
-
-## 📋 CREATIVE PHASE IDENTIFICATION
-
-For Level 3-4 tasks, identify components requiring creative phases:
+在开始规划之前，验证文件状态：
 
 ```mermaid
 graph TD
-    Start["Creative Phase<br>Identification"] --> CheckComp{"Component<br>Analysis"}
+    Start["文件状态<br>验证"] --> CheckTasks{"tasks.md<br>是否已初始化？"}
     
-    CheckComp --> UI["UI/UX<br>Components"]
-    CheckComp --> Data["Data Model<br>Components"]
-    CheckComp --> Arch["Architecture<br>Components"]
-    CheckComp --> Algo["Algorithm<br>Components"]
+    CheckTasks -->|"否"| ErrorTasks["错误：<br>返回 VAN 模式"]
+    CheckTasks -->|"是"| CheckActive{"activeContext.md<br>是否存在？"}
     
-    UI & Data & Arch & Algo --> Decision{"Design Decisions<br>Required?"}
+    CheckActive -->|"否"| ErrorActive["错误：<br>返回 VAN 模式"]
+    CheckActive -->|"是"| ReadyPlan["准备<br>规划"]
+```
+
+## 📝 TASKS.MD 更新格式
+
+在规划期间，使用此结构更新 tasks.md：
+
+```
+# 任务：[任务名称]
+
+## 描述
+[详细描述]
+
+## 复杂度
+级别：[2/3/4]
+类型：[增强/功能/复杂系统]
+
+## 技术栈
+- 框架：[选择的框架]
+- 构建工具：[选择的构建工具]
+- 语言：[选择的语言]
+- 存储：[选择的存储机制]
+
+## 技术验证检查点
+- [ ] 项目初始化命令已验证
+- [ ] 所需依赖已识别并安装
+- [ ] 构建配置已验证
+- [ ] Hello world 验证已完成
+- [ ] 测试构建成功通过
+
+## 状态
+- [x] 初始化完成
+- [x] 规划完成
+- [ ] 技术验证完成
+- [ ] [实现步骤]
+
+## 实现计划
+1. [步骤 1]
+   - [子任务 1.1]
+   - [子任务 1.2]
+2. [步骤 2]
+   - [子任务 2.1]
+   - [子任务 2.2]
+
+## 需要的创意阶段
+- [ ] [组件 1] 设计
+- [ ] [组件 2] 架构
+- [ ] [组件 3] 数据模型
+
+## 依赖关系
+- [依赖 1]
+- [依赖 2]
+
+## 挑战和缓解措施
+- [挑战 1]：[缓解策略]
+- [挑战 2]：[缓解策略]
+```
+
+## 📋 创意阶段识别
+
+对于级别 3-4 任务，识别需要创意阶段的组件：
+
+```mermaid
+graph TD
+    Start["创意阶段<br>识别"] --> CheckComp{"组件<br>分析"}
     
-    Decision -->|"Yes"| Flag["Flag for<br>Creative Phase"]
-    Decision -->|"No"| Skip["Standard<br>Implementation"]
+    CheckComp --> UI["UI/UX<br>组件"]
+    CheckComp --> Data["数据模型<br>组件"]
+    CheckComp --> Arch["架构<br>组件"]
+    CheckComp --> Algo["算法<br>组件"]
     
-    Flag --> Document["Document in<br>tasks.md"]
+    UI & Data & Arch & Algo --> Decision{"是否需要<br>设计决策？"}
+    
+    Decision -->|"是"| Flag["标记为<br>创意阶段"]
+    Decision -->|"否"| Skip["标准<br>实现"]
+    
+    Flag --> Document["在 tasks.md<br>中记录"]
 ```
 
-## 📊 TECHNOLOGY VALIDATION CHECKLIST
+## 📊 技术验证检查清单
 
 ```
-✓ TECHNOLOGY VALIDATION CHECKLIST
-- Technology stack clearly defined? [YES/NO]
-- Project initialization command documented? [YES/NO]
-- Required dependencies identified? [YES/NO]
-- Minimal proof of concept created? [YES/NO]
-- Hello world build/run successful? [YES/NO]
-- Configuration files validated? [YES/NO]
-- Test build completes successfully? [YES/NO]
+✓ 技术验证检查清单
+- 技术栈清晰定义？[是/否]
+- 项目初始化命令已记录？[是/否]
+- 所需依赖已识别？[是/否]
+- 最小概念验证已创建？[是/否]
+- Hello world 构建/运行成功？[是/否]
+- 配置文件已验证？[是/否]
+- 测试构建成功完成？[是/否]
 
-→ If all YES: Technology validation complete - ready for next phase
-→ If any NO: Resolve technology issues before proceeding
+→ 如果全部为是：技术验证完成 - 准备下一阶段
+→ 如果有否：解决技术问题后再继续
 ```
 
-## 📊 PLAN VERIFICATION CHECKLIST
+## 📊 规划验证检查清单
 
 ```
-✓ PLAN VERIFICATION CHECKLIST
-- Requirements clearly documented? [YES/NO]
-- Technology stack validated? [YES/NO]
-- Affected components identified? [YES/NO]
-- Implementation steps detailed? [YES/NO]
-- Dependencies documented? [YES/NO]
-- Challenges & mitigations addressed? [YES/NO]
-- Creative phases identified (Level 3-4)? [YES/NO/NA]
-- tasks.md updated with plan? [YES/NO]
+✓ 规划验证检查清单
+- 需求清晰记录？[是/否]
+- 技术栈已验证？[是/否]
+- 受影响的组件已识别？[是/否]
+- 实现步骤详细说明？[是/否]
+- 依赖关系已记录？[是/否]
+- 挑战和缓解措施已解决？[是/否]
+- 创意阶段已识别（级别 3-4）？[是/否/不适用]
+- tasks.md 已更新计划？[是/否]
 
-→ If all YES: Planning complete - ready for next mode
-→ If any NO: Complete missing plan elements
+→ 如果全部为是：规划完成 - 准备下一个模式
+→ 如果有否：完成缺失的规划元素
 ```
 
-## 🔄 MODE TRANSITION NOTIFICATION
+## 🔄 模式转换通知
 
-When planning is complete, notify user with:
+规划完成后，通知用户：
 
 ```
-## PLANNING COMPLETE
+## 规划完成
 
-✅ Implementation plan created
-✅ Technology stack validated
-✅ tasks.md updated with plan
-✅ Challenges and mitigations documented
-[✅ Creative phases identified (for Level 3-4)]
+✅ 实现计划已创建
+✅ 技术栈已验证
+✅ tasks.md 已更新计划
+✅ 挑战和缓解措施已记录
+[✅ 创意阶段已识别（对于级别 3-4）]
 
-→ NEXT RECOMMENDED MODE: [CREATIVE/IMPLEMENT] MODE 
+→ 下一个推荐模式：[创意/实现] 模式

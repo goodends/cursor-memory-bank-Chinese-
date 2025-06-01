@@ -3,21 +3,21 @@ description: Utility for VAN QA mode transitions
 globs: van-qa-utils/mode-transitions.mdc
 alwaysApply: false
 ---
-# VAN QA: MODE TRANSITIONS
+# VAN QA：模式转换
 
-> **TL;DR:** This component handles transitions between modes, particularly the QA validation to BUILD mode transition, and prevents BUILD mode access without successful QA validation.
+> **简要说明：** 此组件处理模式之间的转换，特别是QA验证到BUILD模式的转换，并防止在没有成功QA验证的情况下访问BUILD模式。
 
-## 🔒 BUILD MODE PREVENTION MECHANISM
+## 🔒 BUILD模式防护机制
 
-The system prevents moving to BUILD mode without passing QA validation:
+系统防止在没有通过QA验证的情况下进入BUILD模式：
 
 ```mermaid
 graph TD
-    Start["User Types: BUILD"] --> CheckQA{"QA Validation<br>Completed?"}
-    CheckQA -->|"Yes and Passed"| AllowBuild["Allow BUILD Mode"]
-    CheckQA -->|"No or Failed"| BlockBuild["BLOCK BUILD MODE"]
-    BlockBuild --> Message["Display:<br>⚠️ QA VALIDATION REQUIRED"]
-    Message --> ReturnToVANQA["Prompt: Type VAN QA"]
+    Start["用户输入：BUILD"] --> CheckQA{"QA验证<br>已完成？"}
+    CheckQA -->|"是且通过"| AllowBuild["允许BUILD模式"]
+    CheckQA -->|"否或失败"| BlockBuild["阻止BUILD模式"]
+    BlockBuild --> Message["显示：<br>⚠️ 需要QA验证"]
+    Message --> ReturnToVANQA["提示：输入VAN QA"]
     
     style CheckQA fill:#f6546a,stroke:#c30052,color:white
     style BlockBuild fill:#ff0000,stroke:#990000,color:white,stroke-width:3px
@@ -25,11 +25,11 @@ graph TD
     style ReturnToVANQA fill:#4da6ff,stroke:#0066cc,color:white
 ```
 
-### Implementation Example (PowerShell):
+### 实现示例（PowerShell）：
 ```powershell
-# Check QA status before allowing BUILD mode
+# 在允许BUILD模式之前检查QA状态
 function Check-QAValidationStatus {
-    $qaStatusFile = "memory-bank\.qa_validation_status" # Assumes status is written by reports.mdc
+    $qaStatusFile = "memory-bank\.qa_validation_status" # 假设状态由reports.mdc写入
     
     if (Test-Path $qaStatusFile) {
         $status = Get-Content $qaStatusFile -Raw
@@ -38,64 +38,64 @@ function Check-QAValidationStatus {
         }
     }
     
-    # Display block message
+    # 显示阻止消息
     Write-Output "`n`n"
     Write-Output "🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫"
-    Write-Output "⛔️ BUILD MODE BLOCKED: QA VALIDATION REQUIRED"
-    Write-Output "⛔️ You must complete QA validation before proceeding to BUILD mode"
+    Write-Output "⛔️ BUILD模式被阻止：需要QA验证"
+    Write-Output "⛔️ 在进入BUILD模式之前必须完成QA验证"
     Write-Output "`n"
-    Write-Output "Type 'VAN QA' to perform technical validation"
+    Write-Output "输入'VAN QA'执行技术验证"
     Write-Output "`n"
-    Write-Output "🚫 NO IMPLEMENTATION CAN PROCEED WITHOUT VALIDATION 🚫"
+    Write-Output "🚫 没有验证不能进行任何实现 🚫"
     Write-Output "🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫"
     
     return $false
 }
 ```
 
-## 🚨 MODE TRANSITION TRIGGERS
+## 🚨 模式转换触发器
 
-### CREATIVE to VAN QA Transition:
-After completing the CREATIVE phase, trigger this message to prompt QA validation:
-
-```
-⏭️ NEXT MODE: VAN QA
-To validate technical requirements before implementation, please type 'VAN QA'
-```
-
-### VAN QA to BUILD Transition (On Success):
-After successful QA validation, trigger this message to allow BUILD mode:
+### CREATIVE到VAN QA转换：
+完成CREATIVE阶段后，触发此消息提示QA验证：
 
 ```
-✅ TECHNICAL VALIDATION COMPLETE
-All prerequisites verified successfully
-You may now proceed to BUILD mode
-Type 'BUILD' to begin implementation
+⏭️ 下一模式：VAN QA
+要在实现前验证技术要求，请输入'VAN QA'
 ```
 
-### Manual BUILD Mode Access (When QA Already Passed):
-When the user manually types 'BUILD', check the QA status before allowing access:
+### VAN QA到BUILD转换（成功时）：
+QA验证成功后，触发此消息允许BUILD模式：
+
+```
+✅ 技术验证完成
+所有先决条件验证成功
+现在可以进入BUILD模式
+输入'BUILD'开始实现
+```
+
+### 手动BUILD模式访问（QA已通过时）：
+当用户手动输入'BUILD'时，在允许访问前检查QA状态：
 
 ```powershell
-# Handle BUILD mode request
+# 处理BUILD模式请求
 function Handle-BuildModeRequest {
     if (Check-QAValidationStatus) {
-        # Allow transition to BUILD mode
+        # 允许转换到BUILD模式
         Write-Output "`n"
-        Write-Output "✅ QA VALIDATION CHECK: PASSED"
-        Write-Output "Loading BUILD mode..."
+        Write-Output "✅ QA验证检查：通过"
+        Write-Output "加载BUILD模式..."
         Write-Output "`n"
         
-        # Here you would load the BUILD mode map
-        # [Code to load BUILD mode map]
+        # 这里加载BUILD模式映射
+        # [加载BUILD模式映射的代码]
         
         return $true
     }
     
-    # QA validation failed or not completed, BUILD mode blocked
+    # QA验证失败或未完成，BUILD模式被阻止
     return $false
 }
 ```
 
-**Next Step (on QA SUCCESS):** Continue to BUILD mode.
-**Next Step (on QA FAILURE):** Return to QA validation process. 
+**下一步（QA成功时）：** 继续到BUILD模式。
+**下一步（QA失败时）：** 返回QA验证过程。 

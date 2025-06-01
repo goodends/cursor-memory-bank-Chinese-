@@ -3,27 +3,27 @@ description: Process map for VAN QA environment validation
 globs: van-qa-checks/environment-check.mdc
 alwaysApply: false
 ---
-# VAN QA: ENVIRONMENT VALIDATION
+# VAN QA：环境验证
 
-> **TL;DR:** This component verifies that the build environment is properly set up with required tools and permissions.
+> **简要说明：** 此组件验证构建环境是否正确设置了必需的工具和权限。
 
-## 3️⃣ ENVIRONMENT VALIDATION PROCESS
+## 3️⃣ 环境验证流程
 
 ```mermaid
 graph TD
-    Start["Environment Validation"] --> CheckEnv["Check Build Environment"]
-    CheckEnv --> VerifyBuildTools["Verify Build Tools"]
-    VerifyBuildTools --> ToolsStatus{"Build Tools<br>Available?"}
+    Start["环境验证"] --> CheckEnv["检查构建环境"]
+    CheckEnv --> VerifyBuildTools["验证构建工具"]
+    VerifyBuildTools --> ToolsStatus{"构建工具<br>可用？"}
     
-    ToolsStatus -->|"Yes"| CheckPerms["Check Permissions<br>and Access"]
-    ToolsStatus -->|"No"| InstallTools["Install Required<br>Build Tools"]
-    InstallTools --> RetryTools["Retry Verification"]
+    ToolsStatus -->|"是"| CheckPerms["检查权限<br>和访问"]
+    ToolsStatus -->|"否"| InstallTools["安装必需<br>构建工具"]
+    InstallTools --> RetryTools["重试验证"]
     RetryTools --> ToolsStatus
     
-    CheckPerms --> PermsStatus{"Permissions<br>Sufficient?"}
-    PermsStatus -->|"Yes"| EnvSuccess["Environment Validated<br>✅ PASS"]
-    PermsStatus -->|"No"| FixPerms["Fix Permission<br>Issues"]
-    FixPerms --> RetryPerms["Retry Permission<br>Check"]
+    CheckPerms --> PermsStatus{"权限<br>充足？"}
+    PermsStatus -->|"是"| EnvSuccess["环境验证<br>✅ 通过"]
+    PermsStatus -->|"否"| FixPerms["修复权限<br>问题"]
+    FixPerms --> RetryPerms["重试权限<br>检查"]
     RetryPerms --> PermsStatus
     
     style Start fill:#4da6ff,stroke:#0066cc,color:white
@@ -32,9 +32,9 @@ graph TD
     style PermsStatus fill:#f6546a,stroke:#c30052,color:white
 ```
 
-### Environment Validation Implementation:
+### 环境验证实现：
 ```powershell
-# Example: Validate environment for a web project
+# 示例：验证Web项目的环境
 function Validate-Environment {
     $requiredTools = @(
         @{Name = "git"; Command = "git --version"},
@@ -45,7 +45,7 @@ function Validate-Environment {
     $missingTools = @()
     $permissionIssues = @()
     
-    # Check build tools
+    # 检查构建工具
     foreach ($tool in $requiredTools) {
         try {
             Invoke-Expression $tool.Command | Out-Null
@@ -54,51 +54,51 @@ function Validate-Environment {
         }
     }
     
-    # Check write permissions in project directory
+    # 检查项目目录的写权限
     try {
         $testFile = ".__permission_test"
         New-Item -Path $testFile -ItemType File -Force | Out-Null
         Remove-Item -Path $testFile -Force
     } catch {
-        $permissionIssues += "Current directory (write permission denied)"
+        $permissionIssues += "当前目录（写权限被拒绝）"
     }
     
-    # Check if port 3000 is available (commonly used for dev servers)
+    # 检查端口3000是否可用（开发服务器常用）
     try {
         $listener = New-Object System.Net.Sockets.TcpListener([System.Net.IPAddress]::Loopback, 3000)
         $listener.Start()
         $listener.Stop()
     } catch {
-        $permissionIssues += "Port 3000 (already in use or access denied)"
+        $permissionIssues += "端口3000（已被使用或访问被拒绝）"
     }
     
-    # Display results
+    # 显示结果
     if ($missingTools.Count -eq 0 -and $permissionIssues.Count -eq 0) {
-        Write-Output "✅ Environment validated successfully"
+        Write-Output "✅ 环境验证成功"
         return $true
     } else {
         if ($missingTools.Count -gt 0) {
-            Write-Output "❌ Missing tools: $($missingTools -join ', ')"
+            Write-Output "❌ 缺失工具：$($missingTools -join ', ')"
         }
         if ($permissionIssues.Count -gt 0) {
-            Write-Output "❌ Permission issues: $($permissionIssues -join ', ')"
+            Write-Output "❌ 权限问题：$($permissionIssues -join ', ')"
         }
         return $false
     }
 }
 ```
 
-## 📋 ENVIRONMENT VALIDATION CHECKPOINT
+## 📋 环境验证检查点
 
 ```
-✓ CHECKPOINT: ENVIRONMENT VALIDATION
-- All required build tools installed? [YES/NO]
-- Project directory permissions sufficient? [YES/NO]
-- Required ports available? [YES/NO]
+✓ 检查点：环境验证
+- 所有必需构建工具已安装？ [是/否]
+- 项目目录权限充足？ [是/否]
+- 必需端口可用？ [是/否]
 
-→ If all YES: Continue to Minimal Build Test.
-→ If any NO: Fix environment issues before continuing.
+→ 如果全部是：继续最小构建测试。
+→ 如果有否：在继续之前修复环境问题。
 ```
 
-**Next Step (on PASS):** Load `van-qa-checks/build-test.mdc`.
-**Next Step (on FAIL):** Check `van-qa-utils/common-fixes.mdc` for environment fixes. 
+**下一步（通过时）：** 加载`van-qa-checks/build-test.mdc`。
+**下一步（失败时）：** 检查`van-qa-utils/common-fixes.mdc`获取环境修复。 

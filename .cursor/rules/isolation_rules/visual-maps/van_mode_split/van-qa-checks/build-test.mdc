@@ -3,27 +3,27 @@ description: Process map for VAN QA minimal build test
 globs: van-qa-checks/build-test.mdc
 alwaysApply: false
 ---
-# VAN QA: MINIMAL BUILD TEST
+# VAN QA：最小构建测试
 
-> **TL;DR:** This component performs a minimal build test to ensure core build functionality works properly.
+> **简要说明：** 此组件执行最小构建测试以确保核心构建功能正常工作。
 
-## 4️⃣ MINIMAL BUILD TEST PROCESS
+## 4️⃣ 最小构建测试流程
 
 ```mermaid
 graph TD
-    Start["Minimal Build Test"] --> CreateTest["Create Minimal<br>Test Project"]
-    CreateTest --> BuildTest["Attempt<br>Build"]
-    BuildTest --> BuildStatus{"Build<br>Successful?"}
+    Start["最小构建测试"] --> CreateTest["创建最小<br>测试项目"]
+    CreateTest --> BuildTest["尝试<br>构建"]
+    BuildTest --> BuildStatus{"构建<br>成功？"}
     
-    BuildStatus -->|"Yes"| RunTest["Run Basic<br>Functionality Test"]
-    BuildStatus -->|"No"| FixBuild["Fix Build<br>Issues"]
-    FixBuild --> RetryBuild["Retry Build"]
+    BuildStatus -->|"是"| RunTest["运行基本<br>功能测试"]
+    BuildStatus -->|"否"| FixBuild["修复构建<br>问题"]
+    FixBuild --> RetryBuild["重试构建"]
     RetryBuild --> BuildStatus
     
-    RunTest --> TestStatus{"Test<br>Passed?"}
-    TestStatus -->|"Yes"| TestSuccess["Minimal Build Test<br>✅ PASS"]
-    TestStatus -->|"No"| FixTest["Fix Test<br>Issues"]
-    FixTest --> RetryTest["Retry Test"]
+    RunTest --> TestStatus{"测试<br>通过？"}
+    TestStatus -->|"是"| TestSuccess["最小构建测试<br>✅ 通过"]
+    TestStatus -->|"否"| FixTest["修复测试<br>问题"]
+    FixTest --> RetryTest["重试测试"]
     RetryTest --> TestStatus
     
     style Start fill:#4da6ff,stroke:#0066cc,color:white
@@ -32,52 +32,52 @@ graph TD
     style TestStatus fill:#f6546a,stroke:#c30052,color:white
 ```
 
-### Minimal Build Test Implementation:
+### 最小构建测试实现：
 ```powershell
-# Example: Perform minimal build test for a React project
+# 示例：为React项目执行最小构建测试
 function Perform-MinimalBuildTest {
     $buildSuccess = $false
     $testSuccess = $false
     
-    # Create minimal test project
+    # 创建最小测试项目
     $testDir = ".__build_test"
     if (Test-Path $testDir) {
         Remove-Item -Path $testDir -Recurse -Force
     }
     
     try {
-        # Create minimal test directory
+        # 创建最小测试目录
         New-Item -Path $testDir -ItemType Directory | Out-Null
         Push-Location $testDir
         
-        # Initialize minimal package.json
+        # 初始化最小package.json
         @"
 {
   "name": "build-test",
   "version": "1.0.0",
-  "description": "Minimal build test",
+  "description": "最小构建测试",
   "main": "index.js",
   "scripts": {
-    "build": "echo Build test successful"
+    "build": "echo 构建测试成功"
   }
 }
 "@ | Set-Content -Path "package.json"
         
-        # Attempt build
+        # 尝试构建
         npm run build | Out-Null
         $buildSuccess = $true
         
-        # Create minimal test file
+        # 创建最小测试文件
         @"
-console.log('Test successful');
+console.log('测试成功');
 "@ | Set-Content -Path "index.js"
         
-        # Run basic test
+        # 运行基本测试
         node index.js | Out-Null
         $testSuccess = $true
         
     } catch {
-        Write-Output "❌ Build test failed: $($_.Exception.Message)"
+        Write-Output "❌ 构建测试失败：$($_.Exception.Message)"
     } finally {
         Pop-Location
         if (Test-Path $testDir) {
@@ -85,33 +85,33 @@ console.log('Test successful');
         }
     }
     
-    # Display results
+    # 显示结果
     if ($buildSuccess -and $testSuccess) {
-        Write-Output "✅ Minimal build test passed successfully"
+        Write-Output "✅ 最小构建测试成功通过"
         return $true
     } else {
         if (-not $buildSuccess) {
-            Write-Output "❌ Build process failed"
+            Write-Output "❌ 构建过程失败"
         }
         if (-not $testSuccess) {
-            Write-Output "❌ Basic functionality test failed"
+            Write-Output "❌ 基本功能测试失败"
         }
         return $false
     }
 }
 ```
 
-## 📋 MINIMAL BUILD TEST CHECKPOINT
+## 📋 最小构建测试检查点
 
 ```
-✓ CHECKPOINT: MINIMAL BUILD TEST
-- Test project creation successful? [YES/NO]
-- Build process completed successfully? [YES/NO]
-- Basic functionality test passed? [YES/NO]
+✓ 检查点：最小构建测试
+- 测试项目创建成功？ [是/否]
+- 构建过程成功完成？ [是/否]
+- 基本功能测试通过？ [是/否]
 
-→ If all YES: QA Validation complete, proceed to generate success report.
-→ If any NO: Fix build issues before continuing.
+→ 如果全部是：QA验证完成，继续生成成功报告。
+→ 如果有否：在继续之前修复构建问题。
 ```
 
-**Next Step (on PASS):** Load `van-qa-utils/reports.mdc` to generate success report.
-**Next Step (on FAIL):** Check `van-qa-utils/common-fixes.mdc` for build test fixes. 
+**下一步（通过时）：** 加载`van-qa-utils/reports.mdc`生成成功报告。
+**下一步（失败时）：** 检查`van-qa-utils/common-fixes.mdc`获取构建测试修复。 
