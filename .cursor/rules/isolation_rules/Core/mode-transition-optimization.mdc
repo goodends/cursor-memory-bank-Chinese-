@@ -3,21 +3,20 @@ description: Optimized mode transition protocol
 globs: "**/mode-transition*/**", "**/context-preservation*/**"
 alwaysApply: false
 ---
+# 模式转换优化
 
-# MODE TRANSITION OPTIMIZATION
+> **简要说明：** 此文件实现优化的模式转换，在Memory Bank系统的不同阶段之间高效保存上下文。
 
-> **TL;DR:** This file implements optimized mode transitions to preserve context efficiently between different phases of the Memory Bank system.
-
-## 🔄 UNIFIED CONTEXT TRANSFER PROTOCOL
+## 🔄 统一上下文传输协议
 
 ```mermaid
 graph TD
-    Start["Mode A"] --> Create["Create Context<br>Summary Document"]
-    Create --> Store["Store Critical<br>Context Data"]
-    Store --> Transition["Transition<br>to Mode B"]
-    Transition --> Verify["Verify Context<br>Availability"]
-    Verify --> Load["Load Relevant<br>Context Data"]
-    Load --> Continue["Continue in<br>Mode B"]
+    Start["模式 A"] --> Create["创建上下文<br>摘要文档"]
+    Create --> Store["存储关键<br>上下文数据"]
+    Store --> Transition["转换到<br>模式 B"]
+    Transition --> Verify["验证上下文<br>可用性"]
+    Verify --> Load["加载相关<br>上下文数据"]
+    Load --> Continue["在模式 B<br>中继续"]
     
     style Start fill:#4da6ff,stroke:#0066cc,color:white
     style Create fill:#ffa64d,stroke:#cc7a30,color:white
@@ -28,86 +27,86 @@ graph TD
     style Continue fill:#ff71c2,stroke:#c23b8a,color:white
 ```
 
-## 📊 CONTEXT TRANSITION DOCUMENT
+## 📊 上下文转换文档
 
-Create a standardized transition document when switching modes:
+在切换模式时创建标准化的转换文档：
 
 ```markdown
-# MODE TRANSITION: [Source Mode] → [Target Mode]
+# 模式转换: [源模式] → [目标模式]
 
-## Context Summary
-- Task: [Task name/description]
-- Complexity: Level [1-4]
-- Current Phase: [Phase name]
-- Progress: [Percentage or status]
+## 上下文摘要
+- 任务: [任务名称/描述]
+- 复杂度: 级别 [1-4]
+- 当前阶段: [阶段名称]
+- 进度: [百分比或状态]
 
-## Key Decisions
-- [Decision 1]: [Brief summary]
-- [Decision 2]: [Brief summary]
-- [Decision 3]: [Brief summary]
+## 关键决策
+- [决策 1]: [简要摘要]
+- [决策 2]: [简要摘要]
+- [决策 3]: [简要摘要]
 
-## Critical Context
-- [Context item 1]: [Value/status]
-- [Context item 2]: [Value/status]
-- [Context item 3]: [Value/status]
+## 关键上下文
+- [上下文项目 1]: [值/状态]
+- [上下文项目 2]: [值/状态]
+- [上下文项目 3]: [值/状态]
 
-## Next Steps
-1. [Next step 1]
-2. [Next step 2]
-3. [Next step 3]
+## 下一步
+1. [下一步 1]
+2. [下一步 2]
+3. [下一步 3]
 
-## Resource Pointers
-- [Resource 1]: [Location]
-- [Resource 2]: [Location]
-- [Resource 3]: [Location]
+## 资源指针
+- [资源 1]: [位置]
+- [资源 2]: [位置]
+- [资源 3]: [位置]
 ```
 
-## 🔍 MODE-SPECIFIC TRANSITION HANDLERS
+## 🔍 模式特定转换处理器
 
-### VAN → PLAN Transition
+### VAN → PLAN 转换
 
 ```markdown
 ### VAN → PLAN
-- Context preserved: Complexity level, platform detection, file structure
-- Files transferred: tasks.md (initialized), activeContext.md (initialized)
-- Rule optimization: Pre-load planning rules based on complexity level
+- 保存的上下文: 复杂度级别、平台检测、文件结构
+- 传输的文件: tasks.md (已初始化)、activeContext.md (已初始化)
+- 规则优化: 根据复杂度级别预加载规划规则
 ```
 
-### PLAN → CREATIVE Transition
+### PLAN → CREATIVE 转换
 
 ```markdown
 ### PLAN → CREATIVE
-- Context preserved: Task requirements, component list, creative phase flags
-- Files transferred: tasks.md (updated with plan), creative phase components list
-- Rule optimization: Only load creative templates for identified components
+- 保存的上下文: 任务需求、组件列表、创意阶段标志
+- 传输的文件: tasks.md (已更新计划)、创意阶段组件列表
+- 规则优化: 仅为已识别的组件加载创意模板
 ```
 
-### CREATIVE → IMPLEMENT Transition
+### CREATIVE → IMPLEMENT 转换
 
 ```markdown
 ### CREATIVE → IMPLEMENT
-- Context preserved: Design decisions, implementation guidelines, requirements
-- Files transferred: tasks.md, design documents, implementation checklist
-- Rule optimization: Pre-load implementation templates based on design decisions
+- 保存的上下文: 设计决策、实现指南、需求
+- 传输的文件: tasks.md、设计文档、实现检查清单
+- 规则优化: 根据设计决策预加载实现模板
 ```
 
-### IMPLEMENT → REFLECT Transition
+### IMPLEMENT → REFLECT 转换
 
 ```markdown
 ### IMPLEMENT → REFLECT
-- Context preserved: Implementation status, challenges encountered, decisions
-- Files transferred: tasks.md, progress.md, implementation notes
-- Rule optimization: Load reflection templates based on completion status
+- 保存的上下文: 实现状态、遇到的挑战、决策
+- 传输的文件: tasks.md、progress.md、实现说明
+- 规则优化: 根据完成状态加载反思模板
 ```
 
-## 🧠 HIERARCHICAL RULE CACHING
+## 🧠 分层规则缓存
 
-Implement rule caching to avoid redundant loading:
+实现规则缓存以避免冗余加载：
 
 ```javascript
-// Pseudocode for rule caching
+// 规则缓存的伪代码
 const ruleCache = {
-  core: {}, // Core rules shared across modes
+  core: {}, // 跨模式共享的核心规则
   van: {},
   plan: {},
   creative: {},
@@ -116,7 +115,7 @@ const ruleCache = {
   archive: {}
 };
 
-// Check cache before loading
+// 加载前检查缓存
 function loadRule(rulePath) {
   const cacheKey = getCacheKey(rulePath);
   const category = getCategoryFromPath(rulePath);
@@ -131,7 +130,7 @@ function loadRule(rulePath) {
   return ruleContent;
 }
 
-// Only invalidate specific rules when needed
+// 仅在需要时使特定规则失效
 function invalidateRule(rulePath) {
   const cacheKey = getCacheKey(rulePath);
   const category = getCategoryFromPath(rulePath);
@@ -142,15 +141,15 @@ function invalidateRule(rulePath) {
 }
 ```
 
-## ⚡ DIFFERENTIAL MEMORY BANK UPDATES
+## ⚡ 差异化Memory Bank更新
 
 ```mermaid
 graph TD
-    Start["Memory Bank<br>Update Request"] --> Check{"File<br>Changed?"}
-    Check -->|"No"| Skip["Skip Update<br>(No Changes)"]
-    Check -->|"Yes"| Changed{"Specific<br>Section Changed?"}
-    Changed -->|"No"| Full["Full File<br>Update"]
-    Changed -->|"Yes"| Partial["Partial<br>Update Only"]
+    Start["Memory Bank<br>更新请求"] --> Check{"文件<br>已更改?"}
+    Check -->|"否"| Skip["跳过更新<br>(无更改)"]
+    Check -->|"是"| Changed{"特定<br>部分已更改?"}
+    Changed -->|"否"| Full["完整文件<br>更新"]
+    Changed -->|"是"| Partial["仅部分<br>更新"]
     
     style Start fill:#4da6ff,stroke:#0066cc,color:white
     style Check fill:#ffa64d,stroke:#cc7a30,color:white
@@ -160,27 +159,27 @@ graph TD
     style Partial fill:#d971ff,stroke:#a33bc2,color:white
 ```
 
-Implement a more efficient update mechanism:
+实现更高效的更新机制：
 
 ```javascript
-// Pseudocode for differential updates
+// 差异化更新的伪代码
 function updateMemoryBankFile(filePath, newContent) {
-  // Read existing content
+  // 读取现有内容
   const currentContent = readFile(filePath);
   
-  // Skip if no changes
+  // 如果没有更改则跳过
   if (currentContent === newContent) {
-    return "No changes detected, update skipped";
+    return "未检测到更改，跳过更新";
   }
   
-  // Check if we can do a partial update
+  // 检查是否可以进行部分更新
   const sections = parseIntoSections(currentContent);
   const newSections = parseIntoSections(newContent);
   
   let updatedContent = currentContent;
   let updatedSections = 0;
   
-  // Only update changed sections
+  // 仅更新已更改的部分
   for (const [sectionName, sectionContent] of Object.entries(newSections)) {
     if (!sections[sectionName] || sections[sectionName] !== sectionContent) {
       updatedContent = replaceSection(updatedContent, sectionName, sectionContent);
@@ -188,174 +187,174 @@ function updateMemoryBankFile(filePath, newContent) {
     }
   }
   
-  // Write updated content
+  // 写入更新的内容
   writeFile(filePath, updatedContent);
   
-  return `Updated ${updatedSections} section(s) in ${filePath}`;
+  return `在 ${filePath} 中更新了 ${updatedSections} 个部分`;
 }
 ```
 
-## 🔗 CREATIVE TO IMPLEMENT BRIDGE
+## 🔗 创意到实现桥接
 
-Special handling for the critical Creative → Implement transition:
+对关键的创意 → 实现转换的特殊处理：
 
 ```markdown
-## CREATIVE → IMPLEMENT BRIDGE
+## 创意 → 实现桥接
 
-### Design Decision Summary
-Automatically generated summary of all creative phase decisions:
+### 设计决策摘要
+自动生成所有创意阶段决策的摘要：
 
 ```json
 {
   "components": [
     {
-      "name": "ComponentA",
-      "decision": "Approach X selected",
-      "rationale": "Best performance characteristics",
+      "name": "组件A",
+      "decision": "选择方法 X",
+      "rationale": "最佳性能特征",
       "implementation_notes": [
-        "Use X library",
-        "Implement caching",
-        "Add error handling"
+        "使用 X 库",
+        "实现缓存",
+        "添加错误处理"
       ]
     },
     {
-      "name": "ComponentB",
-      "decision": "Custom solution",
-      "rationale": "Unique requirements",
+      "name": "组件B",
+      "decision": "自定义解决方案",
+      "rationale": "独特需求",
       "implementation_notes": [
-        "Build from scratch",
-        "Modular architecture",
-        "Unit tests required"
+        "从头构建",
+        "模块化架构",
+        "需要单元测试"
       ]
     }
   ]
 }
 ```
 
-### Implementation Verification Checklist
-Automatically generated verification checklist:
+### 实现验证检查清单
+自动生成验证检查清单：
 
 ```markdown
-# Implementation Readiness Checklist
+# 实现准备检查清单
 
-- [ ] Design decisions available for all components
-- [ ] Implementation notes provided for each decision
-- [ ] Dependencies clearly identified
-- [ ] Order of implementation determined
-- [ ] Required libraries/frameworks documented
-- [ ] Potential challenges identified
+- [ ] 所有组件的设计决策可用
+- [ ] 为每个决策提供实现说明
+- [ ] 依赖关系明确识别
+- [ ] 确定实现顺序
+- [ ] 记录所需的库/框架
+- [ ] 识别潜在挑战
 ```
 
-## 🚀 ADAPTIVE MODE LOADING
+## 🚀 自适应模式加载
 
-Implement progressive mode loading to optimize context:
+实现渐进式模式加载以优化上下文：
 
 ```javascript
-// Pseudocode for adaptive mode loading
+// 自适应模式加载的伪代码
 function loadMode(modeName, taskComplexity) {
-  // Always load core rules
+  // 始终加载核心规则
   loadCoreRules();
   
-  // Load complexity-appropriate rules
+  // 加载适合复杂度的规则
   loadComplexityRules(taskComplexity);
   
-  // Load mode-specific essential rules
+  // 加载模式特定的基本规则
   loadModeEssentialRules(modeName);
   
-  // Only load specialized rules as needed
+  // 仅在需要时加载专门规则
   registerLazyLoadHandlers(modeName, taskComplexity);
 }
 
 function registerLazyLoadHandlers(modeName, taskComplexity) {
-  // Register handlers to load additional rules only when needed
+  // 注册处理器以仅在需要时加载额外规则
   if (modeName === "CREATIVE") {
     registerHandler("architecture", () => loadRule("creative-phase-architecture.mdc"));
     registerHandler("algorithm", () => loadRule("creative-phase-algorithm.mdc"));
     registerHandler("uiux", () => loadRule("creative-phase-uiux.mdc"));
   }
   
-  // Similar patterns for other specialized rule types
+  // 其他专门规则类型的类似模式
 }
 ```
 
-## ✅ MODE TRANSITION EXAMPLES
+## ✅ 模式转换示例
 
-### Example: PLAN → CREATIVE Transition
+### 示例: PLAN → CREATIVE 转换
 
-When transitioning from PLAN to CREATIVE mode:
-
-```markdown
-# MODE TRANSITION: PLAN → CREATIVE
-
-## Context Summary
-- Task: Implement user authentication system
-- Complexity: Level 3
-- Current Phase: Planning completed
-- Progress: 35% (Planning: 100%, Creative: 0%, Implement: 0%)
-
-## Key Decisions
-- Authentication: Requires exploration of options (JWT vs Sessions)
-- User Management: Will use existing database schema
-- Authorization: Role-based access control selected
-
-## Critical Context
-- Components for creative phase: Authentication mechanism, Session management
-- Dependencies: User database, Authorization system
-- Constraints: Must support SSO, Performance requirements
-
-## Next Steps
-1. Explore authentication options (JWT, Sessions, OAuth)
-2. Design session management approach
-3. Document implementation guidelines
-
-## Resource Pointers
-- Planning document: tasks.md (section 3)
-- Requirements: activeContext.md
-- Reference architecture: docs/system-architecture.md
-```
-
-### Example: CREATIVE → IMPLEMENT Transition
-
-When transitioning from CREATIVE to IMPLEMENT mode:
+从PLAN模式转换到CREATIVE模式时：
 
 ```markdown
-# MODE TRANSITION: CREATIVE → IMPLEMENT
+# 模式转换: PLAN → CREATIVE
 
-## Context Summary
-- Task: Implement user authentication system
-- Complexity: Level 3
-- Current Phase: Creative completed
-- Progress: 70% (Planning: 100%, Creative: 100%, Implement: 0%)
+## 上下文摘要
+- 任务: 实现用户身份验证系统
+- 复杂度: 级别 3
+- 当前阶段: 规划已完成
+- 进度: 35% (规划: 100%, 创意: 0%, 实现: 0%)
 
-## Key Decisions
-- Authentication: JWT-based approach selected
-- Token Storage: Secure HttpOnly cookies with CSRF protection
-- Refresh Strategy: Silent refresh with sliding expiration
+## 关键决策
+- 身份验证: 需要探索选项 (JWT vs Sessions)
+- 用户管理: 将使用现有数据库架构
+- 授权: 选择基于角色的访问控制
 
-## Critical Context
-- Implementation order: Auth API endpoints, Middleware, Client integration
-- Testing requirements: Unit tests for JWT validation, Integration tests for auth flow
-- Security considerations: XSS protection, CSRF mitigation, Rate limiting
+## 关键上下文
+- 创意阶段组件: 身份验证机制、会话管理
+- 依赖关系: 用户数据库、授权系统
+- 约束: 必须支持SSO、性能要求
 
-## Next Steps
-1. Implement JWT generation and validation
-2. Create authentication middleware
-3. Build user login/logout endpoints
-4. Implement client-side auth integration
+## 下一步
+1. 探索身份验证选项 (JWT、Sessions、OAuth)
+2. 设计会话管理方法
+3. 记录实现指南
 
-## Resource Pointers
-- Creative document: creative-auth-decisions.md
-- API specifications: api-spec.yaml
-- Security requirements: security-policy.md
+## 资源指针
+- 规划文档: tasks.md (第3部分)
+- 需求: activeContext.md
+- 参考架构: docs/system-architecture.md
 ```
 
-## 🔄 IMPLEMENTATION BENEFITS
+### 示例: CREATIVE → IMPLEMENT 转换
 
-This optimization provides:
+从CREATIVE模式转换到IMPLEMENT模式时：
 
-1. Reduced token usage during mode transitions (~40% reduction)
-2. Better context preservation between modes
-3. Improved efficiency through rule caching
-4. Targeted loading of only necessary rules
-5. Optimized memory bank updates
-6. Clear transition documents that preserve critical context
+```markdown
+# 模式转换: CREATIVE → IMPLEMENT
+
+## 上下文摘要
+- 任务: 实现用户身份验证系统
+- 复杂度: 级别 3
+- 当前阶段: 创意已完成
+- 进度: 70% (规划: 100%, 创意: 100%, 实现: 0%)
+
+## 关键决策
+- 身份验证: 选择基于JWT的方法
+- 令牌存储: 带CSRF保护的安全HttpOnly cookies
+- 刷新策略: 带滑动过期的静默刷新
+
+## 关键上下文
+- 实现顺序: Auth API端点、中间件、客户端集成
+- 测试需求: JWT验证的单元测试、认证流程的集成测试
+- 安全考虑: XSS保护、CSRF缓解、速率限制
+
+## 下一步
+1. 实现JWT生成和验证
+2. 创建身份验证中间件
+3. 构建用户登录/登出端点
+4. 实现客户端认证集成
+
+## 资源指针
+- 创意文档: creative-auth-decisions.md
+- API规范: api-spec.yaml
+- 安全需求: security-policy.md
+```
+
+## 🔄 实现效益
+
+此优化提供：
+
+1. 模式转换期间减少令牌使用 (~40% 减少)
+2. 模式间更好的上下文保存
+3. 通过规则缓存提高效率
+4. 仅加载必要规则的目标加载
+5. 优化的memory bank更新
+6. 保存关键上下文的清晰转换文档

@@ -3,34 +3,33 @@ description: Hierarchical rule loading system for optimized token usage
 globs: "**/rule-loading*/**", "**/optimization*/**"
 alwaysApply: false
 ---
+# 分层规则加载系统
 
-# HIERARCHICAL RULE LOADING SYSTEM
+> **简要说明：** 此规则实现了一个优化的加载系统，仅根据上下文、复杂度级别和当前阶段加载必要的规则，以最大化令牌效率。
 
-> **TL;DR:** This rule implements an optimized loading system that only loads necessary rules based on context, complexity level, and current phase to maximize token efficiency.
-
-## 🧠 HIERARCHICAL RULE STRUCTURE
+## 🧠 分层规则结构
 
 ```mermaid
 graph TD
-    Root["Root Rules"] --> Core["Core Rules<br>(Always Loaded)"]
-    Root --> Common["Common Rules<br>(Mode Independent)"]
-    Root --> Mode["Mode-Specific<br>Rules"]
-    Root --> Level["Complexity Level<br>Rules"]
+    Root["根规则"] --> Core["核心规则<br>(始终加载)"]
+    Root --> Common["通用规则<br>(模式无关)"]
+    Root --> Mode["模式特定<br>规则"]
+    Root --> Level["复杂度级别<br>规则"]
     
-    Core --> Platform["Platform<br>Detection"]
-    Core --> File["File<br>Operations"]
-    Core --> Transition["Mode<br>Transitions"]
+    Core --> Platform["平台<br>检测"]
+    Core --> File["文件<br>操作"]
+    Core --> Transition["模式<br>转换"]
     
-    Mode --> VAN["VAN Mode<br>Rules"]
-    Mode --> PLAN["PLAN Mode<br>Rules"]
-    Mode --> CREATIVE["CREATIVE Mode<br>Rules"]
-    Mode --> IMPLEMENT["IMPLEMENT Mode<br>Rules"]
-    Mode --> REFLECT["REFLECT Mode<br>Rules"]
+    Mode --> VAN["VAN模式<br>规则"]
+    Mode --> PLAN["PLAN模式<br>规则"]
+    Mode --> CREATIVE["CREATIVE模式<br>规则"]
+    Mode --> IMPLEMENT["IMPLEMENT模式<br>规则"]
+    Mode --> REFLECT["REFLECT模式<br>规则"]
     
-    Level --> Level1["Level 1<br>Rules"]
-    Level --> Level2["Level 2<br>Rules"]
-    Level --> Level3["Level 3<br>Rules"]
-    Level --> Level4["Level 4<br>Rules"]
+    Level --> Level1["级别1<br>规则"]
+    Level --> Level2["级别2<br>规则"]
+    Level --> Level3["级别3<br>规则"]
+    Level --> Level4["级别4<br>规则"]
     
     style Root fill:#4da6ff,stroke:#0066cc,color:white
     style Core fill:#ffa64d,stroke:#cc7a30,color:white
@@ -39,46 +38,46 @@ graph TD
     style Level fill:#4dbbbb,stroke:#368787,color:white
 ```
 
-## 📊 RULE LOADING PROTOCOL
+## 📊 规则加载协议
 
 ```mermaid
 sequenceDiagram
-    participant User
-    participant LoadManager
-    participant RuleCache
-    participant FileSystem
+    participant User as 用户
+    participant LoadManager as 加载管理器
+    participant RuleCache as 规则缓存
+    participant FileSystem as 文件系统
     
-    User->>LoadManager: Request mode activation
-    LoadManager->>RuleCache: Check cached core rules
-    RuleCache-->>LoadManager: Return cached rules if available
+    User->>LoadManager: 请求模式激活
+    LoadManager->>RuleCache: 检查缓存的核心规则
+    RuleCache-->>LoadManager: 如果可用则返回缓存规则
     
-    LoadManager->>FileSystem: Load essential mode rules
-    FileSystem-->>LoadManager: Return essential rules
+    LoadManager->>FileSystem: 加载基本模式规则
+    FileSystem-->>LoadManager: 返回基本规则
     
-    LoadManager->>LoadManager: Register lazy loaders for specialized rules
-    LoadManager->>User: Return initialized mode
+    LoadManager->>LoadManager: 为专用规则注册延迟加载器
+    LoadManager->>User: 返回初始化的模式
     
-    User->>LoadManager: Request specialized functionality
-    LoadManager->>RuleCache: Check specialized rule cache
-    RuleCache-->>LoadManager: Return cached rule if available
+    User->>LoadManager: 请求专用功能
+    LoadManager->>RuleCache: 检查专用规则缓存
+    RuleCache-->>LoadManager: 如果可用则返回缓存规则
     
-    alt Rule not in cache
-        LoadManager->>FileSystem: Load specialized rule
-        FileSystem-->>LoadManager: Return specialized rule
-        LoadManager->>RuleCache: Cache specialized rule
+    alt 规则不在缓存中
+        LoadManager->>FileSystem: 加载专用规则
+        FileSystem-->>LoadManager: 返回专用规则
+        LoadManager->>RuleCache: 缓存专用规则
     end
     
-    LoadManager->>User: Execute specialized functionality
+    LoadManager->>User: 执行专用功能
 ```
 
-## 🔄 RULE LOADING IMPLEMENTATION
+## 🔄 规则加载实现
 
 ```javascript
-// Pseudocode for hierarchical rule loading
+// 分层规则加载的伪代码
 class RuleLoadManager {
   constructor() {
     this.cache = {
-      core: {},
+      core: {}, // 跨模式共享的核心规则
       common: {},
       mode: {},
       level: {}
@@ -86,31 +85,31 @@ class RuleLoadManager {
     this.lazyLoaders = {};
   }
   
-  // Initialize a mode with only essential rules
+  // 仅使用基本规则初始化模式
   initializeMode(modeName, complexityLevel) {
-    // Always load core rules
+    // 始终加载核心规则
     this.loadCoreRules();
     
-    // Load common rules
+    // 加载通用规则
     this.loadCommonRules();
     
-    // Load essential mode-specific rules
+    // 加载基本的模式特定规则
     this.loadEssentialModeRules(modeName);
     
-    // Load complexity level rules
+    // 加载复杂度级别规则
     this.loadComplexityRules(complexityLevel);
     
-    // Register lazy loaders for specialized functionality
+    // 为专用功能注册延迟加载器
     this.registerLazyLoaders(modeName, complexityLevel);
     
     return {
       modeName,
       complexityLevel,
-      status: "initialized"
+      status: "已初始化"
     };
   }
   
-  // Load only when specialized functionality is needed
+  // 仅在需要专用功能时加载
   loadSpecializedRule(ruleType) {
     if (this.lazyLoaders[ruleType]) {
       if (!this.cache.specialized[ruleType]) {
@@ -122,12 +121,12 @@ class RuleLoadManager {
     return null;
   }
   
-  // Register specialized rule loaders based on mode and complexity
+  // 根据模式和复杂度注册专用规则加载器
   registerLazyLoaders(modeName, complexityLevel) {
-    // Clear existing lazy loaders
+    // 清除现有的延迟加载器
     this.lazyLoaders = {};
     
-    // Register mode-specific lazy loaders
+    // 注册模式特定的延迟加载器
     if (modeName === "CREATIVE") {
       this.lazyLoaders["architecture"] = () => this.loadRule("creative-phase-architecture.mdc");
       this.lazyLoaders["algorithm"] = () => this.loadRule("creative-phase-algorithm.mdc");
@@ -137,7 +136,7 @@ class RuleLoadManager {
       this.lazyLoaders["deployment"] = () => this.loadRule("implementation-deployment.mdc");
     }
     
-    // Register complexity-specific lazy loaders
+    // 注册复杂度特定的延迟加载器
     if (complexityLevel >= 3) {
       this.lazyLoaders["comprehensive-planning"] = () => this.loadRule("planning-comprehensive.mdc");
       this.lazyLoaders["advanced-verification"] = () => this.loadRule("verification-advanced.mdc");
@@ -146,7 +145,7 @@ class RuleLoadManager {
 }
 ```
 
-## 📋 RULE DEPENDENCY MAP
+## 📋 规则依赖映射
 
 ```mermaid
 graph TD
@@ -154,118 +153,118 @@ graph TD
     Main --> Core2["file-verification.mdc"]
     Main --> Core3["command-execution.mdc"]
     
-    subgraph "VAN Mode"
+    subgraph "VAN模式"
         VanMap["van-mode-map.mdc"] --> Van1["van-complexity-determination.mdc"]
         VanMap --> Van2["van-file-verification.mdc"]
         VanMap --> Van3["van-platform-detection.mdc"]
     end
     
-    subgraph "PLAN Mode"
+    subgraph "PLAN模式"
         PlanMap["plan-mode-map.mdc"] --> Plan1["task-tracking-basic.mdc"]
         PlanMap --> Plan2["planning-comprehensive.mdc"]
     end
     
-    subgraph "CREATIVE Mode"
+    subgraph "CREATIVE模式"
         CreativeMap["creative-mode-map.mdc"] --> Creative1["creative-phase-enforcement.mdc"]
         CreativeMap --> Creative2["creative-phase-metrics.mdc"]
-        Creative1 & Creative2 -.-> CreativeSpecialized["Specialized Creative Rules"]
+        Creative1 & Creative2 -.-> CreativeSpecialized["专用创意规则"]
         CreativeSpecialized --> CArch["creative-phase-architecture.mdc"]
         CreativeSpecialized --> CAlgo["creative-phase-algorithm.mdc"]
         CreativeSpecialized --> CUIUX["creative-phase-uiux.mdc"]
     end
     
-    subgraph "IMPLEMENT Mode"
+    subgraph "IMPLEMENT模式"
         ImplementMap["implement-mode-map.mdc"] --> Impl1["implementation-guide.mdc"]
         ImplementMap --> Impl2["testing-strategy.mdc"]
     end
 ```
 
-## 🔍 MODE-SPECIFIC RULE LOADING
+## 🔍 模式特定规则加载
 
-### VAN Mode Essential Rules
+### VAN模式基本规则
 ```markdown
-- main.mdc (Core)
-- platform-awareness.mdc (Core)
-- file-verification.mdc (Core)
-- van-mode-map.mdc (Mode)
+- main.mdc (核心)
+- platform-awareness.mdc (核心)
+- file-verification.mdc (核心)
+- van-mode-map.mdc (模式)
 ```
 
-### PLAN Mode Essential Rules
+### PLAN模式基本规则
 ```markdown
-- main.mdc (Core)
-- plan-mode-map.mdc (Mode)
-- task-tracking-[complexity].mdc (Level)
+- main.mdc (核心)
+- plan-mode-map.mdc (模式)
+- task-tracking-[complexity].mdc (级别)
 ```
 
-### CREATIVE Mode Essential Rules
+### CREATIVE模式基本规则
 ```markdown
-- main.mdc (Core)
-- creative-mode-map.mdc (Mode)
-- creative-phase-enforcement.mdc (Mode)
+- main.mdc (核心)
+- creative-mode-map.mdc (模式)
+- creative-phase-enforcement.mdc (模式)
 ```
 
-### CREATIVE Mode Specialized Rules (Lazy Loaded)
+### CREATIVE模式专用规则（延迟加载）
 ```markdown
-- creative-phase-architecture.mdc (Specialized)
-- creative-phase-algorithm.mdc (Specialized)
-- creative-phase-uiux.mdc (Specialized)
+- creative-phase-architecture.mdc (专用)
+- creative-phase-algorithm.mdc (专用)
+- creative-phase-uiux.mdc (专用)
 ```
 
-### IMPLEMENT Mode Essential Rules
+### IMPLEMENT模式基本规则
 ```markdown
-- main.mdc (Core)
-- command-execution.mdc (Core)
-- implement-mode-map.mdc (Mode)
+- main.mdc (核心)
+- command-execution.mdc (核心)
+- implement-mode-map.mdc (模式)
 ```
 
-## 🚀 IMPLEMENTATION BENEFITS
+## 🚀 实施优势
 
-The hierarchical loading system provides:
+分层加载系统提供：
 
-1. **Reduced Initial Loading**: Only essential rules loaded at start (~70% token reduction)
-2. **Cached Core Rules**: Rules shared between modes are cached
-3. **Specialized Rule Loading**: Specialized rules loaded only when needed
-4. **Complexity-Based Loading**: Only load rules appropriate for task complexity
+1. **减少初始加载**：启动时仅加载基本规则（约70%令牌减少）
+2. **缓存核心规则**：模式间共享的规则被缓存
+3. **专用规则加载**：专用规则仅在需要时加载
+4. **基于复杂度的加载**：仅加载适合任务复杂度的规则
 
-## 📈 TOKEN USAGE COMPARISON
+## 📈 令牌使用比较
 
-| Approach | Initial Tokens | Specialized Tokens | Total Tokens |
-|----------|---------------|-------------------|--------------|
-| Original System | ~70,000 | Included in initial | ~70,000 |
-| Hierarchical System | ~15,000 | ~10,000 (on demand) | ~25,000 |
-| **Token Reduction** | **~55,000 (78%)** | **N/A** | **~45,000 (64%)** |
+| 方法 | 初始令牌 | 专用令牌 | 总令牌 |
+|------|----------|----------|--------|
+| 原始系统 | ~70,000 | 包含在初始中 | ~70,000 |
+| 分层系统 | ~15,000 | ~10,000（按需） | ~25,000 |
+| **令牌减少** | **~55,000 (78%)** | **不适用** | **~45,000 (64%)** |
 
-## 🔄 USAGE EXAMPLE
+## 🔄 使用示例
 
-### Example: Creative Phase with Architecture Rule
+### 示例：带架构规则的创意阶段
 
 ```javascript
-// Initialize the CREATIVE mode with only essential rules
+// 仅使用基本规则初始化CREATIVE模式
 const mode = ruleManager.initializeMode("CREATIVE", 3);
 
-// Core and essential mode rules are loaded 
-// Architecture rules are NOT loaded yet
+// 核心和基本模式规则已加载
+// 架构规则尚未加载
 
-// Later, when architecture design is needed:
+// 稍后，当需要架构设计时：
 const architectureRule = ruleManager.loadSpecializedRule("architecture");
 
-// Now the architecture rule is loaded and cached
+// 现在架构规则已加载并缓存
 ```
 
-## 🧪 RULE LOADING VERIFICATION
+## 🧪 规则加载验证
 
-To ensure the rule loading system is working optimally:
+为确保规则加载系统最优工作：
 
 ```markdown
-## Rule Loading Verification
+## 规则加载验证
 
-- Core Rules: [Loaded]
-- Mode-Essential Rules: [Loaded]
-- Complexity-Level Rules: [Loaded]
-- Specialized Rules: [Not Loaded]
+- 核心规则：[已加载]
+- 模式基本规则：[已加载]
+- 复杂度级别规则：[已加载]
+- 专用规则：[未加载]
 
-Current Token Usage: [X] tokens
-Potential Token Savings: [Y] tokens
+当前令牌使用：[X] 令牌
+潜在令牌节省：[Y] 令牌
 ```
 
-This hierarchical approach ensures optimal token usage while maintaining all functionality.
+这种分层方法确保在保持所有功能的同时实现最优的令牌使用。

@@ -3,185 +3,185 @@ description: complexity decision tree
 globs: complexity-decision-tree.mdc
 alwaysApply: false
 ---
-# TASK COMPLEXITY DETERMINATION
+# 任务复杂度确定
 
-> **TL;DR:** This document helps determine the appropriate complexity level (1-4) for any task. Use the decision tree and indicators to select the right process level, then load the corresponding process map.
+> **简要说明：** 本文档帮助确定任何任务的适当复杂度级别（1-4）。使用决策树和指标选择正确的流程级别，然后加载相应的流程图。
 
-## 🌳 COMPLEXITY DECISION TREE
+## 🌳 复杂度决策树
 
 ```mermaid
 graph TD
-    Start["New Task"] --> Q1{"Bug fix or<br>error correction?"}
-    Q1 -->|Yes| Q1a{"Affects single<br>component?"}
-    Q1a -->|Yes| L1["Level 1:<br>Quick Bug Fix"]
-    Q1a -->|No| Q1b{"Affects multiple<br>components?"}
-    Q1b -->|Yes| L2["Level 2:<br>Simple Enhancement"]
-    Q1b -->|No| Q1c{"Affects system<br>architecture?"}
-    Q1c -->|Yes| L3["Level 3:<br>Intermediate Feature"]
-    Q1c -->|No| L2
+    Start["新任务"] --> Q1{"错误修复或<br>错误纠正？"}
+    Q1 -->|是| Q1a{"影响单个<br>组件？"}
+    Q1a -->|是| L1["级别1：<br>快速错误修复"]
+    Q1a -->|否| Q1b{"影响多个<br>组件？"}
+    Q1b -->|是| L2["级别2：<br>简单增强"]
+    Q1b -->|否| Q1c{"影响系统<br>架构？"}
+    Q1c -->|是| L3["级别3：<br>中级功能"]
+    Q1c -->|否| L2
     
-    Q1 -->|No| Q2{"Adding small<br>feature or<br>enhancement?"}
-    Q2 -->|Yes| Q2a{"Self-contained<br>change?"}
-    Q2a -->|Yes| L2
-    Q2a -->|No| Q2b{"Affects multiple<br>components?"}
-    Q2b -->|Yes| L3
-    Q2b -->|No| L2
+    Q1 -->|否| Q2{"添加小功能或<br>增强？"}
+    Q2 -->|是| Q2a{"自包含<br>变更？"}
+    Q2a -->|是| L2
+    Q2a -->|否| Q2b{"影响多个<br>组件？"}
+    Q2b -->|是| L3
+    Q2b -->|否| L2
     
-    Q2 -->|No| Q3{"Complete feature<br>requiring multiple<br>components?"}
-    Q3 -->|Yes| Q3a{"Architectural<br>implications?"}
-    Q3a -->|Yes| L4["Level 4:<br>Complex System"]
-    Q3a -->|No| L3
+    Q2 -->|否| Q3{"需要多个组件的<br>完整功能？"}
+    Q3 -->|是| Q3a{"架构<br>影响？"}
+    Q3a -->|是| L4["级别4：<br>复杂系统"]
+    Q3a -->|否| L3
     
-    Q3 -->|No| Q4{"System-wide or<br>architectural<br>change?"}
-    Q4 -->|Yes| L4
-    Q4 -->|No| L3
+    Q3 -->|否| Q4{"系统级或<br>架构变更？"}
+    Q4 -->|是| L4
+    Q4 -->|否| L3
     
-    L1 --> LoadL1["Load Level 1 Map"]
-    L2 --> LoadL2["Load Level 2 Map"]
-    L3 --> LoadL3["Load Level 3 Map"]
-    L4 --> LoadL4["Load Level 4 Map"]
+    L1 --> LoadL1["加载级别1图"]
+    L2 --> LoadL2["加载级别2图"]
+    L3 --> LoadL3["加载级别3图"]
+    L4 --> LoadL4["加载级别4图"]
 ```
 
-## 📊 COMPLEXITY LEVEL INDICATORS
+## 📊 复杂度级别指标
 
-Use these indicators to help determine task complexity:
+使用这些指标帮助确定任务复杂度：
 
-### Level 1: Quick Bug Fix
-- **Keywords**: "fix", "broken", "not working", "issue", "bug", "error", "crash"
-- **Scope**: Single component or UI element
-- **Duration**: Can be completed quickly (minutes to hours)
-- **Risk**: Low, isolated changes
-- **Examples**:
-  - Fix button not working
-  - Correct styling issue
-  - Fix validation error
-  - Resolve broken link
-  - Fix typo or text issue
+### 级别1：快速错误修复
+- **关键词**："修复"、"损坏"、"不工作"、"问题"、"错误"、"崩溃"
+- **范围**：单个组件或UI元素
+- **持续时间**：可以快速完成（几分钟到几小时）
+- **风险**：低，隔离变更
+- **示例**：
+  - 修复按钮不工作
+  - 纠正样式问题
+  - 修复验证错误
+  - 解决损坏链接
+  - 修复拼写或文本问题
 
-### Level 2: Simple Enhancement
-- **Keywords**: "add", "improve", "update", "change", "enhance", "modify"
-- **Scope**: Single component or subsystem
-- **Duration**: Hours to 1-2 days
-- **Risk**: Moderate, contained to specific area
-- **Examples**:
-  - Add form field
-  - Improve validation
-  - Update styling
-  - Add simple feature
-  - Change text content
-  - Enhance existing component
+### 级别2：简单增强
+- **关键词**："添加"、"改进"、"更新"、"更改"、"增强"、"修改"
+- **范围**：单个组件或子系统
+- **持续时间**：几小时到1-2天
+- **风险**：中等，限制在特定区域
+- **示例**：
+  - 添加表单字段
+  - 改进验证
+  - 更新样式
+  - 添加简单功能
+  - 更改文本内容
+  - 增强现有组件
 
-### Level 3: Intermediate Feature
-- **Keywords**: "implement", "create", "develop", "build", "feature"
-- **Scope**: Multiple components, complete feature
-- **Duration**: Days to 1-2 weeks
-- **Risk**: Significant, affects multiple areas
-- **Examples**:
-  - Implement user authentication
-  - Create dashboard
-  - Develop search functionality
-  - Build user profile system
-  - Implement data visualization
-  - Create complex form system
+### 级别3：中级功能
+- **关键词**："实现"、"创建"、"开发"、"构建"、"功能"
+- **范围**：多个组件，完整功能
+- **持续时间**：几天到1-2周
+- **风险**：重大，影响多个区域
+- **示例**：
+  - 实现用户认证
+  - 创建仪表板
+  - 开发搜索功能
+  - 构建用户配置文件系统
+  - 实现数据可视化
+  - 创建复杂表单系统
 
-### Level 4: Complex System
-- **Keywords**: "system", "architecture", "redesign", "integration", "framework"
-- **Scope**: Multiple subsystems or entire application
-- **Duration**: Weeks to months
-- **Risk**: High, architectural implications
-- **Examples**:
-  - Implement authentication system
-  - Build payment processing framework
-  - Create microservice architecture
-  - Implement database migration system
-  - Develop real-time communication system
-  - Create multi-tenant architecture
+### 级别4：复杂系统
+- **关键词**："系统"、"架构"、"重新设计"、"集成"、"框架"
+- **范围**：多个子系统或整个应用程序
+- **持续时间**：几周到几个月
+- **风险**：高，架构影响
+- **示例**：
+  - 实现认证系统
+  - 构建支付处理框架
+  - 创建微服务架构
+  - 实现数据库迁移系统
+  - 开发实时通信系统
+  - 创建多租户架构
 
-## 🔍 COMPLEXITY ASSESSMENT QUESTIONS
+## 🔍 复杂度评估问题
 
-Answer these questions to determine complexity:
+回答这些问题以确定复杂度：
 
-1. **Scope Impact**
-   - Does it affect a single component or multiple?
-   - Are there system-wide implications?
-   - How many files will need to be modified?
+1. **范围影响**
+   - 它影响单个组件还是多个组件？
+   - 是否有系统级影响？
+   - 需要修改多少个文件？
 
-2. **Design Decisions**
-   - Are complex design decisions required?
-   - Will it require creative phases for design?
-   - Are there architectural considerations?
+2. **设计决策**
+   - 是否需要复杂的设计决策？
+   - 是否需要创意阶段进行设计？
+   - 是否有架构考虑？
 
-3. **Risk Assessment**
-   - What happens if it fails?
-   - Are there security implications?
-   - Will it affect critical functionality?
+3. **风险评估**
+   - 如果失败会发生什么？
+   - 是否有安全影响？
+   - 是否会影响关键功能？
 
-4. **Implementation Effort**
-   - How long will it take to implement?
-   - Does it require specialized knowledge?
-   - Is extensive testing needed?
+4. **实现工作量**
+   - 实现需要多长时间？
+   - 是否需要专业知识？
+   - 是否需要广泛测试？
 
-## 📊 KEYWORD ANALYSIS TABLE
+## 📊 关键词分析表
 
-| Keyword | Likely Level | Notes |
-|---------|--------------|-------|
-| "Fix" | Level 1 | Unless system-wide |
-| "Bug" | Level 1 | Unless multiple components |
-| "Error" | Level 1 | Unless architectural |
-| "Add" | Level 2 | Unless complex feature |
-| "Update" | Level 2 | Unless architectural |
-| "Improve" | Level 2 | Unless system-wide |
-| "Implement" | Level 3 | Complex components |
-| "Create" | Level 3 | New functionality |
-| "Develop" | Level 3 | Significant scope |
-| "System" | Level 4 | Architectural implications |
-| "Architecture" | Level 4 | Major structural changes |
-| "Framework" | Level 4 | Core infrastructure |
+| 关键词 | 可能级别 | 注意事项 |
+|---------|----------|----------|
+| "修复" | 级别1 | 除非是系统级 |
+| "错误" | 级别1 | 除非多个组件 |
+| "故障" | 级别1 | 除非架构性 |
+| "添加" | 级别2 | 除非复杂功能 |
+| "更新" | 级别2 | 除非架构性 |
+| "改进" | 级别2 | 除非系统级 |
+| "实现" | 级别3 | 复杂组件 |
+| "创建" | 级别3 | 新功能 |
+| "开发" | 级别3 | 重大范围 |
+| "系统" | 级别4 | 架构影响 |
+| "架构" | 级别4 | 主要结构变更 |
+| "框架" | 级别4 | 核心基础设施 |
 
-## 🔄 COMPLEXITY ESCALATION
+## 🔄 复杂度升级
 
-If during a task you discover it's more complex than initially determined:
-
-```
-⚠️ TASK ESCALATION NEEDED
-Current Level: Level [X]
-Recommended Level: Level [Y]
-Reason: [Brief explanation]
-
-Would you like me to escalate this task to Level [Y]?
-```
-
-If approved, switch to the appropriate higher-level process map.
-
-## 🎯 PROCESS SELECTION
-
-After determining complexity, load the appropriate process map:
-
-| Level | Description | Process Map |
-|-------|-------------|-------------|
-| 1 | Quick Bug Fix | [Level 1 Map](mdc:.cursor/rules/visual-maps/level1-map.mdc) |
-| 2 | Simple Enhancement | [Level 2 Map](mdc:.cursor/rules/visual-maps/level2-map.mdc) |
-| 3 | Intermediate Feature | [Level 3 Map](mdc:.cursor/rules/visual-maps/level3-map.mdc) |
-| 4 | Complex System | [Level 4 Map](mdc:.cursor/rules/visual-maps/level4-map.mdc) |
-
-## 📝 COMPLEXITY DETERMINATION TEMPLATE
-
-Use this template to document complexity determination:
+如果在任务过程中发现比最初确定的更复杂：
 
 ```
-## COMPLEXITY DETERMINATION
+⚠️ 需要任务升级
+当前级别：级别[X]
+建议级别：级别[Y]
+原因：[简要解释]
 
-Task: [Task description]
+您希望我将此任务升级到级别[Y]吗？
+```
 
-Assessment:
-- Scope: [Single component/Multiple components/System-wide]
-- Design decisions: [Simple/Moderate/Complex]
-- Risk: [Low/Moderate/High]
-- Implementation effort: [Low/Moderate/High]
+如果批准，切换到适当的更高级别流程图。
 
-Keywords identified: [List relevant keywords]
+## 🎯 流程选择
 
-Determination: Level [1/2/3/4] - [Quick Bug Fix/Simple Enhancement/Intermediate Feature/Complex System]
+确定复杂度后，加载适当的流程图：
 
-Loading process map: [Level X Map]
+| 级别 | 描述 | 流程图 |
+|------|-----|--------|
+| 1 | 快速错误修复 | [级别1图](mdc:.cursor/rules/visual-maps/level1-map.mdc) |
+| 2 | 简单增强 | [级别2图](mdc:.cursor/rules/visual-maps/level2-map.mdc) |
+| 3 | 中级功能 | [级别3图](mdc:.cursor/rules/visual-maps/level3-map.mdc) |
+| 4 | 复杂系统 | [级别4图](mdc:.cursor/rules/visual-maps/level4-map.mdc) |
+
+## 📝 复杂度确定模板
+
+使用此模板记录复杂度确定：
+
+```
+## 复杂度确定
+
+任务：[任务描述]
+
+评估：
+- 范围：[单个组件/多个组件/系统级]
+- 设计决策：[简单/中等/复杂]
+- 风险：[低/中等/高]
+- 实现工作量：[低/中等/高]
+
+识别的关键词：[列出相关关键词]
+
+确定：级别[1/2/3/4] - [快速错误修复/简单增强/中级功能/复杂系统]
+
+加载流程图：[级别X图]
 ```

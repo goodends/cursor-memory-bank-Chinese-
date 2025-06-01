@@ -3,21 +3,20 @@ description: Defines canonical paths for core Memory Bank files.
 globs: memory-bank-paths.mdc
 alwaysApply: true
 ---
+# 核心MEMORY BANK文件位置
 
-# CORE MEMORY BANK FILE LOCATIONS
+**关键：** 所有核心Memory Bank文件都位于项目根目录的`memory-bank/`目录中。除非明确指示用于归档目的，否则不要在此目录之外创建或修改这些文件。
 
-**CRITICAL:** All core Memory Bank files reside within the `memory-bank/` directory at the project root. Do NOT create or modify these files outside this directory unless explicitly instructed for archiving purposes.
+* **任务文件：** `memory-bank/tasks.md` - 此文件用于活跃的、进行中的任务跟踪，详细记录步骤、检查清单和组件列表。其内容，特别是详细的检查清单，在完成时会合并到任务的主归档文档中。归档后，`tasks.md`会被清空以准备下一个任务。它是任务生命周期中的临时工作文档，其持久记录在任务的归档文件中捕获。
+* **活跃上下文文件：** `memory-bank/activeContext.md`
+* **进度文件：** `memory-bank/progress.md`
+* **项目简介文件：** `memory-bank/projectbrief.md`
+* **产品上下文文件：** `memory-bank/productContext.md`
+* **系统模式文件：** `memory-bank/systemPatterns.md`
+* **技术上下文文件：** `memory-bank/techContext.md`
+* **样式指南文件：** `memory-bank/style-guide.md`
+* **创意阶段文档：** `memory-bank/creative/creative-[feature_name].md`
+* **反思文档：** `memory-bank/reflection/reflection-[task_id].md`
+* **归档目录：** `memory-bank/archive/archive-[task_id].md`
 
-* **Tasks File:** `memory-bank/tasks.md` - This file is used for active, in-progress task tracking, detailing steps, checklists, and component lists. Its content, particularly the detailed checklists, is merged into the main archive document for the task upon completion. After archival, `tasks.md` is cleared to be ready for the next task. It is an ephemeral working document during a task's lifecycle, with its persistent record captured in the task's archive file.
-* **Active Context File:** `memory-bank/activeContext.md`
-* **Progress File:** `memory-bank/progress.md`
-* **Project Brief File:** `memory-bank/projectbrief.md`
-* **Product Context File:** `memory-bank/productContext.md`
-* **System Patterns File:** `memory-bank/systemPatterns.md`
-* **Tech Context File:** `memory-bank/techContext.md`
-* **Style Guide File:** `memory-bank/style-guide.md`
-* **Creative Phase Docs:** `memory-bank/creative/creative-[feature_name].md`
-* **Reflection Docs:** `memory-bank/reflection/reflection-[task_id].md`
-* **Archive Directory:** `memory-bank/archive/archive-[task_id].md`
-
-**Verification Mandate:** Before any `create_file` or `edit_file` operation on these core files, verify the path starts with `memory-bank/`. If attempting to create a new core file (e.g., `tasks.md` at the start of a project), ensure it is created at `memory-bank/tasks.md`.
+**验证要求：** 在对这些核心文件进行任何`create_file`或`edit_file`操作之前，验证路径以`memory-bank/`开头。如果尝试创建新的核心文件（例如，在项目开始时的`tasks.md`），确保它在`memory-bank/tasks.md`创建。
