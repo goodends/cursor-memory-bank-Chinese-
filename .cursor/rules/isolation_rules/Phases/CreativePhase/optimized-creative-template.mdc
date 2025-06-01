@@ -3,20 +3,19 @@ description: Optimized creative phase template with progressive documentation
 globs: "**/creative*/**", "**/design*/**", "**/decision*/**"
 alwaysApply: false
 ---
+# 优化创意阶段模板
 
-# OPTIMIZED CREATIVE PHASE TEMPLATE
+> **简要说明：** 此模板为创意阶段实施渐进式文档方法，在保持彻底设计探索的同时优化令牌使用。
 
-> **TL;DR:** This template implements a progressive documentation approach for creative phases, optimizing token usage while maintaining thorough design exploration.
-
-## 📝 PROGRESSIVE DOCUMENTATION MODEL
+## 📝 渐进式文档模型
 
 ```mermaid
 graph TD
-    Start["Creative Phase Start"] --> P1["1️⃣ PROBLEM<br>Define scope"]
-    P1 --> P2["2️⃣ OPTIONS<br>Explore alternatives"]
-    P2 --> P3["3️⃣ ANALYSIS<br>Evaluate selected options"]
-    P3 --> P4["4️⃣ DECISION<br>Finalize approach"]
-    P4 --> P5["5️⃣ IMPLEMENTATION<br>Document guidelines"]
+    Start["创意阶段开始"] --> P1["1️⃣ 问题<br>定义范围"]
+    P1 --> P2["2️⃣ 选项<br>探索替代方案"]
+    P2 --> P3["3️⃣ 分析<br>评估选定选项"]
+    P3 --> P4["4️⃣ 决策<br>确定方法"]
+    P4 --> P5["5️⃣ 实施<br>文档化指南"]
     
     style Start fill:#d971ff,stroke:#a33bc2,color:white
     style P1 fill:#4da6ff,stroke:#0066cc,color:white
@@ -26,194 +25,194 @@ graph TD
     style P5 fill:#4dbbbb,stroke:#368787,color:white
 ```
 
-## 📋 TEMPLATE STRUCTURE
+## 📋 模板结构
 
 ```markdown
-📌 CREATIVE PHASE START: [Component Name]
+📌 创意阶段开始：[组件名称]
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-1️⃣ PROBLEM
-   Description: [Brief problem description]
-   Requirements: [Key requirements as bullet points]
-   Constraints: [Technical or business constraints]
+1️⃣ 问题
+   描述：[简要问题描述]
+   需求：[关键需求要点]
+   约束：[技术或业务约束]
 
-2️⃣ OPTIONS
-   Option A: [Name] - [One-line description]
-   Option B: [Name] - [One-line description]
-   Option C: [Name] - [One-line description]
+2️⃣ 选项
+   选项A：[名称] - [一行描述]
+   选项B：[名称] - [一行描述]
+   选项C：[名称] - [一行描述]
 
-3️⃣ ANALYSIS
-   | Criterion | Option A | Option B | Option C |
-   |-----------|----------|----------|----------|
-   | Performance | ⭐⭐⭐ | ⭐⭐ | ⭐⭐⭐⭐ |
-   | Complexity | ⭐⭐ | ⭐⭐⭐ | ⭐⭐⭐⭐ |
-   | Maintainability | ⭐⭐⭐⭐ | ⭐⭐⭐ | ⭐⭐ |
+3️⃣ 分析
+   | 标准 | 选项A | 选项B | 选项C |
+   |------|-------|-------|-------|
+   | 性能 | ⭐⭐⭐ | ⭐⭐ | ⭐⭐⭐⭐ |
+   | 复杂度 | ⭐⭐ | ⭐⭐⭐ | ⭐⭐⭐⭐ |
+   | 可维护性 | ⭐⭐⭐⭐ | ⭐⭐⭐ | ⭐⭐ |
    
-   Key Insights:
-   - [Insight 1]
-   - [Insight 2]
+   关键洞察：
+   - [洞察1]
+   - [洞察2]
 
-4️⃣ DECISION
-   Selected: [Option X]
-   Rationale: [Brief justification]
+4️⃣ 决策
+   选择：[选项X]
+   理由：[简要论证]
    
-5️⃣ IMPLEMENTATION NOTES
-   - [Implementation note 1]
-   - [Implementation note 2]
-   - [Implementation note 3]
+5️⃣ 实施说明
+   - [实施说明1]
+   - [实施说明2]
+   - [实施说明3]
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-📌 CREATIVE PHASE END
+📌 创意阶段结束
 ```
 
-## 🧩 DETAILED OPTION ANALYSIS (ON DEMAND)
+## 🧩 详细选项分析（按需提供）
 
-Detailed analysis can be provided on demand for selected options:
+可以按需为选定选项提供详细分析：
 
 ```markdown
 <details>
-  <summary>Detailed Analysis: Option A</summary>
+  <summary>详细分析：选项A</summary>
   
-  ### Option A: [Full Name]
+  ### 选项A：[完整名称]
   
-  **Complete Description**:
-  [Detailed description of how the option works]
+  **完整描述**：
+  [选项如何工作的详细描述]
   
-  **Pros**:
-  - [Pro 1 with explanation]
-  - [Pro 2 with explanation]
-  - [Pro 3 with explanation]
+  **优点**：
+  - [优点1及解释]
+  - [优点2及解释]
+  - [优点3及解释]
   
-  **Cons**:
-  - [Con 1 with explanation]
-  - [Con 2 with explanation]
+  **缺点**：
+  - [缺点1及解释]
+  - [缺点2及解释]
   
-  **Implementation Complexity**: [Low/Medium/High]
-  [Explanation of complexity factors]
+  **实施复杂度**：[低/中/高]
+  [复杂度因素的解释]
   
-  **Resource Requirements**:
-  [Details on resource needs]
+  **资源需求**：
+  [资源需求详情]
   
-  **Risk Assessment**:
-  [Analysis of risks]
+  **风险评估**：
+  [风险分析]
 </details>
 ```
 
-## 📊 COMPLEXITY-BASED SCALING
+## 📊 基于复杂度的扩展
 
-The template automatically scales documentation requirements based on task complexity level:
+模板根据任务复杂度级别自动扩展文档需求：
 
-### Level 1-2 (Quick Fix/Enhancement)
-- Simplified problem/solution
-- Focus on implementation
-- Minimal option exploration
+### 一级-二级（快速修复/增强）
+- 简化问题/解决方案
+- 专注于实施
+- 最少选项探索
 
-### Level 3 (Feature Development)
-- Multiple options required
-- Analysis table with key criteria
-- Implementation guidelines
+### 三级（功能开发）
+- 需要多个选项
+- 带关键标准的分析表
+- 实施指南
 
-### Level 4 (Enterprise Development)
-- Comprehensive analysis
-- Multiple viewpoints considered
-- Detailed implementation plan
-- Expanded verification criteria
+### 四级（企业开发）
+- 综合分析
+- 考虑多个观点
+- 详细实施计划
+- 扩展验证标准
 
-## ✅ VERIFICATION PROTOCOL
+## ✅ 验证协议
 
-Quality verification is condensed into a simple checklist:
-
-```markdown
-VERIFICATION:
-[x] Problem clearly defined
-[x] Multiple options considered
-[x] Decision made with rationale
-[x] Implementation guidance provided
-```
-
-## 🔄 USAGE EXAMPLES
-
-### Architecture Decision (Level 3)
+质量验证被压缩为简单的检查清单：
 
 ```markdown
-📌 CREATIVE PHASE START: Authentication System
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-1️⃣ PROBLEM
-   Description: Design an authentication system for the application
-   Requirements: Secure, scalable, supports SSO, easy to maintain
-   Constraints: Must work with existing user database, <100ms response time
-
-2️⃣ OPTIONS
-   Option A: JWT-based stateless auth - Simple token-based approach
-   Option B: Session-based auth with Redis - Server-side session storage
-   Option C: OAuth2 implementation - Delegated authorization framework
-
-3️⃣ ANALYSIS
-   | Criterion | JWT | Sessions | OAuth2 |
-   |-----------|-----|----------|--------|
-   | Security | ⭐⭐⭐ | ⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐ |
-   | Scalability | ⭐⭐⭐⭐⭐ | ⭐⭐⭐ | ⭐⭐⭐⭐ |
-   | Complexity | ⭐⭐ | ⭐⭐⭐ | ⭐⭐⭐⭐ |
-   | Performance | ⭐⭐⭐⭐⭐ | ⭐⭐⭐ | ⭐⭐⭐ |
-   
-   Key Insights:
-   - JWT offers best performance but limited revocation options
-   - Sessions provide better security control but require more infrastructure
-   - OAuth2 most complex but offers best integration possibilities
-
-4️⃣ DECISION
-   Selected: Option A: JWT-based auth with refresh tokens
-   Rationale: Best balance of performance and scalability while meeting security needs
-   
-5️⃣ IMPLEMENTATION NOTES
-   - Use HS256 algorithm for token signing
-   - Implement short-lived access tokens (15min) with longer refresh tokens (7 days)
-   - Store token blacklist in Redis for revocation capability
-   - Add rate limiting on token endpoints
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-📌 CREATIVE PHASE END
+验证：
+[x] 问题清晰定义
+[x] 考虑多个选项
+[x] 决策有理由支持
+[x] 提供实施指导
 ```
 
-### Algorithm Decision (Level 2)
+## 🔄 使用示例
+
+### 架构决策（三级）
 
 ```markdown
-📌 CREATIVE PHASE START: Search Algorithm
+📌 创意阶段开始：身份验证系统
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-1️⃣ PROBLEM
-   Description: Implement efficient text search for product catalog
-   Requirements: Fast results, support for partial matches, case insensitive
-   Constraints: Dataset < 10,000 items, must work in browser environment
+1️⃣ 问题
+   描述：为应用程序设计身份验证系统
+   需求：安全、可扩展、支持SSO、易于维护
+   约束：必须与现有用户数据库配合，<100ms响应时间
 
-2️⃣ OPTIONS
-   Option A: Simple regex search - Basic pattern matching
-   Option B: Trie-based search - Prefix tree structure
-   Option C: Fuzzy search with Levenshtein - Edit distance algorithm
+2️⃣ 选项
+   选项A：基于JWT的无状态认证 - 简单的基于令牌的方法
+   选项B：基于Redis的会话认证 - 服务器端会话存储
+   选项C：OAuth2实施 - 委托授权框架
 
-3️⃣ DECISION
-   Selected: Option B: Trie-based search
-   Rationale: Best performance for prefix searches with manageable memory usage
+3️⃣ 分析
+   | 标准 | JWT | 会话 | OAuth2 |
+   |------|-----|------|--------|
+   | 安全性 | ⭐⭐⭐ | ⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐ |
+   | 可扩展性 | ⭐⭐⭐⭐⭐ | ⭐⭐⭐ | ⭐⭐⭐⭐ |
+   | 复杂度 | ⭐⭐ | ⭐⭐⭐ | ⭐⭐⭐⭐ |
+   | 性能 | ⭐⭐⭐⭐⭐ | ⭐⭐⭐ | ⭐⭐⭐ |
    
-4️⃣ IMPLEMENTATION NOTES
-   - Use existing trie library
-   - Preprocess text to lowercase during indexing
-   - Implement letter-by-letter search for instant results
-   - Add debounce (300ms) to prevent excessive rebuilding
+   关键洞察：
+   - JWT提供最佳性能但撤销选项有限
+   - 会话提供更好的安全控制但需要更多基础设施
+   - OAuth2最复杂但提供最佳集成可能性
+
+4️⃣ 决策
+   选择：选项A：带刷新令牌的基于JWT认证
+   理由：在满足安全需求的同时提供性能和可扩展性的最佳平衡
+   
+5️⃣ 实施说明
+   - 使用HS256算法进行令牌签名
+   - 实施短期访问令牌（15分钟）和长期刷新令牌（7天）
+   - 在Redis中存储令牌黑名单以实现撤销功能
+   - 在令牌端点添加速率限制
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-📌 CREATIVE PHASE END
+📌 创意阶段结束
 ```
 
-## 🏆 TOKEN EFFICIENCY BENEFITS
+### 算法决策（二级）
 
-This template significantly reduces token usage by:
+```markdown
+📌 创意阶段开始：搜索算法
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-1. Focusing on essential information without unnecessary verbosity
-2. Using compact tabular formats for comparisons
-3. Implementing progressive disclosure for detailed information
-4. Scaling documentation requirements by task complexity
-5. Using visual indicators (emojis) for quick scanning
+1️⃣ 问题
+   描述：为产品目录实施高效文本搜索
+   需求：快速结果、支持部分匹配、不区分大小写
+   约束：数据集 < 10,000项，必须在浏览器环境中工作
 
-The template maintains the rigor of the creative process while improving token efficiency by approximately 60% over the previous format.
+2️⃣ 选项
+   选项A：简单正则表达式搜索 - 基本模式匹配
+   选项B：基于Trie的搜索 - 前缀树结构
+   选项C：带Levenshtein的模糊搜索 - 编辑距离算法
+
+3️⃣ 决策
+   选择：选项B：基于Trie的搜索
+   理由：为前缀搜索提供最佳性能，内存使用可管理
+   
+4️⃣ 实施说明
+   - 使用现有trie库
+   - 在索引期间将文本预处理为小写
+   - 实施逐字母搜索以获得即时结果
+   - 添加防抖（300ms）以防止过度重建
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+📌 创意阶段结束
+```
+
+## 🏆 令牌效率优势
+
+此模板通过以下方式显著减少令牌使用：
+
+1. 专注于基本信息，避免不必要的冗长
+2. 使用紧凑的表格格式进行比较
+3. 为详细信息实施渐进式披露
+4. 根据任务复杂度扩展文档需求
+5. 使用视觉指示器（表情符号）进行快速扫描
+
+该模板在保持创意过程严谨性的同时，比之前的格式提高了约60%的令牌效率。

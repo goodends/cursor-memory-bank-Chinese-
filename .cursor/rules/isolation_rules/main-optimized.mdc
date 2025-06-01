@@ -3,32 +3,32 @@ description: Optimized main rule for improved token efficiency
 globs: main-optimized.mdc
 alwaysApply: false
 ---
-# 🔍 OPTIMIZED MEMORY BANK SYSTEM
+# 🔍 优化记忆库系统
 
-🚨 CRITICAL RULE: MEMORY BANK CREATION IS MANDATORY 🚨
-Memory Bank MUST be created BEFORE any other operation in ANY mode
-NO process can continue without verifying Memory Bank existence
+🚨 关键规则：记忆库创建是强制性的 🚨
+记忆库必须在任何模式下的任何其他操作之前创建
+没有验证记忆库存在，任何流程都不能继续
 
-> **TL;DR:** This system uses optimized context management and adaptive rule loading to maximize token efficiency while preserving the structured development approach.
+> **简要说明：** 此系统使用优化的上下文管理和自适应规则加载来最大化令牌效率，同时保持结构化开发方法。
 
-## 🧭 OPTIMIZED MODE ARCHITECTURE
+## 🧭 优化模式架构
 
 ```mermaid
 graph TD
-    subgraph "Memory Bank Core"
-        Context["Context Manager"]
-        Rules["Rule Loader"]
-        FileIO["File Manager"]
-        Transition["Mode Transition"]
+    subgraph "记忆库核心"
+        Context["上下文管理器"]
+        Rules["规则加载器"]
+        FileIO["文件管理器"]
+        Transition["模式转换"]
     end
     
-    subgraph "Custom Modes"
-        VAN["VAN<br>Initialization"]
-        PLAN["PLAN<br>Planning"]
-        CREATIVE["CREATIVE<br>Design"]
-        IMPLEMENT["IMPLEMENT<br>Building"]
-        REFLECT["REFLECT<br>Review"]
-        ARCHIVE["ARCHIVE<br>Documentation"]
+    subgraph "自定义模式"
+        VAN["VAN<br>初始化"]
+        PLAN["PLAN<br>规划"]
+        CREATIVE["CREATIVE<br>设计"]
+        IMPLEMENT["IMPLEMENT<br>构建"]
+        REFLECT["REFLECT<br>审查"]
+        ARCHIVE["ARCHIVE<br>文档"]
     end
     
     Context --> VAN & PLAN & CREATIVE & IMPLEMENT & REFLECT & ARCHIVE
@@ -48,16 +48,16 @@ graph TD
     style Transition fill:#d94dbb,stroke:#a3378a,color:white
 ```
 
-## 📈 ADAPTIVE COMPLEXITY MODEL
+## 📈 自适应复杂度模型
 
 ```mermaid
 graph TD
-    Task["Task Creation"] --> Complexity{"Complexity<br>Level?"}
+    Task["任务创建"] --> Complexity{"复杂度<br>级别？"}
     
-    Complexity -->|"Level 1<br>Quick Fix"| L1["3-Phase<br>Streamlined Process"]
-    Complexity -->|"Level 2<br>Enhancement"| L2["4-Phase<br>Balanced Process"]
-    Complexity -->|"Level 3<br>Feature"| L3["5-Phase<br>Comprehensive Process"]
-    Complexity -->|"Level 4<br>Enterprise"| L4["6-Phase<br>Governance Process"]
+    Complexity -->|"一级<br>快速修复"| L1["3阶段<br>简化流程"]
+    Complexity -->|"二级<br>增强"| L2["4阶段<br>平衡流程"]
+    Complexity -->|"三级<br>功能"| L3["5阶段<br>综合流程"]
+    Complexity -->|"四级<br>企业级"| L4["6阶段<br>治理流程"]
     
     L1 --> L1_Process["VAN → IMPLEMENT → REFLECT"]
     L2 --> L2_Process["VAN → PLAN → IMPLEMENT → REFLECT"]
@@ -71,48 +71,48 @@ graph TD
     style L4 fill:#ff5555,stroke:#cc0000,color:white
 ```
 
-## 🧠 HIERARCHICAL RULE LOADING
+## 🧠 分层规则加载
 
-Rules are loaded hierarchically to optimize context usage:
+规则分层加载以优化上下文使用：
 
 ```mermaid
 graph TD
-    Root["Memory Bank<br>Common Rules"] --> Core["Core Rules<br>Shared Across Modes"]
+    Root["记忆库<br>通用规则"] --> Core["核心规则<br>跨模式共享"]
     
-    Core --> L1["Level 1<br>Rules"]
-    Core --> L2["Level 2<br>Rules"]
-    Core --> L3["Level 3<br>Rules"]
-    Core --> L4["Level 4<br>Rules"]
+    Core --> L1["一级<br>规则"]
+    Core --> L2["二级<br>规则"]
+    Core --> L3["三级<br>规则"]
+    Core --> L4["四级<br>规则"]
     
-    Core --> VM["Mode<br>Visual Maps"]
+    Core --> VM["模式<br>可视化地图"]
     
-    Core --> Phase["Phase-Specific<br>Rules"]
+    Core --> Phase["阶段特定<br>规则"]
     
-    Phase --> VAN_Rules["VAN Mode<br>Rules"]
-    Phase --> PLAN_Rules["PLAN Mode<br>Rules"]
-    Phase --> CREATIVE_Rules["CREATIVE Mode<br>Rules"]
-    Phase --> IMPLEMENT_Rules["IMPLEMENT Mode<br>Rules"]
-    Phase --> REFLECT_Rules["REFLECT Mode<br>Rules"]
-    Phase --> ARCHIVE_Rules["ARCHIVE Mode<br>Rules"]
+    Phase --> VAN_Rules["VAN模式<br>规则"]
+    Phase --> PLAN_Rules["PLAN模式<br>规则"]
+    Phase --> CREATIVE_Rules["CREATIVE模式<br>规则"]
+    Phase --> IMPLEMENT_Rules["IMPLEMENT模式<br>规则"]
+    Phase --> REFLECT_Rules["REFLECT模式<br>规则"]
+    Phase --> ARCHIVE_Rules["ARCHIVE模式<br>规则"]
     
     style Root fill:#4da6ff,stroke:#0066cc,color:white
     style Core fill:#ffa64d,stroke:#cc7a30,color:white
     style Phase fill:#4dbb5f,stroke:#36873f,color:white
 ```
 
-## 🔄 TOKEN-OPTIMIZED CREATIVE PHASE
+## 🔄 令牌优化创意阶段
 
-Creative phase documentation is progressively generated:
+创意阶段文档逐步生成：
 
 ```mermaid
 graph TD
-    Start["Creative Phase<br>Initiation"] --> P1["1️⃣ PROBLEM<br>Define scope"]
-    P1 --> P2["2️⃣ OPTIONS<br>List alternatives"]
-    P2 --> P3["3️⃣ ANALYSIS<br>Compare options"]
-    P3 --> P4["4️⃣ DECISION<br>Select approach"]
-    P4 --> P5["5️⃣ GUIDELINES<br>Document implementation"]
+    Start["创意阶段<br>启动"] --> P1["1️⃣ 问题<br>定义范围"]
+    P1 --> P2["2️⃣ 选项<br>列出替代方案"]
+    P2 --> P3["3️⃣ 分析<br>比较选项"]
+    P3 --> P4["4️⃣ 决策<br>选择方法"]
+    P4 --> P5["5️⃣ 指南<br>文档实施"]
     
-    P3 -.->|"On Demand"| Details["Detailed Option<br>Analysis"]
+    P3 -.->|"按需"| Details["详细选项<br>分析"]
     
     style Start fill:#d971ff,stroke:#a33bc2,color:white
     style P1 fill:#4da6ff,stroke:#0066cc,color:white
@@ -123,43 +123,43 @@ graph TD
     style Details fill:#e699d9,stroke:#d94dbb,color:white,stroke-dasharray: 5 5
 ```
 
-## 🔀 OPTIMIZED MODE TRANSITIONS
+## 🔀 优化模式转换
 
-Mode transitions use a unified context transfer protocol:
+模式转换使用统一的上下文传输协议：
 
 ```mermaid
 sequenceDiagram
-    participant Current as Current Mode
-    participant Context as Context Manager
-    participant Next as Next Mode
+    participant Current as 当前模式
+    participant Context as 上下文管理器
+    participant Next as 下一模式
     
-    Current->>Context: Create transition document
-    Current->>Context: Store critical context
-    Context->>Context: Prepare rule cache
-    Current->>Next: Initiate transition
-    Next->>Context: Verify context availability
-    Context->>Next: Load relevant context
-    Context->>Next: Load cached rules
-    Next->>Next: Continue with preserved context
+    Current->>Context: 创建转换文档
+    Current->>Context: 存储关键上下文
+    Context->>Context: 准备规则缓存
+    Current->>Next: 启动转换
+    Next->>Context: 验证上下文可用性
+    Context->>Next: 加载相关上下文
+    Context->>Next: 加载缓存规则
+    Next->>Next: 继续保留上下文
 ```
 
-## 📊 MEMORY BANK EFFICIENT UPDATES
+## 📊 记忆库高效更新
 
 ```mermaid
 graph TD
-    subgraph "Memory Bank Files"
-        tasks["tasks.md<br>Source of Truth"]
-        active["activeContext.md<br>Current Focus"]
-        creative["creative-*.md<br>Design Decisions"]
-        progress["progress.md<br>Implementation Status"]
-        transition["transition.md<br>Mode Transitions"]
+    subgraph "记忆库文件"
+        tasks["tasks.md<br>真实来源"]
+        active["activeContext.md<br>当前焦点"]
+        creative["creative-*.md<br>设计决策"]
+        progress["progress.md<br>实施状态"]
+        transition["transition.md<br>模式转换"]
     end
     
-    Update["Update Request"] --> Diff{"Changed?"}
-    Diff -->|"No"| Skip["Skip Update"]
-    Diff -->|"Yes"| Section{"Section<br>Change?"}
-    Section -->|"Yes"| Partial["Update Changed<br>Sections Only"]
-    Section -->|"No"| Full["Full File<br>Update"]
+    Update["更新请求"] --> Diff{"已更改？"}
+    Diff -->|"否"| Skip["跳过更新"]
+    Diff -->|"是"| Section{"部分<br>更改？"}
+    Section -->|"是"| Partial["仅更新已更改<br>的部分"]
+    Section -->|"否"| Full["完整文件<br>更新"]
     
     Partial --> tasks
     Full --> tasks
@@ -171,67 +171,67 @@ graph TD
     style Full fill:#4dbbbb,stroke:#368787,color:white
 ```
 
-## 💻 COMPLEXITY-BASED DOCUMENTATION
+## 💻 基于复杂度的文档
 
-Documentation requirements scale based on complexity level:
+文档需求根据复杂度级别扩展：
 
-| Documentation | Level 1 | Level 2 | Level 3 | Level 4 |
-|---------------|---------|---------|---------|---------|
-| Problem Definition | Brief | Standard | Detailed | Comprehensive |
-| Options Analysis | Optional | Basic | Multiple Options | Extensive |
-| Implementation Plan | Simple | Standard | Detailed | Phased |
-| Testing Requirements | Basic | Standard | Comprehensive | Rigorous |
-| Documentation | Minimal | Standard | Detailed | Extensive |
+| 文档 | 一级 | 二级 | 三级 | 四级 |
+|------|------|------|------|------|
+| 问题定义 | 简要 | 标准 | 详细 | 综合 |
+| 选项分析 | 可选 | 基本 | 多选项 | 广泛 |
+| 实施计划 | 简单 | 标准 | 详细 | 分阶段 |
+| 测试需求 | 基本 | 标准 | 综合 | 严格 |
+| 文档记录 | 最少 | 标准 | 详细 | 广泛 |
 
-## 📑 OPTIMIZED TEMPLATES BY LEVEL
+## 📑 按级别优化的模板
 
-### Level 1: Quick Fix Template
+### 一级：快速修复模板
 ```markdown
-## QUICK FIX: [Issue Name]
-- Problem: [Brief description]
-- Solution: [Implemented approach]
-- Verification: [How fix was tested]
+## 快速修复：[问题名称]
+- 问题：[简要描述]
+- 解决方案：[实施方法]
+- 验证：[如何测试修复]
 ```
 
-### Level 2: Enhancement Template
+### 二级：增强模板
 ```markdown
-## ENHANCEMENT: [Feature Name]
-- Requirement: [What needs to be done]
-- Approach: [How it was implemented]
-- Testing: [Verification approach]
-- Documentation: [Where documented]
+## 增强：[功能名称]
+- 需求：[需要完成的工作]
+- 方法：[如何实施]
+- 测试：[验证方法]
+- 文档：[文档位置]
 ```
 
-### Level 3-4: Comprehensive Template
-Uses the optimized creative phase template with appropriate documentation depth
+### 三级-四级：综合模板
+使用优化的创意阶段模板，具有适当的文档深度
 
-## 🔄 REFERENCE MAPS
+## 🔄 参考地图
 
-Each mode's visual process map is optimized for token efficiency:
+每个模式的可视化流程图都针对令牌效率进行了优化：
 
-- @VAN Mode Map (Optimized)
-- @PLAN Mode Map (Optimized)
-- @CREATIVE Mode Map (Optimized)
-- @IMPLEMENT Mode Map (Optimized)
-- @REFLECT Mode Map (Optimized)
-- @ARCHIVE Mode Map (Optimized)
+- @VAN模式地图（优化版）
+- @PLAN模式地图（优化版）
+- @CREATIVE模式地图（优化版）
+- @IMPLEMENT模式地图（优化版）
+- @REFLECT模式地图（优化版）
+- @ARCHIVE模式地图（优化版）
 
-## ⚡ TOKEN EFFICIENCY IMPROVEMENTS
+## ⚡ 令牌效率改进
 
-Optimizations in this version:
+此版本的优化：
 
-1. Hierarchical rule loading (65% token reduction)
-2. Progressive creative phase documentation (60% token reduction)
-3. Context preservation during mode transitions (40% token reduction)
-4. Differential Memory Bank updates (30% token reduction)
-5. Complexity-based template scaling (varies by level)
+1. 分层规则加载（减少65%令牌）
+2. 渐进式创意阶段文档（减少60%令牌）
+3. 模式转换期间的上下文保持（减少40%令牌）
+4. 差异化记忆库更新（减少30%令牌）
+5. 基于复杂度的模板扩展（因级别而异）
 
-## 💡 USAGE GUIDANCE
+## 💡 使用指导
 
-To use the optimized system:
+使用优化系统：
 
-1. Start with the VAN command to initialize and determine complexity
-2. Follow the complexity-appropriate workflow
-3. Use progressive documentation appropriate to task complexity
-4. Let the system manage rule loading and context preservation
-5. Enjoy the improved token efficiency while maintaining structured development
+1. 从VAN命令开始初始化并确定复杂度
+2. 遵循适合复杂度的工作流程
+3. 使用适合任务复杂度的渐进式文档
+4. 让系统管理规则加载和上下文保持
+5. 享受改进的令牌效率，同时保持结构化开发

@@ -3,54 +3,54 @@ description: main rule
 globs: main.mdc
 alwaysApply: false
 ---
-# 🔍 ISOLATION-FOCUSED MEMORY BANK SYSTEM
+# 🔍 隔离聚焦记忆库系统
 
-🚨 CRITICAL RULE: MEMORY BANK CREATION IS MANDATORY 🚨
-Memory Bank MUST be created BEFORE any other operation in ANY mode
-NO process can continue without verifying Memory Bank existence
+🚨 关键规则：记忆库创建是强制性的 🚨
+记忆库必须在任何模式下的任何其他操作之前创建
+没有验证记忆库存在，任何流程都不能继续
 
-> **TL;DR:** This system is designed to work with Cursor custom modes, where each mode loads only the rules it needs. The system uses visual Mermaid diagrams and selective document loading to optimize context usage.
+> **简要说明：** 此系统设计用于与Cursor自定义模式配合工作，每个模式只加载其需要的规则。系统使用可视化Mermaid图表和选择性文档加载来优化上下文使用。
 
-## 🧭 MODE-SPECIFIC VISUAL MAPS
+## 🧭 模式特定可视化地图
 
 ```mermaid
 graph TD
-    subgraph Modes["Cursor Custom Modes"]
-        VAN["VAN MODE<br>Initialization"] --> PLAN["PLAN MODE<br>Task Planning"]
-        PLAN --> Creative["CREATIVE MODE<br>Design Decisions"]
-        Creative --> Implement["IMPLEMENT MODE<br>Code Implementation"]
-        Implement --> Reflect["REFLECT MODE<br>Task Review"]
-        Reflect --> Archive["ARCHIVE MODE<br>Documentation"]
+    subgraph Modes["Cursor自定义模式"]
+        VAN["VAN模式<br>初始化"] --> PLAN["PLAN模式<br>任务规划"]
+        PLAN --> Creative["CREATIVE模式<br>设计决策"]
+        Creative --> Implement["IMPLEMENT模式<br>代码实施"]
+        Implement --> Reflect["REFLECT模式<br>任务审查"]
+        Reflect --> Archive["ARCHIVE模式<br>文档记录"]
     end
     
-    VAN -.->|"Loads"| VANRules["• main.md<br>• platform-awareness.md<br>• file-verification.md<br>• workflow-init.md"]
-    PLAN -.->|"Loads"| PLANRules["• main.md<br>• task-tracking.md<br>• planning-process.md"]
-    Creative -.->|"Loads"| CreativeRules["• main.md<br>• creative-phase.md<br>• design-patterns.md"]
-    Implement -.->|"Loads"| ImplementRules["• main.md<br>• command-execution.md<br>• implementation-guide.md"]
-    Reflect -.->|"Loads"| ReflectRules["• main.md<br>• reflection-format.md"]
-    Archive -.->|"Loads"| ArchiveRules["• main.md<br>• archiving-guide.md"]
+    VAN -.->|"加载"| VANRules["• main.md<br>• platform-awareness.md<br>• file-verification.md<br>• workflow-init.md"]
+    PLAN -.->|"加载"| PLANRules["• main.md<br>• task-tracking.md<br>• planning-process.md"]
+    Creative -.->|"加载"| CreativeRules["• main.md<br>• creative-phase.md<br>• design-patterns.md"]
+    Implement -.->|"加载"| ImplementRules["• main.md<br>• command-execution.md<br>• implementation-guide.md"]
+    Reflect -.->|"加载"| ReflectRules["• main.md<br>• reflection-format.md"]
+    Archive -.->|"加载"| ArchiveRules["• main.md<br>• archiving-guide.md"]
 ```
 
-## 📋 MEMORY BANK VERIFICATION - MANDATORY IN ALL MODES
+## 📋 记忆库验证 - 所有模式中强制执行
 
 ```mermaid
 graph TD
-    Start["Mode Activation"] --> CheckMemBank{"Memory Bank<br>Exists?"}
+    Start["模式激活"] --> CheckMemBank{"记忆库<br>存在？"}
     
-    CheckMemBank -->|"No"| CreateMemBank["CREATE MEMORY BANK<br>[CRITICAL STEP]"]
-    CheckMemBank -->|"Yes"| VerifyMemBank["Verify Memory Bank<br>Structure"]
+    CheckMemBank -->|"否"| CreateMemBank["创建记忆库<br>[关键步骤]"]
+    CheckMemBank -->|"是"| VerifyMemBank["验证记忆库<br>结构"]
     
-    CreateMemBank --> VerifyCreation{"Creation<br>Successful?"}
-    VerifyCreation -->|"No"| AbortAll["⛔ ABORT ALL OPERATIONS<br>Fix Memory Bank First"]
-    VerifyCreation -->|"Yes"| VerifyMemBank
+    CreateMemBank --> VerifyCreation{"创建<br>成功？"}
+    VerifyCreation -->|"否"| AbortAll["⛔ 中止所有操作<br>首先修复记忆库"]
+    VerifyCreation -->|"是"| VerifyMemBank
     
-    VerifyMemBank --> StructureCheck{"Structure<br>Valid?"}
-    StructureCheck -->|"No"| FixStructure["Fix Memory Bank<br>Structure"]
-    StructureCheck -->|"Yes"| ContinueMode["Continue with<br>Mode Operations"]
+    VerifyMemBank --> StructureCheck{"结构<br>有效？"}
+    StructureCheck -->|"否"| FixStructure["修复记忆库<br>结构"]
+    StructureCheck -->|"是"| ContinueMode["继续模式<br>操作"]
     
-    FixStructure --> VerifyFix{"Fix<br>Successful?"}
-    VerifyFix -->|"No"| AbortAll
-    VerifyFix -->|"Yes"| ContinueMode
+    FixStructure --> VerifyFix{"修复<br>成功？"}
+    VerifyFix -->|"否"| AbortAll
+    VerifyFix -->|"是"| ContinueMode
     
     style CheckMemBank fill:#ff0000,stroke:#990000,color:white,stroke-width:3px
     style CreateMemBank fill:#ff0000,stroke:#990000,color:white,stroke-width:3px
@@ -61,96 +61,96 @@ graph TD
     style VerifyFix fill:#ff5555,stroke:#dd3333,color:white
 ```
 
-## 📚 VISUAL PROCESS MAPS
+## 📚 可视化流程地图
 
-Each mode has its own visual process map:
+每个模式都有自己的可视化流程地图：
 
-- @VAN Mode Map
-- @PLAN Mode Map
-- @CREATIVE Mode Map
-- @IMPLEMENT Mode Map
-- @REFLECT Mode Map
-- @ARCHIVE Mode Map
+- @VAN模式地图
+- @PLAN模式地图
+- @CREATIVE模式地图
+- @IMPLEMENT模式地图
+- @REFLECT模式地图
+- @ARCHIVE模式地图
 
-## 🔄 FILE STATE VERIFICATION
+## 🔄 文件状态验证
 
-In this isolation-focused approach, Memory Bank files maintain continuity between modes:
+在这种隔离聚焦方法中，记忆库文件在模式之间保持连续性：
 
 ```mermaid
 graph TD
-    subgraph "Memory Bank Files"
-        tasks["tasks.md<br>Source of Truth"]
-        active["activeContext.md<br>Current Focus"]
-        creative["creative-*.md<br>Design Decisions"]
-        progress["progress.md<br>Implementation Status"]
+    subgraph "记忆库文件"
+        tasks["tasks.md<br>真实来源"]
+        active["activeContext.md<br>当前焦点"]
+        creative["creative-*.md<br>设计决策"]
+        progress["progress.md<br>实施状态"]
     end
     
-    VAN["VAN MODE"] -->|"Creates/Updates"| tasks
-    VAN -->|"Creates/Updates"| active
+    VAN["VAN模式"] -->|"创建/更新"| tasks
+    VAN -->|"创建/更新"| active
     
-    PLAN["PLAN MODE"] -->|"Reads"| tasks
-    PLAN -->|"Reads"| active
-    PLAN -->|"Updates"| tasks
+    PLAN["PLAN模式"] -->|"读取"| tasks
+    PLAN -->|"读取"| active
+    PLAN -->|"更新"| tasks
     
-    Creative["CREATIVE MODE"] -->|"Reads"| tasks
-    Creative -->|"Creates"| creative
-    Creative -->|"Updates"| tasks
+    Creative["CREATIVE模式"] -->|"读取"| tasks
+    Creative -->|"创建"| creative
+    Creative -->|"更新"| tasks
     
-    Implement["IMPLEMENT MODE"] -->|"Reads"| tasks
-    Implement -->|"Reads"| creative
-    Implement -->|"Updates"| tasks
-    Implement -->|"Updates"| progress
+    Implement["IMPLEMENT模式"] -->|"读取"| tasks
+    Implement -->|"读取"| creative
+    Implement -->|"更新"| tasks
+    Implement -->|"更新"| progress
     
-    Reflect["REFLECT MODE"] -->|"Reads"| tasks
-    Reflect -->|"Reads"| progress
-    Reflect -->|"Updates"| tasks
+    Reflect["REFLECT模式"] -->|"读取"| tasks
+    Reflect -->|"读取"| progress
+    Reflect -->|"更新"| tasks
     
-    Archive["ARCHIVE MODE"] -->|"Reads"| tasks
-    Archive -->|"Reads"| progress
-    Archive -->|"Archives"| creative
+    Archive["ARCHIVE模式"] -->|"读取"| tasks
+    Archive -->|"读取"| progress
+    Archive -->|"归档"| creative
 ```
 
-## 📋 MODE TRANSITION PROTOCOL
+## 📋 模式转换协议
 
 ```mermaid
 sequenceDiagram
-    participant User
-    participant CurrentMode
-    participant NextMode
+    participant User as 用户
+    participant CurrentMode as 当前模式
+    participant NextMode as 下一模式
     
-    CurrentMode->>CurrentMode: Complete Phase Requirements
-    CurrentMode->>User: "Phase complete. NEXT MODE: [mode name]"
-    User->>CurrentMode: End Current Mode
-    User->>NextMode: Start Next Mode
-    NextMode->>NextMode: Verify Required File State
+    CurrentMode->>CurrentMode: 完成阶段需求
+    CurrentMode->>User: "阶段完成。下一模式：[模式名称]"
+    User->>CurrentMode: 结束当前模式
+    User->>NextMode: 启动下一模式
+    NextMode->>NextMode: 验证所需文件状态
     
-    alt File State Valid
-        NextMode->>User: "Continuing from previous mode..."
-    else File State Invalid
-        NextMode->>User: "Required files not in expected state"
-        NextMode->>User: "Return to [previous mode] to complete requirements"
+    alt 文件状态有效
+        NextMode->>User: "从上一模式继续..."
+    else 文件状态无效
+        NextMode->>User: "所需文件不在预期状态"
+        NextMode->>User: "返回[上一模式]完成需求"
     end
 ```
 
-## 💻 PLATFORM-SPECIFIC COMMANDS
+## 💻 平台特定命令
 
-| Action | Windows | Mac/Linux |
-|--------|---------|-----------|
-| Create file | `echo. > file.ext` | `touch file.ext` |
-| Create directory | `mkdir directory` | `mkdir -p directory` |
-| Change directory | `cd directory` | `cd directory` |
-| List files | `dir` | `ls` |
-| Show file content | `type file.ext` | `cat file.ext` |
+| 操作 | Windows | Mac/Linux |
+|------|---------|-----------|
+| 创建文件 | `echo. > file.ext` | `touch file.ext` |
+| 创建目录 | `mkdir directory` | `mkdir -p directory` |
+| 更改目录 | `cd directory` | `cd directory` |
+| 列出文件 | `dir` | `ls` |
+| 显示文件内容 | `type file.ext` | `cat file.ext` |
 
-## ⚠️ COMMAND EFFICIENCY GUIDANCE
+## ⚠️ 命令效率指导
 
-For optimal performance, use efficient command chaining when appropriate:
+为了获得最佳性能，在适当时使用高效的命令链：
 
 ```
-# Efficient command chaining examples:
+# 高效命令链示例：
 mkdir -p project/{src,tests,docs} && cd project
 grep "TODO" $(find . -name "*.js")
 npm install && npm start
 ```
 
-Refer to [command-execution.mdc](mdc:.cursor/rules/isolation_rules/Core/command-execution.mdc) for detailed guidance. 
+详细指导请参考[command-execution.mdc](mdc:.cursor/rules/isolation_rules/Core/command-execution.mdc)。 

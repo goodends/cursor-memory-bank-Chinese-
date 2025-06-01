@@ -3,21 +3,20 @@ description: creative phase architecture
 globs: creative-phase-architecture.md
 alwaysApply: false
 ---
+# 创意阶段：架构设计
 
-# CREATIVE PHASE: ARCHITECTURE DESIGN
+> **简要说明：** 本文档为创意阶段的架构设计决策提供结构化指导，确保对选项进行综合评估并清晰记录架构选择。
 
-> **TL;DR:** This document provides structured guidance for architectural design decisions during creative phases, ensuring comprehensive evaluation of options and clear documentation of architectural choices.
-
-## 🏗️ ARCHITECTURE DESIGN WORKFLOW
+## 🏗️ 架构设计工作流程
 
 ```mermaid
 graph TD
-    Start["Architecture<br>Design Start"] --> Req["1. Requirements<br>Analysis"]
-    Req --> Comp["2. Component<br>Identification"]
-    Comp --> Options["3. Architecture<br>Options"]
-    Options --> Eval["4. Option<br>Evaluation"]
-    Eval --> Decision["5. Decision &<br>Documentation"]
-    Decision --> Valid["6. Validation &<br>Verification"]
+    Start["架构<br>设计开始"] --> Req["1. 需求<br>分析"]
+    Req --> Comp["2. 组件<br>识别"]
+    Comp --> Options["3. 架构<br>选项"]
+    Options --> Eval["4. 选项<br>评估"]
+    Eval --> Decision["5. 决策与<br>文档记录"]
+    Decision --> Valid["6. 验证与<br>确认"]
     
     style Start fill:#4da6ff,stroke:#0066cc,color:white
     style Req fill:#ffa64d,stroke:#cc7a30,color:white
@@ -28,69 +27,69 @@ graph TD
     style Valid fill:#ff71c2,stroke:#c23b8a,color:white
 ```
 
-## 📋 ARCHITECTURE DECISION TEMPLATE
+## 📋 架构决策模板
 
 ```markdown
-# Architecture Decision Record
+# 架构决策记录
 
-## Context
-- System Requirements:
-  - [Requirement 1]
-  - [Requirement 2]
-- Technical Constraints:
-  - [Constraint 1]
-  - [Constraint 2]
+## 上下文
+- 系统需求：
+  - [需求1]
+  - [需求2]
+- 技术约束：
+  - [约束1]
+  - [约束2]
 
-## Component Analysis
-- Core Components:
-  - [Component 1]: [Purpose/Role]
-  - [Component 2]: [Purpose/Role]
-- Interactions:
-  - [Interaction 1]
-  - [Interaction 2]
+## 组件分析
+- 核心组件：
+  - [组件1]：[目的/角色]
+  - [组件2]：[目的/角色]
+- 交互：
+  - [交互1]
+  - [交互2]
 
-## Architecture Options
-### Option 1: [Name]
-- Description: [Brief description]
-- Pros:
-  - [Pro 1]
-  - [Pro 2]
-- Cons:
-  - [Con 1]
-  - [Con 2]
-- Technical Fit: [High/Medium/Low]
-- Complexity: [High/Medium/Low]
-- Scalability: [High/Medium/Low]
+## 架构选项
+### 选项1：[名称]
+- 描述：[简要描述]
+- 优点：
+  - [优点1]
+  - [优点2]
+- 缺点：
+  - [缺点1]
+  - [缺点2]
+- 技术适配性：[高/中/低]
+- 复杂度：[高/中/低]
+- 可扩展性：[高/中/低]
 
-### Option 2: [Name]
-[Same structure as Option 1]
+### 选项2：[名称]
+[与选项1相同的结构]
 
-## Decision
-- Chosen Option: [Option name]
-- Rationale: [Explanation]
-- Implementation Considerations:
-  - [Consideration 1]
-  - [Consideration 2]
+## 决策
+- 选择的选项：[选项名称]
+- 理由：[解释]
+- 实施考虑因素：
+  - [考虑因素1]
+  - [考虑因素2]
 
-## Validation
-- Requirements Met:
-  - [✓] Requirement 1
-  - [✓] Requirement 2
-- Technical Feasibility: [Assessment]
-- Risk Assessment: [Evaluation]
+## 验证
+- 满足的需求：
+  - [✓] 需求1
+  - [✓] 需求2
+- 技术可行性：[评估]
+- 风险评估：[评价]
 ```
 
-## 🎯 ARCHITECTURE EVALUATION CRITERIA
+## 🎯 架构评估标准
 
 ```mermaid
 graph TD
-    subgraph "EVALUATION CRITERIA"
-    C1["Scalability"]
-    C2["Maintainability"]
-    C3["Performance"]
-    C4["Security"]
-    C5["Cost"]
-    C6["Time to Market"]
+    subgraph "评估标准"
+    C1["可扩展性"]
+    C2["可维护性"]
+    C3["性能"]
+    C4["安全性"]
+    C5["成本"]
+    C6["上市时间"]
     end
     
     style C1 fill:#4dbb5f,stroke:#36873f,color:white
@@ -101,18 +100,18 @@ graph TD
     style C6 fill:#ff71c2,stroke:#c23b8a,color:white
 ```
 
-## 📊 ARCHITECTURE VISUALIZATION TEMPLATES
+## 📊 架构可视化模板
 
-### Component Diagram Template
+### 组件图模板
 ```mermaid
 graph TD
-    subgraph "SYSTEM ARCHITECTURE"
-    C1["Component 1"]
-    C2["Component 2"]
-    C3["Component 3"]
+    subgraph "系统架构"
+    C1["组件1"]
+    C2["组件2"]
+    C3["组件3"]
     
-    C1 -->|"Interface 1"| C2
-    C2 -->|"Interface 2"| C3
+    C1 -->|"接口1"| C2
+    C2 -->|"接口2"| C3
     end
     
     style C1 fill:#4dbb5f,stroke:#36873f,color:white
@@ -120,50 +119,50 @@ graph TD
     style C3 fill:#d94dbb,stroke:#a3378a,color:white
 ```
 
-### Data Flow Template
+### 数据流模板
 ```mermaid
 sequenceDiagram
-    participant C1 as Component 1
-    participant C2 as Component 2
-    participant C3 as Component 3
+    participant C1 as 组件1
+    participant C2 as 组件2
+    participant C3 as 组件3
     
-    C1->>C2: Request
-    C2->>C3: Process
-    C3-->>C2: Response
-    C2-->>C1: Result
+    C1->>C2: 请求
+    C2->>C3: 处理
+    C3-->>C2: 响应
+    C2-->>C1: 结果
 ```
 
-## ✅ VERIFICATION CHECKLIST
+## ✅ 验证检查清单
 
 ```markdown
-## Architecture Design Verification
-- [ ] All system requirements addressed
-- [ ] Component responsibilities defined
-- [ ] Interfaces specified
-- [ ] Data flows documented
-- [ ] Security considerations addressed
-- [ ] Scalability requirements met
-- [ ] Performance requirements met
-- [ ] Maintenance approach defined
+## 架构设计验证
+- [ ] 所有系统需求已解决
+- [ ] 组件职责已定义
+- [ ] 接口已指定
+- [ ] 数据流已文档化
+- [ ] 安全考虑已解决
+- [ ] 可扩展性需求已满足
+- [ ] 性能需求已满足
+- [ ] 维护方法已定义
 
-## Implementation Readiness
-- [ ] All components identified
-- [ ] Dependencies mapped
-- [ ] Technical constraints documented
-- [ ] Risk assessment completed
-- [ ] Resource requirements defined
-- [ ] Timeline estimates provided
+## 实施准备
+- [ ] 所有组件已识别
+- [ ] 依赖关系已映射
+- [ ] 技术约束已文档化
+- [ ] 风险评估已完成
+- [ ] 资源需求已定义
+- [ ] 时间线估算已提供
 ```
 
-## 🔄 ARCHITECTURE REVIEW PROCESS
+## 🔄 架构审查流程
 
 ```mermaid
 graph TD
-    subgraph "REVIEW PROCESS"
-    R1["Technical<br>Review"]
-    R2["Security<br>Review"]
-    R3["Performance<br>Review"]
-    R4["Final<br>Approval"]
+    subgraph "审查流程"
+    R1["技术<br>审查"]
+    R2["安全<br>审查"]
+    R3["性能<br>审查"]
+    R4["最终<br>批准"]
     end
     
     R1 --> R2 --> R3 --> R4
@@ -174,12 +173,12 @@ graph TD
     style R4 fill:#4dbbbb,stroke:#368787,color:white
 ```
 
-## 🔄 DOCUMENT MANAGEMENT
+## 🔄 文档管理
 
 ```mermaid
 graph TD
-    Current["Current Document"] --> Active["Active:<br>- creative-phase-architecture.md"]
-    Current --> Related["Related:<br>- creative-phase-enforcement.md<br>- planning-comprehensive.md"]
+    Current["当前文档"] --> Active["活跃：<br>- creative-phase-architecture.md"]
+    Current --> Related["相关：<br>- creative-phase-enforcement.md<br>- planning-comprehensive.md"]
     
     style Current fill:#4da6ff,stroke:#0066cc,color:white
     style Active fill:#4dbb5f,stroke:#36873f,color:white
