@@ -3,223 +3,222 @@ description: Quick documentation approach for Level 1 Quick Bug Fix tasks
 globs: "**/level1/**", "**/documentation/**"
 alwaysApply: false
 ---
+# 级别1任务的快速文档
 
-# QUICK DOCUMENTATION FOR LEVEL 1 TASKS
+> **简要说明：** 本文档概述了级别1（快速错误修复）任务的快速文档方法，确保以最小开销捕获基本信息。
 
-> **TL;DR:** This document outlines a quick documentation approach for Level 1 (Quick Bug Fix) tasks, ensuring that essential information is captured with minimal overhead.
-
-## 🔍 QUICK DOCUMENTATION OVERVIEW
+## 🔍 快速文档概述
 
 ```mermaid
 graph TD
-    FixComplete["Bug Fix<br>Complete"] --> Document["Document<br>Solution"]
-    Document --> UpdateTasks["Update<br>tasks.md"]
-    UpdateTasks --> MinimalUpdates["Make Minimal<br>Memory Bank Updates"]
-    MinimalUpdates --> CrossReference["Create Simple<br>Cross-References"]
-    CrossReference --> Complete["Documentation<br>Complete"]
+    FixComplete["错误修复<br>完成"] --> Document["记录<br>解决方案"]
+    Document --> UpdateTasks["更新<br>tasks.md"]
+    UpdateTasks --> MinimalUpdates["进行最小<br>Memory Bank更新"]
+    MinimalUpdates --> CrossReference["创建简单<br>交叉引用"]
+    CrossReference --> Complete["文档<br>完成"]
 ```
 
-Level 1 tasks require efficient documentation that captures essential information without unnecessary detail. This approach ensures that critical knowledge is preserved while maintaining speed and efficiency.
+级别1任务需要高效的文档，在不产生不必要细节的情况下捕获基本信息。这种方法确保在保持速度和效率的同时保存关键知识。
 
-## 📋 DOCUMENTATION PRINCIPLES
+## 📋 文档原则
 
-1. **Conciseness**: Keep documentation brief but complete
-2. **Focus**: Document only what's necessary to understand the fix
-3. **Context**: Provide sufficient context to understand the issue
-4. **Solution**: Clearly describe what was changed and why
-5. **Findability**: Ensure the fix can be easily found later
+1. **简洁性**: 保持文档简短但完整
+2. **专注性**: 仅记录理解修复所必需的内容
+3. **上下文**: 提供足够的上下文来理解问题
+4. **解决方案**: 清楚描述更改了什么以及为什么
+5. **可查找性**: 确保修复可以在以后轻松找到
 
-## 📋 QUICK FIX DOCUMENTATION TEMPLATE
+## 📋 快速修复文档模板
 
 ```markdown
-# Quick Fix: [Issue Title]
+# 快速修复: [问题标题]
 
-## Issue
-[Brief description of the problem - 1-2 sentences]
+## 问题
+[问题的简要描述 - 1-2句话]
 
-## Root Cause
-[Concise description of what caused the issue - 1-2 sentences]
+## 根本原因
+[导致问题的原因的简洁描述 - 1-2句话]
 
-## Solution
-[Brief description of the fix implemented - 2-3 sentences]
+## 解决方案
+[实现的修复的简要描述 - 2-3句话]
 
-## Files Changed
-- [File path 1]
-- [File path 2]
+## 更改的文件
+- [文件路径 1]
+- [文件路径 2]
 
-## Verification
-[How the fix was tested/verified - 1-2 sentences]
+## 验证
+[如何测试/验证修复 - 1-2句话]
 
-## Notes
-[Any additional information that might be helpful - optional]
+## 说明
+[任何可能有用的额外信息 - 可选]
 ```
 
-## 📋 TASKS.MD UPDATES
+## 📋 TASKS.MD更新
 
-For Level 1 tasks, update tasks.md with this format:
+对于级别1任务，使用此格式更新tasks.md：
 
 ```markdown
-## Completed Bug Fixes
-- [X] [Level 1] Fixed: [Issue title] (Completed: YYYY-MM-DD)
-  - Issue: [One-line description]
-  - Root Cause: [One-line description]
-  - Solution: [One-line description]
-  - Files: [File paths]
+## 已完成的错误修复
+- [X] [级别1] 已修复: [问题标题] (完成时间: YYYY-MM-DD)
+  - 问题: [一行描述]
+  - 根本原因: [一行描述]
+  - 解决方案: [一行描述]
+  - 文件: [文件路径]
 ```
 
-For in-progress tasks:
+对于进行中的任务：
 
 ```markdown
-## Bug Fixes in Progress
-- [ ] [Level 1] Fix: [Issue title] (Est: XX mins)
-  - Issue: [One-line description]
-  - Location: [Component/file]
+## 进行中的错误修复
+- [ ] [级别1] 修复: [问题标题] (预计: XX分钟)
+  - 问题: [一行描述]
+  - 位置: [组件/文件]
 ```
 
-## 📋 MEMORY BANK UPDATES
+## 📋 Memory Bank更新
 
-For Level 1 tasks, make these minimal Memory Bank updates:
+对于级别1任务，进行这些最小的Memory Bank更新：
 
 1. **tasks.md**:
-   - Update with fix details as shown above
-   - Mark task as complete
+   - 如上所示更新修复详情
+   - 将任务标记为完成
 
-2. **activeContext.md** (only if relevant):
+2. **activeContext.md** (仅在相关时):
    ```markdown
-   ## Recent Fixes
-   - [YYYY-MM-DD] Fixed [issue] in [component/file]. [One-line description of fix]
+   ## 最近修复
+   - [YYYY-MM-DD] 在[组件/文件]中修复了[问题]。[修复的一行描述]
    ```
 
-3. **progress.md** (only if significant):
+3. **progress.md** (仅在重要时):
    ```markdown
-   ## Bug Fixes
-   - [YYYY-MM-DD] Fixed [issue] in [component/file].
+   ## 错误修复
+   - [YYYY-MM-DD] 在[组件/文件]中修复了[问题]。
    ```
 
-Other Memory Bank files typically do not need updates for Level 1 tasks unless the fix reveals important system information.
+除非修复揭示了重要的系统信息，否则其他Memory Bank文件通常不需要为级别1任务更新。
 
-## 📋 COMMON BUG CATEGORIES
+## 📋 常见错误类别
 
-Categorize bugs to improve documentation consistency:
+对错误进行分类以提高文档一致性：
 
-1. **Logic Error**:
-   - Example: "Fixed incorrect conditional logic in user validation"
+1. **逻辑错误**:
+   - 示例: "修复了用户验证中的错误条件逻辑"
 
-2. **UI/Display Issue**:
-   - Example: "Fixed misaligned button in mobile view"
+2. **UI/显示问题**:
+   - 示例: "修复了移动视图中按钮对齐错误"
 
-3. **Performance Issue**:
-   - Example: "Fixed slow loading of user profile data"
+3. **性能问题**:
+   - 示例: "修复了用户配置文件数据加载缓慢"
 
-4. **Data Handling Error**:
-   - Example: "Fixed incorrect parsing of date format"
+4. **数据处理错误**:
+   - 示例: "修复了日期格式解析错误"
 
-5. **Configuration Issue**:
-   - Example: "Fixed incorrect environment variable setting"
+5. **配置问题**:
+   - 示例: "修复了环境变量设置错误"
 
-## 📋 QUICK DOCUMENTATION PROCESS
+## 📋 快速文档流程
 
-Follow these steps for efficient documentation:
+按照这些步骤进行高效文档：
 
-1. **Immediately After Fix**:
-   - Document while the fix is fresh in your mind
-   - Focus on what, why, and how
-   - Be specific about changes made
+1. **修复后立即**:
+   - 在修复在脑中还新鲜时记录
+   - 专注于什么、为什么和如何
+   - 对所做的更改要具体
 
-2. **Update Task Tracking**:
-   - Update tasks.md with fix details
-   - Use consistent format for easy reference
+2. **更新任务跟踪**:
+   - 用修复详情更新tasks.md
+   - 使用一致的格式便于参考
 
-3. **Minimal Cross-References**:
-   - Create only essential cross-references
-   - Ensure fix can be found in the future
+3. **最小交叉引用**:
+   - 仅创建基本的交叉引用
+   - 确保修复可以在将来找到
 
-4. **Check Completeness**:
-   - Verify all essential information is captured
-   - Ensure another developer could understand the fix
+4. **检查完整性**:
+   - 验证所有基本信息都已捕获
+   - 确保其他开发者能理解修复
 
-## 📋 EXAMPLES: GOOD VS. INSUFFICIENT DOCUMENTATION
+## 📋 示例: 好的vs不充分的文档
 
-### ❌ Insufficient Documentation
+### ❌ 不充分的文档
 
 ```markdown
-Fixed the login bug.
+修复了登录错误。
 ```
 
-### ✅ Good Documentation
+### ✅ 好的文档
 
 ```markdown
-# Quick Fix: User Login Failure with Special Characters
+# 快速修复: 带特殊字符的用户登录失败
 
-## Issue
-Users with special characters in email addresses (e.g., +, %) couldn't log in.
+## 问题
+邮箱地址中带有特殊字符的用户（例如，+、%）无法登录。
 
-## Root Cause
-The email validation regex was incorrectly escaping special characters.
+## 根本原因
+邮箱验证正则表达式错误地转义了特殊字符。
 
-## Solution
-Updated the email validation regex in AuthValidator.js to properly handle special characters according to RFC 5322.
+## 解决方案
+更新了AuthValidator.js中的邮箱验证正则表达式，根据RFC 5322正确处理特殊字符。
 
-## Files Changed
+## 更改的文件
 - src/utils/AuthValidator.js
 
-## Verification
-Tested login with various special characters in email addresses (test+user@example.com, user%123@example.com).
+## 验证
+测试了邮箱地址中各种特殊字符的登录（test+user@example.com, user%123@example.com）。
 ```
 
-## 📋 DOCUMENTATION VERIFICATION CHECKLIST
+## 📋 文档验证检查清单
 
 ```
-✓ DOCUMENTATION VERIFICATION
-- Issue clearly described? [YES/NO]
-- Root cause identified? [YES/NO]
-- Solution explained? [YES/NO]
-- Files changed listed? [YES/NO]
-- Verification method described? [YES/NO]
-- tasks.md updated? [YES/NO]
-- Memory Bank minimally updated? [YES/NO]
+✓ 文档验证
+- 问题描述清楚? [是/否]
+- 根本原因已识别? [是/否]
+- 解决方案已解释? [是/否]
+- 更改的文件已列出? [是/否]
+- 验证方法已描述? [是/否]
+- tasks.md已更新? [是/否]
+- Memory Bank已最小更新? [是/否]
 
-→ If all YES: Documentation complete
-→ If any NO: Complete missing information
+→ 如果全部是: 文档完成
+→ 如果有否: 完成缺失信息
 ```
 
-## 📋 MINIMAL MODE DOCUMENTATION
+## 📋 最小模式文档
 
-For minimal mode, use this ultra-compact format:
+对于最小模式，使用这个超紧凑格式：
 
 ```
-✓ FIX: [Issue title]
-✓ CAUSE: [One-line root cause]
-✓ SOLUTION: [One-line fix description]
-✓ FILES: [File paths]
-✓ VERIFIED: [How verified]
+✓ 修复: [问题标题]
+✓ 原因: [一行根本原因]
+✓ 解决方案: [一行修复描述]
+✓ 文件: [文件路径]
+✓ 已验证: [如何验证]
 ```
 
-## 🔄 DOCUMENTATION INTEGRATION
+## 🔄 文档集成
 
-Quick documentation integrates with other systems:
+快速文档与其他系统集成：
 
 ```mermaid
 graph TD
-    QuickDoc["Quick Fix<br>Documentation"] --> TasksMD["tasks.md<br>Update"]
-    QuickDoc --> FixDetails["Fix Details<br>Documentation"]
+    QuickDoc["快速修复<br>文档"] --> TasksMD["tasks.md<br>更新"]
+    QuickDoc --> FixDetails["修复详情<br>文档"]
     
-    TasksMD --> Tracking["Task<br>Tracking"]
-    FixDetails --> Knowledge["Knowledge<br>Preservation"]
+    TasksMD --> Tracking["任务<br>跟踪"]
+    FixDetails --> Knowledge["知识<br>保存"]
     
-    Tracking & Knowledge --> Future["Future<br>Reference"]
+    Tracking & Knowledge --> Future["未来<br>参考"]
 ```
 
-## 🚨 DOCUMENTATION EFFICIENCY PRINCIPLE
+## 🚨 文档效率原则
 
-Remember:
+记住：
 
 ```
 ┌─────────────────────────────────────────────────────┐
-│ Document ONLY what's needed to understand the fix.  │
-│ Focus on ESSENTIAL information that would help      │
-│ someone who encounters the same issue in the future.│
+│ 仅记录理解修复所需的内容。                           │
+│ 专注于对将来遇到相同问题的人有帮助的                 │
+│ 基本信息。                                         │
 └─────────────────────────────────────────────────────┘
 ```
 
-This ensures that Level 1 tasks are documented efficiently without unnecessary overhead while preserving critical knowledge.
+这确保级别1任务在不产生不必要开销的情况下高效记录，同时保存关键知识。

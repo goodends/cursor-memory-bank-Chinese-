@@ -3,68 +3,67 @@ description: Basic archiving approach for Level 2 Simple Enhancement tasks
 globs: "**/level2/**", "**/archive/**", "**/completion/**"
 alwaysApply: false
 ---
+# 级别2任务的基本归档
 
-# BASIC ARCHIVING FOR LEVEL 2 TASKS
+> **简要说明：** 本文档概述了级别2（简单增强）任务的基本归档方法，确保已完成的工作得到适当记录，知识得到保存，开销最小。
 
-> **TL;DR:** This document outlines a basic archiving approach for Level 2 (Simple Enhancement) tasks, ensuring that completed work is properly documented and knowledge is preserved with minimal overhead.
+## 🔍 归档概述
 
-## 🔍 ARCHIVING OVERVIEW
+即使对于级别2任务，适当的归档也能确保已完成的工作得到记录，知识得到保存。这种基本归档方法在保持效率的同时提供足够的结构。
 
-Even for Level 2 tasks, proper archiving ensures that completed work is documented and knowledge is preserved. This basic archiving approach provides sufficient structure while maintaining efficiency.
+## 📋 归档原则
 
-## 📋 ARCHIVING PRINCIPLES
+1. **完整性**: 清楚记录已完成的内容
+2. **上下文**: 保存增强的上下文
+3. **知识**: 捕获关键见解和经验教训
+4. **可查找性**: 使归档信息易于查找
+5. **引用**: 创建与相关工作的交叉引用
 
-1. **Completion**: Clearly document what was completed
-2. **Context**: Preserve the context of the enhancement
-3. **Knowledge**: Capture key insights and lessons
-4. **Findability**: Make archived information easy to find
-5. **References**: Create cross-references to related work
-
-## 📋 BASIC ARCHIVE STRUCTURE
+## 📋 基本归档结构
 
 ```markdown
-# Enhancement Archive: [Feature Name]
+# 增强归档: [功能名称]
 
-## Summary
-[Brief summary of the enhancement]
+## 摘要
+[增强的简要摘要]
 
-## Date Completed
+## 完成日期
 YYYY-MM-DD
 
-## Key Files Modified
-- [File path 1]
-- [File path 2]
-- [File path 3]
+## 修改的关键文件
+- [文件路径 1]
+- [文件路径 2]
+- [文件路径 3]
 
-## Requirements Addressed
-- [Requirement 1]
-- [Requirement 2]
-- [Requirement 3]
+## 满足的需求
+- [需求 1]
+- [需求 2]
+- [需求 3]
 
-## Implementation Details
-[Brief description of how the enhancement was implemented]
+## 实现细节
+[增强如何实现的简要描述]
 
-## Testing Performed
-- [Test 1]
-- [Test 2]
-- [Test 3]
+## 执行的测试
+- [测试 1]
+- [测试 2]
+- [测试 3]
 
-## Lessons Learned
-- [Lesson 1]
-- [Lesson 2]
-- [Lesson 3]
+## 经验教训
+- [教训 1]
+- [教训 2]
+- [教训 3]
 
-## Related Work
-- [Link to related task/enhancement 1]
-- [Link to related task/enhancement 2]
+## 相关工作
+- [相关任务/增强 1的链接]
+- [相关任务/增强 2的链接]
 
-## Notes
-[Any additional information or context]
+## 说明
+[任何额外信息或上下文]
 ```
 
-## 📋 ARCHIVE LOCATION
+## 📋 归档位置
 
-Store archives in an organized structure:
+在有组织的结构中存储归档：
 
 ```
 docs/
@@ -75,107 +74,106 @@ docs/
             └── feature-name-2.md
 ```
 
-## 📋 ARCHIVING PROCESS
+## 📋 归档流程
 
-Follow these steps to archive a Level 2 task:
+按照这些步骤归档级别2任务：
 
-1. **Prepare Archive Content**:
-   - Gather all relevant information
-   - Fill in the archive template
-   - Include all key implementation details
+1. **准备归档内容**:
+   - 收集所有相关信息
+   - 填写归档模板
+   - 包含所有关键实现细节
 
-2. **Cross-Reference Creation**:
-   - Update tasks.md with link to archive
-   - Add reference in progress.md
-   - Update activeContext.md with next focus
+2. **创建交叉引用**:
+   - 用归档链接更新tasks.md
+   - 在progress.md中添加引用
+   - 用下一个焦点更新activeContext.md
 
-3. **File Creation and Storage**:
-   - Create appropriate directory if needed
-   - Save archive file with descriptive name
-   - Ensure file follows naming convention
+3. **文件创建和存储**:
+   - 如需要创建适当目录
+   - 用描述性名称保存归档文件
+   - 确保文件遵循命名约定
 
-4. **Final Verification**:
-   - Check archive for completeness
-   - Verify all cross-references
-   - Ensure all links are working
+4. **最终验证**:
+   - 检查归档的完整性
+   - 验证所有交叉引用
+   - 确保所有链接正常工作
 
-## 📋 CROSS-REFERENCE FORMAT
+## 📋 交叉引用格式
 
-When creating cross-references:
+创建交叉引用时：
 
-1. **In tasks.md**:
+1. **在tasks.md中**:
    ```markdown
-   ## Completed Enhancements
-   - [X] [Feature Name] (YYYY-MM-DD) - [Archive Link](../docs/archive/enhancements/YYYY-MM/feature-name.md)
+   ## 已完成的增强
+   - [X] [功能名称] (YYYY-MM-DD) - [归档链接](../docs/archive/enhancements/YYYY-MM/feature-name.md)
    ```
 
-2. **In progress.md**:
+2. **在progress.md中**:
    ```markdown
-   ## Completed Milestones
-   - [Feature Name] enhancement completed on YYYY-MM-DD. See [archive entry](../docs/archive/enhancements/YYYY-MM/feature-name.md).
+   ## 已完成的里程碑
+   - [功能名称]增强在YYYY-MM-DD完成。查看[归档条目](../docs/archive/enhancements/YYYY-MM/feature-name.md)。
    ```
 
-3. **In activeContext.md**:
+3. **在activeContext.md中**:
    ```markdown
-   ## Recently Completed
-   - [Feature Name] enhancement is now complete. Archive: [link](../docs/archive/enhancements/YYYY-MM/feature-name.md)
+   ## 最近完成
+   - [功能名称]增强现已完成。归档：[链接](../docs/archive/enhancements/YYYY-MM/feature-name.md)
    
-   ## Current Focus
-   - Moving to [Next Task Name]
+   ## 当前焦点
+   - 转向[下一个任务名称]
    ```
 
-## 📋 ARCHIVING VERIFICATION CHECKLIST
+## 📋 归档验证检查清单
 
 ```
-✓ ARCHIVE VERIFICATION
-- Archive content complete? [YES/NO]
-- Archive properly stored? [YES/NO]
-- Cross-references created? [YES/NO]
-- tasks.md updated? [YES/NO]
-- progress.md updated? [YES/NO]
-- activeContext.md updated? [YES/NO]
+✓ 归档验证
+- 归档内容完整? [是/否]
+- 归档正确存储? [是/否]
+- 交叉引用已创建? [是/否]
+- tasks.md已更新? [是/否]
+- progress.md已更新? [是/否]
+- activeContext.md已更新? [是/否]
 
-→ If all YES: Archiving complete
-→ If any NO: Complete archiving process
+→ 如果全部是: 归档完成
+→ 如果有否: 完成归档流程
 ```
 
-## 📋 MINIMAL MODE ARCHIVING
+## 📋 最小模式归档
 
-For minimal mode, use this format:
+对于最小模式，使用此格式：
 
 ```
-✓ ARCHIVE: [Feature Name]
-✓ DATE: YYYY-MM-DD
-✓ FILES: [Key files changed]
-✓ SUMMARY: [One-sentence summary]
-✓ LESSONS: [Key takeaway]
-✓ REFS: [tasks.md, progress.md, activeContext.md]
+✓ 归档: [功能名称]
+✓ 日期: YYYY-MM-DD
+✓ 文件: [更改的关键文件]
+✓ 摘要: [一句话摘要]
+✓ 教训: [关键收获]
+✓ 引用: [tasks.md, progress.md, activeContext.md]
 ```
 
-## 🔄 INTEGRATION WITH MEMORY BANK
+## 🔄 与Memory Bank的集成
 
-Archiving integrates with Memory Bank:
+归档与Memory Bank集成：
 
 ```mermaid
 graph TD
-    Archive["Enhancement<br>Archive"] --> TasksUpdate["Update<br>tasks.md"]
-    Archive --> ProgressUpdate["Update<br>progress.md"]
-    Archive --> ContextUpdate["Update<br>activeContext.md"]
+    Archive["增强<br>归档"] --> TasksUpdate["更新<br>tasks.md"]
+    Archive --> ProgressUpdate["更新<br>progress.md"]
+    Archive --> ContextUpdate["更新<br>activeContext.md"]
     
-    TasksUpdate & ProgressUpdate & ContextUpdate --> CrossLinks["Create<br>Cross-Links"]
-    CrossLinks --> Verify["Verify<br>References"]
+    TasksUpdate & ProgressUpdate & ContextUpdate --> CrossLinks["创建<br>交叉链接"]
+    CrossLinks --> Verify["验证<br>引用"]
 ```
 
-## 🚨 KNOWLEDGE PRESERVATION PRINCIPLE
+## 🚨 知识保存原则
 
-Remember:
+记住：
 
 ```
 ┌─────────────────────────────────────────────────────┐
-│ Archive files are a VALUABLE KNOWLEDGE RESOURCE.    │
-│ Take care to preserve insights and lessons that     │
-│ will benefit future work.                           │
+│ 归档文件是宝贵的知识资源。                           │
+│ 注意保存对未来工作有益的见解和经验教训。             │
 └─────────────────────────────────────────────────────┘
 ```
 
-This ensures that knowledge is preserved and can be referenced in the future. 
+这确保知识得到保存，可以在将来参考。 

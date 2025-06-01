@@ -3,287 +3,287 @@ description: Basic workflow for Level 2 Simple Enhancement tasks
 globs: "**/level2/**", "**/workflow/**"
 alwaysApply: false
 ---
-# WORKFLOW FOR LEVEL 2 TASKS
+# 级别2任务的工作流程
 
-> **TL;DR:** This document outlines a structured yet efficient workflow for Level 2 (Simple Enhancement) tasks, including 6 key phases with milestone checkpoints and quality verification.
+> **简要说明：** 本文档概述了级别2（简单增强）任务的结构化但高效的工作流程，包括6个关键阶段，具有里程碑检查点和质量验证。
 
-## 🔍 LEVEL 2 WORKFLOW OVERVIEW
+## 🔍 级别2工作流程概述
 
 ```mermaid
 graph LR
-    Init["1. INITIALIZATION"] --> Doc["2. DOCUMENTATION<br>SETUP"]
-    Doc --> Plan["3. TASK<br>PLANNING"]
-    Plan --> Impl["4. IMPLEMENTATION"]
-    Impl --> Reflect["5. REFLECTION"]
-    Reflect --> Archive["6. ARCHIVING"]
+    Init["1. 初始化"] --> Doc["2. 文档<br>设置"]
+    Doc --> Plan["3. 任务<br>规划"]
+    Plan --> Impl["4. 实现"]
+    Impl --> Reflect["5. 反思"]
+    Reflect --> Archive["6. 归档"]
     
-    %% Document connections for each phase
-    Init -.-> InitDocs["INITIALIZATION"]
-    Doc -.-> DocDocs["DOCUMENTATION"]
-    Plan -.-> PlanDocs["PLANNING"]
-    Impl -.-> ImplDocs["IMPLEMENTATION"]
-    Reflect -.-> ReflectDocs["REFLECTION"]
-    Archive -.-> ArchiveDocs["ARCHIVING"]
+    %% 记录每个阶段的连接
+    Init -.-> InitDocs["初始化"]
+    Doc -.-> DocDocs["文档"]
+    Plan -.-> PlanDocs["规划"]
+    Impl -.-> ImplDocs["实现"]
+    Reflect -.-> ReflectDocs["反思"]
+    Archive -.-> ArchiveDocs["归档"]
 ```
 
-Level 2 tasks involve simple enhancements that require a structured approach with moderate planning and documentation. This workflow provides the right balance of process and efficiency.
+级别2任务涉及需要结构化方法和适度规划和文档的简单增强。此工作流程提供了流程和效率的正确平衡。
 
-## 📋 WORKFLOW PHASES
+## 📋 工作流程阶段
 
-### Phase 1: INITIALIZATION
+### 阶段1: 初始化
 
 ```mermaid
 graph TD
-    Start["Start Level 2 Task"] --> Platform{"Detect<br>Platform"}
-    Platform --> FileCheck["Critical File<br>Verification"]
-    FileCheck --> LoadStructure["Load Memory<br>Bank Structure"]
-    LoadStructure --> TaskCreation["Create Task<br>in tasks.md"]
-    TaskCreation --> SetupComplete["Initialization<br>Complete"]
+    Start["开始级别2任务"] --> Platform{"检测<br>平台"}
+    Platform --> FileCheck["关键文件<br>验证"]
+    FileCheck --> LoadStructure["加载Memory<br>Bank结构"]
+    LoadStructure --> TaskCreation["在tasks.md中<br>创建任务"]
+    TaskCreation --> SetupComplete["初始化<br>完成"]
 ```
 
-**Steps:**
-1. Platform detection
-2. Critical file verification
-3. Memory Bank structure loading
-4. Task creation in tasks.md
-5. Initial task scope definition
+**步骤:**
+1. 平台检测
+2. 关键文件验证
+3. Memory Bank结构加载
+4. 在tasks.md中创建任务
+5. 初始任务范围定义
 
-**Milestone Checkpoint:**
+**里程碑检查点:**
 ```
-✓ INITIALIZATION CHECKPOINT
-- Platform detected and configured? [YES/NO]
-- Critical files verified? [YES/NO]
-- Memory Bank loaded? [YES/NO]
-- Task created in tasks.md? [YES/NO]
-- Initial scope defined? [YES/NO]
+✓ 初始化检查点
+- 平台检测并配置? [是/否]
+- 关键文件已验证? [是/否]
+- Memory Bank已加载? [是/否]
+- 任务在tasks.md中已创建? [是/否]
+- 初始范围已定义? [是/否]
 
-→ If all YES: Proceed to Documentation Setup
-→ If any NO: Complete initialization steps
+→ 如果全部是: 进入文档设置
+→ 如果有否: 完成初始化步骤
 ```
 
-### Phase 2: DOCUMENTATION SETUP
+### 阶段2: 文档设置
 
 ```mermaid
 graph TD
-    Start["Begin Documentation<br>Setup"] --> LoadTemplate["Load Basic<br>Documentation Templates"]
-    LoadTemplate --> UpdateProject["Update<br>projectbrief.md"]
-    UpdateProject --> UpdateContext["Update<br>activeContext.md"]
-    UpdateContext --> SetupComplete["Documentation<br>Setup Complete"]
+    Start["开始文档<br>设置"] --> LoadTemplate["加载基本<br>文档模板"]
+    LoadTemplate --> UpdateProject["更新<br>projectbrief.md"]
+    UpdateProject --> UpdateContext["更新<br>activeContext.md"]
+    UpdateContext --> SetupComplete["文档<br>设置完成"]
 ```
 
-**Steps:**
-1. Load basic documentation templates
-2. Update projectbrief.md with enhancement details
-3. Update activeContext.md with current focus
-4. Create minimal documentation structure
+**步骤:**
+1. 加载基本文档模板
+2. 用增强详情更新projectbrief.md
+3. 用当前焦点更新activeContext.md
+4. 创建最小文档结构
 
-**Milestone Checkpoint:**
+**里程碑检查点:**
 ```
-✓ DOCUMENTATION CHECKPOINT
-- Documentation templates loaded? [YES/NO]
-- projectbrief.md updated? [YES/NO]
-- activeContext.md updated? [YES/NO]
-- Documentation structure created? [YES/NO]
+✓ 文档检查点
+- 文档模板已加载? [是/否]
+- projectbrief.md已更新? [是/否]
+- activeContext.md已更新? [是/否]
+- 文档结构已创建? [是/否]
 
-→ If all YES: Proceed to Task Planning
-→ If any NO: Complete documentation setup
+→ 如果全部是: 进入任务规划
+→ 如果有否: 完成文档设置
 ```
 
-### Phase 3: TASK PLANNING
+### 阶段3: 任务规划
 
 ```mermaid
 graph TD
-    Start["Begin Task<br>Planning"] --> Requirements["Define Clear<br>Requirements"]
-    Requirements --> SubTasks["Break Down<br>Into Subtasks"]
-    SubTasks --> TasksUpdate["Update tasks.md<br>With Subtasks"]
-    TasksUpdate --> TimeEstimate["Create Time<br>Estimates"]
-    TimeEstimate --> PlanComplete["Planning<br>Complete"]
+    Start["开始任务<br>规划"] --> Requirements["定义清晰<br>需求"]
+    Requirements --> SubTasks["分解为<br>子任务"]
+    SubTasks --> TasksUpdate["用子任务更新<br>tasks.md"]
+    TasksUpdate --> TimeEstimate["创建时间<br>估算"]
+    TimeEstimate --> PlanComplete["规划<br>完成"]
 ```
 
-**Steps:**
-1. Define clear requirements
-2. Break down into subtasks
-3. Update tasks.md with subtasks
-4. Create time estimates
-5. Document dependencies and constraints
+**步骤:**
+1. 定义清晰需求
+2. 分解为子任务
+3. 用子任务更新tasks.md
+4. 创建时间估算
+5. 记录依赖关系和约束
 
-**Milestone Checkpoint:**
+**里程碑检查点:**
 ```
-✓ PLANNING CHECKPOINT
-- Requirements clearly defined? [YES/NO]
-- Task broken down into subtasks? [YES/NO]
-- tasks.md updated with subtasks? [YES/NO]
-- Time estimates created? [YES/NO]
-- Dependencies documented? [YES/NO]
+✓ 规划检查点
+- 需求明确定义? [是/否]
+- 任务分解为子任务? [是/否]
+- tasks.md用子任务更新? [是/否]
+- 时间估算已创建? [是/否]
+- 依赖关系已记录? [是/否]
 
-→ If all YES: Proceed to Implementation
-→ If any NO: Complete planning steps
+→ 如果全部是: 进入实现
+→ 如果有否: 完成规划步骤
 ```
 
-### Phase 4: IMPLEMENTATION
+### 阶段4: 实现
 
 ```mermaid
 graph TD
-    Start["Begin<br>Implementation"] --> SubTask1["Complete<br>Subtask 1"]
-    SubTask1 --> UpdateStatus1["Update Status<br>in tasks.md"]
-    UpdateStatus1 --> SubTask2["Complete<br>Subtask 2"]
-    SubTask2 --> UpdateStatus2["Update Status<br>in tasks.md"]
-    UpdateStatus2 --> FinalSubTask["Complete<br>Final Subtask"]
-    FinalSubTask --> Verification["Perform<br>Verification"]
-    Verification --> ImplComplete["Implementation<br>Complete"]
+    Start["开始<br>实现"] --> SubTask1["完成<br>子任务1"]
+    SubTask1 --> UpdateStatus1["在tasks.md中<br>更新状态"]
+    UpdateStatus1 --> SubTask2["完成<br>子任务2"]
+    SubTask2 --> UpdateStatus2["在tasks.md中<br>更新状态"]
+    UpdateStatus2 --> FinalSubTask["完成<br>最终子任务"]
+    FinalSubTask --> Verification["执行<br>验证"]
+    Verification --> ImplComplete["实现<br>完成"]
 ```
 
-**Steps:**
-1. Implement first subtask
-2. Update status in tasks.md
-3. Implement remaining subtasks
-4. Regular status updates after each subtask
-5. Verify complete implementation
+**步骤:**
+1. 实现第一个子任务
+2. 在tasks.md中更新状态
+3. 实现剩余子任务
+4. 每个子任务后定期状态更新
+5. 验证完整实现
 
-**Milestone Checkpoint:**
+**里程碑检查点:**
 ```
-✓ IMPLEMENTATION CHECKPOINT
-- All subtasks completed? [YES/NO]
-- Status updates maintained? [YES/NO]
-- Enhancement fully implemented? [YES/NO]
-- Basic verification performed? [YES/NO]
-- tasks.md fully updated? [YES/NO]
+✓ 实现检查点
+- 所有子任务已完成? [是/否]
+- 状态更新已维护? [是/否]
+- 增强完全实现? [是/否]
+- 基本验证已执行? [是/否]
+- tasks.md完全更新? [是/否]
 
-→ If all YES: Proceed to Reflection
-→ If any NO: Complete implementation steps
+→ 如果全部是: 进入反思
+→ 如果有否: 完成实现步骤
 ```
 
-### Phase 5: REFLECTION
+### 阶段5: 反思
 
 ```mermaid
 graph TD
-    Start["Begin<br>Reflection"] --> Template["Load Reflection<br>Template"]
-    Template --> Review["Review Completed<br>Enhancement"]
-    Review --> Document["Document Successes<br>and Challenges"]
-    Document --> Insights["Extract Key<br>Insights"]
-    Insights --> Actions["Define Action<br>Items"]
-    Actions --> ReflectComplete["Reflection<br>Complete"]
+    Start["开始<br>反思"] --> Template["加载反思<br>模板"]
+    Template --> Review["回顾已完成<br>增强"]
+    Review --> Document["记录成功<br>和挑战"]
+    Document --> Insights["提取关键<br>见解"]
+    Insights --> Actions["定义行动<br>项目"]
+    Actions --> ReflectComplete["反思<br>完成"]
 ```
 
-**Steps:**
-1. Load reflection template
-2. Review completed enhancement
-3. Document successes and challenges
-4. Extract key insights
-5. Define action items for future work
+**步骤:**
+1. 加载反思模板
+2. 回顾已完成的增强
+3. 记录成功和挑战
+4. 提取关键见解
+5. 为未来工作定义行动项目
 
-**Milestone Checkpoint:**
+**里程碑检查点:**
 ```
-✓ REFLECTION CHECKPOINT
-- Reflection template loaded? [YES/NO]
-- Enhancement reviewed? [YES/NO]
-- Successes and challenges documented? [YES/NO]
-- Key insights extracted? [YES/NO]
-- Action items defined? [YES/NO]
+✓ 反思检查点
+- 反思模板已加载? [是/否]
+- 增强已回顾? [是/否]
+- 成功和挑战已记录? [是/否]
+- 关键见解已提取? [是/否]
+- 行动项目已定义? [是/否]
 
-→ If all YES: Proceed to Archiving
-→ If any NO: Complete reflection steps
+→ 如果全部是: 进入归档
+→ 如果有否: 完成反思步骤
 ```
 
-### Phase 6: ARCHIVING
+### 阶段6: 归档
 
 ```mermaid
 graph TD
-    Start["Begin<br>Archiving"] --> Template["Load Archive<br>Template"]
-    Template --> Gather["Gather Implementation<br>Details"]
-    Gather --> Create["Create Archive<br>Document"]
-    Create --> CrossRef["Create Cross-<br>References"]
-    CrossRef --> Update["Update Memory<br>Bank Files"]
-    Update --> ArchiveComplete["Archiving<br>Complete"]
+    Start["开始<br>归档"] --> Template["加载归档<br>模板"]
+    Template --> Gather["收集实现<br>详情"]
+    Gather --> Create["创建归档<br>文档"]
+    Create --> CrossRef["创建交叉<br>引用"]
+    CrossRef --> Update["更新Memory<br>Bank文件"]
+    Update --> ArchiveComplete["归档<br>完成"]
 ```
 
-**Steps:**
-1. Load archive template
-2. Gather implementation details
-3. Create archive document
-4. Create cross-references
-5. Update Memory Bank files
+**步骤:**
+1. 加载归档模板
+2. 收集实现详情
+3. 创建归档文档
+4. 创建交叉引用
+5. 更新Memory Bank文件
 
-**Milestone Checkpoint:**
+**里程碑检查点:**
 ```
-✓ ARCHIVING CHECKPOINT
-- Archive template loaded? [YES/NO]
-- Implementation details gathered? [YES/NO]
-- Archive document created? [YES/NO]
-- Cross-references created? [YES/NO]
-- Memory Bank files updated? [YES/NO]
+✓ 归档检查点
+- 归档模板已加载? [是/否]
+- 实现详情已收集? [是/否]
+- 归档文档已创建? [是/否]
+- 交叉引用已创建? [是/否]
+- Memory Bank文件已更新? [是/否]
 
-→ If all YES: Task Complete
-→ If any NO: Complete archiving steps
-```
-
-## 📋 WORKFLOW VERIFICATION CHECKLIST
-
-```
-✓ FINAL WORKFLOW VERIFICATION
-- All phases completed? [YES/NO]
-- All milestone checkpoints passed? [YES/NO]
-- tasks.md fully updated? [YES/NO]
-- Reflection document created? [YES/NO]
-- Archive document created? [YES/NO]
-- Memory Bank fully updated? [YES/NO]
-
-→ If all YES: Level 2 Task Successfully Completed
-→ If any NO: Address outstanding items
+→ 如果全部是: 任务完成
+→ 如果有否: 完成归档步骤
 ```
 
-## 📋 MINIMAL MODE WORKFLOW
-
-For minimal mode, use this streamlined workflow:
+## 📋 工作流程验证检查清单
 
 ```
-1. INIT: Verify environment, create task entry
-2. DOCS: Update projectbrief and activeContext
-3. PLAN: Define requirements, subtasks, estimates
-4. IMPL: Complete subtasks, update status
-5. REFLECT: Document key insights and actions
-6. ARCHIVE: Document completion and cross-reference
+✓ 最终工作流程验证
+- 所有阶段已完成? [是/否]
+- 所有里程碑检查点已通过? [是/否]
+- tasks.md完全更新? [是/否]
+- 反思文档已创建? [是/否]
+- 归档文档已创建? [是/否]
+- Memory Bank完全更新? [是/否]
+
+→ 如果全部是: 级别2任务成功完成
+→ 如果有否: 处理未完成项目
 ```
 
-## 🔄 LEVEL TRANSITION HANDLING
+## 📋 最小模式工作流程
+
+对于最小模式，使用此精简工作流程：
+
+```
+1. 初始化: 验证环境，创建任务条目
+2. 文档: 更新projectbrief和activeContext
+3. 规划: 定义需求、子任务、估算
+4. 实现: 完成子任务，更新状态
+5. 反思: 记录关键见解和行动
+6. 归档: 记录完成和交叉引用
+```
+
+## 🔄 级别转换处理
 
 ```mermaid
 graph TD
-    L2["Level 2 Task"] --> Assess["Continuous<br>Assessment"]
+    L2["级别2任务"] --> Assess["持续<br>评估"]
     
-    Assess --> Down["Downgrade to<br>Level 1"]
-    Assess --> Up["Upgrade to<br>Level 3/4"]
+    Assess --> Down["降级到<br>级别1"]
+    Assess --> Up["升级到<br>级别3/4"]
     
-    Down --> L1Trigger["Triggers:<br>- Simpler than expected<br>- Quick fix possible<br>- Single component"]
+    Down --> L1Trigger["触发器:<br>- 比预期简单<br>- 可快速修复<br>- 单个组件"]
     
-    Up --> L34Trigger["Triggers:<br>- More complex<br>- Multiple components<br>- Design needed"]
+    Up --> L34Trigger["触发器:<br>- 更复杂<br>- 多个组件<br>- 需要设计"]
     
-    L1Trigger --> L1Switch["Switch to<br>Level 1 Workflow"]
-    L34Trigger --> L34Switch["Switch to<br>Level 3/4 Workflow"]
+    L1Trigger --> L1Switch["切换到<br>级别1工作流程"]
+    L34Trigger --> L34Switch["切换到<br>级别3/4工作流程"]
 ```
 
-## 🔄 INTEGRATION WITH MEMORY BANK
+## 🔄 与Memory Bank的集成
 
 ```mermaid
 graph TD
-    Workflow["Level 2<br>Workflow"] --> PB["Update<br>projectbrief.md"]
-    Workflow --> AC["Update<br>activeContext.md"]
-    Workflow --> TM["Maintain<br>tasks.md"]
-    Workflow --> PM["Update<br>progress.md"]
+    Workflow["级别2<br>工作流程"] --> PB["更新<br>projectbrief.md"]
+    Workflow --> AC["更新<br>activeContext.md"]
+    Workflow --> TM["维护<br>tasks.md"]
+    Workflow --> PM["更新<br>progress.md"]
     
-    PB & AC & TM & PM --> MB["Memory Bank<br>Integration"]
-    MB --> NextTask["Transition to<br>Next Task"]
+    PB & AC & TM & PM --> MB["Memory Bank<br>集成"]
+    MB --> NextTask["转换到<br>下一个任务"]
 ```
 
-## 🚨 EFFICIENCY PRINCIPLE
+## 🚨 效率原则
 
-Remember:
+记住：
 
 ```
 ┌─────────────────────────────────────────────────────┐
-│ Level 2 workflow balances PROCESS with EFFICIENCY.  │
-│ Follow the structure but avoid unnecessary overhead. │
+│ 级别2工作流程平衡流程与效率。                       │
+│ 遵循结构但避免不必要的开销。                       │
 └─────────────────────────────────────────────────────┘
 ```
 
-This ensures that simple enhancements are implemented with the right level of documentation and process. 
+这确保简单增强以适当的文档和流程级别实现。 

@@ -3,72 +3,72 @@ description:
 globs: reflection-intermediate.mdc
 alwaysApply: false
 ---
-# LEVEL 3 REFLECTION: INTERMEDIATE FEATURE REVIEW
+# 三级反思：中级功能回顾
 
-> **TL;DR:** This guide structures the reflection process for a completed Level 3 intermediate feature. The focus is on a detailed review of the entire feature development lifecycle, from planning and design through implementation and testing, to extract meaningful lessons and identify improvements for future feature work.
+> **简要说明：** 本指南为已完成的三级中级功能构建反思流程。重点是对整个功能开发生命周期进行详细回顾，从规划和设计到实施和测试，以提取有意义的经验教训并识别未来功能工作的改进点。
 
-## 🔍 Level 3 Reflection Process
+## 🔍 三级反思流程
 
-The goal is to create a comprehensive `memory-bank/reflection/reflection-[feature_id].md` document.
+目标是创建一个全面的 `memory-bank/reflection/reflection-[feature_id].md` 文档。
 
 ```mermaid
 graph TD
-    StartReflect["Start L3 Reflection"] -->
-    ReviewDocs["1. Review All Gathered Documentation"] -->
-    AssessOutcome["2. Assess Overall Feature Outcome<br>Did it meet all requirements from tasks.md? Was it successful?"] -->
-    AnalyzePlan["3. Analyze Planning Phase Effectiveness<br>Was planning-comprehensive.mdc guidance effective? Was the plan accurate? Scope creep?"] -->
-    AnalyzeCreative["4. Analyze Creative Phase(s) Effectiveness<br>Were design decisions sound? Did they translate well to implementation? Issues?"] -->
-    AnalyzeImpl["5. Analyze Implementation Phase<br>What went well? Challenges? Bottlenecks? Adherence to design/style guide?"] -->
-    AnalyzeTesting["6. Analyze Testing Phase<br>Were tests adequate? Bugs found post-release (if applicable)? Test coverage feel right?"] -->
-    IdentifyLessons["7. Identify Key Lessons Learned<br>(Technical, Process, Teamwork, Estimation)"] -->
-    ProposeImprovements["8. Propose Actionable Improvements<br>For future L3 feature development"] -->
-    DraftReflectionDoc["9. Draft `reflection-[feature_id].md`<br>Using structured template"] -->
-    FinalizeReflection["10. Finalize & Save Reflection Document"] -->
-    UpdateTasksStatus["11. Update `tasks.md`<br>Mark L3 Reflection Complete"] -->
-    ReflectionDone["L3 Reflection Complete<br>Ready for ARCHIVE Mode"]
+    StartReflect["开始三级反思"] -->
+    ReviewDocs["1. 回顾所有收集的文档"] -->
+    AssessOutcome["2. 评估整体功能结果<br>是否满足tasks.md中的所有需求？是否成功？"] -->
+    AnalyzePlan["3. 分析规划阶段有效性<br>planning-comprehensive.mdc指导是否有效？计划是否准确？范围蔓延？"] -->
+    AnalyzeCreative["4. 分析创意阶段有效性<br>设计决策是否合理？是否很好地转化为实施？问题？"] -->
+    AnalyzeImpl["5. 分析实施阶段<br>什么进展顺利？挑战？瓶颈？是否遵循设计/样式指南？"] -->
+    AnalyzeTesting["6. 分析测试阶段<br>测试是否充分？发布后发现的错误（如适用）？测试覆盖率是否合适？"] -->
+    IdentifyLessons["7. 识别关键经验教训<br>（技术、流程、团队合作、估算）"] -->
+    ProposeImprovements["8. 提出可行的改进建议<br>用于未来的三级功能开发"] -->
+    DraftReflectionDoc["9. 起草 `reflection-[feature_id].md`<br>使用结构化模板"] -->
+    FinalizeReflection["10. 完成并保存反思文档"] -->
+    UpdateTasksStatus["11. 更新 `tasks.md`<br>标记三级反思完成"] -->
+    ReflectionDone["三级反思完成<br>准备进入归档模式"]
 
     style StartReflect fill:#ba68c8,stroke:#9c27b0
     style ReflectionDone fill:#d1c4e9,stroke:#b39ddb
-````
+```
 
-## 📝 Structure for `memory-bank/reflection-[feature_id].md`
+## 📝 `memory-bank/reflection-[feature_id].md` 结构
 
-  * **Feature Name & ID:**
-  * **Date of Reflection:**
-  * **Brief Feature Summary:** (What was built?)
-  * **1. Overall Outcome & Requirements Alignment:**
-      * How well did the final feature meet the initial requirements?
-      * Were there any deviations from the original scope? If so, why?
-      * What is the overall assessment of the feature's success?
-  * **2. Planning Phase Review:**
-      * How effective was the guidance from `Level3/planning-comprehensive.mdc`?
-      * Was the initial plan in `tasks.md` (component breakdown, strategy, risks) accurate and helpful?
-      * What could have been planned better? Were estimations (if made) accurate?
-  * **3. Creative Phase(s) Review (if applicable):**
-      * Were the right aspects flagged for CREATIVE mode?
-      * How effective were the design decisions made in `creative-*.md` documents?
-      * Did these designs translate well into practical implementation? Any friction points?
-      * Was `memory-bank/style-guide.md` clear and sufficient for UI aspects?
-  * **4. Implementation Phase Review:**
-      * What were the major successes during implementation? (e.g., efficient module development, good use of libraries)
-      * What were the biggest challenges or roadblocks? How were they overcome?
-      * Were there any unexpected technical difficulties or complexities?
-      * How was adherence to the style guide and coding standards?
-  * **5. Testing Phase Review:**
-      * Was the testing strategy (unit, integration, E2E for the feature) effective?
-      * Did testing uncover significant issues early enough?
-      * What could improve the testing process for similar features?
-  * **6. What Went Well? (Highlight 3-5 key positives across all phases for this feature)**
-  * **7. What Could Have Been Done Differently? (Identify 3-5 areas for improvement)**
-  * **8. Key Lessons Learned:**
-      * **Technical:** New insights about technologies, patterns, or architecture used for this feature.
-      * **Process:** Insights about the L3 workflow, communication, task management.
-      * **Estimation (if applicable):** Lessons about estimating work for features of this scale.
-  * **9. Actionable Improvements for Future L3 Features:** (Specific suggestions)
+  * **功能名称和ID：**
+  * **反思日期：**
+  * **功能简要总结：**（构建了什么？）
+  * **1. 整体结果和需求对齐：**
+      * 最终功能在多大程度上满足了初始需求？
+      * 是否偏离了原始范围？如果是，为什么？
+      * 对功能成功的整体评估是什么？
+  * **2. 规划阶段回顾：**
+      * `Level3/planning-comprehensive.mdc` 的指导有多有效？
+      * `tasks.md` 中的初始计划（组件分解、策略、风险）是否准确和有用？
+      * 什么可以规划得更好？估算（如果有）是否准确？
+  * **3. 创意阶段回顾（如适用）：**
+      * 是否为创意模式标记了正确的方面？
+      * 在 `creative-*.md` 文档中做出的设计决策有多有效？
+      * 这些设计是否很好地转化为实际实施？有摩擦点吗？
+      * `memory-bank/style-guide.md` 对UI方面是否清晰和充分？
+  * **4. 实施阶段回顾：**
+      * 实施期间的主要成功是什么？（例如，高效的模块开发、良好的库使用）
+      * 最大的挑战或障碍是什么？如何克服的？
+      * 是否有意外的技术困难或复杂性？
+      * 对样式指南和编码标准的遵循情况如何？
+  * **5. 测试阶段回顾：**
+      * 测试策略（单元、集成、功能的端到端）是否有效？
+      * 测试是否足够早地发现了重大问题？
+      * 什么可以改进类似功能的测试流程？
+  * **6. 什么进展顺利？（突出显示此功能所有阶段的3-5个关键积极点）**
+  * **7. 什么可以做得不同？（识别3-5个改进领域）**
+  * **8. 关键经验教训：**
+      * **技术：** 关于此功能使用的技术、模式或架构的新见解。
+      * **流程：** 关于三级工作流程、沟通、任务管理的见解。
+      * **估算（如适用）：** 关于估算此规模功能工作的经验教训。
+  * **9. 未来三级功能的可行改进：**（具体建议）
 
-## 🎯 Focus Areas for L3 Reflection
+## 🎯 三级反思的重点领域
 
-  * **Feature Scope Management:** Was the scope well-defined and managed?
-  * **Integration Complexity:** Challenges or successes in integrating the feature with the existing application.
-  * **Design-to-Implementation Fidelity:** How closely did the final product match the designs?
-  * **Cross-Component Impact:** Understanding the ripple effects of the feature.
+  * **功能范围管理：** 范围是否定义明确并得到管理？
+  * **集成复杂性：** 将功能与现有应用程序集成的挑战或成功。
+  * **设计到实施的保真度：** 最终产品与设计的匹配程度如何？
+  * **跨组件影响：** 理解功能的连锁反应。

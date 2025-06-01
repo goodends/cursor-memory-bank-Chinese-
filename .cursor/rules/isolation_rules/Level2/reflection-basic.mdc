@@ -3,176 +3,175 @@ description: Basic reflection format for Level 2 Simple Enhancement tasks
 globs: "**/level2/**", "**/reflection/**"
 alwaysApply: false
 ---
+# 级别2任务的基本反思
 
-# BASIC REFLECTION FOR LEVEL 2 TASKS
+> **简要说明：** 本文档概述了级别2（简单增强）任务的基本反思方法，确保在不产生不必要开销的情况下捕获关键见解和经验教训。
 
-> **TL;DR:** This document outlines a basic reflection approach for Level 2 (Simple Enhancement) tasks, ensuring that key insights and lessons are captured without unnecessary overhead.
+## 🔍 反思概述
 
-## 🔍 REFLECTION OVERVIEW
+反思对于改进未来工作至关重要，即使对于较简单的级别2增强也是如此。这种基本反思方法专注于关键结果、挑战和经验教训，同时保持效率。
 
-Reflection is essential for improving future work, even for simpler Level 2 enhancements. This basic reflection approach focuses on key outcomes, challenges, and lessons learned while maintaining efficiency.
+## 📋 反思原则
 
-## 📋 REFLECTION PRINCIPLES
+1. **诚实性**: 准确表示成功和挑战
+2. **具体性**: 包含具体示例和观察
+3. **洞察力**: 超越表面观察，得出有用见解
+4. **改进**: 专注于未来工作的可行收获
+5. **效率**: 保持反思简洁，专注于关键学习
 
-1. **Honesty**: Accurately represent successes and challenges
-2. **Specificity**: Include concrete examples and observations
-3. **Insight**: Go beyond surface observations to derive useful insights
-4. **Improvement**: Focus on actionable takeaways for future work
-5. **Efficiency**: Keep reflection concise and focused on key learnings
-
-## 📋 BASIC REFLECTION STRUCTURE
+## 📋 基本反思结构
 
 ```markdown
-# Level 2 Enhancement Reflection: [Feature Name]
+# 级别2增强反思: [功能名称]
 
-## Enhancement Summary
-[Brief one-paragraph summary of the enhancement]
+## 增强摘要
+[增强的简要一段摘要]
 
-## What Went Well
-- [Specific success point 1]
-- [Specific success point 2]
-- [Specific success point 3]
+## 进展顺利的方面
+- [具体成功点 1]
+- [具体成功点 2]
+- [具体成功点 3]
 
-## Challenges Encountered
-- [Specific challenge 1]
-- [Specific challenge 2]
-- [Specific challenge 3]
+## 遇到的挑战
+- [具体挑战 1]
+- [具体挑战 2]
+- [具体挑战 3]
 
-## Solutions Applied
-- [Solution to challenge 1]
-- [Solution to challenge 2]
-- [Solution to challenge 3]
+## 应用的解决方案
+- [挑战1的解决方案]
+- [挑战2的解决方案]
+- [挑战3的解决方案]
 
-## Key Technical Insights
-- [Technical insight 1]
-- [Technical insight 2]
-- [Technical insight 3]
+## 关键技术见解
+- [技术见解 1]
+- [技术见解 2]
+- [技术见解 3]
 
-## Process Insights
-- [Process insight 1]
-- [Process insight 2]
-- [Process insight 3]
+## 流程见解
+- [流程见解 1]
+- [流程见解 2]
+- [流程见解 3]
 
-## Action Items for Future Work
-- [Specific action item 1]
-- [Specific action item 2]
-- [Specific action item 3]
+## 未来工作的行动项目
+- [具体行动项目 1]
+- [具体行动项目 2]
+- [具体行动项目 3]
 
-## Time Estimation Accuracy
-- Estimated time: [X hours/days]
-- Actual time: [Y hours/days]
-- Variance: [Z%]
-- Reason for variance: [Brief explanation]
+## 时间估算准确性
+- 估算时间: [X小时/天]
+- 实际时间: [Y小时/天]
+- 差异: [Z%]
+- 差异原因: [简要解释]
 ```
 
-## 📋 REFLECTION QUALITY
+## 📋 反思质量
 
-High-quality reflections for Level 2 tasks should:
+级别2任务的高质量反思应该：
 
-1. **Provide specific examples** rather than vague statements
-2. **Identify concrete takeaways** not general observations
-3. **Connect challenges to solutions** with clear reasoning
-4. **Analyze estimation accuracy** to improve future planning
-5. **Generate actionable improvements** for future work
+1. **提供具体示例**而不是模糊陈述
+2. **识别具体收获**而不是一般观察
+3. **将挑战与解决方案联系**并有清晰推理
+4. **分析估算准确性**以改进未来规划
+5. **产生可行的改进**用于未来工作
 
-## 📋 REFLECTION PROCESS
+## 📋 反思流程
 
-Follow these steps for effective Level 2 task reflection:
+按照这些步骤进行有效的级别2任务反思：
 
-1. **Schedule Reflection**:
-   - Allocate dedicated time for reflection
-   - Complete reflection within 24 hours of task completion
+1. **安排反思**:
+   - 为反思分配专门时间
+   - 在任务完成后24小时内完成反思
 
-2. **Gather Information**:
-   - Review the original task requirements
-   - Examine implementation details
-   - Consider challenges encountered
-   - Review time tracking data
+2. **收集信息**:
+   - 回顾原始任务需求
+   - 检查实现细节
+   - 考虑遇到的挑战
+   - 回顾时间跟踪数据
 
-3. **Complete Template**:
-   - Fill in all sections of the reflection template
-   - Include specific, concrete examples
-   - Be honest about challenges
+3. **完成模板**:
+   - 填写反思模板的所有部分
+   - 包含具体、具体的示例
+   - 对挑战要诚实
 
-4. **Extract Insights**:
-   - Identify patterns in challenges
-   - Connect challenges to potential future improvements
-   - Consider process improvements
+4. **提取见解**:
+   - 识别挑战中的模式
+   - 将挑战与潜在的未来改进联系
+   - 考虑流程改进
 
-5. **Document Action Items**:
-   - Create specific, actionable improvements
-   - Link these to future tasks where applicable
+5. **记录行动项目**:
+   - 创建具体、可行的改进
+   - 在适用的地方将这些链接到未来任务
 
-6. **Store Reflection**:
-   - Save reflection with the task archive
-   - Add cross-references to relevant documents
+6. **存储反思**:
+   - 将反思与任务归档一起保存
+   - 向相关文档添加交叉引用
 
-## 📋 EXAMPLES: VAGUE VS. SPECIFIC ENTRIES
+## 📋 示例: 模糊vs具体条目
 
-### ❌ Vague Entries (Insufficient)
+### ❌ 模糊条目（不充分）
 
-- "The implementation went well."
-- "We had some challenges with the code."
-- "The feature works as expected."
+- "实现进展顺利。"
+- "我们在代码方面遇到了一些挑战。"
+- "功能按预期工作。"
 
-### ✅ Specific Entries (Sufficient)
+### ✅ 具体条目（充分）
 
-- "The modular approach allowed for easy integration with the existing codebase, specifically the clean separation between the UI layer and data processing logic."
-- "Challenge: The state management became complex when handling multiple user interactions. Solution: Implemented a more structured reducer pattern with clear actions and state transitions."
-- "Action Item: Create a reusable component for file selection that handles all the edge cases we encountered in this implementation."
+- "模块化方法允许与现有代码库轻松集成，特别是UI层和数据处理逻辑之间的清晰分离。"
+- "挑战：处理多个用户交互时状态管理变得复杂。解决方案：实现了更结构化的reducer模式，具有清晰的操作和状态转换。"
+- "行动项目：为文件选择创建可重用组件，处理我们在此实现中遇到的所有边缘情况。"
 
-## 📋 REFLECTION VERIFICATION CHECKLIST
-
-```
-✓ REFLECTION VERIFICATION
-- All template sections completed? [YES/NO]
-- Specific examples provided? [YES/NO]
-- Challenges honestly addressed? [YES/NO]
-- Concrete solutions documented? [YES/NO]
-- Actionable insights generated? [YES/NO]
-- Time estimation analyzed? [YES/NO]
-
-→ If all YES: Reflection complete
-→ If any NO: Improve reflection quality
-```
-
-## 📋 MINIMAL MODE REFLECTION
-
-For minimal mode, use this format:
+## 📋 反思验证检查清单
 
 ```
-✓ REFLECTION: [Feature Name]
-✓ WENT WELL: [Key success]
-✓ CHALLENGE: [Key challenge]
-✓ SOLUTION: [Key solution]
-✓ INSIGHT: [Most important takeaway]
-✓ ACTION: [Top priority action item]
-✓ TIME: Est [X] vs. Actual [Y] ([Z%] variance)
+✓ 反思验证
+- 所有模板部分已完成? [是/否]
+- 提供了具体示例? [是/否]
+- 诚实地处理了挑战? [是/否]
+- 记录了具体解决方案? [是/否]
+- 产生了可行见解? [是/否]
+- 分析了时间估算? [是/否]
+
+→ 如果全部是: 反思完成
+→ 如果有否: 改进反思质量
 ```
 
-## 🔄 INTEGRATION WITH MEMORY BANK
+## 📋 最小模式反思
 
-Reflection integrates with Memory Bank:
+对于最小模式，使用此格式：
+
+```
+✓ 反思: [功能名称]
+✓ 进展顺利: [关键成功]
+✓ 挑战: [关键挑战]
+✓ 解决方案: [关键解决方案]
+✓ 见解: [最重要的收获]
+✓ 行动: [最高优先级行动项目]
+✓ 时间: 估算[X] vs. 实际[Y] ([Z%]差异)
+```
+
+## 🔄 与Memory Bank的集成
+
+反思与Memory Bank集成：
 
 ```mermaid
 graph TD
-    Reflection["Enhancement<br>Reflection"] --> Archive["Add to<br>Archive"]
-    Reflection --> ProgressUpdate["Update<br>progress.md"]
-    Reflection --> ActionItems["Document<br>Action Items"]
+    Reflection["增强<br>反思"] --> Archive["添加到<br>归档"]
+    Reflection --> ProgressUpdate["更新<br>progress.md"]
+    Reflection --> ActionItems["记录<br>行动项目"]
     
-    ActionItems --> Tasks["Add to<br>tasks.md"]
-    Archive & ProgressUpdate & Tasks --> CrossLinks["Create<br>Cross-Links"]
+    ActionItems --> Tasks["添加到<br>tasks.md"]
+    Archive & ProgressUpdate & Tasks --> CrossLinks["创建<br>交叉链接"]
 ```
 
-## 🚨 CONTINUOUS IMPROVEMENT PRINCIPLE
+## 🚨 持续改进原则
 
-Remember:
+记住：
 
 ```
 ┌─────────────────────────────────────────────────────┐
-│ Every reflection should produce at least ONE        │
-│ actionable improvement for future work.             │
+│ 每次反思都应该为未来工作产生至少一个                 │
+│ 可行的改进。                                       │
 └─────────────────────────────────────────────────────┘
 ```
 
-This ensures that reflection directly contributes to ongoing improvement of both the product and the process. 
+这确保反思直接有助于产品和流程的持续改进。 

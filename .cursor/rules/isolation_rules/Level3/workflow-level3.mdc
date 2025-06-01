@@ -3,33 +3,32 @@ description: Defines the standard workflow for Level 3 (Intermediate Feature) ta
 globs: workflow-level3.mdc
 alwaysApply: false
 ---
+# 三级工作流程：中级功能开发
 
-# LEVEL 3 WORKFLOW: INTERMEDIATE FEATURE DEVELOPMENT
+> **简要说明：** 本文档概述了三级（中级功能）任务的结构化工作流程。这些任务涉及开发可能跨越多个组件的重要新功能，需要全面规划，通常需要有针对性的创意设计阶段，然后是系统实施、深入反思和功能特定归档。此工作流程在详细流程与中等复杂功能的效率之间取得平衡。
 
-> **TL;DR:** This document outlines a structured workflow for Level 3 (Intermediate Feature) tasks. These tasks involve developing significant new functionality that may span multiple components, requiring comprehensive planning, often necessitating targeted creative design phases, followed by systematic implementation, in-depth reflection, and feature-specific archiving. This workflow balances detailed process with efficiency for moderately complex features.
+## 🔍 三级工作流程概述
 
-## 🔍 LEVEL 3 WORKFLOW OVERVIEW
-
-Level 3 tasks represent a significant development effort, building a complete feature. The workflow ensures adequate planning, design for key aspects, and methodical execution.
+三级任务代表重要的开发工作，构建完整的功能。工作流程确保充分的规划、关键方面的设计和有条不紊的执行。
 
 ```mermaid
 graph LR
-    Init["1. INITIALIZATION<br>(VAN Mode Output)"] -->
-    DocSetup["2. DOCUMENTATION SETUP"] -->
-    Plan["3. FEATURE PLANNING (PLAN Mode)"] -->
-    Creative["4. CREATIVE PHASES (CREATIVE Mode)"] -->
-    Impl["5. IMPLEMENTATION (IMPLEMENT Mode)"] -->
-    Reflect["6. REFLECTION (REFLECT Mode)"] -->
-    Archive["7. ARCHIVING (ARCHIVE Mode)"]
+    Init["1. 初始化<br>(VAN模式输出)"] -->
+    DocSetup["2. 文档设置"] -->
+    Plan["3. 功能规划 (PLAN模式)"] -->
+    Creative["4. 创意阶段 (CREATIVE模式)"] -->
+    Impl["5. 实施 (IMPLEMENT模式)"] -->
+    Reflect["6. 反思 (REFLECT模式)"] -->
+    Archive["7. 归档 (ARCHIVE模式)"]
 
-    %% Document connections for each phase (conceptual links to mode guidance)
-    Init -.-> InitDocs["Core Rules & L3 Confirmation"]
-    DocSetup -.-> DocSetupDocs["Memory Bank Setup for L3"]
-    Plan -.-> PlanDocs["Comprehensive Feature Plan"]
-    Creative -.-> CreativeDocs["Targeted Design Documents"]
-    Impl -.-> ImplDocs["Feature Implementation & Testing"]
-    Reflect -.-> ReflectDocs["In-depth Feature Reflection"]
-    Archive -.-> ArchiveDocs["Feature Archive Package"]
+    %% 每个阶段的文档连接（到模式指导的概念链接）
+    Init -.-> InitDocs["核心规则和三级确认"]
+    DocSetup -.-> DocSetupDocs["三级记忆库设置"]
+    Plan -.-> PlanDocs["全面功能计划"]
+    Creative -.-> CreativeDocs["有针对性的设计文档"]
+    Impl -.-> ImplDocs["功能实施和测试"]
+    Reflect -.-> ReflectDocs["深入功能反思"]
+    Archive -.-> ArchiveDocs["功能归档包"]
 
     style Init fill:#a1c4fd,stroke:#669df6
     style DocSetup fill:#b3e5fc,stroke:#81d4fa
@@ -38,25 +37,25 @@ graph LR
     style Impl fill:#ffcdd2,stroke:#ef9a9a
     style Reflect fill:#d1c4e9,stroke:#b39ddb
     style Archive fill:#cfd8dc,stroke:#b0bec5
-````
+```
 
-Level 3 tasks typically involve creating a new, distinct feature or making substantial modifications to an existing one that affects multiple parts of the application.
+三级任务通常涉及创建新的、独特的功能或对影响应用程序多个部分的现有功能进行重大修改。
 
-## 🔄 LEVEL TRANSITION HANDLING (Within Level 3 Workflow)
+## 🔄 级别转换处理（在三级工作流程内）
 
 ```mermaid
 graph TD
-    L3["Level 3 Task In Progress"] --> Assess["Continuous Assessment<br>During PLAN or early IMPLEMENT"]
+    L3["进行中的三级任务"] --> Assess["持续评估<br>在计划或早期实施期间"]
 
-    Assess --> Up["Upgrade to<br>Level 4?"]
-    Assess --> Down["Downgrade to<br>Level 2?"]
-    Assess --> MaintainL3["Maintain<br>Level 3"]
+    Assess --> Up["升级到<br>四级？"]
+    Assess --> Down["降级到<br>二级？"]
+    Assess --> MaintainL3["保持<br>三级"]
 
-    Up --> L4Trigger["Triggers:<br>- Unforeseen system-wide impact<br>- Requires deep architectural changes<br>- Scope significantly larger than planned"]
-    Down --> L2Trigger["Triggers:<br>- Feature simpler than anticipated<br>- Very limited component interaction<br>- No complex design decisions emerge"]
+    Up --> L4Trigger["触发条件：<br>- 意外的系统级影响<br>- 需要深度架构变更<br>- 范围明显大于计划"]
+    Down --> L2Trigger["触发条件：<br>- 功能比预期简单<br>- 组件交互非常有限<br>- 没有复杂设计决策出现"]
 
-    L4Trigger --> L4Switch["Stop L3 Workflow.<br>Re-initialize task as Level 4 (VAN).<br>Preserve existing docs as input."]
-    L2Trigger --> L2Switch["Adapt L3 Workflow:<br>Simplify remaining phases,<br>use L2 Reflection/Archive rules."]
+    L4Trigger --> L4Switch["停止三级工作流程。<br>重新初始化为四级任务（VAN）。<br>保留现有文档作为输入。"]
+    L2Trigger --> L2Switch["调整三级工作流程：<br>简化剩余阶段，<br>使用二级反思/归档规则。"]
     
     style Assess fill:#ffe082,stroke:#ffca28
     style Up fill:#ef9a9a,stroke:#e57373
@@ -64,263 +63,261 @@ graph TD
     style MaintainL3 fill:#b3e5fc,stroke:#81d4fa
 ```
 
-## 📋 WORKFLOW PHASES
+## 📋 工作流程阶段
 
-### Phase 1: INITIALIZATION (Output from VAN Mode)
+### 阶段1：初始化（VAN模式输出）
 
-This phase is largely completed in VAN mode, which identifies the task as Level 3.
+此阶段主要在VAN模式中完成，该模式将任务识别为三级。
 
-  * **Input:** User request leading to an "Intermediate Feature" classification.
-  * **Key Existing Files (from VAN):**
-      * `memory-bank/tasks.md`: Entry created, complexity set to Level 3.
-      * `memory-bank/activeContext.md`: Initial context set.
-      * Relevant Core Rules loaded (e.g., `Core/memory-bank-paths.mdc`, `Core/main-optimized.mdc`).
-  * **Steps within this Workflow File (Confirmation):**
-    1.  Confirm task is Level 3 by checking `memory-bank/tasks.md`.
-    2.  Ensure core Memory Bank structure and paths are known (AI should have internalized from `main` rule).
-  * **Milestone Checkpoint:**
+  * **输入：** 导致"中级功能"分类的用户请求。
+  * **关键现有文件（来自VAN）：**
+      * `memory-bank/tasks.md`：已创建条目，复杂性设置为三级。
+      * `memory-bank/activeContext.md`：已设置初始上下文。
+      * 已加载相关核心规则（例如，`Core/memory-bank-paths.mdc`、`Core/main-optimized.mdc`）。
+  * **此工作流程文件内的步骤（确认）：**
+    1.  通过检查 `memory-bank/tasks.md` 确认任务为三级。
+    2.  确保了解核心记忆库结构和路径（AI应该从 `main` 规则中内化）。
+  * **里程碑检查点：**
     ```
-    ✓ INITIALIZATION CONFIRMED (L3)
-    - Task correctly identified as Level 3 in tasks.md? [YES/NO]
-    - Core Memory Bank files (tasks.md, activeContext.md) accessible via canonical paths? [YES/NO]
+    ✓ 初始化确认（三级）
+    - 任务在tasks.md中正确识别为三级？ [是/否]
+    - 核心记忆库文件（tasks.md、activeContext.md）可通过规范路径访问？ [是/否]
 
-    → If all YES: Proceed to Documentation Setup for L3.
-    → If any NO: Revisit VAN mode or core file setup.
+    → 如果全部为是：进入三级文档设置。
+    → 如果有否：重新访问VAN模式或核心文件设置。
     ```
 
-### Phase 2: DOCUMENTATION SETUP (L3 Specific)
+### 阶段2：文档设置（三级特定）
 
-Prepare the Memory Bank for a Level 3 feature.
+为三级功能准备记忆库。
 
 ```mermaid
 graph TD
-    StartDoc["Begin L3 Documentation<br>Setup"] --> LoadL3PlanTrack["Load L3 Planning & Tracking Rules<br>Level3/planning-comprehensive.mdc<br>Level3/task-tracking-intermediate.mdc"]
-    LoadL3PlanTrack --> UpdateBrief["Review/Update `projectbrief.md`<br>Ensure feature aligns with overall project goals"]
-    UpdateBrief --> UpdateActiveCtx["Update `activeContext.md`<br>Set focus to L3 Feature Planning"]
-    UpdateActiveCtx --> PrepTaskFile["Prepare `tasks.md` for<br>Comprehensive Feature Plan sections"]
-    PrepTaskFile --> DocSetupComplete["L3 Documentation<br>Setup Complete"]
+    StartDoc["开始三级文档<br>设置"] --> LoadL3PlanTrack["加载三级规划和跟踪规则<br>Level3/planning-comprehensive.mdc<br>Level3/task-tracking-intermediate.mdc"]
+    LoadL3PlanTrack --> UpdateBrief["回顾/更新 `projectbrief.md`<br>确保功能与整体项目目标一致"]
+    UpdateBrief --> UpdateActiveCtx["更新 `activeContext.md`<br>将焦点设置为三级功能规划"]
+    UpdateActiveCtx --> PrepTaskFile["为 `tasks.md` 准备<br>全面功能计划部分"]
+    PrepTaskFile --> DocSetupComplete["三级文档<br>设置完成"]
 
     style StartDoc fill:#b3e5fc,stroke:#81d4fa
     style DocSetupComplete fill:#81d4fa,stroke:#4fc3f7
 ```
 
-  * **Steps:**
-    1.  Load Level 3 specific planning (`Level3/planning-comprehensive.mdc`) and task tracking (`Level3/task-tracking-intermediate.mdc`) rules.
-    2.  Review `memory-bank/projectbrief.md`: Briefly note the new feature if it impacts the overall brief.
-    3.  Update `memory-bank/activeContext.md`: Set current focus to "Level 3 Feature Planning: [Feature Name]".
-    4.  Ensure `memory-bank/tasks.md` is ready for the detailed planning sections outlined in `Level3/planning-comprehensive.mdc`.
-  * **Milestone Checkpoint:**
+  * **步骤：**
+    1.  加载三级特定规划（`Level3/planning-comprehensive.mdc`）和任务跟踪（`Level3/task-tracking-intermediate.mdc`）规则。
+    2.  回顾 `memory-bank/projectbrief.md`：如果新功能影响整体简介，简要记录。
+    3.  更新 `memory-bank/activeContext.md`：将当前焦点设置为"三级功能规划：[功能名称]"。
+    4.  确保 `memory-bank/tasks.md` 准备好接受 `Level3/planning-comprehensive.mdc` 中概述的详细规划部分。
+  * **里程碑检查点：**
     ```
-    ✓ L3 DOCUMENTATION SETUP CHECKPOINT
-    - L3 Planning & Tracking rules loaded? [YES/NO]
-    - projectbrief.md reviewed/updated for feature context? [YES/NO]
-    - activeContext.md reflects focus on L3 feature planning? [YES/NO]
-    - tasks.md prepared for detailed L3 plan? [YES/NO]
+    ✓ 三级文档设置检查点
+    - 三级规划和跟踪规则已加载？ [是/否]
+    - projectbrief.md已回顾/更新功能上下文？ [是/否]
+    - activeContext.md反映了对三级功能规划的关注？ [是/否]
+    - tasks.md已准备好详细的三级计划？ [是/否]
 
-    → If all YES: Proceed to Feature Planning.
-    → If any NO: Complete documentation setup steps.
+    → 如果全部为是：进入功能规划。
+    → 如果有否：完成文档设置步骤。
     ```
 
-### Phase 3: FEATURE PLANNING (PLAN Mode)
+### 阶段3：功能规划（PLAN模式）
 
-Guided by `visual-maps/plan-mode-map.mdc` and using `Level3/planning-comprehensive.mdc` and `Level3/task-tracking-intermediate.mdc`.
+由 `visual-maps/plan-mode-map.mdc` 指导，使用 `Level3/planning-comprehensive.mdc` 和 `Level3/task-tracking-intermediate.mdc`。
 
 ```mermaid
 graph TD
-    StartPlan["Begin L3 Feature<br>Planning"] --> ReqDef["Define Detailed<br>Requirements (Functional & Non-Functional)"]
-    ReqDef --> CompAnalysis["Component Analysis<br>(New & Affected Components, Interactions)"]
-    CompAnalysis --> ImplStrategy["Develop Implementation<br>Strategy & High-Level Steps"]
-    ImplStrategy --> DepRiskMgmt["Identify Dependencies,<br>Risks, & Mitigations"]
-    DepRiskMgmt --> CreativeFlag["Flag Aspects for<br>CREATIVE Mode (UI, Arch, Algo)"]
-    CreativeFlag --> UpdateTasks["Update `tasks.md` with<br>Full L3 Feature Plan"]
-    UpdateTasks --> PlanComplete["L3 Feature Planning<br>Complete"]
+    StartPlan["开始三级功能<br>规划"] --> ReqDef["定义详细<br>需求（功能和非功能）"]
+    ReqDef --> CompAnalysis["组件分析<br>（新组件和受影响组件、交互）"]
+    CompAnalysis --> ImplStrategy["制定实施<br>策略和高级步骤"]
+    ImplStrategy --> DepRiskMgmt["识别依赖关系、<br>风险和缓解措施"]
+    DepRiskMgmt --> CreativeFlag["为创意模式标记方面<br>（UI、架构、算法）"]
+    CreativeFlag --> UpdateTasks["用完整的三级功能计划<br>更新 `tasks.md`"]
+    UpdateTasks --> PlanComplete["三级功能规划<br>完成"]
 
     style StartPlan fill:#c8e6c9,stroke:#a5d6a7
     style PlanComplete fill:#a5d6a7,stroke:#81c784
 ```
 
-  * **Steps:**
-    1.  Define detailed functional and non-functional requirements for the feature.
-    2.  Perform component analysis: identify new components to build and existing ones that will be modified. Map their interactions.
-    3.  Develop an implementation strategy: outline the main steps or stages for building the feature.
-    4.  Identify dependencies (technical, data, other features) and potential risks, along with mitigation ideas.
-    5.  **Critical for L3:** Explicitly identify and flag parts of the feature that require CREATIVE mode (e.g., specific UI/UX challenges, new architectural patterns for the feature, complex algorithms).
-    6.  Document the complete plan (requirements, components, strategy, dependencies, risks, creative flags) in `memory-bank/tasks.md` under the Level 3 feature task entry.
-  * **Milestone Checkpoint:**
+  * **步骤：**
+    1.  为功能定义详细的功能和非功能需求。
+    2.  执行组件分析：识别要构建的新组件和将被修改的现有组件。映射它们的交互。
+    3.  制定实施策略：概述构建功能的主要步骤或阶段。
+    4.  识别依赖关系（技术、数据、其他功能）和潜在风险，以及缓解想法。
+    5.  **对三级至关重要：** 明确识别并标记功能中需要创意模式的部分（例如，特定的UI/UX挑战、功能的新架构模式、复杂算法）。
+    6.  在 `memory-bank/tasks.md` 的三级功能任务条目下记录完整计划（需求、组件、策略、依赖关系、风险、创意标记）。
+  * **里程碑检查点：**
     ```
-    ✓ L3 FEATURE PLANNING CHECKPOINT
-    - Detailed requirements documented in tasks.md? [YES/NO]
-    - Component analysis (new/affected, interactions) complete? [YES/NO]
-    - Implementation strategy outlined? [YES/NO]
-    - Dependencies and risks documented? [YES/NO]
-    - Aspects needing CREATIVE mode explicitly flagged in tasks.md? [YES/NO]
-    - tasks.md comprehensively updated with the feature plan? [YES/NO]
+    ✓ 三级功能规划检查点
+    - 详细需求已在tasks.md中记录？ [是/否]
+    - 组件分析（新/受影响、交互）完成？ [是/否]
+    - 实施策略已概述？ [是/否]
+    - 依赖关系和风险已记录？ [是/否]
+    - 需要创意模式的方面已在tasks.md中明确标记？ [是/否]
+    - tasks.md已全面更新功能计划？ [是/否]
 
-    → If all YES: Proceed to CREATIVE Phases (if flagged) or IMPLEMENTATION.
-    → If any NO: Complete planning steps.
+    → 如果全部为是：进入创意阶段（如果已标记）或实施。
+    → 如果有否：完成规划步骤。
     ```
 
-### Phase 4: CREATIVE PHASES (CREATIVE Mode)
+### 阶段4：创意阶段（CREATIVE模式）
 
-Triggered if aspects were flagged in the PLAN phase. Guided by `visual-maps/creative-mode-map.mdc` and `Phases/CreativePhase/*.mdc` rules.
+如果在计划阶段标记了方面则触发。由 `visual-maps/creative-mode-map.mdc` 和 `Phases/CreativePhase/*.mdc` 规则指导。
 
 ```mermaid
 graph TD
-    StartCreative["Begin L3 Creative<br>Phases (If Needed)"] --> SelectAspect["Select Flagged Aspect<br>from `tasks.md`"]
-    SelectAspect --> DesignExplore["Explore Design/Arch Options<br>(Use relevant creative-phase-*.mdc rules)"]
-    DesignExplore --> DecideDocument["Make & Document Decision<br>in `creative-[aspect_name].md`"]
-    DecideDocument --> UpdateTasksCreative["Update `tasks.md` with<br>Decision Summary & Link"]
-    UpdateTasksCreative --> MoreAspects{"More Flagged<br>Aspects?"}
-    MoreAspects -- Yes --> SelectAspect
-    MoreAspects -- No --> CreativeComplete["L3 Creative Phases<br>Complete"]
+    StartCreative["开始三级创意<br>阶段（如果需要）"] --> SelectAspect["从 `tasks.md` 中<br>选择标记的方面"]
+    SelectAspect --> DesignExplore["探索设计/架构选项<br>（使用相关的creative-phase-*.mdc规则）"]
+    DesignExplore --> DecideDocument["做出并记录决策<br>在 `creative-[aspect_name].md` 中"]
+    DecideDocument --> UpdateTasksCreative["用决策摘要和链接<br>更新 `tasks.md`"]
+    UpdateTasksCreative --> MoreAspects{"还有更多标记的<br>方面？"}
+    MoreAspects -- 是 --> SelectAspect
+    MoreAspects -- 否 --> CreativeComplete["三级创意阶段<br>完成"]
 
     style StartCreative fill:#ffd8b2,stroke:#ffcc80
     style CreativeComplete fill:#ffcc80,stroke:#ffb74d
 ```
 
-  * **Steps:**
-    1.  For each aspect flagged in `tasks.md` for creative exploration:
-        a.  Load relevant `creative-phase-*.mdc` rule (e.g., UI/UX, architecture).
-        b.  Define the problem, explore options, analyze trade-offs.
-        c.  Make a design decision and document it with rationale in a new `memory-bank/creative-[aspect_name].md` file.
-        d.  Update `tasks.md`: mark the creative sub-task as complete and link to the decision document.
-  * **Milestone Checkpoint:**
+  * **步骤：**
+    1.  对于在 `tasks.md` 中标记进行创意探索的每个方面：
+        a.  加载相关的 `creative-phase-*.mdc` 规则（例如，UI/UX、架构）。
+        b.  定义问题，探索选项，分析权衡。
+        c.  做出设计决策并在新的 `memory-bank/creative-[aspect_name].md` 文件中记录理由。
+        d.  更新 `tasks.md`：将创意子任务标记为完成并链接到决策文档。
+  * **里程碑检查点：**
     ```
-    ✓ L3 CREATIVE PHASES CHECKPOINT
-    - All flagged aspects from PLAN phase addressed? [YES/NO]
-    - Design decisions documented in respective `memory-bank/creative-*.md` files? [YES/NO]
-    - Rationale for decisions clearly stated? [YES/NO]
-    - tasks.md updated to reflect completion of creative sub-tasks and links to decision docs? [YES/NO]
+    ✓ 三级创意阶段检查点
+    - 计划阶段的所有标记方面都已处理？ [是/否]
+    - 设计决策已在各自的 `memory-bank/creative-*.md` 文件中记录？ [是/否]
+    - 决策理由已清楚说明？ [是/否]
+    - tasks.md已更新以反映创意子任务的完成和决策文档的链接？ [是/否]
 
-    → If all YES: Proceed to Implementation.
-    → If any NO: Complete creative phase work.
+    → 如果全部为是：进入实施。
+    → 如果有否：完成创意阶段工作。
     ```
 
-### Phase 5: IMPLEMENTATION (IMPLEMENT Mode)
+### 阶段5：实施（IMPLEMENT模式）
 
-Guided by `visual-maps/implement-mode-map.mdc` and `Level3/implementation-L3.mdc`.
+由 `visual-maps/implement-mode-map.mdc` 和 `Level3/implementation-L3.mdc` 指导。
 
 ```mermaid
 graph TD
-    StartImpl["Begin L3 Feature<br>Implementation"] --> ReviewPlanDesign["Review Plan (`tasks.md`)<br>& Creative Docs (`creative-*.md`)"]
-    ReviewPlanDesign --> SetupDevEnv["Setup Dev Environment<br>(Branch, Dependencies, Tools)"]
-    SetupDevEnv --> BuildModules["Implement Feature Modules/Components<br>Iteratively or Sequentially"]
-    BuildModules --> UnitIntegrationTests["Conduct Unit & Integration Tests<br>for Each Module/Feature Part"]
-    UnitIntegrationTests --> StyleAdherence["Ensure Adherence to<br>`memory-bank/style-guide.md`"]
-    StyleAdherence --> UpdateProgressDocs["Regularly Update `tasks.md` (sub-tasks)<br>& `progress.md` (milestones)"]
-    UpdateProgressDocs --> E2EFeatureTest["End-to-End Feature Testing<br>Against Requirements"]
-    E2EFeatureTest --> ImplComplete["L3 Feature Implementation<br>Complete"]
+    StartImpl["开始三级功能<br>实施"] --> ReviewPlanDesign["回顾计划（`tasks.md`）<br>和创意文档（`creative-*.md`）"]
+    ReviewPlanDesign --> SetupDevEnv["设置开发环境<br>（分支、依赖项、工具）"]
+    SetupDevEnv --> BuildModules["迭代或顺序实施<br>功能模块/组件"]
+    BuildModules --> UnitIntegrationTests["对每个模块/功能部分<br>进行单元和集成测试"]
+    UnitIntegrationTests --> StyleAdherence["确保遵循<br>`memory-bank/style-guide.md`"]
+    StyleAdherence --> UpdateProgressDocs["定期更新 `tasks.md`（子任务）<br>和 `progress.md`（里程碑）"]
+    UpdateProgressDocs --> E2EFeatureTest["针对需求进行<br>端到端功能测试"]
+    E2EFeatureTest --> ImplComplete["三级功能实施<br>完成"]
 
     style StartImpl fill:#ffcdd2,stroke:#ef9a9a
     style ImplComplete fill:#ef9a9a,stroke:#e57373
 ```
 
-  * **Steps:**
-    1.  Thoroughly review the feature plan in `memory-bank/tasks.md` and all relevant `memory-bank/creative-*.md` decision documents.
-    2.  Set up the development environment (new branch, install any new dependencies, configure tools).
-    3.  Implement the feature, building out modules/components as planned. Prioritize clean code and adherence to design specifications.
-    4.  Perform unit tests for new logic and integration tests as components are assembled.
-    5.  Ensure all UI elements strictly follow `memory-bank/style-guide.md`.
-    6.  Update `memory-bank/tasks.md` with progress on sub-tasks, and `memory-bank/progress.md` with details of implemented parts, commands used, and any significant findings.
-    7.  Conduct end-to-end testing of the completed feature against its requirements.
-  * **Milestone Checkpoint:**
+  * **步骤：**
+    1.  彻底回顾 `memory-bank/tasks.md` 中的功能计划和所有相关的 `memory-bank/creative-*.md` 决策文档。
+    2.  设置开发环境（新分支、安装任何新依赖项、配置工具）。
+    3.  按计划实施功能，构建模块/组件。优先考虑清洁代码和遵循设计规范。
+    4.  对新逻辑执行单元测试，在组件组装时执行集成测试。
+    5.  确保所有UI元素严格遵循 `memory-bank/style-guide.md`。
+    6.  用子任务进度更新 `memory-bank/tasks.md`，用实施部分的详细信息、使用的命令和任何重要发现更新 `memory-bank/progress.md`。
+    7.  对已完成的功能进行端到端测试，验证其是否符合需求。
+  * **里程碑检查点：**
     ```
-    ✓ L3 IMPLEMENTATION CHECKPOINT
-    - Feature fully implemented as per plan and creative designs? [YES/NO]
-    - All UI elements adhere to `memory-bank/style-guide.md`? [YES/NO]
-    - Unit and integration tests performed and passing? [YES/NO]
-    - End-to-end feature testing successful? [YES/NO]
-    - `tasks.md` and `progress.md` updated with implementation status? [YES/NO]
+    ✓ 三级实施检查点
+    - 功能已按计划和创意设计完全实施？ [是/否]
+    - 所有UI元素都遵循 `memory-bank/style-guide.md`？ [是/否]
+    - 单元和集成测试已执行并通过？ [是/否]
+    - 端到端功能测试成功？ [是/否]
+    - `tasks.md` 和 `progress.md` 已更新实施状态？ [是/否]
 
-    → If all YES: Proceed to Reflection.
-    → If any NO: Complete implementation and testing.
+    → 如果全部为是：进入反思。
+    → 如果有否：完成实施和测试。
     ```
 
-### Phase 6: REFLECTION (REFLECT Mode)
+### 阶段6：反思（REFLECT模式）
 
-Guided by `visual-maps/reflect-mode-map.mdc` and `Level3/reflection-L3.mdc`.
+由 `visual-maps/reflect-mode-map.mdc` 和 `Level3/reflection-L3.mdc` 指导。
 
 ```mermaid
 graph TD
-    StartReflect["Begin L3 Feature<br>Reflection"] --> ReviewCompleted["Review Completed Feature<br>(Code, Plan, Design Docs, Test Results)"]
-    ReviewCompleted --> AnalyzeProcess["Analyze Development Process<br>(Successes, Challenges, Deviations)"]
-    AnalyzeProcess --> DocumentLessons["Document Key Lessons Learned<br>(Technical & Process)"]
-    DocumentLessons --> AssessDesignChoices["Assess Effectiveness of<br>Creative Phase Decisions"]
-    AssessDesignChoices --> CreateReflectDoc["Create `reflection-[feature_id].md`"]
-    CreateReflectDoc --> UpdateTasksReflect["Update `tasks.md` (Reflection Complete)"]
-    UpdateTasksReflect --> ReflectComplete["L3 Feature Reflection<br>Complete"]
+    StartReflect["开始三级功能<br>反思"] --> ReviewCompleted["回顾已完成的功能<br>（代码、计划、设计文档、测试结果）"]
+    ReviewCompleted --> AnalyzeProcess["分析开发过程<br>（成功、挑战、偏差）"]
+    AnalyzeProcess --> DocumentLessons["记录关键经验教训<br>（技术和流程）"]
+    DocumentLessons --> AssessDesignChoices["评估创意阶段<br>决策的有效性"]
+    AssessDesignChoices --> CreateReflectDoc["创建 `reflection-[feature_id].md`"]
+    CreateReflectDoc --> UpdateTasksReflect["更新 `tasks.md`（反思完成）"]
+    UpdateTasksReflect --> ReflectComplete["三级功能反思<br>完成"]
 
     style StartReflect fill:#d1c4e9,stroke:#b39ddb
     style ReflectComplete fill:#b39ddb,stroke:#9575cd
 ```
 
-  * **Steps:**
-    1.  Review the entire feature development lifecycle: initial requirements, plan, creative designs, implementation, and testing outcomes.
-    2.  Analyze what went well, what was challenging, and any deviations from the original plan or design.
-    3.  Document key lessons learned regarding technology, architecture, process, or team collaboration relevant to this feature.
-    4.  Specifically assess how effective the creative phase decisions were during actual implementation.
-    5.  Create the `memory-bank/reflection-[feature_id].md` document.
-    6.  Update `memory-bank/tasks.md` to mark the reflection stage for the feature as complete.
-  * **Milestone Checkpoint:**
+  * **步骤：**
+    1.  回顾整个功能开发生命周期：初始需求、计划、创意设计、实施和测试结果。
+    2.  分析什么进展顺利、什么具有挑战性，以及与原始计划或设计的任何偏差。
+    3.  记录与此功能相关的技术、架构、流程或团队协作方面的关键经验教训。
+    4.  具体评估创意阶段决策在实际实施期间的有效性。
+    5.  创建 `memory-bank/reflection-[feature_id].md` 文档。
+    6.  更新 `memory-bank/tasks.md` 以将功能的反思阶段标记为完成。
+  * **里程碑检查点：**
     ```
-    ✓ L3 REFLECTION CHECKPOINT
-    - Feature development lifecycle thoroughly reviewed? [YES/NO]
-    - Successes, challenges, and lessons learned documented in `reflection-[feature_id].md`? [YES/NO]
-    - Effectiveness of creative/design decisions assessed? [YES/NO]
-    - `tasks.md` updated to reflect reflection completion? [YES/NO]
+    ✓ 三级反思检查点
+    - 功能开发生命周期已彻底回顾？ [是/否]
+    - 成功、挑战和经验教训已在 `reflection-[feature_id].md` 中记录？ [是/否]
+    - 创意/设计决策的有效性已评估？ [是/否]
+    - `tasks.md` 已更新以反映反思完成？ [是/否]
 
-    → If all YES: Proceed to Archiving.
-    → If any NO: Complete reflection documentation.
+    → 如果全部为是：进入归档。
+    → 如果有否：完成反思文档。
     ```
 
-### Phase 7: ARCHIVING (ARCHIVE Mode - Highly Recommended for L3)
+### 阶段7：归档（ARCHIVE模式 - 强烈推荐用于三级）
 
-Guided by `visual-maps/archive-mode-map.mdc` and `Level3/archive-L3.mdc`.
+由 `visual-maps/archive-mode-map.mdc` 和 `Level3/archive-L3.mdc` 指导。
 
 ```mermaid
 graph TD
-    StartArchive["Begin L3 Feature<br>Archiving"] --> ConsolidateDocs["Consolidate All Feature Docs<br>(Plan, Creative, Reflection, Key Progress Notes)"]
-    ConsolidateDocs --> CreateArchiveSummary["Create Archive Summary Document<br>`archive/feature-[feature_id]_YYYYMMDD.md`"]
-    CreateArchiveSummary --> LinkDocs["Link to Detailed Docs<br>within Archive Summary"]
-    LinkDocs --> FinalUpdateTasks["Final Update to `tasks.md`<br>(Mark Feature COMPLETED & ARCHIVED)"]
-    FinalUpdateTasks --> ResetActiveCtx["Clear `activeContext.md`<br>Prepare for Next Task"]
-    ResetActiveCtx --> ArchiveComplete["L3 Feature Archiving<br>Complete"]
+    StartArchive["开始三级功能<br>归档"] --> ConsolidateDocs["整合所有功能文档<br>（计划、创意、反思、关键进度说明）"]
+    ConsolidateDocs --> CreateArchiveSummary["创建归档摘要文档<br>`archive/feature-[feature_id]_YYYYMMDD.md`"]
+    CreateArchiveSummary --> LinkDocs["在归档摘要中<br>链接到详细文档"]
+    LinkDocs --> FinalUpdateTasks["最终更新 `tasks.md`<br>（标记功能已完成并归档）"]
+    FinalUpdateTasks --> ResetActiveCtx["清空 `activeContext.md`<br>为下一个任务做准备"]
+    ResetActiveCtx --> ArchiveComplete["三级功能归档<br>完成"]
 
     style StartArchive fill:#cfd8dc,stroke:#b0bec5
     style ArchiveComplete fill:#b0bec5,stroke:#90a4ae
 ```
 
-  * **Steps:**
-    1.  Consolidate all documentation related to the feature: the plan section from `tasks.md`, all `creative-*.md` files, the `reflection-*.md` file, and relevant summaries from `progress.md`.
-    2.  Create a dedicated feature archive summary document in `memory-bank/archive/feature-[feature_id]_YYYYMMDD.md`. This summary should briefly describe the feature, its purpose, key decisions, and link to the more detailed documents.
-    3.  Update `memory-bank/tasks.md` to mark the entire Level 3 feature task as "COMPLETED" and "ARCHIVED," providing a link to the new archive summary.
-    4.  Update `memory-bank/activeContext.md` to clear information related to the completed feature, preparing for the next task.
-  * **Milestone Checkpoint:**
+  * **步骤：**
+    1.  整合与功能相关的所有文档：来自 `tasks.md` 的计划部分、所有 `creative-*.md` 文件、`reflection-*.md` 文件以及来自 `progress.md` 的相关摘要。
+    2.  在 `memory-bank/archive/feature-[feature_id]_YYYYMMDD.md` 中创建专门的功能归档摘要文档。此摘要应简要描述功能、其目的、关键决策，并链接到更详细的文档。
+    3.  更新 `memory-bank/tasks.md` 以将整个三级功能任务标记为"已完成"和"已归档"，提供指向新归档摘要的链接。
+    4.  更新 `memory-bank/activeContext.md` 以清除与已完成功能相关的信息，为下一个任务做准备。
+  * **里程碑检查点：**
     ```
-    ✓ L3 ARCHIVING CHECKPOINT
-    - Feature archive summary created in `memory-bank/archive/`? [YES/NO]
-    - Archive summary links to all relevant planning, creative, and reflection docs? [YES/NO]
-    - `tasks.md` shows the feature as COMPLETED and ARCHIVED with a link to the archive? [YES/NO]
-    - `activeContext.md` cleared and ready for a new task? [YES/NO]
+    ✓ 三级归档检查点
+    - 功能归档摘要已在 `memory-bank/archive/` 中创建？ [是/否]
+    - 归档摘要链接到所有相关的规划、创意和反思文档？ [是/否]
+    - `tasks.md` 显示功能已完成并归档，并有指向归档的链接？ [是/否]
+    - `activeContext.md` 已清空并准备好新任务？ [是/否]
 
-    → If all YES: Level 3 Task Fully Completed. Suggest VAN Mode for next task.
-    → If any NO: Complete archiving steps.
+    → 如果全部为是：三级任务完全完成。建议为下一个任务使用VAN模式。
+    → 如果有否：完成归档步骤。
     ```
 
-## 🚨 LEVEL 3 GOVERNANCE PRINCIPLE
+## 🚨 三级治理原则
 
-Remember:
+记住：
 
 ```
 ┌─────────────────────────────────────────────────────┐
-│ Level 3 tasks build significant features. Balance   │
-│ detailed planning and targeted design with efficient│
-│ execution. Document key decisions and outcomes to   │
-│ ensure the feature is understandable and maintainable.│
+│ 三级任务构建重要功能。在详细规划和有针对性的设计与  │
+│ 高效执行之间取得平衡。记录关键决策和结果，以确保    │
+│ 功能可理解且可维护。                                │
 └─────────────────────────────────────────────────────┘
 ```
 
-This ensures that intermediate features are developed with an appropriate level of rigor, bridging the gap between simple enhancements and full-scale system development.
+这确保了中级功能以适当的严格程度开发，在简单增强和全面系统开发之间架起桥梁。
 
-```
 ```

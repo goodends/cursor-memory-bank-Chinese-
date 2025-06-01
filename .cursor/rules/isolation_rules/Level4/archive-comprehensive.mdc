@@ -3,14 +3,13 @@ description: Comprehensive archiving approach for Level 4 Complex System tasks
 globs: "**/level4/**", "**/archive/**"
 alwaysApply: false
 ---
+# 四级任务的综合归档
 
-# COMPREHENSIVE ARCHIVING FOR LEVEL 4 TASKS
+> **简要说明：** 本文档概述了四级（复杂系统）任务的综合归档方法，确保所有系统知识、决策、实施细节和经验教训都被保存以供未来参考和重用。
 
-> **TL;DR:** This document outlines a comprehensive archiving approach for Level 4 (Complex System) tasks, ensuring all system knowledge, decisions, implementation details, and lessons learned are preserved for future reference and reuse.
+## 🔍 综合归档概述
 
-## 🔍 COMPREHENSIVE ARCHIVING OVERVIEW
-
-Level 4 Complex System tasks require thorough archiving to preserve system knowledge, design decisions, implementation details, and lessons learned. This systematic archiving process ensures that the organization maintains institutional knowledge and enables future teams to understand, maintain, and extend the system.
+四级复杂系统任务需要彻底的归档来保存系统知识、设计决策、实施细节和经验教训。这种系统性归档过程确保组织维护机构知识，并使未来团队能够理解、维护和扩展系统。
 
 ```mermaid
 flowchart TD
@@ -18,32 +17,32 @@ flowchart TD
     classDef artifact fill:#f4b8c4,stroke:#d498a4,color:#000
     classDef verification fill:#c5e8b7,stroke:#a5c897,color:#000
     
-    Start([Begin Archiving<br>Process]) --> Template[Load Comprehensive<br>Archive Template]
-    Template --> RefDoc[Review Reflection<br>Document]
-    RefDoc --> SysDoc[Create System<br>Documentation]
-    SysDoc --> ArchDoc[Document Architecture<br>and Design]
-    ArchDoc --> ImplDoc[Document Implementation<br>Details]
-    ImplDoc --> APIDoc[Create API<br>Documentation]
-    APIDoc --> DataDoc[Document Data<br>Models and Schemas]
-    DataDoc --> SecDoc[Document Security<br>Measures]
-    SecDoc --> TestDoc[Document Testing<br>Procedures and Results]
-    TestDoc --> DeployDoc[Document Deployment<br>Procedures]
-    DeployDoc --> OpDoc[Create Operational<br>Documentation]
-    OpDoc --> KnowledgeDoc[Create Knowledge<br>Transfer Documentation]
-    KnowledgeDoc --> CrossRef[Create Cross-Reference<br>Documentation]
-    CrossRef --> Archive[Archive All<br>Project Materials]
-    Archive --> UpdateMB[Update Memory<br>Bank]
-    UpdateMB --> Verification{Archiving<br>Verification}
-    Verification -->|Pass| Complete([Archiving<br>Complete])
-    Verification -->|Fail| Revise[Revise<br>Archiving]
+    Start([开始归档<br>过程]) --> Template[加载综合<br>归档模板]
+    Template --> RefDoc[审查反思<br>文档]
+    RefDoc --> SysDoc[创建系统<br>文档]
+    SysDoc --> ArchDoc[记录架构<br>和设计]
+    ArchDoc --> ImplDoc[记录实施<br>细节]
+    ImplDoc --> APIDoc[创建API<br>文档]
+    APIDoc --> DataDoc[记录数据<br>模型和架构]
+    DataDoc --> SecDoc[记录安全<br>措施]
+    SecDoc --> TestDoc[记录测试<br>程序和结果]
+    TestDoc --> DeployDoc[记录部署<br>程序]
+    DeployDoc --> OpDoc[创建运营<br>文档]
+    OpDoc --> KnowledgeDoc[创建知识<br>转移文档]
+    KnowledgeDoc --> CrossRef[创建交叉引用<br>文档]
+    CrossRef --> Archive[归档所有<br>项目材料]
+    Archive --> UpdateMB[更新记忆<br>库]
+    UpdateMB --> Verification{归档<br>验证}
+    Verification -->|通过| Complete([归档<br>完成])
+    Verification -->|失败| Revise[修订<br>归档]
     Revise --> Verification
     
-    Template -.-> AT((Archive<br>Template))
-    SysDoc -.-> SD((System<br>Documentation))
-    ArchDoc -.-> AD((Architecture<br>Documentation))
-    ImplDoc -.-> ID((Implementation<br>Documentation))
-    APIDoc & DataDoc -.-> IntDoc((Interface<br>Documentation))
-    TestDoc & DeployDoc & OpDoc -.-> OpDocs((Operational<br>Documentation))
+    Template -.-> AT((归档<br>模板))
+    SysDoc -.-> SD((系统<br>文档))
+    ArchDoc -.-> AD((架构<br>文档))
+    ImplDoc -.-> ID((实施<br>文档))
+    APIDoc & DataDoc -.-> IntDoc((接口<br>文档))
+    TestDoc & DeployDoc & OpDoc -.-> OpDocs((运营<br>文档))
     
     class Start,Complete milestone
     class Template,RefDoc,SysDoc,ArchDoc,ImplDoc,APIDoc,DataDoc,SecDoc,TestDoc,DeployDoc,OpDoc,KnowledgeDoc,CrossRef,Archive,UpdateMB step
@@ -51,411 +50,411 @@ flowchart TD
     class AT,SD,AD,ID,IntDoc,OpDocs artifact
 ```
 
-## 📋 ARCHIVE TEMPLATE STRUCTURE
+## 📋 归档模板结构
 
-### 1. System Overview
-
-```markdown
-## System Overview
-
-### System Purpose and Scope
-[Comprehensive description of the system purpose, scope, and business context]
-
-### System Architecture
-[Summary of the architecture, including diagrams, patterns, and key design decisions]
-
-### Key Components
-- Component 1: [Description and purpose]
-- Component 2: [Description and purpose]
-- Component 3: [Description and purpose]
-
-### Integration Points
-[Description of all internal and external integration points]
-
-### Technology Stack
-[Comprehensive list of all technologies, frameworks, and tools used]
-
-### Deployment Environment
-[Description of the deployment environment, infrastructure, and configuration]
-```
-
-### 2. Requirements and Design Documentation
+### 1. 系统概述
 
 ```markdown
-## Requirements and Design Documentation
+## 系统概述
 
-### Business Requirements
-[Comprehensive list of business requirements with traceability]
+### 系统目的和范围
+[系统目的、范围和业务上下文的综合描述]
 
-### Functional Requirements
-[Detailed functional requirements with implementation mapping]
+### 系统架构
+[架构摘要，包括图表、模式和关键设计决策]
 
-### Non-Functional Requirements
-[Non-functional requirements with implementation approaches]
+### 关键组件
+- 组件 1：[描述和目的]
+- 组件 2：[描述和目的]
+- 组件 3：[描述和目的]
 
-### Architecture Decision Records
-[Collection of all architecture decision records (ADRs)]
+### 集成点
+[所有内部和外部集成点的描述]
 
-### Design Patterns Used
-[Catalog of all design patterns with usage examples]
+### 技术栈
+[使用的所有技术、框架和工具的综合列表]
 
-### Design Constraints
-[Documentation of all design constraints and their impact]
-
-### Design Alternatives Considered
-[Summary of alternatives considered and reasons for final selections]
+### 部署环境
+[部署环境、基础设施和配置的描述]
 ```
 
-### 3. Implementation Documentation
+### 2. 需求和设计文档
 
 ```markdown
-## Implementation Documentation
+## 需求和设计文档
 
-### Component Implementation Details
-- **Component 1**:
-  - **Purpose**: [Component purpose]
-  - **Implementation approach**: [Implementation details]
-  - **Key classes/modules**: [List with descriptions]
-  - **Dependencies**: [Internal and external dependencies]
-  - **Special considerations**: [Important notes]
+### 业务需求
+[具有可追溯性的业务需求综合列表]
 
-- **Component 2**:
-  - **Purpose**: [Component purpose]
-  - **Implementation approach**: [Implementation details]
-  - **Key classes/modules**: [List with descriptions]
-  - **Dependencies**: [Internal and external dependencies]
-  - **Special considerations**: [Important notes]
+### 功能需求
+[具有实施映射的详细功能需求]
 
-### Key Files and Components Affected (from tasks.md)
-[Summary or direct copy of file/component checklists from the original tasks.md for this project. This provides a quick reference to the scope of changes at a component/file level.]
+### 非功能需求
+[非功能需求及实施方法]
 
-### Algorithms and Complex Logic
-[Documentation of key algorithms and complex business logic]
+### 架构决策记录
+[所有架构决策记录（ADR）的集合]
 
-### Third-Party Integrations
-[Details of all third-party integrations including APIs and libraries]
+### 使用的设计模式
+[所有设计模式及使用示例的目录]
 
-### Configuration Parameters
-[Complete listing of all configuration parameters and their purpose]
+### 设计约束
+[所有设计约束及其影响的文档]
 
-### Build and Packaging Details
-[Documentation of build process, packaging, and artifacts]
+### 考虑的设计替代方案
+[考虑的替代方案摘要及最终选择的原因]
 ```
 
-### 4. API Documentation
+### 3. 实施文档
 
 ```markdown
-## API Documentation
+## 实施文档
 
-### API Overview
-[High-level overview of all APIs (internal and external)]
+### 组件实施细节
+- **组件 1**：
+  - **目的**：[组件目的]
+  - **实施方法**：[实施细节]
+  - **关键类/模块**：[带描述的列表]
+  - **依赖关系**：[内部和外部依赖关系]
+  - **特殊考虑**：[重要说明]
 
-### API Endpoints
-- **Endpoint 1**:
-  - **URL/Path**: [Endpoint URL or path]
-  - **Method**: [HTTP method]
-  - **Purpose**: [Purpose of the endpoint]
-  - **Request Format**: [Request format with examples]
-  - **Response Format**: [Response format with examples]
-  - **Error Codes**: [Possible error codes and meanings]
-  - **Security**: [Security considerations]
-  - **Rate Limits**: [Any rate limits]
-  - **Notes**: [Additional notes]
+- **组件 2**：
+  - **目的**：[组件目的]
+  - **实施方法**：[实施细节]
+  - **关键类/模块**：[带描述的列表]
+  - **依赖关系**：[内部和外部依赖关系]
+  - **特殊考虑**：[重要说明]
 
-- **Endpoint 2**:
-  - **URL/Path**: [Endpoint URL or path]
-  - **Method**: [HTTP method]
-  - **Purpose**: [Purpose of the endpoint]
-  - **Request Format**: [Request format with examples]
-  - **Response Format**: [Response format with examples]
-  - **Error Codes**: [Possible error codes and meanings]
-  - **Security**: [Security considerations]
-  - **Rate Limits**: [Any rate limits]
-  - **Notes**: [Additional notes]
+### 受影响的关键文件和组件（来自tasks.md）
+[来自此项目原始tasks.md的文件/组件检查清单的摘要或直接复制。这提供了组件/文件级别变更范围的快速参考。]
 
-### API Authentication
-[Authentication methods and implementation details]
+### 算法和复杂逻辑
+[关键算法和复杂业务逻辑的文档]
 
-### API Versioning Strategy
-[Versioning approach and migration strategy]
+### 第三方集成
+[所有第三方集成的详细信息，包括API和库]
 
-### SDK or Client Libraries
-[Available SDKs or client libraries with usage examples]
+### 配置参数
+[所有配置参数及其目的的完整列表]
+
+### 构建和打包细节
+[构建过程、打包和工件的文档]
 ```
 
-### 5. Data Model and Schema Documentation
+### 4. API文档
 
 ```markdown
-## Data Model and Schema Documentation
+## API文档
 
-### Data Model Overview
-[High-level overview of the data model with entity relationship diagrams]
+### API概述
+[所有API（内部和外部）的高级概述]
 
-### Database Schema
-[Detailed database schema with tables, columns, and relationships]
+### API端点
+- **端点 1**：
+  - **URL/路径**：[端点URL或路径]
+  - **方法**：[HTTP方法]
+  - **目的**：[端点目的]
+  - **请求格式**：[带示例的请求格式]
+  - **响应格式**：[带示例的响应格式]
+  - **错误代码**：[可能的错误代码和含义]
+  - **安全性**：[安全考虑]
+  - **速率限制**：[任何速率限制]
+  - **说明**：[附加说明]
 
-### Data Dictionary
-[Comprehensive data dictionary with all entities and attributes]
+- **端点 2**：
+  - **URL/路径**：[端点URL或路径]
+  - **方法**：[HTTP方法]
+  - **目的**：[端点目的]
+  - **请求格式**：[带示例的请求格式]
+  - **响应格式**：[带示例的响应格式]
+  - **错误代码**：[可能的错误代码和含义]
+  - **安全性**：[安全考虑]
+  - **速率限制**：[任何速率限制]
+  - **说明**：[附加说明]
 
-### Data Validation Rules
-[Data validation rules and enforcement mechanisms]
+### API认证
+[认证方法和实施细节]
 
-### Data Migration Procedures
-[Procedures for data migration and version management]
+### API版本控制策略
+[版本控制方法和迁移策略]
 
-### Data Archiving Strategy
-[Strategy for data archiving and retention]
+### SDK或客户端库
+[可用的SDK或客户端库及使用示例]
 ```
 
-### 6. Security Documentation
+### 5. 数据模型和架构文档
 
 ```markdown
-## Security Documentation
+## 数据模型和架构文档
 
-### Security Architecture
-[Overview of security architecture and design principles]
+### 数据模型概述
+[数据模型的高级概述及实体关系图]
 
-### Authentication and Authorization
-[Detailed implementation of authentication and authorization]
+### 数据库架构
+[详细的数据库架构，包括表、列和关系]
 
-### Data Protection Measures
-[Measures implemented to protect sensitive data]
+### 数据字典
+[包含所有实体和属性的综合数据字典]
 
-### Security Controls
-[Technical and procedural security controls]
+### 数据验证规则
+[数据验证规则和执行机制]
 
-### Vulnerability Management
-[Approach to vulnerability management and patching]
+### 数据迁移程序
+[数据迁移和版本管理的程序]
 
-### Security Testing Results
-[Summary of security testing and assessments]
-
-### Compliance Considerations
-[Regulatory and compliance considerations addressed]
+### 数据归档策略
+[数据归档和保留策略]
 ```
 
-### 7. Testing Documentation
+### 6. 安全文档
 
 ```markdown
-## Testing Documentation
+## 安全文档
 
-### Test Strategy
-[Overall testing strategy and approach]
+### 安全架构
+[安全架构和设计原则概述]
 
-### Test Cases
-[Catalog of test cases with expected results]
+### 认证和授权
+[认证和授权的详细实施]
 
-### Automated Tests
-[Documentation of automated tests and frameworks]
+### 数据保护措施
+[为保护敏感数据而实施的措施]
 
-### Performance Test Results
-[Results of performance testing with benchmarks]
+### 安全控制
+[技术和程序安全控制]
 
-### Security Test Results
-[Results of security testing with findings]
+### 漏洞管理
+[漏洞管理和补丁方法]
 
-### User Acceptance Testing
-[UAT approach, scenarios, and results]
+### 安全测试结果
+[安全测试和评估摘要]
 
-### Known Issues and Limitations
-[Documentation of known issues and system limitations]
+### 合规考虑
+[解决的监管和合规考虑]
 ```
 
-### 8. Deployment Documentation
+### 7. 测试文档
 
 ```markdown
-## Deployment Documentation
+## 测试文档
 
-### Deployment Architecture
-[Detailed deployment architecture with diagrams]
+### 测试策略
+[整体测试策略和方法]
 
-### Environment Configuration
-[Configuration details for all environments]
+### 测试用例
+[测试用例目录及预期结果]
 
-### Deployment Procedures
-[Step-by-step deployment procedures]
+### 自动化测试
+[自动化测试和框架的文档]
 
-### Configuration Management
-[Configuration management approach and tools]
+### 性能测试结果
+[性能测试结果及基准]
 
-### Release Management
-[Release management process and procedures]
+### 安全测试结果
+[安全测试结果及发现]
 
-### Rollback Procedures
-[Procedures for rolling back deployments]
+### 用户验收测试
+[UAT方法、场景和结果]
 
-### Monitoring and Alerting
-[Monitoring setup, metrics, and alerting configuration]
+### 已知问题和限制
+[已知问题和系统限制的文档]
 ```
 
-### 9. Operational Documentation
+### 8. 部署文档
 
 ```markdown
-## Operational Documentation
+## 部署文档
 
-### Operating Procedures
-[Day-to-day operational procedures]
+### 部署架构
+[详细的部署架构及图表]
 
-### Maintenance Tasks
-[Routine maintenance tasks and schedules]
+### 环境配置
+[所有环境的配置细节]
 
-### Troubleshooting Guide
-[Guide for troubleshooting common issues]
+### 部署程序
+[逐步部署程序]
 
-### Backup and Recovery
-[Backup and recovery procedures]
+### 配置管理
+[配置管理方法和工具]
 
-### Disaster Recovery
-[Disaster recovery plan and procedures]
+### 发布管理
+[发布管理过程和程序]
 
-### Performance Tuning
-[Performance tuning guidelines and procedures]
+### 回滚程序
+[回滚部署的程序]
 
-### SLAs and Metrics
-[Service level agreements and key performance metrics]
+### 监控和告警
+[监控设置、指标和告警配置]
 ```
 
-### 10. Knowledge Transfer Documentation
+### 9. 运营文档
 
 ```markdown
-## Knowledge Transfer Documentation
+## 运营文档
 
-### System Overview for New Team Members
-[Concise system overview for onboarding]
+### 操作程序
+[日常运营程序]
 
-### Key Concepts and Terminology
-[Glossary of key concepts and terminology]
+### 维护任务
+[例行维护任务和时间表]
 
-### Common Tasks and Procedures
-[Guide to common tasks and procedures]
+### 故障排除指南
+[常见问题故障排除指南]
 
-### Frequently Asked Questions
-[FAQs for system users and maintainers]
+### 备份和恢复
+[备份和恢复程序]
 
-### Training Materials
-[Training materials for different roles]
+### 灾难恢复
+[灾难恢复计划和程序]
 
-### Support Escalation Process
-[Process for escalating support issues]
+### 性能调优
+[性能调优指南和程序]
 
-### Further Reading and Resources
-[Additional resources and documentation]
+### SLA和指标
+[服务级别协议和关键性能指标]
 ```
 
-### 11. Project History and Learnings
+### 10. 知识转移文档
 
 ```markdown
-## Project History and Learnings
+## 知识转移文档
 
-### Project Timeline
-[Summary of the project timeline and key milestones]
+### 新团队成员系统概述
+[入职的简洁系统概述]
 
-### Key Decisions and Rationale
-[Record of key decisions and their rationale]
+### 关键概念和术语
+[关键概念和术语词汇表]
 
-### Challenges and Solutions
-[Documentation of challenges faced and how they were addressed]
+### 常见任务和程序
+[常见任务和程序指南]
 
-### Lessons Learned
-[Key lessons learned that might benefit future projects]
+### 常见问题
+[系统用户和维护者的FAQ]
 
-### Performance Against Objectives
-[Assessment of performance against original objectives]
+### 培训材料
+[不同角色的培训材料]
 
-### Future Enhancements
-[Potential future enhancements and extensions]
+### 支持升级过程
+[升级支持问题的过程]
+
+### 进一步阅读和资源
+[附加资源和文档]
 ```
 
-## 📋 ARCHIVING PROCESS
+### 11. 项目历史和学习
 
-### 1. Preparation
+```markdown
+## 项目历史和学习
+
+### 项目时间线
+[项目时间线和关键里程碑摘要]
+
+### 关键决策和理由
+[关键决策及其理由的记录]
+
+### 挑战和解决方案
+[面临的挑战及其解决方法的文档]
+
+### 经验教训
+[可能有益于未来项目的关键经验教训]
+
+### 与目标的绩效对比
+[与原始目标的绩效评估]
+
+### 未来增强
+[潜在的未来增强和扩展]
+```
+
+## 📋 归档过程
+
+### 1. 准备
 
 ```mermaid
 flowchart TD
     classDef step fill:#f9d77e,stroke:#d9b95c,color:#000
     classDef artifact fill:#f4b8c4,stroke:#d498a4,color:#000
     
-    Start([Begin Archive<br>Preparation]) --> Template[Load Archive<br>Template]
-    Template --> Review[Review Project<br>Documentation]
-    Review --> Identify[Identify All<br>Artifacts]
-    Identify --> Gather[Gather All<br>Materials]
-    Gather --> Organize[Organize<br>Materials]
-    Organize --> Plan[Create Archiving<br>Plan]
-    Plan --> Resources[Allocate<br>Resources]
-    Resources --> Complete([Preparation<br>Complete])
+    Start([开始归档<br>准备]) --> Template[加载归档<br>模板]
+    Template --> Review[审查项目<br>文档]
+    Review --> Identify[识别所有<br>工件]
+    Identify --> Gather[收集所有<br>材料]
+    Gather --> Organize[组织<br>材料]
+    Organize --> Plan[创建归档<br>计划]
+    Plan --> Resources[分配<br>资源]
+    Resources --> Complete([准备<br>完成])
     
-    Template -.-> AT((Archive<br>Template))
-    Review -.-> ProjDocs((Project<br>Documentation))
-    Identify -.-> ArtList((Artifact<br>List))
-    Plan -.-> ArchPlan((Archiving<br>Plan))
+    Template -.-> AT((归档<br>模板))
+    Review -.-> ProjDocs((项目<br>文档))
+    Identify -.-> ArtList((工件<br>列表))
+    Plan -.-> ArchPlan((归档<br>计划))
     
     class Start,Complete milestone
     class Template,Review,Identify,Gather,Organize,Plan,Resources step
     class AT,ProjDocs,ArtList,ArchPlan artifact
 ```
 
-**Key Preparation Steps:**
-1. Load the comprehensive archive template
-2. Review all project documentation including reflection document
-3. Identify all artifacts to be archived
-4. Gather all materials from various sources
-5. Organize materials according to the archive structure
-6. Create a detailed archiving plan
-7. Allocate resources for the archiving process
+**关键准备步骤：**
+1. 加载综合归档模板
+2. 审查所有项目文档，包括反思文档
+3. 识别要归档的所有工件
+4. 从各种来源收集所有材料
+5. 根据归档结构组织材料
+6. 创建详细的归档计划
+7. 为归档过程分配资源
 
-### 2. Documentation Creation
+### 2. 文档创建
 
 ```mermaid
 flowchart TD
     classDef step fill:#f9d77e,stroke:#d9b95c,color:#000
     classDef artifact fill:#f4b8c4,stroke:#d498a4,color:#000
     
-    Start([Begin Documentation<br>Creation]) --> System[Create System<br>Documentation]
-    System --> Req[Create Requirements<br>and Design Documentation]
-    Req --> Impl[Create Implementation<br>Documentation]
-    Impl --> API[Create API<br>Documentation]
-    API --> Data[Create Data Model<br>Documentation]
-    Data --> Security[Create Security<br>Documentation]
-    Security --> Test[Create Testing<br>Documentation]
-    Test --> Deploy[Create Deployment<br>Documentation]
-    Deploy --> Ops[Create Operational<br>Documentation]
-    Ops --> Knowledge[Create Knowledge Transfer<br>Documentation]
-    Knowledge --> History[Create Project History<br>Documentation]
-    History --> Review[Review All<br>Documentation]
-    Review --> Complete([Documentation<br>Creation Complete])
+    Start([开始文档<br>创建]) --> System[创建系统<br>文档]
+    System --> Req[创建需求<br>和设计文档]
+    Req --> Impl[创建实施<br>文档]
+    Impl --> API[创建API<br>文档]
+    API --> Data[创建数据模型<br>文档]
+    Data --> Security[创建安全<br>文档]
+    Security --> Test[创建测试<br>文档]
+    Test --> Deploy[创建部署<br>文档]
+    Deploy --> Ops[创建运营<br>文档]
+    Ops --> Knowledge[创建知识转移<br>文档]
+    Knowledge --> History[创建项目历史<br>文档]
+    History --> Review[审查所有<br>文档]
+    Review --> Complete([文档创建<br>完成])
     
-    System -.-> SysDoc((System<br>Documentation))
-    Req -.-> ReqDoc((Requirements<br>Documentation))
-    Impl -.-> ImplDoc((Implementation<br>Documentation))
-    API -.-> APIDoc((API<br>Documentation))
-    Data -.-> DataDoc((Data Model<br>Documentation))
-    Security -.-> SecDoc((Security<br>Documentation))
-    Test -.-> TestDoc((Testing<br>Documentation))
-    Deploy -.-> DeployDoc((Deployment<br>Documentation))
-    Ops -.-> OpsDoc((Operational<br>Documentation))
-    Knowledge -.-> KnowDoc((Knowledge Transfer<br>Documentation))
-    History -.-> HistDoc((Project History<br>Documentation))
+    System -.-> SysDoc((系统<br>文档))
+    Req -.-> ReqDoc((需求<br>文档))
+    Impl -.-> ImplDoc((实施<br>文档))
+    API -.-> APIDoc((API<br>文档))
+    Data -.-> DataDoc((数据模型<br>文档))
+    Security -.-> SecDoc((安全<br>文档))
+    Test -.-> TestDoc((测试<br>文档))
+    Deploy -.-> DeployDoc((部署<br>文档))
+    Ops -.-> OpsDoc((运营<br>文档))
+    Knowledge -.-> KnowDoc((知识转移<br>文档))
+    History -.-> HistDoc((项目历史<br>文档))
     
     class Start,Complete milestone
     class System,Req,Impl,API,Data,Security,Test,Deploy,Ops,Knowledge,History,Review step
     class SysDoc,ReqDoc,ImplDoc,APIDoc,DataDoc,SecDoc,TestDoc,DeployDoc,OpsDoc,KnowDoc,HistDoc artifact
 ```
 
-**Key Documentation Steps:**
-1. Create comprehensive system documentation
-2. Document requirements and design decisions
-3. Document implementation details for all components
-4. Create complete API documentation
-5. Document data models and schemas
-6. Document security measures and controls
-7. Create thorough testing documentation
-8. Document deployment procedures
-9. Create operational documentation
-10. Prepare knowledge transfer documentation
-11. Document project history and learnings
-12. Review all documentation for completeness and accuracy
+**关键文档步骤：**
+1. 创建综合系统文档
+2. 记录需求和设计决策
+3. 记录所有组件的实施细节
+4. 创建完整的API文档
+5. 记录数据模型和架构
+6. 记录安全措施和控制
+7. 创建彻底的测试文档
+8. 记录部署程序
+9. 创建运营文档
+10. 准备知识转移文档
+11. 记录项目历史和学习
+12. 审查所有文档的完整性和准确性
 
-### 3. Archiving and Integration
+### 3. 归档和集成
 
 ```mermaid
 flowchart TD
@@ -463,22 +462,22 @@ flowchart TD
     classDef artifact fill:#f4b8c4,stroke:#d498a4,color:#000
     classDef verification fill:#c5e8b7,stroke:#a5c897,color:#000
     
-    Start([Begin Archiving<br>and Integration]) --> Consolidate[Consolidate All<br>Documentation]
-    Consolidate --> CrossRef[Create Cross-Reference<br>Index]
-    CrossRef --> Version[Version All<br>Documentation]
-    Version --> Archive[Archive in<br>Repository]
-    Archive --> UpdateMB[Update Memory<br>Bank]
-    UpdateMB --> AccessControl[Establish Access<br>Controls]
-    AccessControl --> Announce[Announce<br>Availability]
-    Announce --> Verification{Archiving<br>Verification}
-    Verification -->|Pass| Complete([Archiving<br>Complete])
-    Verification -->|Fail| Revise[Revise<br>Archiving]
+    Start([开始归档<br>和集成]) --> Consolidate[整合所有<br>文档]
+    Consolidate --> CrossRef[创建交叉引用<br>索引]
+    CrossRef --> Version[版本化所有<br>文档]
+    Version --> Archive[在存储库中<br>归档]
+    Archive --> UpdateMB[更新记忆<br>库]
+    UpdateMB --> AccessControl[建立访问<br>控制]
+    AccessControl --> Announce[宣布<br>可用性]
+    Announce --> Verification{归档<br>验证}
+    Verification -->|通过| Complete([归档<br>完成])
+    Verification -->|失败| Revise[修订<br>归档]
     Revise --> Verification
     
-    Consolidate -.-> AllDocs((Consolidated<br>Documentation))
-    CrossRef -.-> Index((Cross-Reference<br>Index))
-    Archive -.-> Repo((Archive<br>Repository))
-    UpdateMB -.-> MB((Updated Memory<br>Bank))
+    Consolidate -.-> AllDocs((整合<br>文档))
+    CrossRef -.-> Index((交叉引用<br>索引))
+    Archive -.-> Repo((归档<br>存储库))
+    UpdateMB -.-> MB((更新的记忆<br>库))
     
     class Start,Complete milestone
     class Consolidate,CrossRef,Version,Archive,UpdateMB,AccessControl,Announce,Revise step
@@ -486,199 +485,197 @@ flowchart TD
     class AllDocs,Index,Repo,MB artifact
 ```
 
-**Key Archiving Steps:**
-1. Consolidate all documentation into a cohesive package
-2. Create a cross-reference index linking all documentation
-3. Version all documentation appropriately
-4. Archive in the designated repository
-5. Update Memory Bank with relevant information
-6. Establish appropriate access controls
-7. Announce availability to relevant stakeholders
-8. Verify archiving completeness and accessibility
+**关键归档步骤：**
+1. 将所有文档整合成一个连贯的包
+2. 创建链接所有文档的交叉引用索引
+3. 适当地版本化所有文档
+4. 在指定存储库中归档
+5. 用相关信息更新记忆库
+6. 建立适当的访问控制
+7. 向相关利益相关者宣布可用性
+8. 验证归档的完整性和可访问性
 
-## 📋 MEMORY BANK INTEGRATION
+## 📋 记忆库集成
 
 ```mermaid
 flowchart TD
     classDef memfile fill:#f4b8c4,stroke:#d498a4,color:#000
     classDef process fill:#f9d77e,stroke:#d9b95c,color:#000
     
-    Archiving[Comprehensive<br>Archiving] --> PB[projectbrief.md]
+    Archiving[综合<br>归档] --> PB[projectbrief.md]
     Archiving --> PC[productContext.md]
     Archiving --> AC[activeContext.md]
     Archiving --> SP[systemPatterns.md]
     Archiving --> TC[techContext.md]
     Archiving --> P[progress.md]
     
-    PB & PC & AC & SP & TC & P --> MBI[Memory Bank<br>Integration]
-    MBI --> Next[Repository of<br>Knowledge]
+    PB & PC & AC & SP & TC & P --> MBI[记忆库<br>集成]
+    MBI --> Next[知识<br>存储库]
     
     class PB,PC,AC,SP,TC,P memfile
     class Archiving,MBI,Next process
 ```
 
-### Memory Bank Updates
+### 记忆库更新
 
-Specific updates to make to Memory Bank files:
+对记忆库文件进行的具体更新：
 
 1. **projectbrief.md**
-   - Update with final system description
-   - Document completion status
-   - Include links to archived documentation
+   - 用最终系统描述更新
+   - 记录完成状态
+   - 包含归档文档链接
 
 2. **productContext.md**
-   - Update with final business context
-   - Document business value delivered
-   - Include links to requirements documentation
+   - 用最终业务上下文更新
+   - 记录交付的业务价值
+   - 包含需求文档链接
 
 3. **activeContext.md**
-   - Update with system status (completed)
-   - Document handover information
-   - Include links to operational documentation
+   - 用系统状态（已完成）更新
+   - 记录交接信息
+   - 包含运营文档链接
 
 4. **systemPatterns.md**
-   - Update with final architecture patterns
-   - Document successful implementation patterns
-   - Include links to architecture documentation
+   - 用最终架构模式更新
+   - 记录成功的实施模式
+   - 包含架构文档链接
 
 5. **techContext.md**
-   - Update with final technology stack
-   - Document integration points
-   - Include links to technical documentation
+   - 用最终技术栈更新
+   - 记录集成点
+   - 包含技术文档链接
 
 6. **progress.md**
-   - Update with final project status
-   - Document completion metrics
-   - Include links to project history documentation
+   - 用最终项目状态更新
+   - 记录完成指标
+   - 包含项目历史文档链接
 
-## 📋 ARCHIVING VERIFICATION CHECKLIST
+## 📋 归档验证检查清单
 
 ```
-✓ ARCHIVING VERIFICATION CHECKLIST
+✓ 归档验证检查清单
 
-System Documentation
-- System overview complete? [YES/NO]
-- Architecture documented with diagrams? [YES/NO]
-- Key components documented? [YES/NO]
-- Integration points documented? [YES/NO]
+系统文档
+- 系统概述完整？ [是/否]
+- 架构已记录并有图表？ [是/否]
+- 关键组件已记录？ [是/否]
+- 集成点已记录？ [是/否]
 
-Requirements and Design
-- Business requirements documented? [YES/NO]
-- Functional requirements documented? [YES/NO]
-- Architecture decisions documented? [YES/NO]
-- Design patterns documented? [YES/NO]
+需求和设计
+- 业务需求已记录？ [是/否]
+- 功能需求已记录？ [是/否]
+- 架构决策已记录？ [是/否]
+- 设计模式已记录？ [是/否]
 
-Implementation
-- Component implementation details documented? [YES/NO]
-- Key algorithms documented? [YES/NO]
-- Third-party integrations documented? [YES/NO]
-- Configuration parameters documented? [YES/NO]
+实施
+- 组件实施细节已记录？ [是/否]
+- 关键算法已记录？ [是/否]
+- 第三方集成已记录？ [是/否]
+- 配置参数已记录？ [是/否]
 
-API Documentation
-- API endpoints documented? [YES/NO]
-- Request/response formats documented? [YES/NO]
-- Authentication documented? [YES/NO]
-- Error handling documented? [YES/NO]
+API文档
+- API端点已记录？ [是/否]
+- 请求/响应格式已记录？ [是/否]
+- 认证已记录？ [是/否]
+- 错误处理已记录？ [是/否]
 
-Data Documentation
-- Data model documented? [YES/NO]
-- Database schema documented? [YES/NO]
-- Data dictionary provided? [YES/NO]
-- Data validation rules documented? [YES/NO]
+数据文档
+- 数据模型已记录？ [是/否]
+- 数据库架构已记录？ [是/否]
+- 数据字典已提供？ [是/否]
+- 数据验证规则已记录？ [是/否]
 
-Security Documentation
-- Security architecture documented? [YES/NO]
-- Authentication/authorization documented? [YES/NO]
-- Data protection measures documented? [YES/NO]
-- Security testing results documented? [YES/NO]
+安全文档
+- 安全架构已记录？ [是/否]
+- 认证/授权已记录？ [是/否]
+- 数据保护措施已记录？ [是/否]
+- 安全测试结果已记录？ [是/否]
 
-Testing Documentation
-- Test strategy documented? [YES/NO]
-- Test cases documented? [YES/NO]
-- Test results documented? [YES/NO]
-- Known issues documented? [YES/NO]
+测试文档
+- 测试策略已记录？ [是/否]
+- 测试用例已记录？ [是/否]
+- 测试结果已记录？ [是/否]
+- 已知问题已记录？ [是/否]
 
-Deployment Documentation
-- Deployment architecture documented? [YES/NO]
-- Environment configurations documented? [YES/NO]
-- Deployment procedures documented? [YES/NO]
-- Rollback procedures documented? [YES/NO]
+部署文档
+- 部署架构已记录？ [是/否]
+- 环境配置已记录？ [是/否]
+- 部署程序已记录？ [是/否]
+- 回滚程序已记录？ [是/否]
 
-Operational Documentation
-- Operating procedures documented? [YES/NO]
-- Troubleshooting guide provided? [YES/NO]
-- Backup and recovery documented? [YES/NO]
-- Monitoring configuration documented? [YES/NO]
+运营文档
+- 操作程序已记录？ [是/否]
+- 故障排除指南已提供？ [是/否]
+- 备份和恢复已记录？ [是/否]
+- 监控配置已记录？ [是/否]
 
-Knowledge Transfer
-- Onboarding overview provided? [YES/NO]
-- Key concepts documented? [YES/NO]
-- Common tasks documented? [YES/NO]
-- FAQs provided? [YES/NO]
+知识转移
+- 入职概述已提供？ [是/否]
+- 关键概念已记录？ [是/否]
+- 常见任务已记录？ [是/否]
+- FAQ已提供？ [是/否]
 
-Project History
-- Project timeline documented? [YES/NO]
-- Key decisions documented? [YES/NO]
-- Lessons learned documented? [YES/NO]
-- Future enhancements suggested? [YES/NO]
+项目历史
+- 项目时间线已记录？ [是/否]
+- 关键决策已记录？ [是/否]
+- 经验教训已记录？ [是/否]
+- 未来增强已建议？ [是/否]
 
-Memory Bank Integration
-- All Memory Bank files updated? [YES/NO]
-- Cross-references created? [YES/NO]
-- Documentation properly versioned? [YES/NO]
-- Archive repository established? [YES/NO]
+记忆库集成
+- 所有记忆库文件已更新？ [是/否]
+- 交叉引用已创建？ [是/否]
+- 文档已正确版本化？ [是/否]
+- 归档存储库已建立？ [是/否]
 ```
 
-## 📋 MINIMAL MODE ARCHIVING FORMAT
+## 📋 最小模式归档格式
 
-For situations requiring a more compact archiving approach:
+对于需要更紧凑归档方法的情况：
 
 ```markdown
-## Level 4 Task Archive: [System Name]
+## 四级任务归档：[系统名称]
 
-### System Summary
-- **Purpose**: [Brief description of system purpose]
-- **Key Components**: [List of key components]
-- **Architecture**: [Brief architecture description with diagram]
+### 系统摘要
+- **目的**：[系统目的简要描述]
+- **关键组件**：[关键组件列表]
+- **架构**：[架构简要描述及图表]
 
-### Implementation Summary
-- **Technology Stack**: [Key technologies used]
-- **Key Modules**: [Brief description of important modules]
-- **Integration Points**: [List of major integration points]
+### 实施摘要
+- **技术栈**：[使用的关键技术]
+- **关键模块**：[重要模块简要描述]
+- **集成点**：[主要集成点列表]
 
-### Critical Documentation
-- **API Documentation**: [Link or brief summary]
-- **Data Model**: [Link or brief description]
-- **Deployment Configuration**: [Link or brief description]
-- **Security Measures**: [Link or brief summary]
+### 关键文档
+- **API文档**：[链接或简要摘要]
+- **数据模型**：[链接或简要描述]
+- **部署配置**：[链接或简要描述]
+- **安全措施**：[链接或简要摘要]
 
-### Operational Information
-- **Deployment Procedure**: [Link or brief description]
-- **Key Configuration Parameters**: [List of important parameters]
-- **Monitoring Setup**: [Brief monitoring details]
-- **Common Issues**: [List of common issues with solutions]
+### 运营信息
+- **部署程序**：[链接或简要描述]
+- **关键配置参数**：[重要参数列表]
+- **监控设置**：[简要监控细节]
+- **常见问题**：[常见问题及解决方案列表]
 
-### Repository Information
-- **Code Repository**: [Link to repository]
-- **Documentation Repository**: [Link to documentation]
-- **Build Artifacts**: [Link to build artifacts]
+### 存储库信息
+- **代码存储库**：[存储库链接]
+- **文档存储库**：[文档链接]
+- **构建工件**：[构建工件链接]
 
-### Knowledge Transfer Summary
-- **Key Contacts**: [List of key people with knowledge]
-- **Critical Knowledge Areas**: [Areas requiring special expertise]
-- **Training Resources**: [Links to training materials]
+### 知识转移摘要
+- **关键联系人**：[具有知识的关键人员列表]
+- **关键知识领域**：[需要特殊专业知识的领域]
+- **培训资源**：[培训材料链接]
 
-### Memory Bank Links
-- [Links to updated Memory Bank files]
+### 记忆库链接
+- [更新的记忆库文件链接]
 ```
 
-## 🚨 ARCHIVING ENFORCEMENT PRINCIPLE
+## 🚨 归档执行原则
 
 ```
 ┌─────────────────────────────────────────────────────┐
-│ COMPREHENSIVE ARCHIVING IS MANDATORY for Level 4     │
-│ tasks. No complex system is considered complete      │
-│ until comprehensive archiving is finished and        │
-│ verified.                                            │
+│ 综合归档对四级任务是强制性的。在综合归档完成并验证之前，│
+│ 复杂系统不被认为是完整的。                          │
 └─────────────────────────────────────────────────────┘
 ``` 

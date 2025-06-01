@@ -3,76 +3,75 @@ description:
 globs: archive-intermediate.mdc
 alwaysApply: false
 ---
+# 三级归档：中级功能文档
 
-# LEVEL 3 ARCHIVE: INTERMEDIATE FEATURE DOCUMENTATION
+> **简要说明：** 本指南概述了已完成的三级中级功能的归档流程。目标是创建一个自包含、易于访问的功能开发生命周期记录，包括其规划、设计决策、实施总结和反思。
 
-> **TL;DR:** This guide outlines the archiving process for a completed Level 3 intermediate feature. The aim is to create a self-contained, easily accessible record of the feature's development lifecycle, including its planning, design decisions, implementation summary, and reflection.
+## 🚀 开始归档前（三级预归档检查清单）
 
-## 🚀 Before You Start Archiving (L3 Pre-Archive Checklist)
+1.  **确认反思完成：** 在 `memory-bank/tasks.md` 中验证此功能的反思阶段已标记为完成，且 `memory-bank/reflection-[feature_id].md` 存在并已完成。
+2.  **收集所有功能特定文档：**
+    * 来自 `memory-bank/tasks.md` 的功能计划部分（或其副本）。
+    * 与此功能相关的所有 `memory-bank/creative/creative-[aspect_name].md` 文档。
+    * `memory-bank/reflection/reflection-[feature_id].md` 文档。
+    * 来自 `memory-bank/progress.md` 的关键图表或架构说明（如果未在其他地方捕获）。
+    * 指向已实施代码的主要提交或功能分支合并的链接。
 
-1.  **Confirm Reflection Complete:** Verify in `memory-bank/tasks.md` that the reflection phase for this feature is marked as complete and `memory-bank/reflection-[feature_id].md` exists and is finalized.
-2.  **Gather All Feature-Specific Documents:**
-    * The feature plan section from `memory-bank/tasks.md` (or a copy of it).
-    * All `memory-bank/creative/creative-[aspect_name].md` documents related to this feature.
-    * The `memory-bank/reflection/reflection-[feature_id].md` document.
-    * Key diagrams or architectural notes from `memory-bank/progress.md` if not captured elsewhere.
-    * A link to the primary commit(s) or feature branch merge for the implemented code.
-
-## 📦 Level 3 Archiving Workflow
+## 📦 三级归档工作流程
 
 ```mermaid
 graph TD
-    StartArchive["Start L3 Archiving"] -->
-    VerifyReflect["1. Verify Reflection Complete<br>Check `tasks.md` & `reflection-[feature_id].md`"] -->
-    GatherDocs["2. Gather All Feature Documents<br>(Plan, Creative outputs, Reflection, Code links)"] -->
-    CreateArchiveFile["3. Create Feature Archive File<br>e.g., `memory-bank/archive/feature-[FeatureNameOrID]_YYYYMMDD.md`"] -->
-    PopulateArchive["4. Populate Archive File<br>(Using L3 Archive Template below)"] -->
-    VerifyLinks["5. Verify All Internal Links<br>in Archive File are Correct"] -->
-    FinalUpdateTasks["6. Final Update to `tasks.md`<br>(Mark Feature FULLY COMPLETED & ARCHIVED, link to archive file)"] -->
-    UpdateProgressFile["7. Add Final Entry to `progress.md`<br>(Note archiving & link to archive file)"] -->
-    ClearActiveCtx["8. Clear `activeContext.md`<br>Reset for Next Task/Project"] -->
-    ArchiveDone["L3 Archiving Complete<br>Feature successfully documented and closed."]
+    StartArchive["开始三级归档"] -->
+    VerifyReflect["1. 验证反思完成<br>检查 `tasks.md` 和 `reflection-[feature_id].md`"] -->
+    GatherDocs["2. 收集所有功能文档<br>（计划、创意输出、反思、代码链接）"] -->
+    CreateArchiveFile["3. 创建功能归档文件<br>例如，`memory-bank/archive/feature-[FeatureNameOrID]_YYYYMMDD.md`"] -->
+    PopulateArchive["4. 填充归档文件<br>（使用下面的三级归档模板）"] -->
+    VerifyLinks["5. 验证归档文件中的<br>所有内部链接是否正确"] -->
+    FinalUpdateTasks["6. 最终更新 `tasks.md`<br>（标记功能完全完成并归档，链接到归档文件）"] -->
+    UpdateProgressFile["7. 向 `progress.md` 添加最终条目<br>（注明归档并链接到归档文件）"] -->
+    ClearActiveCtx["8. 清空 `activeContext.md`<br>为下一个任务/项目重置"] -->
+    ArchiveDone["三级归档完成<br>功能成功记录并关闭。"]
 
     style StartArchive fill:#90a4ae,stroke:#607d8b
     style ArchiveDone fill:#b0bec5,stroke:#90a4ae
-````
+```
 
-## 📝 Structure for `memory-bank/archive/feature-[FeatureNameOrID]_YYYYMMDD.md`
+## 📝 `memory-bank/archive/feature-[FeatureNameOrID]_YYYYMMDD.md` 结构
 
-  * **Feature Title:** (e.g., "Archive: User Profile Feature - Avatar Upload Enhancement")
-  * **Feature ID (from `tasks.md`):**
-  * **Date Archived:** YYYY-MM-DD
-  * **Status:** COMPLETED & ARCHIVED
-  * **1. Feature Overview:**
-      * Brief description of the feature and its purpose (can be extracted from `tasks.md` or `projectbrief.md`).
-      * Link to the original task entry/plan in `tasks.md` (if `tasks.md` is versioned or kept historically).
-  * **2. Key Requirements Met:**
-      * List the main functional and non-functional requirements this feature addressed.
-  * **3. Design Decisions & Creative Outputs:**
-      * Summary of key design choices.
-      * Direct links to all relevant `memory-bank/creative/creative-[aspect_name].md` documents.
-      * Link to `memory-bank/style-guide.md` version used (if applicable).
-  * **4. Implementation Summary:**
-      * High-level overview of how the feature was implemented.
-      * List of primary new components/modules created.
-      * Key technologies or libraries utilized specifically for this feature.
-      * Link to the main feature branch merge commit or primary code location/pull request.
-  * **5. Testing Overview:**
-      * Brief summary of the testing strategy employed for this feature (unit, integration, E2E).
-      * Outcome of the testing.
-  * **6. Reflection & Lessons Learned:**
-      * Direct link to `memory-bank/reflection/reflection-[feature_id].md`.
-      * Optionally, copy 1-2 most critical lessons directly into the archive summary.
-  * **7. Known Issues or Future Considerations (Optional, if any remaining from reflection):**
-      * Any minor known issues deferred.
-      * Potential future enhancements related to this feature.
+  * **功能标题：**（例如，"归档：用户资料功能 - 头像上传增强"）
+  * **功能ID（来自 `tasks.md`）：**
+  * **归档日期：** YYYY-MM-DD
+  * **状态：** 已完成并归档
+  * **1. 功能概述：**
+      * 功能及其目的的简要描述（可从 `tasks.md` 或 `projectbrief.md` 中提取）。
+      * 指向 `tasks.md` 中原始任务条目/计划的链接（如果 `tasks.md` 有版本控制或历史保存）。
+  * **2. 满足的关键需求：**
+      * 列出此功能解决的主要功能和非功能需求。
+  * **3. 设计决策和创意输出：**
+      * 关键设计选择的总结。
+      * 指向所有相关 `memory-bank/creative/creative-[aspect_name].md` 文档的直接链接。
+      * 指向使用的 `memory-bank/style-guide.md` 版本的链接（如适用）。
+  * **4. 实施总结：**
+      * 功能实施方式的高级概述。
+      * 创建的主要新组件/模块列表。
+      * 专门为此功能使用的关键技术或库。
+      * 指向主要功能分支合并提交或主要代码位置/拉取请求的链接。
+  * **5. 测试概述：**
+      * 为此功能采用的测试策略的简要总结（单元、集成、端到端）。
+      * 测试结果。
+  * **6. 反思和经验教训：**
+      * 指向 `memory-bank/reflection/reflection-[feature_id].md` 的直接链接。
+      * 可选地，将1-2个最关键的经验教训直接复制到归档总结中。
+  * **7. 已知问题或未来考虑（可选，如果反思中有任何剩余）：**
+      * 任何推迟的小已知问题。
+      * 与此功能相关的潜在未来增强。
 
-### Key Files and Components Affected (from tasks.md)
-[Summary or direct copy of file/component checklists from the original tasks.md for this project. This provides a quick reference to the scope of changes at a component/file level.]
+### 受影响的关键文件和组件（来自tasks.md）
+[来自原始tasks.md的文件/组件检查清单的总结或直接副本。这提供了组件/文件级别变更范围的快速参考。]
 
-## 📌 What to Emphasize in L3 Archiving
+## 📌 三级归档中要强调的内容
 
-  * **Self-Contained Feature Record:** The goal is to have a go-to document in the archive that summarizes the "story" of this feature.
-  * **Traceability:** Easy navigation from the archive summary to detailed planning, design, and reflection documents.
-  * **Maintainability Focus:** Information that would help a future developer understand, maintain, or build upon this specific feature.
-  * **Not a Full System Archive:** Unlike Level 4, this is not about archiving the entire application state, but rather the lifecycle of one significant feature.
+  * **自包含功能记录：** 目标是在归档中有一个总结此功能"故事"的参考文档。
+  * **可追溯性：** 从归档总结轻松导航到详细的规划、设计和反思文档。
+  * **可维护性焦点：** 帮助未来开发人员理解、维护或基于此特定功能构建的信息。
+  * **不是完整的系统归档：** 与四级不同，这不是关于归档整个应用程序状态，而是关于一个重要功能的生命周期。

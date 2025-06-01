@@ -3,25 +3,25 @@ description: planning comprehensive
 globs: planning-comprehensive.mdc
 alwaysApply: false
 ---
-# LEVEL 3 COMPREHENSIVE PLANNING
+# 三级全面规划
 
-> **TL;DR:** This document provides structured planning guidelines for Level 3 (Intermediate Feature) tasks, focusing on comprehensive planning with creative phases and clear implementation strategies.
+> **简要说明：** 本文档为三级（中级功能）任务提供结构化的规划指南，专注于全面规划与创意阶段和清晰的实施策略。
 
-## 🏗️ PLANNING WORKFLOW
+## 🏗️ 规划工作流程
 
 ```mermaid
 graph TD
-    Start["Planning Start"] --> Req["📋 Requirements<br>Analysis"]
-    Req --> Comp["🔍 Component<br>Analysis"]
-    Comp --> Design["🎨 Design<br>Decisions"]
-    Design --> Impl["⚙️ Implementation<br>Strategy"]
-    Impl --> Test["🧪 Testing<br>Strategy"]
-    Test --> Doc["📚 Documentation<br>Plan"]
+    Start["规划开始"] --> Req["📋 需求<br>分析"]
+    Req --> Comp["🔍 组件<br>分析"]
+    Comp --> Design["🎨 设计<br>决策"]
+    Design --> Impl["⚙️ 实施<br>策略"]
+    Impl --> Test["🧪 测试<br>策略"]
+    Test --> Doc["📚 文档<br>计划"]
     
-    Design --> Creative["Creative Phases:"]
-    Creative --> UI["UI/UX Design"]
-    Creative --> Arch["Architecture"]
-    Creative --> Algo["Algorithm"]
+    Design --> Creative["创意阶段:"]
+    Creative --> UI["UI/UX设计"]
+    Creative --> Arch["架构"]
+    Creative --> Algo["算法"]
     
     style Start fill:#4da6ff,stroke:#0066cc,color:white
     style Req fill:#ffa64d,stroke:#cc7a30,color:white
@@ -32,108 +32,108 @@ graph TD
     style Doc fill:#ff71c2,stroke:#c23b8a,color:white
 ```
 
-## 🔄 LEVEL TRANSITION HANDLING
+## 🔄 级别转换处理
 
 ```mermaid
 graph TD
-    L3["Level 3 Task"] --> Assess["Continuous<br>Assessment"]
+    L3["三级任务"] --> Assess["持续<br>评估"]
     
-    Assess --> Down["Downgrade to<br>Level 1/2"]
-    Assess --> Up["Upgrade to<br>Level 4"]
+    Assess --> Down["降级到<br>一级/二级"]
+    Assess --> Up["升级到<br>四级"]
     
-    Down --> L12Trigger["Triggers:<br>- Simpler than expected<br>- Limited scope<br>- Few components"]
+    Down --> L12Trigger["触发条件:<br>- 比预期简单<br>- 范围有限<br>- 组件较少"]
     
-    Up --> L4Trigger["Triggers:<br>- System-wide impact<br>- Architectural changes<br>- High complexity"]
+    Up --> L4Trigger["触发条件:<br>- 系统级影响<br>- 架构变更<br>- 高复杂性"]
     
-    L12Trigger --> L12Switch["Switch to<br>Level 1/2 Workflow"]
-    L4Trigger --> L4Switch["Switch to<br>Level 4 Workflow"]
+    L12Trigger --> L12Switch["切换到<br>一级/二级工作流程"]
+    L4Trigger --> L4Switch["切换到<br>四级工作流程"]
 ```
 
-## 📋 PLANNING TEMPLATE
+## 📋 规划模板
 
 ```markdown
-# Feature Planning Document
+# 功能规划文档
 
-## Requirements Analysis
-- Core Requirements:
-  - [ ] Requirement 1
-  - [ ] Requirement 2
-- Technical Constraints:
-  - [ ] Constraint 1
-  - [ ] Constraint 2
+## 需求分析
+- 核心需求:
+  - [ ] 需求1
+  - [ ] 需求2
+- 技术约束:
+  - [ ] 约束1
+  - [ ] 约束2
 
-## Component Analysis
-- Affected Components:
-  - Component 1
-    - Changes needed:
-    - Dependencies:
-  - Component 2
-    - Changes needed:
-    - Dependencies:
+## 组件分析
+- 受影响的组件:
+  - 组件1
+    - 所需变更:
+    - 依赖关系:
+  - 组件2
+    - 所需变更:
+    - 依赖关系:
 
-## Design Decisions
-- Architecture:
-  - [ ] Decision 1
-  - [ ] Decision 2
+## 设计决策
+- 架构:
+  - [ ] 决策1
+  - [ ] 决策2
 - UI/UX:
-  - [ ] Design 1
-  - [ ] Design 2
-- Algorithms:
-  - [ ] Algorithm 1
-  - [ ] Algorithm 2
+  - [ ] 设计1
+  - [ ] 设计2
+- 算法:
+  - [ ] 算法1
+  - [ ] 算法2
 
-## Implementation Strategy
-1. Phase 1:
-   - [ ] Task 1
-   - [ ] Task 2
-2. Phase 2:
-   - [ ] Task 3
-   - [ ] Task 4
+## 实施策略
+1. 阶段1:
+   - [ ] 任务1
+   - [ ] 任务2
+2. 阶段2:
+   - [ ] 任务3
+   - [ ] 任务4
 
-## Testing Strategy
-- Unit Tests:
-  - [ ] Test 1
-  - [ ] Test 2
-- Integration Tests:
-  - [ ] Test 3
-  - [ ] Test 4
+## 测试策略
+- 单元测试:
+  - [ ] 测试1
+  - [ ] 测试2
+- 集成测试:
+  - [ ] 测试3
+  - [ ] 测试4
 
-## Documentation Plan
-- [ ] API Documentation
-- [ ] User Guide Updates
-- [ ] Architecture Documentation
+## 文档计划
+- [ ] API文档
+- [ ] 用户指南更新
+- [ ] 架构文档
 ```
 
-## 🎨 CREATIVE PHASE IDENTIFICATION
+## 🎨 创意阶段识别
 
 ```mermaid
 graph TD
-    subgraph "CREATIVE PHASES REQUIRED"
-    UI["🎨 UI/UX Design<br>Required: Yes/No"]
-    Arch["🏗️ Architecture Design<br>Required: Yes/No"]
-    Algo["⚙️ Algorithm Design<br>Required: Yes/No"]
+    subgraph "所需的创意阶段"
+    UI["🎨 UI/UX设计<br>需要: 是/否"]
+    Arch["🏗️ 架构设计<br>需要: 是/否"]
+    Algo["⚙️ 算法设计<br>需要: 是/否"]
     end
     
-    UI --> UITrig["Triggers:<br>- New UI Component<br>- UX Flow Change"]
-    Arch --> ArchTrig["Triggers:<br>- System Structure Change<br>- New Integration"]
-    Algo --> AlgoTrig["Triggers:<br>- Performance Critical<br>- Complex Logic"]
+    UI --> UITrig["触发条件:<br>- 新UI组件<br>- UX流程变更"]
+    Arch --> ArchTrig["触发条件:<br>- 系统结构变更<br>- 新集成"]
+    Algo --> AlgoTrig["触发条件:<br>- 性能关键<br>- 复杂逻辑"]
     
     style UI fill:#4dbb5f,stroke:#36873f,color:white
     style Arch fill:#ffa64d,stroke:#cc7a30,color:white
     style Algo fill:#d94dbb,stroke:#a3378a,color:white
 ```
 
-## ✅ VERIFICATION CHECKLIST
+## ✅ 验证检查清单
 
 ```mermaid
 graph TD
-    subgraph "PLANNING VERIFICATION"
-    R["Requirements<br>Complete"]
-    C["Components<br>Identified"]
-    D["Design Decisions<br>Made"]
-    I["Implementation<br>Plan Ready"]
-    T["Testing Strategy<br>Defined"]
-    Doc["Documentation<br>Plan Ready"]
+    subgraph "规划验证"
+    R["需求<br>完整"]
+    C["组件<br>已识别"]
+    D["设计决策<br>已制定"]
+    I["实施<br>计划就绪"]
+    T["测试策略<br>已定义"]
+    Doc["文档<br>计划就绪"]
     end
     
     R --> C --> D --> I --> T --> Doc
@@ -146,14 +146,14 @@ graph TD
     style Doc fill:#ff71c2,stroke:#c23b8a,color:white
 ```
 
-## 🔄 IMPLEMENTATION PHASES
+## 🔄 实施阶段
 
 ```mermaid
 graph LR
-    Setup["🛠️ Setup"] --> Core["⚙️ Core<br>Implementation"]
-    Core --> UI["🎨 UI<br>Implementation"]
-    UI --> Test["🧪 Testing"]
-    Test --> Doc["📚 Documentation"]
+    Setup["🛠️ 设置"] --> Core["⚙️ 核心<br>实施"]
+    Core --> UI["🎨 UI<br>实施"]
+    UI --> Test["🧪 测试"]
+    Test --> Doc["📚 文档"]
     
     style Setup fill:#4da6ff,stroke:#0066cc,color:white
     style Core fill:#4dbb5f,stroke:#36873f,color:white
@@ -162,27 +162,26 @@ graph LR
     style Doc fill:#4dbbbb,stroke:#368787,color:white
 ```
 
-## 🔄 INTEGRATION WITH MEMORY BANK
+## 🔄 与记忆库的集成
 
 ```mermaid
 graph TD
-    L3["Level 3<br>Task"] --> PB["Comprehensive<br>projectbrief.md"]
-    L3 --> AC["Detailed<br>activeContext.md"]
-    L3 --> TM["Structured<br>tasks.md"]
-    L3 --> PM["Detailed<br>progress.md"]
+    L3["三级<br>任务"] --> PB["全面的<br>projectbrief.md"]
+    L3 --> AC["详细的<br>activeContext.md"]
+    L3 --> TM["结构化的<br>tasks.md"]
+    L3 --> PM["详细的<br>progress.md"]
     
-    PB & AC & TM & PM --> MB["Memory Bank<br>Integration"]
-    MB --> NextPhase["Proceed to<br>Implementation"]
+    PB & AC & TM & PM --> MB["记忆库<br>集成"]
+    MB --> NextPhase["进入<br>实施阶段"]
 ```
 
-## 🚨 PLANNING EFFICIENCY PRINCIPLE
+## 🚨 规划效率原则
 
-Remember:
+记住：
 
 ```
 ┌─────────────────────────────────────────────────────┐
-│ Level 3 planning requires COMPREHENSIVE DESIGN but   │
-│ should avoid OVER-ENGINEERING. Focus on delivering  │
-│ maintainable, well-documented features.            │
+│ 三级规划需要全面设计，但应避免过度工程化。          │
+│ 专注于交付可维护、文档完善的功能。                  │
 └─────────────────────────────────────────────────────┘
 ``` 

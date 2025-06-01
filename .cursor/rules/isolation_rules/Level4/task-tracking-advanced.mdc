@@ -3,14 +3,13 @@ description: Advanced task tracking for Level 4 Complex System tasks
 globs: "**/level4/**", "**/task-tracking/**"
 alwaysApply: false
 ---
+# 四级任务的高级任务跟踪
 
-# ADVANCED TASK TRACKING FOR LEVEL 4 TASKS
+> **简要说明：** 本文档概述了四级（复杂系统）任务的综合任务跟踪方法，确保对复杂的多阶段工作进行详细跟踪，包括清晰的依赖关系、进度跟踪和架构对齐。
 
-> **TL;DR:** This document outlines a comprehensive task tracking approach for Level 4 (Complex System) tasks, ensuring detailed tracking of complex, multi-phase work with clear dependencies, progress tracking, and architectural alignment.
+## 🔍 高级任务跟踪概述
 
-## 🔍 ADVANCED TASK TRACKING OVERVIEW
-
-Level 4 Complex System tasks require sophisticated task tracking to manage the complexity of system development, coordinate multiple team members, track dependencies, and ensure alignment with architectural principles. This document outlines a comprehensive task tracking approach for such complex endeavors.
+四级复杂系统任务需要复杂的任务跟踪来管理系统开发的复杂性，协调多个团队成员，跟踪依赖关系，并确保与架构原则的对齐。本文档概述了此类复杂工作的综合任务跟踪方法。
 
 ```mermaid
 flowchart TD
@@ -18,33 +17,33 @@ flowchart TD
     classDef artifact fill:#f4b8c4,stroke:#d498a4,color:#000
     classDef verification fill:#c5e8b7,stroke:#a5c897,color:#000
     
-    Start([Begin Task<br>Tracking]) --> Framework[Establish Task<br>Framework]
-    Framework --> Hierarchy[Define Task<br>Hierarchy]
-    Hierarchy --> Breakdown[Create Work<br>Breakdown Structure]
-    Breakdown --> Dependencies[Document<br>Dependencies]
-    Dependencies --> Milestones[Define Key<br>Milestones]
-    Milestones --> Schedule[Create<br>Schedule]
-    Schedule --> Resources[Define Resource<br>Allocation]
-    Resources --> Risks[Document<br>Risks]
-    Risks --> Quality[Define Quality<br>Metrics]
-    Quality --> Progress[Track<br>Progress]
-    Progress --> Adaptations[Document<br>Adaptations]
-    Adaptations --> Verification{Task Tracking<br>Verification}
-    Verification -->|Pass| Complete([Task Tracking<br>Complete])
-    Verification -->|Fail| Revise[Revise Task<br>Tracking]
+    Start([开始任务<br>跟踪]) --> Framework[建立任务<br>框架]
+    Framework --> Hierarchy[定义任务<br>层次结构]
+    Hierarchy --> Breakdown[创建工作<br>分解结构]
+    Breakdown --> Dependencies[记录<br>依赖关系]
+    Dependencies --> Milestones[定义关键<br>里程碑]
+    Milestones --> Schedule[创建<br>时间表]
+    Schedule --> Resources[定义资源<br>分配]
+    Resources --> Risks[记录<br>风险]
+    Risks --> Quality[定义质量<br>指标]
+    Quality --> Progress[跟踪<br>进度]
+    Progress --> Adaptations[记录<br>适应性调整]
+    Adaptations --> Verification{任务跟踪<br>验证}
+    Verification -->|通过| Complete([任务跟踪<br>完成])
+    Verification -->|失败| Revise[修订任务<br>跟踪]
     Revise --> Verification
     
-    Framework -.-> TF((Task<br>Framework))
-    Hierarchy -.-> TH((Task<br>Hierarchy))
-    Breakdown -.-> WBS((Work Breakdown<br>Structure))
-    Dependencies -.-> DP((Dependency<br>Matrix))
-    Milestones -.-> MS((Milestone<br>Document))
-    Schedule -.-> SC((Schedule<br>Document))
-    Resources -.-> RA((Resource<br>Allocation))
-    Risks -.-> RM((Risk<br>Management))
-    Quality -.-> QM((Quality<br>Metrics))
-    Progress -.-> PT((Progress<br>Tracking))
-    Adaptations -.-> AD((Adaptation<br>Document))
+    Framework -.-> TF((任务<br>框架))
+    Hierarchy -.-> TH((任务<br>层次结构))
+    Breakdown -.-> WBS((工作分解<br>结构))
+    Dependencies -.-> DP((依赖关系<br>矩阵))
+    Milestones -.-> MS((里程碑<br>文档))
+    Schedule -.-> SC((时间表<br>文档))
+    Resources -.-> RA((资源<br>分配))
+    Risks -.-> RM((风险<br>管理))
+    Quality -.-> QM((质量<br>指标))
+    Progress -.-> PT((进度<br>跟踪))
+    Adaptations -.-> AD((适应性调整<br>文档))
     
     class Start,Complete milestone
     class Framework,Hierarchy,Breakdown,Dependencies,Milestones,Schedule,Resources,Risks,Quality,Progress,Adaptations,Revise step
@@ -52,22 +51,22 @@ flowchart TD
     class TF,TH,WBS,DP,MS,SC,RA,RM,QM,PT,AD artifact
 ```
 
-## 📋 TASK TRACKING PRINCIPLES
+## 📋 任务跟踪原则
 
-1. **Architectural Alignment**: All tasks must align with the established architectural principles and patterns.
-2. **Hierarchical Organization**: Tasks are organized in a hierarchical structure with clear parent-child relationships.
-3. **Dependency Management**: All task dependencies are explicitly documented and tracked.
-4. **Progression Transparency**: Task status and progress are clearly documented and visible to all stakeholders.
-5. **Quality Integration**: Quality metrics and verification are integrated into task definitions.
-6. **Resource Allocation**: Tasks include clear allocation of resources required for completion.
-7. **Risk Awareness**: Each significant task includes risk assessment and mitigation strategies.
-8. **Adaptive Planning**: Task tracking accommodates changes and adaptations while maintaining system integrity.
-9. **Milestone Tracking**: Clear milestones are defined and used to track overall progress.
-10. **Comprehensive Documentation**: All aspects of the task lifecycle are documented thoroughly.
+1. **架构对齐**：所有任务必须与既定的架构原则和模式对齐。
+2. **层次化组织**：任务按层次结构组织，具有清晰的父子关系。
+3. **依赖关系管理**：所有任务依赖关系都明确记录和跟踪。
+4. **进度透明性**：任务状态和进度对所有利益相关者清晰记录和可见。
+5. **质量集成**：质量指标和验证集成到任务定义中。
+6. **资源分配**：任务包括完成所需资源的清晰分配。
+7. **风险意识**：每个重要任务都包括风险评估和缓解策略。
+8. **适应性规划**：任务跟踪在保持系统完整性的同时适应变化和调整。
+9. **里程碑跟踪**：定义清晰的里程碑并用于跟踪整体进度。
+10. **全面文档化**：任务生命周期的所有方面都得到彻底记录。
 
-## 📋 TASK HIERARCHY STRUCTURE
+## 📋 任务层次结构
 
-Level 4 tasks follow a hierarchical structure:
+四级任务遵循层次结构：
 
 ```mermaid
 flowchart TD
@@ -77,19 +76,19 @@ flowchart TD
     classDef task fill:#f4b8c4,stroke:#d498a4,color:#000
     classDef subtask fill:#d8c1f7,stroke:#b8a1d7,color:#000
     
-    System[System-Level Work] --> Component1[Component 1]
-    System --> Component2[Component 2]
-    System --> Component3[Component 3]
+    System[系统级工作] --> Component1[组件 1]
+    System --> Component2[组件 2]
+    System --> Component3[组件 3]
     
-    Component1 --> Feature1[Feature 1.1]
-    Component1 --> Feature2[Feature 1.2]
+    Component1 --> Feature1[功能 1.1]
+    Component1 --> Feature2[功能 1.2]
     
-    Feature1 --> Task1[Task 1.1.1]
-    Feature1 --> Task2[Task 1.1.2]
+    Feature1 --> Task1[任务 1.1.1]
+    Feature1 --> Task2[任务 1.1.2]
     
-    Task1 --> Subtask1[Subtask 1.1.1.1]
-    Task1 --> Subtask2[Subtask 1.1.1.2]
-    Task1 --> Subtask3[Subtask 1.1.1.3]
+    Task1 --> Subtask1[子任务 1.1.1.1]
+    Task1 --> Subtask2[子任务 1.1.1.2]
+    Task1 --> Subtask3[子任务 1.1.1.3]
     
     class System system
     class Component1,Component2,Component3 component
@@ -98,101 +97,101 @@ flowchart TD
     class Subtask1,Subtask2,Subtask3 subtask
 ```
 
-### Levels of Hierarchy:
+### 层次级别：
 
-1. **System Level**: The overall system being built or modified.
-2. **Component Level**: Major components or subsystems of the system.
-3. **Feature Level**: Specific features within each component.
-4. **Task Level**: Concrete tasks required to implement a feature.
-5. **Subtask Level**: Detailed subtasks for complex tasks.
+1. **系统级别**：正在构建或修改的整体系统。
+2. **组件级别**：系统的主要组件或子系统。
+3. **功能级别**：每个组件内的特定功能。
+4. **任务级别**：实现功能所需的具体任务。
+5. **子任务级别**：复杂任务的详细子任务。
 
-## 📋 COMPREHENSIVE TASK STRUCTURE
+## 📋 综合任务结构
 
-Each Level 4 task in `tasks.md` follows this comprehensive structure:
+`tasks.md`中的每个四级任务都遵循这种综合结构：
 
 ```markdown
-## [SYSTEM-ID]: System Name
+## [系统-ID]：系统名称
 
-### System Overview
-- **Purpose**: [Brief description of system purpose]
-- **Architectural Alignment**: [How the system aligns with architectural principles]
-- **Status**: [Planning/In Progress/Review/Complete]
-- **Milestones**: 
-  - Milestone 1: [Date] - [Status]
-  - Milestone 2: [Date] - [Status]
-  - Milestone 3: [Date] - [Status]
+### 系统概述
+- **目的**：[系统目的的简要描述]
+- **架构对齐**：[系统如何与架构原则对齐]
+- **状态**：[规划中/进行中/审查中/完成]
+- **里程碑**： 
+  - 里程碑 1：[日期] - [状态]
+  - 里程碑 2：[日期] - [状态]
+  - 里程碑 3：[日期] - [状态]
 
-### Components
-#### [COMP-ID]: Component Name
-- **Purpose**: [Brief description of component purpose]
-- **Status**: [Planning/In Progress/Review/Complete]
-- **Dependencies**: [List of dependencies]
-- **Responsible**: [Team or individual responsible]
+### 组件
+#### [组件-ID]：组件名称
+- **目的**：[组件目的的简要描述]
+- **状态**：[规划中/进行中/审查中/完成]
+- **依赖关系**：[依赖关系列表]
+- **负责人**：[负责的团队或个人]
 
-##### [FEAT-ID]: Feature Name
-- **Description**: [Feature description]
-- **Status**: [Planning/In Progress/Review/Complete]
-- **Priority**: [Critical/High/Medium/Low]
-- **Related Requirements**: [List of requirements IDs this feature addresses]
-- **Quality Criteria**: [Measurable criteria for completion]
-- **Progress**: [0-100%]
+##### [功能-ID]：功能名称
+- **描述**：[功能描述]
+- **状态**：[规划中/进行中/审查中/完成]
+- **优先级**：[关键/高/中/低]
+- **相关需求**：[此功能解决的需求ID列表]
+- **质量标准**：[完成的可衡量标准]
+- **进度**：[0-100%]
 
-###### [TASK-ID]: Task Name
-- **Description**: [Task description]
-- **Status**: [TODO/In Progress/Review/Done]
-- **Assigned To**: [Assignee]
-- **Estimated Effort**: [Effort estimate]
-- **Actual Effort**: [Actual effort]
-- **Dependencies**: [Tasks this depends on]
-- **Blocks**: [Tasks blocked by this]
-- **Risk Assessment**: [Risk level and description]
-- **Quality Gates**: [Quality gates this must pass]
-- **Implementation Notes**: [Key implementation notes]
+###### [任务-ID]：任务名称
+- **描述**：[任务描述]
+- **状态**：[待办/进行中/审查中/完成]
+- **分配给**：[受让人]
+- **预估工作量**：[工作量估算]
+- **实际工作量**：[实际工作量]
+- **依赖关系**：[此任务依赖的任务]
+- **阻塞**：[被此任务阻塞的任务]
+- **风险评估**：[风险级别和描述]
+- **质量门禁**：[必须通过的质量门禁]
+- **实施说明**：[关键实施说明]
 
-**Subtasks**:
-- [ ] [SUB-ID]: [Subtask description] - [Status]
-- [ ] [SUB-ID]: [Subtask description] - [Status]
-- [ ] [SUB-ID]: [Subtask description] - [Status]
+**子任务**：
+- [ ] [子任务-ID]：[子任务描述] - [状态]
+- [ ] [子任务-ID]：[子任务描述] - [状态]
+- [ ] [子任务-ID]：[子任务描述] - [状态]
 
-### System-Wide Tasks
-- [ ] [SYS-TASK-ID]: [System-wide task description] - [Status]
-- [ ] [SYS-TASK-ID]: [System-wide task description] - [Status]
+### 系统级任务
+- [ ] [系统任务-ID]：[系统级任务描述] - [状态]
+- [ ] [系统任务-ID]：[系统级任务描述] - [状态]
 
-### Risks and Mitigations
-- **Risk 1**: [Description] - **Mitigation**: [Mitigation strategy]
-- **Risk 2**: [Description] - **Mitigation**: [Mitigation strategy]
+### 风险和缓解措施
+- **风险 1**：[描述] - **缓解措施**：[缓解策略]
+- **风险 2**：[描述] - **缓解措施**：[缓解策略]
 
-### Progress Summary
-- **Overall Progress**: [0-100%]
-- **Component 1**: [0-100%]
-- **Component 2**: [0-100%]
-- **Component 3**: [0-100%]
+### 进度摘要
+- **整体进度**：[0-100%]
+- **组件 1**：[0-100%]
+- **组件 2**：[0-100%]
+- **组件 3**：[0-100%]
 
-### Latest Updates
-- [Date]: [Update description]
-- [Date]: [Update description]
+### 最新更新
+- [日期]：[更新描述]
+- [日期]：[更新描述]
 ```
 
-## 📋 TASK TRACKING ORGANIZATION IN TASKS.MD
+## 📋 TASKS.MD中的任务跟踪组织
 
-For Level 4 Complex System tasks, organize `tasks.md` as follows:
+对于四级复杂系统任务，按如下方式组织`tasks.md`：
 
 ```markdown
-# TASK TRACKING
+# 任务跟踪
 
-## ACTIVE SYSTEMS
-- [SYSTEM-ID]: [System Name] - [Status]
-- [SYSTEM-ID]: [System Name] - [Status]
+## 活跃系统
+- [系统-ID]：[系统名称] - [状态]
+- [系统-ID]：[系统名称] - [状态]
 
-## SYSTEM DETAILS
+## 系统详情
 
-[Detailed task structure for each system as per the template above]
+[按照上述模板为每个系统提供详细的任务结构]
 
-## COMPLETED SYSTEMS
-- [SYSTEM-ID]: [System Name] - Completed [Date]
-- [SYSTEM-ID]: [System Name] - Completed [Date]
+## 已完成系统
+- [系统-ID]：[系统名称] - 完成于 [日期]
+- [系统-ID]：[系统名称] - 完成于 [日期]
 
-## SYSTEM DEPENDENCIES
+## 系统依赖关系
 ```mermaid
 graph TD
     System1 --> System2
@@ -200,20 +199,20 @@ graph TD
     System2 --> System4
 ```
 
-## RISK REGISTER
-| Risk ID | Description | Probability | Impact | Mitigation |
+## 风险登记册
+| 风险ID | 描述 | 概率 | 影响 | 缓解措施 |
 |---------|-------------|-------------|--------|------------|
-| RISK-01 | [Description] | High/Med/Low | High/Med/Low | [Strategy] |
-| RISK-02 | [Description] | High/Med/Low | High/Med/Low | [Strategy] |
+| RISK-01 | [描述] | 高/中/低 | 高/中/低 | [策略] |
+| RISK-02 | [描述] | 高/中/低 | 高/中/低 | [策略] |
 
-## RESOURCE ALLOCATION
-| Resource | System | Allocation % | Time Period |
+## 资源分配
+| 资源 | 系统 | 分配% | 时间段 |
 |----------|--------|--------------|------------|
-| [Name/Team] | [System-ID] | [%] | [Start-End] |
-| [Name/Team] | [System-ID] | [%] | [Start-End] |
+| [姓名/团队] | [系统-ID] | [%] | [开始-结束] |
+| [姓名/团队] | [系统-ID] | [%] | [开始-结束] |
 ```
 
-## 📋 DEPENDENCY MANAGEMENT
+## 📋 依赖关系管理
 
 ```mermaid
 flowchart TD
@@ -222,13 +221,13 @@ flowchart TD
     classDef medium fill:#a8d5ff,stroke:#88b5e0,color:#000
     classDef low fill:#c5e8b7,stroke:#a5c897,color:#000
     
-    Task1[Task 1] --> Task2[Task 2]
-    Task1 --> Task3[Task 3]
-    Task2 --> Task4[Task 4]
+    Task1[任务 1] --> Task2[任务 2]
+    Task1 --> Task3[任务 3]
+    Task2 --> Task4[任务 4]
     Task3 --> Task4
-    Task4 --> Task5[Task 5]
-    Task4 --> Task6[Task 6]
-    Task5 --> Task7[Task 7]
+    Task4 --> Task5[任务 5]
+    Task4 --> Task6[任务 6]
+    Task5 --> Task7[任务 7]
     Task6 --> Task7
     
     class Task1,Task4,Task7 critical
@@ -237,230 +236,229 @@ flowchart TD
     class Task6 low
 ```
 
-For complex systems, document dependencies in a dedicated section:
+对于复杂系统，在专门的部分记录依赖关系：
 
 ```markdown
-## Dependency Matrix
+## 依赖关系矩阵
 
-| Task ID | Depends On | Blocks | Type | Status |
+| 任务ID | 依赖于 | 阻塞 | 类型 | 状态 |
 |---------|------------|--------|------|--------|
-| TASK-01 | - | TASK-02, TASK-03 | Technical | Completed |
-| TASK-02 | TASK-01 | TASK-04 | Technical | In Progress |
-| TASK-03 | TASK-01 | TASK-04 | Resource | Not Started |
-| TASK-04 | TASK-02, TASK-03 | TASK-05, TASK-06 | Technical | Not Started |
+| TASK-01 | - | TASK-02, TASK-03 | 技术 | 已完成 |
+| TASK-02 | TASK-01 | TASK-04 | 技术 | 进行中 |
+| TASK-03 | TASK-01 | TASK-04 | 资源 | 未开始 |
+| TASK-04 | TASK-02, TASK-03 | TASK-05, TASK-06 | 技术 | 未开始 |
 ```
 
-### Dependency Types:
-- **Technical**: One task technically requires another to be completed first
-- **Resource**: Tasks compete for the same resources
-- **Information**: One task requires information produced by another
-- **Architectural**: Tasks have architectural dependencies
-- **Temporal**: Tasks must be completed in a specific time sequence
+### 依赖关系类型：
+- **技术**：一个任务在技术上需要另一个任务首先完成
+- **资源**：任务竞争相同的资源
+- **信息**：一个任务需要另一个任务产生的信息
+- **架构**：任务具有架构依赖关系
+- **时间**：任务必须按特定时间顺序完成
 
-## 📋 MILESTONE TRACKING
+## 📋 里程碑跟踪
 
-For Level 4 tasks, track milestones explicitly:
+对于四级任务，明确跟踪里程碑：
 
 ```markdown
-## System Milestones
+## 系统里程碑
 
-| Milestone ID | Description | Target Date | Actual Date | Status | Deliverables |
+| 里程碑ID | 描述 | 目标日期 | 实际日期 | 状态 | 交付物 |
 |--------------|-------------|-------------|-------------|--------|--------------|
-| MILE-01 | Architecture Approved | [Date] | [Date] | Completed | Architecture Document |
-| MILE-02 | Component Design Completed | [Date] | - | In Progress | Design Documents |
-| MILE-03 | Component 1 Implementation | [Date] | - | Not Started | Code, Tests |
-| MILE-04 | Integration Complete | [Date] | - | Not Started | Integrated System |
-| MILE-05 | System Testing Complete | [Date] | - | Not Started | Test Reports |
-| MILE-06 | Deployment Ready | [Date] | - | Not Started | Deployment Package |
+| MILE-01 | 架构已批准 | [日期] | [日期] | 已完成 | 架构文档 |
+| MILE-02 | 组件设计完成 | [日期] | - | 进行中 | 设计文档 |
+| MILE-03 | 组件1实施 | [日期] | - | 未开始 | 代码、测试 |
+| MILE-04 | 集成完成 | [日期] | - | 未开始 | 集成系统 |
+| MILE-05 | 系统测试完成 | [日期] | - | 未开始 | 测试报告 |
+| MILE-06 | 部署就绪 | [日期] | - | 未开始 | 部署包 |
 ```
 
-## 📋 PROGRESS VISUALIZATION
+## 📋 进度可视化
 
-Include visual representations of progress in `tasks.md`:
+在`tasks.md`中包含进度的可视化表示：
 
 ```markdown
-## Progress Visualization
+## 进度可视化
 
-### Overall System Progress
+### 整体系统进度
 ```mermaid
-pie title System Progress
-    "Completed" : 30
-    "In Progress" : 25
-    "Not Started" : 45
+pie title 系统进度
+    "已完成" : 30
+    "进行中" : 25
+    "未开始" : 45
 ```
 
-### Component Progress
+### 组件进度
 ```mermaid
 graph TD
-    subgraph Progress
-    C1[Component 1: 75%]
-    C2[Component 2: 50%]
-    C3[Component 3: 20%]
-    C4[Component 4: 5%]
+    subgraph 进度
+    C1[组件 1: 75%]
+    C2[组件 2: 50%]
+    C3[组件 3: 20%]
+    C4[组件 4: 5%]
     end
 ```
 
-### Timeline
+### 时间线
 ```mermaid
 gantt
-    title System Timeline
+    title 系统时间线
     dateFormat  YYYY-MM-DD
     
-    section Architecture
-    Architecture Design    :done, arch, 2023-01-01, 30d
-    Architecture Review    :done, arch-rev, after arch, 10d
+    section 架构
+    架构设计    :done, arch, 2023-01-01, 30d
+    架构审查    :done, arch-rev, after arch, 10d
     
-    section Component 1
-    Design                 :active, c1-des, after arch-rev, 20d
-    Implementation         :c1-imp, after c1-des, 40d
-    Testing                :c1-test, after c1-imp, 15d
+    section 组件 1
+    设计                 :active, c1-des, after arch-rev, 20d
+    实施         :c1-imp, after c1-des, 40d
+    测试                :c1-test, after c1-imp, 15d
     
-    section Component 2
-    Design                 :active, c2-des, after arch-rev, 25d
-    Implementation         :c2-imp, after c2-des, 50d
-    Testing                :c2-test, after c2-imp, 20d
+    section 组件 2
+    设计                 :active, c2-des, after arch-rev, 25d
+    实施         :c2-imp, after c2-des, 50d
+    测试                :c2-test, after c2-imp, 20d
 ```
 ```
 
-## 📋 UPDATING TASK STATUS
+## 📋 更新任务状态
 
-For Level 4 tasks, status updates include:
+对于四级任务，状态更新包括：
 
-1. **Progress Updates**: Update task status and progress percentage
-2. **Effort Tracking**: Record actual effort against estimates
-3. **Risk Updates**: Update risk assessments and mitigations
-4. **Dependency Status**: Update status of dependencies
-5. **Milestone Tracking**: Update milestone status
-6. **Issue Documentation**: Document issues encountered
-7. **Adaptation Documentation**: Document any adaptations to the original plan
-8. **Quality Gate Status**: Update status of quality gates
+1. **进度更新**：更新任务状态和进度百分比
+2. **工作量跟踪**：记录实际工作量与估算的对比
+3. **风险更新**：更新风险评估和缓解措施
+4. **依赖关系状态**：更新依赖关系的状态
+5. **里程碑跟踪**：更新里程碑状态
+6. **问题记录**：记录遇到的问题
+7. **适应性调整记录**：记录对原计划的任何调整
+8. **质量门禁状态**：更新质量门禁的状态
 
-Status update cycle:
-- **Daily**: Update task and subtask status
-- **Weekly**: Update component status and progress visualization
-- **Bi-weekly**: Update system-level progress and milestone status
-- **Monthly**: Complete system review including risks and adaptations
+状态更新周期：
+- **每日**：更新任务和子任务状态
+- **每周**：更新组件状态和进度可视化
+- **双周**：更新系统级进度和里程碑状态
+- **每月**：完成系统审查，包括风险和适应性调整
 
-## 📋 TASK TRACKING VERIFICATION CHECKLIST
+## 📋 任务跟踪验证检查清单
 
 ```
-✓ TASK TRACKING VERIFICATION CHECKLIST
+✓ 任务跟踪验证检查清单
 
-Task Structure
-- System level work properly defined? [YES/NO]
-- Component level tasks identified? [YES/NO]
-- Feature level tasks specified? [YES/NO]
-- Task level details provided? [YES/NO]
-- Subtasks created for complex tasks? [YES/NO]
+任务结构
+- 系统级工作正确定义？ [是/否]
+- 组件级任务已识别？ [是/否]
+- 功能级任务已指定？ [是/否]
+- 任务级详情已提供？ [是/否]
+- 复杂任务已创建子任务？ [是/否]
 
-Task Information
-- All tasks have clear descriptions? [YES/NO]
-- Status accurately reflected? [YES/NO]
-- Proper assignments made? [YES/NO]
-- Effort estimates provided? [YES/NO]
-- Dependencies documented? [YES/NO]
+任务信息
+- 所有任务都有清晰的描述？ [是/否]
+- 状态准确反映？ [是/否]
+- 正确分配？ [是/否]
+- 提供工作量估算？ [是/否]
+- 依赖关系已记录？ [是/否]
 
-Progress Tracking
-- Overall progress calculated? [YES/NO]
-- Component progress updated? [YES/NO]
-- Milestone status updated? [YES/NO]
-- Progress visualizations current? [YES/NO]
-- Latest updates documented? [YES/NO]
+进度跟踪
+- 整体进度已计算？ [是/否]
+- 组件进度已更新？ [是/否]
+- 里程碑状态已更新？ [是/否]
+- 进度可视化是最新的？ [是/否]
+- 最新更新已记录？ [是/否]
 
-Risk Management
-- Risks identified and assessed? [YES/NO]
-- Mitigation strategies documented? [YES/NO]
-- Risk register updated? [YES/NO]
-- Impact on schedule assessed? [YES/NO]
-- Contingency plans documented? [YES/NO]
+风险管理
+- 风险已识别和评估？ [是/否]
+- 缓解策略已记录？ [是/否]
+- 风险登记册已更新？ [是/否]
+- 对时间表的影响已评估？ [是/否]
+- 应急计划已记录？ [是/否]
 
-Resource Allocation
-- Resources allocated to tasks? [YES/NO]
-- Resource conflicts identified? [YES/NO]
-- Resource allocation optimized? [YES/NO]
-- Future resource needs projected? [YES/NO]
-- Resource allocation documented? [YES/NO]
+资源分配
+- 资源已分配给任务？ [是/否]
+- 资源冲突已识别？ [是/否]
+- 资源分配已优化？ [是/否]
+- 未来资源需求已预测？ [是/否]
+- 资源分配已记录？ [是/否]
 
-Quality Integration
-- Quality criteria defined for tasks? [YES/NO]
-- Quality gates specified? [YES/NO]
-- Verification procedures documented? [YES/NO]
-- Quality metrics being tracked? [YES/NO]
-- Quality issues documented? [YES/NO]
+质量集成
+- 任务的质量标准已定义？ [是/否]
+- 质量门禁已指定？ [是/否]
+- 验证程序已记录？ [是/否]
+- 质量指标正在跟踪？ [是/否]
+- 质量问题已记录？ [是/否]
 
-Architectural Alignment
-- Tasks align with architecture? [YES/NO]
-- Architectural dependencies tracked? [YES/NO]
-- Architectural constraints documented? [YES/NO]
-- Architecture evolution tracked? [YES/NO]
-- Architectural decisions documented? [YES/NO]
+架构对齐
+- 任务与架构对齐？ [是/否]
+- 架构依赖关系已跟踪？ [是/否]
+- 架构约束已记录？ [是/否]
+- 架构演进已跟踪？ [是/否]
+- 架构决策已记录？ [是/否]
 ```
 
-## 📋 INTEGRATION WITH MEMORY BANK
+## 📋 与记忆库的集成
 
-Level 4 task tracking is tightly integrated with the Memory Bank:
+四级任务跟踪与记忆库紧密集成：
 
-1. **projectbrief.md**: System-level tasks are derived from and linked to the project brief
-2. **productContext.md**: Tasks are aligned with business context and objectives
-3. **systemPatterns.md**: Tasks respect and implement defined architectural patterns
-4. **techContext.md**: Tasks are aligned with the technology stack and constraints
-5. **activeContext.md**: Current focus and status from `tasks.md` informs the active context
-6. **progress.md**: System progress from `tasks.md` is reflected in overall progress
+1. **projectbrief.md**：系统级任务源自项目简介并与之链接
+2. **productContext.md**：任务与业务上下文和目标对齐
+3. **systemPatterns.md**：任务尊重并实施定义的架构模式
+4. **techContext.md**：任务与技术栈和约束对齐
+5. **activeContext.md**：来自`tasks.md`的当前焦点和状态为活跃上下文提供信息
+6. **progress.md**：来自`tasks.md`的系统进度反映在整体进度中
 
 ```mermaid
 flowchart TD
     classDef memfile fill:#f4b8c4,stroke:#d498a4,color:#000
     classDef process fill:#f9d77e,stroke:#d9b95c,color:#000
     
-    TaskTracking[Advanced Task<br>Tracking] --> PB[projectbrief.md]
+    TaskTracking[高级任务<br>跟踪] --> PB[projectbrief.md]
     TaskTracking --> PC[productContext.md]
     TaskTracking --> AC[activeContext.md]
     TaskTracking --> SP[systemPatterns.md]
     TaskTracking --> TC[techContext.md]
     TaskTracking --> P[progress.md]
     
-    P --> TU[Task<br>Updates]
+    P --> TU[任务<br>更新]
     TU --> TaskTracking
     
     class PB,PC,AC,SP,TC,P memfile
     class TaskTracking,TU process
 ```
 
-## 📋 MINIMAL MODE TASK TRACKING
+## 📋 最小模式任务跟踪
 
-For situations requiring a more compact tracking approach:
+对于需要更紧凑跟踪方法的情况：
 
 ```markdown
-## [SYSTEM-ID]: System Name - [Status]
+## [系统-ID]：系统名称 - [状态]
 
-### Key Components:
-- [COMP-ID]: [Component Name] - [Status] - [Progress %]
-- [COMP-ID]: [Component Name] - [Status] - [Progress %]
+### 关键组件：
+- [组件-ID]：[组件名称] - [状态] - [进度 %]
+- [组件-ID]：[组件名称] - [状态] - [进度 %]
 
-### Active Tasks:
-- [ ] [TASK-ID]: [Task Description] - [Assignee] - [Status]
-  - Dependencies: [List of task IDs]
-  - Risks: [Brief risk description]
-- [ ] [TASK-ID]: [Task Description] - [Assignee] - [Status]
+### 活跃任务：
+- [ ] [任务-ID]：[任务描述] - [受让人] - [状态]
+  - 依赖关系：[任务ID列表]
+  - 风险：[简要风险描述]
+- [ ] [任务-ID]：[任务描述] - [受让人] - [状态]
 
-### Milestones:
-- [MILE-ID]: [Milestone description] - [Target Date] - [Status]
-- [MILE-ID]: [Milestone description] - [Target Date] - [Status]
+### 里程碑：
+- [里程碑-ID]：[里程碑描述] - [目标日期] - [状态]
+- [里程碑-ID]：[里程碑描述] - [目标日期] - [状态]
 
-### Critical Paths:
-- [TASK-ID] → [TASK-ID] → [TASK-ID] → [TASK-ID]
-- [TASK-ID] → [TASK-ID] → [TASK-ID]
+### 关键路径：
+- [任务-ID] → [任务-ID] → [任务-ID] → [任务-ID]
+- [任务-ID] → [任务-ID] → [任务-ID]
 
-### Updates:
-- [Date]: [Brief update]
+### 更新：
+- [日期]：[简要更新]
 ```
 
-## 🚨 TASK TRACKING PRIMACY PRINCIPLE
+## 🚨 任务跟踪首要原则
 
 ```
 ┌─────────────────────────────────────────────────────┐
-│ tasks.md is the SINGLE SOURCE OF TRUTH for all task  │
-│ tracking. All task-related decisions and status      │
-│ updates MUST be reflected in tasks.md.               │
+│ tasks.md是所有任务跟踪的唯一真实来源。所有任务相关  │
+│ 的决策和状态更新必须在tasks.md中反映。              │
 └─────────────────────────────────────────────────────┘
 ``` 

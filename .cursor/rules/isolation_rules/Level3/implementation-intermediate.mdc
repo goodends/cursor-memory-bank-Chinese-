@@ -3,70 +3,70 @@ description:
 globs: implementation-intermediate.mdc
 alwaysApply: false
 ---
-# LEVEL 3 IMPLEMENTATION: BUILDING INTERMEDIATE FEATURES
+# 三级实施：构建中级功能
 
-> **TL;DR:** This guide focuses on the systematic implementation of a planned and designed Level 3 feature. It emphasizes modular development, strict adherence to creative decisions and the style guide, integration with existing systems, and thorough feature-specific testing.
+> **简要说明：** 本指南专注于已规划和设计的三级功能的系统实施。它强调模块化开发、严格遵循创意决策和样式指南、与现有系统集成以及全面的功能特定测试。
 
-## 🛠️ Level 3 Feature Implementation Workflow
+## 🛠️ 三级功能实施工作流程
 
-This workflow outlines the typical steps for building an intermediate feature.
+此工作流程概述了构建中级功能的典型步骤。
 
 ```mermaid
 graph TD
-    StartImpl["Start L3 Implementation"] -->
-    ReviewDocs["1. Review All Relevant Docs<br>(Tasks, Creative Docs, Style Guide)"] -->
-    SetupEnv["2. Setup/Verify Dev Environment<br>(Branch, Tools, Dependencies)"] -->
-    ModuleBreakdown["3. Break Down Feature into Modules/Major Components<br>(Based on plan in `tasks.md`)"] -->
-    BuildIterate["4. Implement Modules/Components Iteratively"]
+    StartImpl["开始三级实施"] -->
+    ReviewDocs["1. 回顾所有相关文档<br>（任务、创意文档、样式指南）"] -->
+    SetupEnv["2. 设置/验证开发环境<br>（分支、工具、依赖项）"] -->
+    ModuleBreakdown["3. 将功能分解为模块/主要组件<br>（基于 `tasks.md` 中的计划）"] -->
+    BuildIterate["4. 迭代实施模块/组件"]
 
-    BuildIterate --> ImplementModule["4a. Select Next Module/Component"]
-    ImplementModule --> CodeModule["4b. Code Module<br>(Adhere to design, style guide, coding standards)"]
-    CodeModule --> UnitTests["4c. Write & Pass Unit Tests"]
-    UnitTests --> SelfReview["4d. Self-Review/Code Linting"]
-    SelfReview --> MoreModules{"4e. More Modules<br>for this Feature?"}
-    MoreModules -- Yes --> ImplementModule
+    BuildIterate --> ImplementModule["4a. 选择下一个模块/组件"]
+    ImplementModule --> CodeModule["4b. 编码模块<br>（遵循设计、样式指南、编码标准）"]
+    CodeModule --> UnitTests["4c. 编写并通过单元测试"]
+    UnitTests --> SelfReview["4d. 自我审查/代码检查"]
+    SelfReview --> MoreModules{"4e. 此功能还有<br>更多模块？"}
+    MoreModules -- 是 --> ImplementModule
 
-    MoreModules -- No --> IntegrateModules["5. Integrate All Feature Modules/Components"]
-    IntegrateModules --> IntegrationTesting["6. Perform Integration Testing<br>(Feature modules + existing system parts)"]
-    IntegrationTesting --> E2EFeatureTesting["7. End-to-End Feature Testing<br>(Validate against user stories & requirements)"]
-    E2EFeatureTesting --> AccessibilityCheck["8. Accessibility & Responsiveness Check<br>(If UI is involved)"]
-    AccessibilityCheck --> CodeCleanup["9. Code Cleanup & Refinement"]
-    CodeCleanup --> UpdateMB["10. Update Memory Bank<br>(`tasks.md` sub-tasks, `progress.md` details)"]
-    UpdateMB --> FinalFeatureReview["11. Final Feature Review (Conceptual Peer Review if possible)"]
-    FinalFeatureReview --> ImplementationDone["L3 Implementation Complete<br>Ready for REFLECT Mode"]
+    MoreModules -- 否 --> IntegrateModules["5. 集成所有功能模块/组件"]
+    IntegrateModules --> IntegrationTesting["6. 执行集成测试<br>（功能模块 + 现有系统部分）"]
+    IntegrationTesting --> E2EFeatureTesting["7. 端到端功能测试<br>（根据用户故事和需求验证）"]
+    E2EFeatureTesting --> AccessibilityCheck["8. 可访问性和响应性检查<br>（如果涉及UI）"]
+    AccessibilityCheck --> CodeCleanup["9. 代码清理和优化"]
+    CodeCleanup --> UpdateMB["10. 更新记忆库<br>（`tasks.md` 子任务、`progress.md` 详情）"]
+    UpdateMB --> FinalFeatureReview["11. 最终功能审查（如可能进行概念性同行审查）"]
+    FinalFeatureReview --> ImplementationDone["三级实施完成<br>准备进入反思模式"]
 
     style StartImpl fill:#e57373,stroke:#f44336
     style BuildIterate fill:#ffcdd2,stroke:#ef9a9a
     style ImplementationDone fill:#ef9a9a,stroke:#e57373
-````
+```
 
-## 🔑 Key Considerations for Level 3 Implementation
+## 🔑 三级实施的关键考虑因素
 
-  * **Modularity & Encapsulation:** Design and build the feature in well-defined, reusable, and loosely coupled modules or components.
-  * **Adherence to Design:** Strictly follow the decisions documented in `memory-bank/creative-*.md` files and the `memory-bank/style-guide.md`. Deviations must be justified and documented.
-  * **State Management:** If the feature introduces or significantly interacts with complex application state, ensure the state management strategy (potentially defined in CREATIVE mode) is correctly implemented and tested.
-  * **API Interactions:**
-      * If consuming new or existing APIs, ensure requests and responses are handled correctly, including error states.
-      * If exposing new API endpoints as part of the feature, ensure they are robust, secure, and documented.
-  * **Error Handling:** Implement user-friendly error messages and robust error handling within the feature's scope.
-  * **Performance:** Be mindful of performance implications. Avoid common pitfalls like N+1 database queries, inefficient algorithms, or large asset loading without optimization, especially if identified as a concern in the PLAN or CREATIVE phase.
-  * **Security:** Implement with security best practices in mind, particularly for features handling user input, authentication, or sensitive data. Refer to any security design decisions from CREATIVE mode.
+  * **模块化和封装：** 在定义明确、可重用和松耦合的模块或组件中设计和构建功能。
+  * **遵循设计：** 严格遵循 `memory-bank/creative-*.md` 文件和 `memory-bank/style-guide.md` 中记录的决策。偏差必须有理由并记录。
+  * **状态管理：** 如果功能引入或显著与复杂应用程序状态交互，确保状态管理策略（可能在创意模式中定义）得到正确实施和测试。
+  * **API交互：**
+      * 如果使用新的或现有的API，确保请求和响应得到正确处理，包括错误状态。
+      * 如果作为功能的一部分暴露新的API端点，确保它们健壮、安全并有文档记录。
+  * **错误处理：** 在功能范围内实施用户友好的错误消息和健壮的错误处理。
+  * **性能：** 注意性能影响。避免常见陷阱，如N+1数据库查询、低效算法或大资产加载而不优化，特别是如果在计划或创意阶段被识别为关注点。
+  * **安全性：** 以安全最佳实践为指导实施，特别是对于处理用户输入、身份验证或敏感数据的功能。参考创意模式中的任何安全设计决策。
 
-## 🧪 Testing Focus for Level 3 Features
+## 🧪 三级功能的测试重点
 
-  * **Unit Tests:** Each new function, method, or logical unit within the feature's components should have corresponding unit tests. Aim for good coverage of core logic and edge cases.
-  * **Component Tests (for UI features):** Test UI components in isolation, verifying rendering, props handling, and event emissions.
-  * **Integration Tests:** Crucial for L3. Test how the different modules/components of the new feature work together. Also, test how the completed feature integrates with existing parts of the application it interacts with.
-  * **User Scenario / Acceptance Tests (Feature-Specific):** Validate that the feature fulfills its defined requirements and user stories from the user's perspective. This can be manual or automated.
+  * **单元测试：** 功能组件内的每个新函数、方法或逻辑单元都应有相应的单元测试。目标是核心逻辑和边缘情况的良好覆盖。
+  * **组件测试（用于UI功能）：** 独立测试UI组件，验证渲染、属性处理和事件发射。
+  * **集成测试：** 对三级至关重要。测试新功能的不同模块/组件如何协同工作。同时，测试完成的功能如何与它交互的现有应用程序部分集成。
+  * **用户场景/验收测试（功能特定）：** 从用户角度验证功能是否满足其定义的需求和用户故事。这可以是手动或自动化的。
 
-## 📝 Documentation During Implementation
+## 📝 实施期间的文档
 
-  * **`memory-bank/tasks.md`:** Update the status of sub-tasks related to the feature as they are completed. Note any blockers or changes in estimates.
-  * **`memory-bank/progress.md`:** Make regular entries detailing:
-      * Modules/components completed.
-      * Key decisions made during implementation (if minor and not warranting a full CREATIVE cycle).
-      * Files significantly modified
-      * Test results for major integration points.
-      * Any deviations from the plan or creative designs, with rationale.
-  * **Code Comments:** Write clear, concise comments explaining complex logic, assumptions, or TODOs.
-  * **READMEs (if applicable):** If the feature introduces new modules or libraries that require specific setup or usage notes, consider adding or updating relevant README files.
+  * **`memory-bank/tasks.md`：** 更新与功能相关的子任务状态。注意任何阻塞因素或估算变化。
+  * **`memory-bank/progress.md`：** 定期记录详细信息：
+      * 完成的模块/组件。
+      * 实施期间做出的关键决策（如果是次要的且不需要完整的创意周期）。
+      * 显著修改的文件
+      * 主要集成点的测试结果。
+      * 任何偏离计划或创意设计的情况，以及理由。
+  * **代码注释：** 编写清晰、简洁的注释，解释复杂逻辑、假设或待办事项。
+  * **README文件（如适用）：** 如果功能引入需要特定设置或使用说明的新模块或库，考虑添加或更新相关的README文件。

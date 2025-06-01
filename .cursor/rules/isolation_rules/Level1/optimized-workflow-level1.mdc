@@ -3,19 +3,18 @@ description: Optimized Level 1 workflow for quick bug fixes with token efficienc
 globs: "**/level1*/**", "**/quick*/**", "**/bugfix*/**"
 alwaysApply: false
 ---
+# 优化的级别1工作流程
 
-# OPTIMIZED LEVEL 1 WORKFLOW
+> **简要说明：** 这个针对级别1任务（快速错误修复）的精简工作流程优化了速度和令牌效率，同时保持质量。
 
-> **TL;DR:** This streamlined workflow for Level 1 tasks (quick bug fixes) optimizes for speed and token efficiency while maintaining quality.
-
-## 🔧 LEVEL 1 PROCESS FLOW
+## 🔧 级别1流程图
 
 ```mermaid
 graph TD
-    Start["START LEVEL 1<br>QUICK FIX"] --> Analyze["1️⃣ ANALYZE<br>Understand issue"]
-    Analyze --> Implement["2️⃣ IMPLEMENT<br>Fix the issue"]
-    Implement --> Verify["3️⃣ VERIFY<br>Test the fix"]
-    Verify --> Document["4️⃣ DOCUMENT<br>Record solution"]
+    Start["开始级别1<br>快速修复"] --> Analyze["1️⃣ 分析<br>理解问题"]
+    Analyze --> Implement["2️⃣ 实现<br>修复问题"]
+    Implement --> Verify["3️⃣ 验证<br>测试修复"]
+    Verify --> Document["4️⃣ 文档<br>记录解决方案"]
     
     style Start fill:#4da6ff,stroke:#0066cc,color:white
     style Analyze fill:#ffa64d,stroke:#cc7a30,color:white
@@ -24,182 +23,182 @@ graph TD
     style Document fill:#4dbbbb,stroke:#368787,color:white
 ```
 
-## 📝 CONSOLIDATED DOCUMENTATION
+## 📝 整合文档
 
-Level 1 tasks use a single-file approach to minimize context switching:
-
-```markdown
-# QUICK FIX: [Issue Name]
-
-## Issue Summary
-- Type: [Bug/Hotfix/Quick Enhancement]
-- Priority: [Low/Medium/High/Critical]
-- Reported by: [Name/System]
-- Affected area: [Component/Feature]
-
-## Analysis
-- Root cause: [Brief description]
-- Affected files: [List of files]
-- Impact: [Scope of impact]
-
-## Solution
-- Approach: [Brief description]
-- Changes made: [List of changes]
-- Commands executed: [Key commands]
-
-## Verification
-- Testing: [How the fix was tested]
-- Results: [Test results]
-- Additional checks: [Any other verification]
-
-## Status
-- [x] Fix implemented
-- [x] Tests passed
-- [x] Documentation updated
-```
-
-## 🔄 MEMORY BANK UPDATE
-
-Level 1 tasks use a simplified Memory Bank update with minimal overhead:
+级别1任务使用单文件方法来最小化上下文切换：
 
 ```markdown
-## tasks.md Update (Level 1)
+# 快速修复: [问题名称]
 
-### Task: [Task Name]
-- Status: Complete
-- Implementation: [One-line summary]
-- Link to fix: [File/line reference]
+## 问题摘要
+- 类型: [错误/热修复/快速增强]
+- 优先级: [低/中/高/紧急]
+- 报告者: [姓名/系统]
+- 影响区域: [组件/功能]
+
+## 分析
+- 根本原因: [简要描述]
+- 影响文件: [文件列表]
+- 影响: [影响范围]
+
+## 解决方案
+- 方法: [简要描述]
+- 所做更改: [更改列表]
+- 执行命令: [关键命令]
+
+## 验证
+- 测试: [如何测试修复]
+- 结果: [测试结果]
+- 额外检查: [任何其他验证]
+
+## 状态
+- [x] 修复已实现
+- [x] 测试通过
+- [x] 文档已更新
 ```
 
-## ⚡ TOKEN-OPTIMIZED TEMPLATE
+## 🔄 Memory Bank更新
 
-For maximum efficiency, Level 1 tasks can use this ultra-compact template:
+级别1任务使用简化的Memory Bank更新，开销最小：
 
 ```markdown
-## 🔧 FIX: [Issue]
-📌 Problem: [Brief description]
-🔍 Cause: [Root cause]
-🛠️ Solution: [Implemented fix]
-✅ Tested: [Verification method]
+## tasks.md更新 (级别1)
+
+### 任务: [任务名称]
+- 状态: 完成
+- 实现: [一行摘要]
+- 修复链接: [文件/行引用]
 ```
 
-## 🔄 AUTO-DOCUMENTATION HELPERS
+## ⚡ 令牌优化模板
 
-Use these helpers to automatically generate documentation:
+为了最大效率，级别1任务可以使用这个超紧凑模板：
+
+```markdown
+## 🔧 修复: [问题]
+📌 问题: [简要描述]
+🔍 原因: [根本原因]
+🛠️ 解决方案: [实现的修复]
+✅ 已测试: [验证方法]
+```
+
+## 🔄 自动文档助手
+
+使用这些助手自动生成文档：
 
 ```javascript
 function generateLevel1Documentation(issue, rootCause, solution, verification) {
-  return `## 🔧 FIX: ${issue}
-📌 Problem: ${issue}
-🔍 Cause: ${rootCause}
-🛠️ Solution: ${solution}
-✅ Tested: ${verification}`;
+  return `## 🔧 修复: ${issue}
+📌 问题: ${issue}
+🔍 原因: ${rootCause}
+🛠️ 解决方案: ${solution}
+✅ 已测试: ${verification}`;
 }
 ```
 
-## 📊 QUICK TEMPLATES FOR COMMON ISSUES
+## 📊 常见问题的快速模板
 
-### Performance Fix
+### 性能修复
 ```markdown
-## 🔧 FIX: Performance issue in [component]
-📌 Problem: Slow response times in [component]
-🔍 Cause: Inefficient query/algorithm
-🛠️ Solution: Optimized [specific optimization]
-✅ Tested: Response time improved from [X]ms to [Y]ms
+## 🔧 修复: [组件]中的性能问题
+📌 问题: [组件]中响应时间慢
+🔍 原因: 查询/算法效率低下
+🛠️ 解决方案: 优化了[具体优化]
+✅ 已测试: 响应时间从[X]毫秒改善到[Y]毫秒
 ```
 
-### Bug Fix
+### 错误修复
 ```markdown
-## 🔧 FIX: Bug in [component]
-📌 Problem: [Specific behavior] not working correctly
-🔍 Cause: [Root cause analysis]
-🛠️ Solution: Fixed by [implementation details]
-✅ Tested: Verified with [test approach]
+## 🔧 修复: [组件]中的错误
+📌 问题: [特定行为]无法正常工作
+🔍 原因: [根本原因分析]
+🛠️ 解决方案: 通过[实现细节]修复
+✅ 已测试: 通过[测试方法]验证
 ```
 
-### Quick Enhancement
+### 快速增强
 ```markdown
-## 🔧 ENHANCEMENT: [Feature]
-📌 Request: Add [specific capability]
-🛠️ Implementation: Added by [implementation details]
-✅ Tested: Verified with [test approach]
+## 🔧 增强: [功能]
+📌 请求: 添加[特定功能]
+🛠️ 实现: 通过[实现细节]添加
+✅ 已测试: 通过[测试方法]验证
 ```
 
-## ✅ STREAMLINED VERIFICATION
+## ✅ 精简验证
 
-Level 1 tasks use a minimal verification process:
+级别1任务使用最小验证过程：
 
 ```markdown
-VERIFICATION:
-[x] Fix implemented and tested
-[x] No regressions introduced
-[x] Documentation updated
+验证:
+[x] 修复已实现并测试
+[x] 未引入回归
+[x] 文档已更新
 ```
 
-## 🚀 CONSOLIDATED MEMORY BANK UPDATE
+## 🚀 整合的Memory Bank更新
 
-Optimize Memory Bank updates for Level 1 tasks by using a single operation:
+通过使用单一操作优化级别1任务的Memory Bank更新：
 
 ```javascript
-// Pseudocode for optimized Level 1 Memory Bank update
+// 优化级别1 Memory Bank更新的伪代码
 function updateLevel1MemoryBank(taskInfo) {
-  // Read current tasks.md
+  // 读取当前tasks.md
   const tasksContent = readFile("tasks.md");
   
-  // Create minimal update
+  // 创建最小更新
   const updateBlock = `
-### Task: ${taskInfo.name}
-- Status: Complete
-- Implementation: ${taskInfo.solution}
-- Link to fix: ${taskInfo.fileReference}
+### 任务: ${taskInfo.name}
+- 状态: 完成
+- 实现: ${taskInfo.solution}
+- 修复链接: ${taskInfo.fileReference}
 `;
   
-  // Add update to tasks.md
-  const updatedContent = appendToSection(tasksContent, "Completed Tasks", updateBlock);
+  // 将更新添加到tasks.md
+  const updatedContent = appendToSection(tasksContent, "已完成任务", updateBlock);
   
-  // Write in single operation
+  // 单次操作写入
   writeFile("tasks.md", updatedContent);
   
-  return "Memory Bank updated";
+  return "Memory Bank已更新";
 }
 ```
 
-## 🔄 OPTIMIZED LEVEL 1 WORKFLOW EXAMPLE
+## 🔄 优化级别1工作流程示例
 
 ```markdown
-## 🔧 FIX: Login button not working on mobile devices
+## 🔧 修复: 移动设备上登录按钮无法工作
 
-📌 Problem: 
-Users unable to log in on mobile devices, button appears but doesn't trigger authentication
+📌 问题: 
+用户无法在移动设备上登录，按钮显示但不触发身份验证
 
-🔍 Cause:
-Event listener using desktop-specific event (mousedown instead of handling touch events)
+🔍 原因:
+事件监听器使用桌面特定事件（mousedown而不是处理触摸事件）
 
-🛠️ Solution:
-Updated event handling to use event delegation and support both mouse and touch events:
+🛠️ 解决方案:
+更新事件处理以使用事件委托并支持鼠标和触摸事件：
 ```js
-// Before: 
+// 之前: 
 loginButton.addEventListener('mousedown', handleLogin);
 
-// After:
+// 之后:
 loginButton.addEventListener('mousedown', handleLogin);
 loginButton.addEventListener('touchstart', handleLogin);
 ```
 
-✅ Tested:
-- Verified on iOS Safari and Android Chrome 
-- Login now works on all tested mobile devices
-- No regression on desktop browsers
+✅ 已测试:
+- 在iOS Safari和Android Chrome上验证
+- 登录现在在所有测试的移动设备上工作
+- 桌面浏览器无回归
 ```
 
-## ⚡ TOKEN EFFICIENCY BENEFITS
+## ⚡ 令牌效率效益
 
-This optimized Level 1 workflow provides:
+这个优化的级别1工作流程提供：
 
-1. Reduced documentation overhead (70% reduction)
-2. Consolidated Memory Bank updates (single operation vs. multiple)
-3. Focused verification process (essential checks only)
-4. Template-based approach for common scenarios
-5. Streamlined workflow with fewer steps
+1. 减少文档开销（70%减少）
+2. 整合的Memory Bank更新（单次操作vs多次操作）
+3. 专注的验证过程（仅基本检查）
+4. 基于模板的常见场景方法
+5. 更少步骤的精简工作流程
 
-The updated approach maintains all critical information while significantly reducing token usage.
+更新的方法在显著减少令牌使用的同时保持所有关键信息。
