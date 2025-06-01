@@ -3,14 +3,13 @@ description: Architectural planning guidelines for Level 4 Complex System tasks
 globs: "**/level4/**", "**/architecture/**"
 alwaysApply: false
 ---
+# 四级任务架构规划
 
-# ARCHITECTURAL PLANNING FOR LEVEL 4 TASKS
+> **简要说明：** 本文档概述了四级（复杂系统）任务的综合架构规划方法，确保产生的架构是稳健、可扩展、可维护的，并与业务目标和技术需求保持一致。
 
-> **TL;DR:** This document outlines a comprehensive architectural planning approach for Level 4 (Complex System) tasks, ensuring a robust, scalable, and maintainable architecture that aligns with business objectives and technical requirements.
+## 🔍 架构规划概述
 
-## 🔍 ARCHITECTURAL PLANNING OVERVIEW
-
-Level 4 Complex System tasks require thorough architectural planning to ensure the resulting system is robust, scalable, maintainable, and aligned with business objectives. This document outlines a structured approach to architectural planning that systematically addresses key concerns and produces comprehensive documentation.
+四级复杂系统任务需要彻底的架构规划，以确保产生的系统是稳健、可扩展、可维护的，并与业务目标保持一致。本文档概述了一种结构化的架构规划方法，系统地解决关键关注点并产生综合文档。
 
 ```mermaid
 flowchart TD
@@ -18,29 +17,29 @@ flowchart TD
     classDef artifact fill:#f4b8c4,stroke:#d498a4,color:#000
     classDef verification fill:#c5e8b7,stroke:#a5c897,color:#000
     
-    Start([Begin Architectural<br>Planning]) --> Reqs[Analyze<br>Requirements]
-    Reqs --> Context[Define Business<br>Context]
-    Context --> Vision[Establish Vision<br>and Goals]
-    Vision --> Principles[Define Architectural<br>Principles]
-    Principles --> Constraints[Identify<br>Constraints]
-    Constraints --> Explore[Explore<br>Alternatives]
-    Explore --> Evaluate[Evaluate<br>Options]
-    Evaluate --> Decision[Document<br>Decisions]
-    Decision --> Create[Create Architecture<br>Documentation]
-    Create --> Validate[Validate<br>Architecture]
-    Validate --> Communicate[Communicate<br>Architecture]
-    Communicate --> Verification{Architecture<br>Verification}
-    Verification -->|Pass| Complete([Architectural<br>Planning Complete])
-    Verification -->|Fail| Revise[Revise<br>Architecture]
+    Start([开始架构<br>规划]) --> Reqs[分析<br>需求]
+    Reqs --> Context[定义业务<br>上下文]
+    Context --> Vision[建立愿景<br>和目标]
+    Vision --> Principles[定义架构<br>原则]
+    Principles --> Constraints[识别<br>约束]
+    Constraints --> Explore[探索<br>替代方案]
+    Explore --> Evaluate[评估<br>选项]
+    Evaluate --> Decision[文档化<br>决策]
+    Decision --> Create[创建架构<br>文档]
+    Create --> Validate[验证<br>架构]
+    Validate --> Communicate[沟通<br>架构]
+    Communicate --> Verification{架构<br>验证}
+    Verification -->|通过| Complete([架构规划<br>完成])
+    Verification -->|失败| Revise[修订<br>架构]
     Revise --> Verification
     
-    Reqs -.-> ReqDoc((Requirements<br>Document))
-    Context -.-> ConDoc((Context<br>Document))
-    Vision -.-> VisDoc((Vision<br>Document))
-    Principles -.-> PrinDoc((Principles<br>Document))
-    Explore -.-> AltDoc((Alternatives<br>Analysis))
-    Decision -.-> ADR((Architecture<br>Decision Records))
-    Create -.-> ArchDoc((Architecture<br>Documentation))
+    Reqs -.-> ReqDoc((需求<br>文档))
+    Context -.-> ConDoc((上下文<br>文档))
+    Vision -.-> VisDoc((愿景<br>文档))
+    Principles -.-> PrinDoc((原则<br>文档))
+    Explore -.-> AltDoc((替代方案<br>分析))
+    Decision -.-> ADR((架构<br>决策记录))
+    Create -.-> ArchDoc((架构<br>文档))
     
     class Start,Complete milestone
     class Reqs,Context,Vision,Principles,Constraints,Explore,Evaluate,Decision,Create,Validate,Communicate,Revise step
@@ -48,349 +47,357 @@ flowchart TD
     class ReqDoc,ConDoc,VisDoc,PrinDoc,AltDoc,ADR,ArchDoc artifact
 ```
 
-## 📋 ARCHITECTURAL PLANNING PRINCIPLES
+## 📋 架构规划原则
 
-1. **Business Alignment**: Architecture must directly support business objectives and user needs.
-2. **Future-Proofing**: Architecture must anticipate future requirements and facilitate change.
-3. **Simplicity**: Prefer simple solutions over complex ones when possible.
-4. **Separation of Concerns**: Systems should be divided into distinct components with minimal overlap.
-5. **Defense in Depth**: Multiple layers of security controls should be employed.
-6. **Loose Coupling**: Components should interact through well-defined interfaces with minimal dependencies.
-7. **High Cohesion**: Related functionality should be grouped together, unrelated functionality separated.
-8. **Resilience**: Architecture should anticipate failures and provide mechanisms for recovery.
-9. **Scalability**: Architecture should support growth in users, data, and functionality.
-10. **Measurability**: Architecture should enable monitoring and measurement of key metrics.
+1. **业务对齐**：架构必须直接支持业务目标和用户需求。
+2. **面向未来**：架构必须预期未来需求并促进变更。
+3. **简洁性**：在可能的情况下，优先选择简单解决方案而非复杂解决方案。
+4. **关注点分离**：系统应该被分为具有最小重叠的不同组件。
+5. **深度防御**：应该采用多层安全控制。
+6. **松耦合**：组件应该通过定义良好的接口进行交互，具有最小依赖关系。
+7. **高内聚**：相关功能应该组合在一起，不相关功能应该分离。
+8. **弹性**：架构应该预期故障并提供恢复机制。
+9. **可扩展性**：架构应该支持用户、数据和功能的增长。
+10. **可测量性**：架构应该能够监控和测量关键指标。
 
-## 📋 ARCHITECTURAL REQUIREMENTS ANALYSIS
+## 📋 架构需求分析
 
-Begin architectural planning with a comprehensive analysis of requirements:
+从综合需求分析开始架构规划：
 
-### Functional Requirements Analysis
+### 功能需求分析
 
 ```mermaid
 flowchart LR
     classDef req fill:#f9d77e,stroke:#d9b95c,color:#000
     classDef arch fill:#a8d5ff,stroke:#88b5e0,color:#000
     
-    FR[Functional<br>Requirements] --> USE[Use Cases/<br>User Stories]
-    USE --> DOM[Domain<br>Model]
-    DOM --> COMP[Component<br>Identification]
-    COMP --> INT[Interface<br>Definition]
-    INT --> FLOW[Information<br>Flow]
+    FR[功能<br>需求] --> USE[用例/<br>用户故事]
+    USE --> DOM[领域<br>模型]
+    DOM --> COMP[组件<br>识别]
+    COMP --> INT[接口<br>定义]
+    INT --> FLOW[信息<br>流]
     
     class FR,USE,DOM req
     class COMP,INT,FLOW arch
 ```
 
-**Template for Functional Requirements Analysis:**
+**功能需求分析模板：**
 
 ```markdown
-## Functional Requirements Analysis
+## 功能需求分析
 
-### Key Use Cases
-- Use Case 1: [Description]
-- Use Case 2: [Description]
-- Use Case 3: [Description]
+### 关键用例
+- 用例1：[描述]
+- 用例2：[描述]
+- 用例3：[描述]
 
-### Domain Model
-- Entity 1: [Description and attributes]
-- Entity 2: [Description and attributes]
-- Entity 3: [Description and attributes]
-- Relationships:
-  - Entity 1 → Entity 2: [Relationship type and description]
-  - Entity 2 → Entity 3: [Relationship type and description]
+### 领域模型
+- 实体1：[描述和属性]
+- 实体2：[描述和属性]
+- 实体3：[描述和属性]
+- 关系：
+  - 实体1 → 实体2：[关系类型和描述]
+  - 实体2 → 实体3：[关系类型和描述]
 
-### Component Identification
-- Component 1: [Description and responsibilities]
-- Component 2: [Description and responsibilities]
-- Component 3: [Description and responsibilities]
+### 组件识别
+- 组件1：[描述和职责]
+- 组件2：[描述和职责]
+- 组件3：[描述和职责]
 
-### Interface Definitions
-- Interface 1: [Description, methods, parameters]
-- Interface 2: [Description, methods, parameters]
-- Interface 3: [Description, methods, parameters]
+### 接口定义
+- 接口1：[描述、方法、参数]
+- 接口2：[描述、方法、参数]
+- 接口3：[描述、方法、参数]
 
-### Information Flow
-- Flow 1: [Description of information exchange]
-- Flow 2: [Description of information exchange]
-- Flow 3: [Description of information exchange]
+### 信息流
+- 流1：[信息交换描述]
+- 流2：[信息交换描述]
+- 流3：[信息交换描述]
 ```
 
-### Non-Functional Requirements Analysis
+### 非功能需求分析
 
 ```mermaid
 flowchart LR
     classDef req fill:#f9d77e,stroke:#d9b95c,color:#000
     classDef arch fill:#a8d5ff,stroke:#88b5e0,color:#000
     
-    NFR[Non-Functional<br>Requirements] --> PERF[Performance<br>Requirements]
-    NFR --> SEC[Security<br>Requirements]
-    NFR --> SCAL[Scalability<br>Requirements]
-    NFR --> AVAIL[Availability<br>Requirements]
-    NFR --> MAINT[Maintainability<br>Requirements]
+    NFR[非功能<br>需求] --> PERF[性能<br>需求]
+    NFR --> SEC[安全<br>需求]
+    NFR --> SCAL[可扩展性<br>需求]
+    NFR --> AVAIL[可用性<br>需求]
+    NFR --> MAINT[可维护性<br>需求]
     
-    PERF & SEC & SCAL & AVAIL & MAINT --> ARCH[Architectural<br>Decisions]
+    PERF & SEC & SCAL & AVAIL & MAINT --> ARCH[架构<br>决策]
     
     class NFR,PERF,SEC,SCAL,AVAIL,MAINT req
     class ARCH arch
 ```
 
-**Template for Non-Functional Requirements Analysis:**
+**非功能需求分析模板：**
 
 ```markdown
-## Non-Functional Requirements Analysis
+## 非功能需求分析
 
-### Performance Requirements
-- Response Time: [Requirements]
-- Throughput: [Requirements]
-- Resource Utilization: [Requirements]
-- Architectural Implications: [Implications for architecture]
+### 性能需求
+- 响应时间：[需求]
+- 吞吐量：[需求]
+- 资源利用率：[需求]
+- 架构影响：[对架构的影响]
 
-### Security Requirements
-- Authentication: [Requirements]
-- Authorization: [Requirements]
-- Data Protection: [Requirements]
-- Audit/Logging: [Requirements]
-- Architectural Implications: [Implications for architecture]
+### 安全需求
+- 身份验证：[需求]
+- 授权：[需求]
+- 数据保护：[需求]
+- 审计/日志记录：[需求]
+- 架构影响：[对架构的影响]
 
-### Scalability Requirements
-- User Scalability: [Requirements]
-- Data Scalability: [Requirements]
-- Transaction Scalability: [Requirements]
-- Architectural Implications: [Implications for architecture]
+### 可扩展性需求
+- 用户可扩展性：[需求]
+- 数据可扩展性：[需求]
+- 事务可扩展性：[需求]
+- 架构影响：[对架构的影响]
 
-### Availability Requirements
-- Uptime Requirements: [Requirements]
-- Fault Tolerance: [Requirements]
-- Disaster Recovery: [Requirements]
-- Architectural Implications: [Implications for architecture]
+### 可用性需求
+- 正常运行时间需求：[需求]
+- 容错性：[需求]
+- 灾难恢复：[需求]
+- 架构影响：[对架构的影响]
 
-### Maintainability Requirements
-- Modularity: [Requirements]
-- Extensibility: [Requirements]
-- Testability: [Requirements]
-- Architectural Implications: [Implications for architecture]
+### 可维护性需求
+- 模块化：[需求]
+- 可扩展性：[需求]
+- 可测试性：[需求]
+- 架构影响：[对架构的影响]
 ```
 
-## 📋 BUSINESS CONTEXT DOCUMENTATION
+## 📋 业务上下文文档
 
-Document the business context to ensure architectural alignment:
+文档化业务上下文以确保架构对齐：
 
 ```markdown
-## Business Context Documentation
+## 业务上下文文档
 
-### Business Objectives
-- Objective 1: [Description]
-- Objective 2: [Description]
-- Objective 3: [Description]
+### 业务目标
+- 目标1：[描述]
+- 目标2：[描述]
+- 目标3：[描述]
 
-### Key Stakeholders
-- Stakeholder Group 1: [Description, needs, and concerns]
-- Stakeholder Group 2: [Description, needs, and concerns]
-- Stakeholder Group 3: [Description, needs, and concerns]
+### 关键利益相关者
+- 利益相关者群体1：[描述、需求和关注点]
+- 利益相关者群体2：[描述、需求和关注点]
+- 利益相关者群体3：[描述、需求和关注点]
 
-### Business Processes
-- Process 1: [Description and flow]
-- Process 2: [Description and flow]
-- Process 3: [Description and flow]
+### 业务流程
+- 流程1：[描述和流程]
+- 流程2：[描述和流程]
+- 流程3：[描述和流程]
 
-### Business Constraints
-- Constraint 1: [Description and impact]
-- Constraint 2: [Description and impact]
-- Constraint 3: [Description and impact]
+### 业务约束
+- 约束1：[描述和影响]
+- 约束2：[描述和影响]
+- 约束3：[描述和影响]
 
-### Business Metrics
-- Metric 1: [Description and target]
-- Metric 2: [Description and target]
-- Metric 3: [Description and target]
-
-### Business Risks
-- Risk 1: [Description, probability, impact, and mitigation]
-- Risk 2: [Description, probability, impact, and mitigation]
-- Risk 3: [Description, probability, impact, and mitigation]
+### 业务指标
+- 指标1：[描述和目标]
+- 指标2：[描述和目标]
+- 指标3：[描述和目标]
 ```
 
-## 📋 ARCHITECTURAL VISION AND GOALS
+## 📋 业务风险
 
-Document the architectural vision and goals:
+文档化业务风险：
 
 ```markdown
-## Architectural Vision and Goals
+## 业务风险
 
-### Vision Statement
-[Concise statement of the architectural vision]
-
-### Strategic Goals
-- Goal 1: [Description and success criteria]
-- Goal 2: [Description and success criteria]
-- Goal 3: [Description and success criteria]
-
-### Quality Attributes
-- Quality Attribute 1: [Description and importance]
-- Quality Attribute 2: [Description and importance]
-- Quality Attribute 3: [Description and importance]
-
-### Technical Roadmap
-- Short-term (0-6 months): [Key architectural milestones]
-- Medium-term (6-18 months): [Key architectural milestones]
-- Long-term (18+ months): [Key architectural milestones]
-
-### Key Success Indicators
-- Indicator 1: [Description and measurement]
-- Indicator 2: [Description and measurement]
-- Indicator 3: [Description and measurement]
+### 风险1：[描述、概率、影响和缓解措施]
+- 风险1：[描述、概率、影响和缓解措施]
+- 风险2：[描述、概率、影响和缓解措施]
+- 风险3：[描述、概率、影响和缓解措施]
 ```
 
-## 📋 ARCHITECTURAL PRINCIPLES
+## 📋 架构愿景和目标
 
-Document architectural principles to guide decision-making:
+文档化架构愿景和目标：
 
 ```markdown
-## Architectural Principles
+## 架构愿景和目标
 
-### Principle 1: [Name]
-- **Statement**: [Concise statement of the principle]
-- **Rationale**: [Why this principle is important]
-- **Implications**: [What this principle means for the architecture]
-- **Examples**: [Examples of applying this principle]
+### 愿景声明
+[架构愿景的简洁声明]
 
-### Principle 2: [Name]
-- **Statement**: [Concise statement of the principle]
-- **Rationale**: [Why this principle is important]
-- **Implications**: [What this principle means for the architecture]
-- **Examples**: [Examples of applying this principle]
+### 战略目标
+- 目标1：[描述和成功标准]
+- 目标2：[描述和成功标准]
+- 目标3：[描述和成功标准]
 
-### Principle 3: [Name]
-- **Statement**: [Concise statement of the principle]
-- **Rationale**: [Why this principle is important]
-- **Implications**: [What this principle means for the architecture]
-- **Examples**: [Examples of applying this principle]
+### 质量属性
+- 质量属性1：[描述和重要性]
+- 质量属性2：[描述和重要性]
+- 质量属性3：[描述和重要性]
+
+### 技术路线图
+- 短期（0-6个月）：[关键架构里程碑]
+- 中期（6-18个月）：[关键架构里程碑]
+- 长期（18个月以上）：[关键架构里程碑]
+
+### 关键成功指标
+- 指标1：[描述和测量方法]
+- 指标2：[描述和测量方法]
+- 指标3：[描述和测量方法]
+```
+
+## 📋 架构原则
+
+文档化架构原则以指导决策制定：
+
+```markdown
+## 架构原则
+
+### 原则1：[名称]
+- **声明**：[原则的简洁声明]
+- **理由**：[为什么这个原则很重要]
+- **影响**：[这个原则对架构意味着什么]
+- **示例**：[应用这个原则的示例]
+
+### 原则2：[名称]
+- **声明**：[原则的简洁声明]
+- **理由**：[为什么这个原则很重要]
+- **影响**：[这个原则对架构意味着什么]
+- **示例**：[应用这个原则的示例]
+
+### 原则3：[名称]
+- **声明**：[原则的简洁声明]
+- **理由**：[为什么这个原则很重要]
+- **影响**：[这个原则对架构意味着什么]
+- **示例**：[应用这个原则的示例]
 
 ...
 ```
 
-## 📋 CONSTRAINTS IDENTIFICATION
+## 📋 约束识别
 
-Document constraints that impact architectural decisions:
+文档化影响架构决策的约束：
 
 ```markdown
-## Architectural Constraints
+## 架构约束
 
-### Technical Constraints
-- Constraint 1: [Description and impact]
-- Constraint 2: [Description and impact]
-- Constraint 3: [Description and impact]
+### 技术约束
+- 约束1：[描述和影响]
+- 约束2：[描述和影响]
+- 约束3：[描述和影响]
 
-### Organizational Constraints
-- Constraint 1: [Description and impact]
-- Constraint 2: [Description and impact]
-- Constraint 3: [Description and impact]
+### 组织约束
+- 约束1：[描述和影响]
+- 约束2：[描述和影响]
+- 约束3：[描述和影响]
 
-### External Constraints
-- Constraint 1: [Description and impact]
-- Constraint 2: [Description and impact]
-- Constraint 3: [Description and impact]
+### 外部约束
+- 约束1：[描述和影响]
+- 约束2：[描述和影响]
+- 约束3：[描述和影响]
 
-### Regulatory/Compliance Constraints
-- Constraint 1: [Description and impact]
-- Constraint 2: [Description and impact]
-- Constraint 3: [Description and impact]
+### 监管/合规约束
+- 约束1：[描述和影响]
+- 约束2：[描述和影响]
+- 约束3：[描述和影响]
 
-### Resource Constraints
-- Constraint 1: [Description and impact]
-- Constraint 2: [Description and impact]
-- Constraint 3: [Description and impact]
+### 资源约束
+- 约束1：[描述和影响]
+- 约束2：[描述和影响]
+- 约束3：[描述和影响]
 ```
 
-## 📋 ARCHITECTURAL ALTERNATIVES EXPLORATION
+## 📋 架构替代方案探索
 
-Document and evaluate architectural alternatives:
+文档化和评估架构替代方案：
 
 ```markdown
-## Architectural Alternatives
+## 架构替代方案
 
-### Alternative 1: [Name]
-- **Description**: [Brief description of the alternative]
-- **Key Components**:
-  - Component 1: [Description]
-  - Component 2: [Description]
-  - Component 3: [Description]
-- **Advantages**:
-  - [Advantage 1]
-  - [Advantage 2]
-  - [Advantage 3]
-- **Disadvantages**:
-  - [Disadvantage 1]
-  - [Disadvantage 2]
-  - [Disadvantage 3]
-- **Risks**:
-  - [Risk 1]
-  - [Risk 2]
-  - [Risk 3]
-- **Cost Factors**:
-  - [Cost Factor 1]
-  - [Cost Factor 2]
-  - [Cost Factor 3]
-- **Alignment with Requirements**:
-  - [How well this alternative addresses requirements]
+### 替代方案1：[名称]
+- **描述**：[替代方案的简要描述]
+- **关键组件**：
+  - 组件1：[描述]
+  - 组件2：[描述]
+  - 组件3：[描述]
+- **优势**：
+  - [优势1]
+  - [优势2]
+  - [优势3]
+- **劣势**：
+  - [劣势1]
+  - [劣势2]
+  - [劣势3]
+- **风险**：
+  - [风险1]
+  - [风险2]
+  - [风险3]
+- **成本因素**：
+  - [成本因素1]
+  - [成本因素2]
+  - [成本因素3]
+- **与需求的对齐**：
+  - [此替代方案如何满足需求]
 
-### Alternative 2: [Name]
+### 替代方案2：[名称]
 ...
 
-### Alternative 3: [Name]
+### 替代方案3：[名称]
 ...
 
-## Evaluation Criteria
-- Criterion 1: [Description and weighting]
-- Criterion 2: [Description and weighting]
-- Criterion 3: [Description and weighting]
+## 评估标准
+- 标准1：[描述和权重]
+- 标准2：[描述和权重]
+- 标准3：[描述和权重]
 
-## Evaluation Matrix
-| Criterion | Alternative 1 | Alternative 2 | Alternative 3 |
-|-----------|---------------|---------------|---------------|
-| Criterion 1 | Score | Score | Score |
-| Criterion 2 | Score | Score | Score |
-| Criterion 3 | Score | Score | Score |
-| Total | Sum | Sum | Sum |
+## 评估矩阵
+| 标准 | 替代方案1 | 替代方案2 | 替代方案3 |
+|------|-----------|-----------|-----------|
+| 标准1 | 分数 | 分数 | 分数 |
+| 标准2 | 分数 | 分数 | 分数 |
+| 标准3 | 分数 | 分数 | 分数 |
+| 总计 | 总和 | 总和 | 总和 |
 
-## Recommended Approach
-[Description of the recommended architectural approach with justification]
+## 推荐方法
+[推荐架构方法的描述和论证]
 ```
 
-## 📋 ARCHITECTURE DECISION RECORDS (ADRs)
+## 📋 架构决策记录（ADRs）
 
-Document key architectural decisions:
+文档化关键架构决策：
 
 ```markdown
-# Architecture Decision Record: [Decision Title]
+# 架构决策记录：[决策标题]
 
-## Status
-[Proposed/Accepted/Deprecated/Superseded]
+## 状态
+[提议/接受/弃用/替代]
 
-## Context
-[Description of the context and problem statement]
+## 上下文
+[上下文和问题陈述的描述]
 
-## Decision
-[Description of the decision made]
+## 决策
+[所做决策的描述]
 
-## Consequences
-[Description of the consequences of the decision]
+## 后果
+[决策后果的描述]
 
-## Alternatives Considered
-[Description of alternatives considered]
+## 考虑的替代方案
+[考虑的替代方案描述]
 
-## Related Decisions
-[References to related decisions]
+## 相关决策
+[相关决策的引用]
 
-## Notes
-[Additional notes and considerations]
+## 注释
+[附加注释和考虑因素]
 ```
 
-## 📋 COMPREHENSIVE ARCHITECTURE DOCUMENTATION
+## 📋 综合架构文档
 
-Create comprehensive architecture documentation:
+创建综合架构文档：
 
-### System Context Diagram
+### 系统上下文图
 
 ```mermaid
 flowchart TD
@@ -398,18 +405,18 @@ flowchart TD
     classDef external fill:#a8d5ff,stroke:#88b5e0,color:#000
     classDef user fill:#c5e8b7,stroke:#a5c897,color:#000
     
-    U1[User 1] --> S[System]
-    U2[User 2] --> S
-    S --> E1[External<br>System 1]
-    S --> E2[External<br>System 2]
-    S --> E3[External<br>System 3]
+    U1[用户1] --> S[系统]
+    U2[用户2] --> S
+    S --> E1[外部<br>系统1]
+    S --> E2[外部<br>系统2]
+    S --> E3[外部<br>系统3]
     
     class S system
     class E1,E2,E3 external
     class U1,U2 user
 ```
 
-### High-Level Architecture Diagram
+### 高级架构图
 
 ```mermaid
 flowchart TD
@@ -418,11 +425,11 @@ flowchart TD
     classDef data fill:#c5e8b7,stroke:#a5c897,color:#000
     classDef integration fill:#f4b8c4,stroke:#d498a4,color:#000
     
-    U[Users] --> F[Frontend<br>Layer]
-    F --> B[Backend<br>Layer]
-    B --> D[Data<br>Layer]
-    B --> I[Integration<br>Layer]
-    I --> E[External<br>Systems]
+    U[用户] --> F[前端<br>层]
+    F --> B[后端<br>层]
+    B --> D[数据<br>层]
+    B --> I[集成<br>层]
+    I --> E[外部<br>系统]
     
     class F frontend
     class B backend
@@ -431,7 +438,7 @@ flowchart TD
     class U,E external
 ```
 
-### Component Architecture Diagram
+### 组件架构图
 
 ```mermaid
 flowchart TD
@@ -439,13 +446,13 @@ flowchart TD
     classDef service fill:#a8d5ff,stroke:#88b5e0,color:#000
     classDef data fill:#c5e8b7,stroke:#a5c897,color:#000
     
-    UI[User Interface] --> API[API Gateway]
-    API --> S1[Service 1]
-    API --> S2[Service 2]
-    API --> S3[Service 3]
-    S1 --> DB1[Database 1]
+    UI[用户界面] --> API[API网关]
+    API --> S1[服务1]
+    API --> S2[服务2]
+    API --> S3[服务3]
+    S1 --> DB1[数据库1]
     S2 --> DB1
-    S2 --> DB2[Database 2]
+    S2 --> DB2[数据库2]
     S3 --> DB2
     
     class UI ui
@@ -453,357 +460,356 @@ flowchart TD
     class DB1,DB2 data
 ```
 
-### Data Architecture Diagram
+### 数据架构图
 
 ```mermaid
 flowchart TD
     classDef entity fill:#f9d77e,stroke:#d9b95c,color:#000
     classDef relation fill:#a8d5ff,stroke:#88b5e0,color:#000
     
-    E1[Entity 1] -- 1:N --> E2[Entity 2]
-    E1 -- 1:1 --> E3[Entity 3]
-    E2 -- N:M --> E4[Entity 4]
+    E1[实体1] -- 1:N --> E2[实体2]
+    E1 -- 1:1 --> E3[实体3]
+    E2 -- N:M --> E4[实体4]
     E3 -- 1:N --> E4
     
     class E1,E2,E3,E4 entity
 ```
 
-### Security Architecture Diagram
+### 安全架构图
 
 ```mermaid
 flowchart TD
     classDef security fill:#f9d77e,stroke:#d9b95c,color:#000
     classDef app fill:#a8d5ff,stroke:#88b5e0,color:#000
     
-    U[Users] --> WAF[Web Application<br>Firewall]
-    WAF --> LB[Load<br>Balancer]
-    LB --> API[API Gateway]
-    API --> AuthZ[Authorization<br>Service]
-    API --> S1[Service 1]
-    API --> S2[Service 2]
-    AuthZ --> IAM[Identity &<br>Access Management]
+    U[用户] --> WAF[Web应用<br>防火墙]
+    WAF --> LB[负载<br>均衡器]
+    LB --> API[API网关]
+    API --> AuthZ[授权<br>服务]
+    API --> S1[服务1]
+    API --> S2[服务2]
+    AuthZ --> IAM[身份与<br>访问管理]
     
     class WAF,AuthZ,IAM security
     class API,S1,S2 app
     class U,LB external
 ```
 
-### Deployment Architecture Diagram
+### 部署架构图
 
 ```mermaid
 flowchart TD
     classDef env fill:#f9d77e,stroke:#d9b95c,color:#000
     classDef component fill:#a8d5ff,stroke:#88b5e0,color:#000
     
-    subgraph Production
-    LB[Load Balancer] --> W1[Web Server 1]
-    LB --> W2[Web Server 2]
-    W1 & W2 --> A1[App Server 1]
-    W1 & W2 --> A2[App Server 2]
-    A1 & A2 --> DB[Database<br>Cluster]
+    subgraph 生产环境
+    LB[负载均衡器] --> W1[Web服务器1]
+    LB --> W2[Web服务器2]
+    W1 & W2 --> A1[应用服务器1]
+    W1 & W2 --> A2[应用服务器2]
+    A1 & A2 --> DB[数据库<br>集群]
     end
     
-    class Production env
+    class 生产环境 env
     class LB,W1,W2,A1,A2,DB component
 ```
 
-### Architecture Documentation Template
+### 架构文档模板
 
 ```markdown
-# System Architecture Document
+# 系统架构文档
 
-## 1. Introduction
-- **Purpose**: [Purpose of the architecture]
-- **Scope**: [Scope of the architecture]
-- **Audience**: [Intended audience for the document]
-- **References**: [Related documents and references]
+## 1. 介绍
+- **目的**：[架构的目的]
+- **范围**：[架构的范围]
+- **受众**：[文档的目标受众]
+- **参考**：[相关文档和参考资料]
 
-## 2. System Context
-- **System Purpose**: [Brief description of system purpose]
-- **Context Diagram**: [System context diagram]
-- **External Systems**: [Description of external systems and interfaces]
-- **User Types**: [Description of user types and interactions]
+## 2. 系统上下文
+- **系统目的**：[系统目的的简要描述]
+- **上下文图**：[系统上下文图]
+- **外部系统**：[外部系统和接口的描述]
+- **用户类型**：[用户类型和交互的描述]
 
-## 3. Architecture Overview
-- **Architecture Style**: [Description of the architectural style/pattern]
-- **High-Level Architecture**: [High-level architecture diagram]
-- **Key Components**: [Overview of key components]
-- **Technology Stack**: [Overview of technology stack]
+## 3. 架构概述
+- **架构风格**：[架构风格/模式的描述]
+- **高级架构**：[高级架构图]
+- **关键组件**：[关键组件概述]
+- **技术栈**：[技术栈概述]
 
-## 4. Component Architecture
-- **Component Diagram**: [Component architecture diagram]
-- **Component Descriptions**:
-  - Component 1: [Description, responsibilities, interfaces]
-  - Component 2: [Description, responsibilities, interfaces]
-  - Component 3: [Description, responsibilities, interfaces]
-- **Component Interactions**: [Description of component interactions]
-- **API Specifications**: [Overview of key APIs]
+## 4. 组件架构
+- **组件图**：[组件架构图]
+- **组件描述**：
+  - 组件1：[描述、职责、接口]
+  - 组件2：[描述、职责、接口]
+  - 组件3：[描述、职责、接口]
+- **组件交互**：[组件交互的描述]
+- **API规范**：[关键API概述]
 
-## 5. Data Architecture
-- **Data Model**: [Data architecture diagram]
-- **Entity Descriptions**:
-  - Entity 1: [Description, attributes, relationships]
-  - Entity 2: [Description, attributes, relationships]
-  - Entity 3: [Description, attributes, relationships]
-- **Data Storage**: [Description of data storage approaches]
-- **Data Access**: [Description of data access patterns]
-- **Data Migration**: [Overview of data migration approach]
+## 5. 数据架构
+- **数据模型**：[数据架构图]
+- **实体描述**：
+  - 实体1：[描述、属性、关系]
+  - 实体2：[描述、属性、关系]
+  - 实体3：[描述、属性、关系]
+- **数据存储**：[数据存储方法的描述]
+- **数据访问**：[数据访问模式的描述]
+- **数据迁移**：[数据迁移方法概述]
 
-## 6. Security Architecture
-- **Security Model**: [Security architecture diagram]
-- **Authentication**: [Authentication approach]
-- **Authorization**: [Authorization approach]
-- **Data Protection**: [Data protection mechanisms]
-- **Security Controls**: [Key security controls]
-- **Audit and Logging**: [Audit and logging approach]
+## 6. 安全架构
+- **安全模型**：[安全架构图]
+- **身份验证**：[身份验证方法]
+- **授权**：[授权方法]
+- **数据保护**：[数据保护机制]
+- **安全控制**：[关键安全控制]
+- **审计和日志记录**：[审计和日志记录方法]
 
-## 7. Deployment Architecture
-- **Deployment Model**: [Deployment architecture diagram]
-- **Environment Descriptions**:
-  - Environment 1: [Description and configuration]
-  - Environment 2: [Description and configuration]
-  - Environment 3: [Description and configuration]
-- **Infrastructure Requirements**: [Infrastructure requirements]
-- **Scaling Approach**: [Scaling approach]
+## 7. 部署架构
+- **部署模型**：[部署架构图]
+- **环境描述**：
+  - 环境1：[描述和配置]
+  - 环境2：[描述和配置]
+  - 环境3：[描述和配置]
+- **基础设施需求**：[基础设施需求]
+- **扩展方法**：[扩展方法]
 
-## 8. Quality Attributes
-- **Performance**: [Performance characteristics and mechanisms]
-- **Scalability**: [Scalability approach]
-- **Availability**: [Availability approach]
-- **Maintainability**: [Maintainability approach]
-- **Reliability**: [Reliability approach]
-- **Portability**: [Portability considerations]
+## 8. 质量属性
+- **性能**：[性能特征和机制]
+- **可扩展性**：[可扩展性方法]
+- **可用性**：[可用性方法]
+- **可维护性**：[可维护性方法]
+- **可靠性**：[可靠性方法]
+- **可移植性**：[可移植性考虑]
 
-## 9. Cross-Cutting Concerns
-- **Logging**: [Logging approach]
-- **Error Handling**: [Error handling approach]
-- **Monitoring**: [Monitoring approach]
-- **Configuration Management**: [Configuration management approach]
-- **Internationalization**: [Internationalization approach]
+## 9. 横切关注点
+- **日志记录**：[日志记录方法]
+- **错误处理**：[错误处理方法]
+- **监控**：[监控方法]
+- **配置管理**：[配置管理方法]
+- **国际化**：[国际化方法]
 
-## 10. Architecture Decisions
-- [References to Architecture Decision Records]
+## 10. 架构决策
+- [架构决策记录的引用]
 
-## 11. Risks and Mitigations
-- Risk 1: [Description and mitigation]
-- Risk 2: [Description and mitigation]
-- Risk 3: [Description and mitigation]
+## 11. 风险和缓解措施
+- 风险1：[描述和缓解措施]
+- 风险2：[描述和缓解措施]
+- 风险3：[描述和缓解措施]
 
-## 12. Glossary
-- Term 1: [Definition]
-- Term 2: [Definition]
-- Term 3: [Definition]
+## 12. 术语表
+- 术语1：[定义]
+- 术语2：[定义]
+- 术语3：[定义]
 ```
 
-## 📋 ARCHITECTURE VALIDATION
+## 📋 架构验证
 
-Validate architecture against requirements and principles:
+根据需求和原则验证架构：
 
 ```markdown
-## Architecture Validation
+## 架构验证
 
-### Requirements Coverage
-- Requirement 1: [Covered/Partially Covered/Not Covered] - [Explanation]
-- Requirement 2: [Covered/Partially Covered/Not Covered] - [Explanation]
-- Requirement 3: [Covered/Partially Covered/Not Covered] - [Explanation]
+### 需求覆盖
+- 需求1：[已覆盖/部分覆盖/未覆盖] - [说明]
+- 需求2：[已覆盖/部分覆盖/未覆盖] - [说明]
+- 需求3：[已覆盖/部分覆盖/未覆盖] - [说明]
 
-### Principles Alignment
-- Principle 1: [Aligned/Partially Aligned/Not Aligned] - [Explanation]
-- Principle 2: [Aligned/Partially Aligned/Not Aligned] - [Explanation]
-- Principle 3: [Aligned/Partially Aligned/Not Aligned] - [Explanation]
+### 原则对齐
+- 原则1：[对齐/部分对齐/不对齐] - [说明]
+- 原则2：[对齐/部分对齐/不对齐] - [说明]
+- 原则3：[对齐/部分对齐/不对齐] - [说明]
 
-### Quality Attribute Scenarios
-- Scenario 1: [Description and validation]
-- Scenario 2: [Description and validation]
-- Scenario 3: [Description and validation]
+### 质量属性场景
+- 场景1：[描述和验证]
+- 场景2：[描述和验证]
+- 场景3：[描述和验证]
 
-### Architecture Review Findings
-- Finding 1: [Description and resolution]
-- Finding 2: [Description and resolution]
-- Finding 3: [Description and resolution]
+### 架构审查发现
+- 发现1：[描述和解决方案]
+- 发现2：[描述和解决方案]
+- 发现3：[描述和解决方案]
 
-### Risk Assessment
-- Risk 1: [Description, probability, impact, and mitigation]
-- Risk 2: [Description, probability, impact, and mitigation]
-- Risk 3: [Description, probability, impact, and mitigation]
+### 风险评估
+- 风险1：[描述、概率、影响和缓解措施]
+- 风险2：[描述、概率、影响和缓解措施]
+- 风险3：[描述、概率、影响和缓解措施]
 
-### Validation Outcome
-[Summary of validation outcome and next steps]
+### 验证结果
+[验证结果摘要和后续步骤]
 ```
 
-## 📋 ARCHITECTURE COMMUNICATION
+## 📋 架构沟通
 
-Communicate architecture to stakeholders:
+向利益相关者沟通架构：
 
 ```markdown
-## Architecture Communication Plan
+## 架构沟通计划
 
-### Key Stakeholders
-- Stakeholder Group 1: [Communication needs]
-- Stakeholder Group 2: [Communication needs]
-- Stakeholder Group 3: [Communication needs]
+### 关键利益相关者
+- 利益相关者群体1：[沟通需求]
+- 利益相关者群体2：[沟通需求]
+- 利益相关者群体3：[沟通需求]
 
-### Communication Materials
-- **Executive Summary**: [Purpose and audience]
-- **Technical Reference**: [Purpose and audience]
-- **Developer Guide**: [Purpose and audience]
-- **Operations Guide**: [Purpose and audience]
+### 沟通材料
+- **执行摘要**：[目的和受众]
+- **技术参考**：[目的和受众]
+- **开发者指南**：[目的和受众]
+- **运维指南**：[目的和受众]
 
-### Communication Schedule
-- Event 1: [Date, audience, purpose]
-- Event 2: [Date, audience, purpose]
-- Event 3: [Date, audience, purpose]
+### 沟通时间表
+- 事件1：[日期、受众、目的]
+- 事件2：[日期、受众、目的]
+- 事件3：[日期、受众、目的]
 
-### Feedback Mechanism
-[Description of how feedback will be collected and incorporated]
+### 反馈机制
+[如何收集和整合反馈的描述]
 ```
 
-## 📋 MEMORY BANK INTEGRATION
+## 📋 记忆库集成
 
 ```mermaid
 flowchart TD
     classDef memfile fill:#f4b8c4,stroke:#d498a4,color:#000
     classDef process fill:#f9d77e,stroke:#d9b95c,color:#000
     
-    Architecture[Architectural<br>Planning] --> PB[projectbrief.md]
+    Architecture[架构<br>规划] --> PB[projectbrief.md]
     Architecture --> PC[productContext.md]
     Architecture --> SP[systemPatterns.md]
     Architecture --> TC[techContext.md]
     
-    PB & PC & SP & TC --> MBI[Memory Bank<br>Integration]
-    MBI --> Next[Implementation<br>Phase]
+    PB & PC & SP & TC --> MBI[记忆库<br>集成]
+    MBI --> Next[实施<br>阶段]
     
     class PB,PC,SP,TC memfile
     class Architecture,MBI,Next process
 ```
 
-### Memory Bank Updates
+### 记忆库更新
 
-Update the following Memory Bank files during architectural planning:
+在架构规划期间更新以下记忆库文件：
 
 1. **projectbrief.md**
-   - Update with architectural vision
-   - Document high-level architecture approach
-   - Link to architecture documentation
+   - 用架构愿景更新
+   - 文档化高级架构方法
+   - 链接到架构文档
 
 2. **productContext.md**
-   - Update with business context documentation
-   - Document key stakeholder requirements
-   - Capture business drivers for architectural decisions
+   - 用业务上下文文档更新
+   - 文档化关键利益相关者需求
+   - 捕获架构决策的业务驱动因素
 
 3. **systemPatterns.md**
-   - Document architectural patterns and styles chosen
-   - Capture key architecture decisions with rationales
-   - Document technical patterns to be used
+   - 文档化选择的架构模式和风格
+   - 捕获关键架构决策及其理由
+   - 文档化要使用的技术模式
 
 4. **techContext.md**
-   - Update with technology stack decisions
-   - Document technical constraints and considerations
-   - Capture integration approaches
+   - 用技术栈决策更新
+   - 文档化技术约束和考虑因素
+   - 捕获集成方法
 
-## 📋 ARCHITECTURAL PLANNING VERIFICATION CHECKLIST
+## 📋 架构规划验证检查清单
 
 ```
-✓ ARCHITECTURAL PLANNING VERIFICATION CHECKLIST
+✓ 架构规划验证检查清单
 
-Requirements Analysis
-- Functional requirements analyzed? [YES/NO]
-- Non-functional requirements analyzed? [YES/NO]
-- Domain model created? [YES/NO]
-- Component identification completed? [YES/NO]
+需求分析
+- 功能需求分析？ [是/否]
+- 非功能需求分析？ [是/否]
+- 领域模型创建？ [是/否]
+- 组件识别完成？ [是/否]
 
-Business Context
-- Business objectives documented? [YES/NO]
-- Key stakeholders identified? [YES/NO]
-- Business processes documented? [YES/NO]
-- Business constraints identified? [YES/NO]
+业务上下文
+- 业务目标文档化？ [是/否]
+- 关键利益相关者识别？ [是/否]
+- 业务流程文档化？ [是/否]
+- 业务约束识别？ [是/否]
 
-Vision and Goals
-- Architectural vision stated? [YES/NO]
-- Strategic goals defined? [YES/NO]
-- Quality attributes identified? [YES/NO]
-- Technical roadmap created? [YES/NO]
+愿景和目标
+- 架构愿景陈述？ [是/否]
+- 战略目标定义？ [是/否]
+- 质量属性识别？ [是/否]
+- 技术路线图创建？ [是/否]
 
-Architectural Principles
-- Core principles defined? [YES/NO]
-- Principles have clear rationales? [YES/NO]
-- Implications of principles documented? [YES/NO]
-- Examples of applying principles provided? [YES/NO]
+架构原则
+- 核心原则定义？ [是/否]
+- 原则有清晰理由？ [是/否]
+- 原则影响文档化？ [是/否]
+- 应用原则的示例提供？ [是/否]
 
-Constraints Identification
-- Technical constraints documented? [YES/NO]
-- Organizational constraints documented? [YES/NO]
-- External constraints documented? [YES/NO]
-- Regulatory constraints documented? [YES/NO]
+约束识别
+- 技术约束文档化？ [是/否]
+- 组织约束文档化？ [是/否]
+- 外部约束文档化？ [是/否]
+- 监管约束文档化？ [是/否]
 
-Alternatives Exploration
-- Multiple alternatives identified? [YES/NO]
-- Alternatives evaluated against criteria? [YES/NO]
-- Advantages and disadvantages documented? [YES/NO]
-- Recommended approach justified? [YES/NO]
+替代方案探索
+- 多个替代方案识别？ [是/否]
+- 替代方案根据标准评估？ [是/否]
+- 优势和劣势文档化？ [是/否]
+- 推荐方法论证？ [是/否]
 
-Architecture Documentation
-- System context documented? [YES/NO]
-- High-level architecture documented? [YES/NO]
-- Component architecture documented? [YES/NO]
-- Data architecture documented? [YES/NO]
-- Security architecture documented? [YES/NO]
-- Deployment architecture documented? [YES/NO]
+架构文档
+- 系统上下文文档化？ [是/否]
+- 高级架构文档化？ [是/否]
+- 组件架构文档化？ [是/否]
+- 数据架构文档化？ [是/否]
+- 安全架构文档化？ [是/否]
+- 部署架构文档化？ [是/否]
 
-Architecture Validation
-- Requirements coverage validated? [YES/NO]
-- Principles alignment checked? [YES/NO]
-- Quality attribute scenarios assessed? [YES/NO]
-- Architecture review conducted? [YES/NO]
+架构验证
+- 需求覆盖验证？ [是/否]
+- 原则对齐检查？ [是/否]
+- 质量属性场景评估？ [是/否]
+- 架构审查进行？ [是/否]
 
-Memory Bank Integration
-- projectbrief.md updated? [YES/NO]
-- productContext.md updated? [YES/NO]
-- systemPatterns.md updated? [YES/NO]
-- techContext.md updated? [YES/NO]
+记忆库集成
+- projectbrief.md更新？ [是/否]
+- productContext.md更新？ [是/否]
+- systemPatterns.md更新？ [是/否]
+- techContext.md更新？ [是/否]
 ```
 
-## 📋 MINIMAL MODE ARCHITECTURE PLANNING FORMAT
+## 📋 最小模式架构规划格式
 
-For situations requiring a more compact architectural planning approach:
+对于需要更紧凑架构规划方法的情况：
 
 ```markdown
-## Level 4 Architecture Planning: [System Name]
+## 四级架构规划：[系统名称]
 
-### System Context
-- **Purpose**: [Brief description of system purpose]
-- **Users**: [Primary users]
-- **External Systems**: [Key external systems]
+### 系统上下文
+- **目的**：[系统目的的简要描述]
+- **用户**：[主要用户]
+- **外部系统**：[关键外部系统]
 
-### Key Architectural Decisions
-- **Architecture Style**: [Chosen style with brief rationale]
-- **Component Structure**: [Key components with brief descriptions]
-- **Data Model**: [Brief description of data approach]
-- **Technical Stack**: [Key technologies]
+### 关键架构决策
+- **架构风格**：[选择的风格及简要理由]
+- **组件结构**：[关键组件及简要描述]
+- **数据模型**：[数据方法的简要描述]
+- **技术栈**：[关键技术]
 
-### Quality Attributes
-- **Performance**: [Brief description of approach]
-- **Security**: [Brief description of approach]
-- **Scalability**: [Brief description of approach]
-- **Maintainability**: [Brief description of approach]
+### 质量属性
+- **性能**：[方法的简要描述]
+- **安全**：[方法的简要描述]
+- **可扩展性**：[方法的简要描述]
+- **可维护性**：[方法的简要描述]
 
-### Architecture Diagram
-[Simple architecture diagram]
+### 架构图
+[简单架构图]
 
-### Key Risks and Mitigations
-- **Risk 1**: [Brief description] - **Mitigation**: [Brief approach]
-- **Risk 2**: [Brief description] - **Mitigation**: [Brief approach]
+### 关键风险和缓解措施
+- **风险1**：[简要描述] - **缓解**：[简要方法]
+- **风险2**：[简要描述] - **缓解**：[简要方法]
 
-### Memory Bank Updates
-- [Brief description of updates needed]
+### 记忆库更新
+- [所需更新的简要描述]
 ```
 
-## 🚨 ARCHITECTURAL PLANNING ENFORCEMENT PRINCIPLE
+## 🚨 架构规划执行原则
 
 ```
 ┌─────────────────────────────────────────────────────┐
-│ ARCHITECTURAL PLANNING IS MANDATORY for Level 4      │
-│ tasks. Implementation CANNOT begin until             │
-│ architectural planning is complete and approved.     │
+│ 架构规划对于四级任务是强制性的。在架构规划完成并获得批准之前，│
+│ 不能开始实施。                                        │
 └─────────────────────────────────────────────────────┘
 ``` 
