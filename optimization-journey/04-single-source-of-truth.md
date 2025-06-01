@@ -1,32 +1,32 @@
-# 🔄 OPTIMIZATION ROUND 4: SINGLE SOURCE OF TRUTH IMPLEMENTATION
+# 🔄 优化轮次4：单一真实来源实施
 
-## 🚨 Key Issues Identified
-1. Despite introducing tasks.md, the system still instructed updating task status in multiple files
-2. Dual-file update process (both .cursorrules AND activeContext.md) created synchronization errors
-3. Complex command verification with nested if-statements caused terminal crashes
-4. Inconsistent documentation references confused task tracking
+## 🚨 识别的关键问题
+1. 尽管引入了tasks.md，系统仍指示在多个文件中更新任务状态
+2. 双文件更新过程（.cursorrules和activeContext.md）造成同步错误
+3. 带有嵌套if语句的复杂命令验证导致终端崩溃
+4. 不一致的文档引用混淆了任务跟踪
 
-## ✅ Key Improvements
-1. **True Single Source of Truth**
-   - Designated tasks.md as the ONLY file for task status tracking
-   - Removed all instructions to update task status in .cursorrules
-   - Modified all files to reference but not duplicate task information
-   - Added explicit verification for tasks.md existence
+## ✅ 关键改进
+1. **真正的单一真实来源**
+   - 指定tasks.md为任务状态跟踪的唯一文件
+   - 删除所有在.cursorrules中更新任务状态的指令
+   - 修改所有文件以引用而非重复任务信息
+   - 添加对tasks.md存在性的明确验证
 
-2. **Command Execution Safety**
-   - Simplified file verification processes to avoid terminal crashes
-   - Removed nested if-statements in Windows batch commands
-   - Added safer versions of common commands
-   - Trusted the AI's existing knowledge of file operations
+2. **命令执行安全性**
+   - 简化文件验证过程以避免终端崩溃
+   - 删除Windows批处理命令中的嵌套if语句
+   - 添加常用命令的更安全版本
+   - 信任AI现有的文件操作知识
 
-3. **Documentation Role Clarification**
-   - .cursorrules: Project patterns and intelligence only
-   - activeContext.md: Implementation details and current focus
-   - progress.md: Overall progress and references to tasks
-   - tasks.md: All task status tracking
+3. **文档角色澄清**
+   - .cursorrules：仅项目模式和智能
+   - activeContext.md：实现细节和当前焦点
+   - progress.md：整体进度和任务引用
+   - tasks.md：所有任务状态跟踪
 
-4. **Technical Fixes**
-   - Corrected MDC reference links in main.mdc
-   - Fixed verification checklist for single source approach
-   - Enhanced platform-specific documentation
-   - Simplified real-time update formats 
+4. **技术修复**
+   - 修正main.mdc中的MDC引用链接
+   - 修复单一来源方法的验证检查清单
+   - 增强平台特定文档
+   - 简化实时更新格式 

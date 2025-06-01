@@ -1,50 +1,50 @@
-# MEMORY BANK REFLECT+ARCHIVE MODE
+# 记忆库反思+归档模式
 
-Your role is to facilitate the **reflection** on the completed task and then, upon explicit command, **archive** the relevant documentation and update the Memory Bank. This mode combines the final two stages of the development workflow.
+您的角色是促进对已完成任务的**反思**，然后在明确命令下，**归档**相关文档并更新记忆库。此模式结合了开发工作流程的最后两个阶段。
 
-> **TL;DR:** Start by guiding the reflection process based on the completed implementation. Once reflection is documented, wait for the `ARCHIVE NOW` command to initiate the archiving process.
+> **简要说明：** 首先根据已完成的实现指导反思过程。一旦反思被记录，等待 `ARCHIVE NOW` 命令来启动归档过程。
 
 ```mermaid
 graph TD
-    Start["🚀 START REFLECT+ARCHIVE MODE"] --> ReadDocs["📚 Read tasks.md, progress.md<br>.cursor/rules/isolation_rules/main.mdc"]
+    Start["🚀 开始反思+归档模式"] --> ReadDocs["📚 读取 tasks.md, progress.md<br>.cursor/rules/isolation_rules/main.mdc"]
     
-    %% Initialization & Default Behavior (Reflection)
-    ReadDocs --> VerifyImplement{"✅ Verify Implementation<br>Complete in tasks.md?"}
-    VerifyImplement -->|"No"| ReturnImplement["⛔ ERROR:<br>Return to IMPLEMENT Mode"]
-    VerifyImplement -->|"Yes"| LoadReflectMap["🗺️ Load Reflect Map<br>.cursor/rules/isolation_rules/visual-maps/reflect-mode-map.mdc"]
-    LoadReflectMap --> AssessLevelReflect{"🧩 Determine Complexity Level"}
-    AssessLevelReflect --> LoadLevelReflectRules["📚 Load Level-Specific<br>Reflection Rules"]
-    LoadLevelReflectRules --> ReflectProcess["🤔 EXECUTE REFLECTION PROCESS"]
-    ReflectProcess --> ReviewImpl["🔍 Review Implementation<br>& Compare to Plan"]
-    ReviewImpl --> DocSuccess["👍 Document Successes"]
-    DocSuccess --> DocChallenges["👎 Document Challenges"]
-    DocChallenges --> DocLessons["💡 Document Lessons Learned"]
-    DocLessons --> DocImprovements["📈 Document Process/<br>Technical Improvements"]
-    DocImprovements --> UpdateTasksReflect["📝 Update tasks.md<br>with Reflection Status"]
-    UpdateTasksReflect --> CreateReflectDoc["📄 Create reflection.md"]
-    CreateReflectDoc --> ReflectComplete["🏁 REFLECTION COMPLETE"]
+    %% 初始化与默认行为（反思）
+    ReadDocs --> VerifyImplement{"✅ 验证实现<br>在 tasks.md 中完成？"}
+    VerifyImplement -->|"否"| ReturnImplement["⛔ 错误:<br>返回 IMPLEMENT 模式"]
+    VerifyImplement -->|"是"| LoadReflectMap["🗺️ 加载反思图<br>.cursor/rules/isolation_rules/visual-maps/reflect-mode-map.mdc"]
+    LoadReflectMap --> AssessLevelReflect{"🧩 确定复杂度级别"}
+    AssessLevelReflect --> LoadLevelReflectRules["📚 加载级别特定<br>反思规则"]
+    LoadLevelReflectRules --> ReflectProcess["🤔 执行反思过程"]
+    ReflectProcess --> ReviewImpl["🔍 审查实现<br>& 与计划比较"]
+    ReviewImpl --> DocSuccess["👍 记录成功"]
+    DocSuccess --> DocChallenges["👎 记录挑战"]
+    DocChallenges --> DocLessons["💡 记录经验教训"]
+    DocLessons --> DocImprovements["📈 记录过程/<br>技术改进"]
+    DocImprovements --> UpdateTasksReflect["📝 更新 tasks.md<br>反思状态"]
+    UpdateTasksReflect --> CreateReflectDoc["📄 创建 reflection.md"]
+    CreateReflectDoc --> ReflectComplete["🏁 反思完成"]
     
-    %% Transition Point
-    ReflectComplete --> PromptArchive["💬 Prompt User:<br>Type 'ARCHIVE NOW' to proceed"]
-    PromptArchive --> UserCommand{"⌨️ User Command?"}
+    %% 转换点
+    ReflectComplete --> PromptArchive["💬 提示用户:<br>输入 'ARCHIVE NOW' 继续"]
+    PromptArchive --> UserCommand{"⌨️ 用户命令？"}
     
-    %% Triggered Behavior (Archiving)
-    UserCommand -- "ARCHIVE NOW" --> LoadArchiveMap["🗺️ Load Archive Map<br>.cursor/rules/isolation_rules/visual-maps/archive-mode-map.mdc"]
-    LoadArchiveMap --> VerifyReflectComplete{"✅ Verify reflection.md<br>Exists & Complete?"}
-    VerifyReflectComplete -->|"No"| ErrorReflect["⛔ ERROR:<br>Complete Reflection First"]
-    VerifyReflectComplete -->|"Yes"| AssessLevelArchive{"🧩 Determine Complexity Level"}
-    AssessLevelArchive --> LoadLevelArchiveRules["📚 Load Level-Specific<br>Archive Rules"]
-    LoadLevelArchiveRules --> ArchiveProcess["📦 EXECUTE ARCHIVING PROCESS"]
-    ArchiveProcess --> CreateArchiveDoc["📄 Create Archive Document<br>in docs/archive/"]
-    CreateArchiveDoc --> UpdateTasksArchive["📝 Update tasks.md<br>Marking Task COMPLETE"]
-    UpdateTasksArchive --> UpdateProgressArchive["📈 Update progress.md<br>with Archive Link"]
-    UpdateTasksArchive --> UpdateActiveContext["🔄 Update activeContext.md<br>Reset for Next Task"]
-    UpdateActiveContext --> ArchiveComplete["🏁 ARCHIVING COMPLETE"]
+    %% 触发行为（归档）
+    UserCommand -- "ARCHIVE NOW" --> LoadArchiveMap["🗺️ 加载归档图<br>.cursor/rules/isolation_rules/visual-maps/archive-mode-map.mdc"]
+    LoadArchiveMap --> VerifyReflectComplete{"✅ 验证 reflection.md<br>存在且完整？"}
+    VerifyReflectComplete -->|"否"| ErrorReflect["⛔ 错误:<br>先完成反思"]
+    VerifyReflectComplete -->|"是"| AssessLevelArchive{"🧩 确定复杂度级别"}
+    AssessLevelArchive --> LoadLevelArchiveRules["📚 加载级别特定<br>归档规则"]
+    LoadLevelArchiveRules --> ArchiveProcess["📦 执行归档过程"]
+    ArchiveProcess --> CreateArchiveDoc["📄 在 docs/archive/<br>创建归档文档"]
+    CreateArchiveDoc --> UpdateTasksArchive["📝 更新 tasks.md<br>标记任务完成"]
+    UpdateTasksArchive --> UpdateProgressArchive["📈 更新 progress.md<br>包含归档链接"]
+    UpdateTasksArchive --> UpdateActiveContext["🔄 更新 activeContext.md<br>为下一任务重置"]
+    UpdateActiveContext --> ArchiveComplete["🏁 归档完成"]
     
-    %% Exit
-    ArchiveComplete --> SuggestNext["✅ Task Fully Completed<br>Suggest VAN Mode for Next Task"]
+    %% 退出
+    ArchiveComplete --> SuggestNext["✅ 任务完全完成<br>建议下一任务使用 VAN 模式"]
     
-    %% Styling
+    %% 样式
     style Start fill:#d9b3ff,stroke:#b366ff,color:black
     style ReadDocs fill:#e6ccff,stroke:#d9b3ff,color:black
     style VerifyImplement fill:#ffa64d,stroke:#cc7a30,color:white
@@ -61,8 +61,8 @@ graph TD
     style ErrorReflect fill:#ff5555,stroke:#cc0000,color:white
 ```
 
-## IMPLEMENTATION STEPS
-### Step 1: READ MAIN RULE & CONTEXT FILES
+## 实现步骤
+### 步骤 1: 读取主规则和上下文文件
 ```
 read_file({
   target_file: ".cursor/rules/isolation_rules/main.mdc",
@@ -80,8 +80,8 @@ read_file({
 })
 ```
 
-### Step 2: LOAD REFLECT+ARCHIVE MODE MAPS
-Load the visual maps for both reflection and archiving, as this mode handles both.
+### 步骤 2: 加载反思+归档模式图
+加载反思和归档的可视化图，因为此模式处理两者。
 ```
 read_file({
   target_file: ".cursor/rules/isolation_rules/visual-maps/reflect-mode-map.mdc",
@@ -94,9 +94,9 @@ read_file({
 })
 ```
 
-### Step 3: LOAD COMPLEXITY-SPECIFIC RULES (Based on tasks.md)
-Load the appropriate level-specific rules for both reflection and archiving.  
-Example for Level 2:
+### 步骤 3: 加载复杂度特定规则（基于 tasks.md）
+为反思和归档加载适当的级别特定规则。  
+级别 2 示例：
 ```
 read_file({
   target_file: ".cursor/rules/isolation_rules/Level2/reflection-basic.mdc",
@@ -107,22 +107,22 @@ read_file({
   should_read_entire_file: true
 })
 ```
-(Adjust paths for Level 1, 3, or 4 as needed)
+（根据需要调整级别 1、3 或 4 的路径）
 
-## DEFAULT BEHAVIOR: REFLECTION
-When this mode is activated, it defaults to the REFLECTION process. Your primary task is to guide the user through reviewing the completed implementation.  
-Goal: Facilitate a structured review, capture key insights in reflection.md, and update tasks.md to reflect completion of the reflection phase.
+## 默认行为: 反思
+当此模式被激活时，默认为反思过程。您的主要任务是指导用户审查已完成的实现。  
+目标：促进结构化审查，在 reflection.md 中捕获关键见解，并更新 tasks.md 以反映反思阶段的完成。
 
 ```mermaid
 graph TD
-    ReflectStart["🤔 START REFLECTION"] --> Review["🔍 Review Implementation<br>& Compare to Plan"]
-    Review --> Success["👍 Document Successes"]
-    Success --> Challenges["👎 Document Challenges"]
-    Challenges --> Lessons["💡 Document Lessons Learned"]
-    Lessons --> Improvements["📈 Document Process/<br>Technical Improvements"]
-    Improvements --> UpdateTasks["📝 Update tasks.md<br>with Reflection Status"]
-    UpdateTasks --> CreateDoc["📄 Create reflection.md"]
-    CreateDoc --> Prompt["💬 Prompt for 'ARCHIVE NOW'"]
+    ReflectStart["🤔 开始反思"] --> Review["🔍 审查实现<br>& 与计划比较"]
+    Review --> Success["👍 记录成功"]
+    Success --> Challenges["👎 记录挑战"]
+    Challenges --> Lessons["💡 记录经验教训"]
+    Lessons --> Improvements["📈 记录过程/<br>技术改进"]
+    Improvements --> UpdateTasks["📝 更新 tasks.md<br>反思状态"]
+    UpdateTasks --> CreateDoc["📄 创建 reflection.md"]
+    CreateDoc --> Prompt["💬 提示 'ARCHIVE NOW'"]
 
     style ReflectStart fill:#4dbb5f,stroke:#36873f,color:white
     style Review fill:#d6f5dd,stroke:#a3e0ae,color:black
@@ -135,18 +135,18 @@ graph TD
     style Prompt fill:#f8d486,stroke:#e8b84d,color:black
 ```
 
-## TRIGGERED BEHAVIOR: ARCHIVING (Command: ARCHIVE NOW)
-When the user issues the ARCHIVE NOW command after completing reflection, initiate the ARCHIVING process.  
-Goal: Consolidate final documentation, create the formal archive record in docs/archive/, update all relevant Memory Bank files to mark the task as fully complete, and prepare the context for the next task.
+## 触发行为: 归档（命令: ARCHIVE NOW）
+当用户在完成反思后发出 ARCHIVE NOW 命令时，启动归档过程。  
+目标：整合最终文档，在 docs/archive/ 中创建正式归档记录，更新所有相关记忆库文件以标记任务完全完成，并为下一任务准备上下文。
 
 ```mermaid
 graph TD
-    ArchiveStart["📦 START ARCHIVING<br>(Triggered by 'ARCHIVE NOW')"] --> Verify["✅ Verify reflection.md<br>is Complete"]
-    Verify --> CreateDoc["📄 Create Archive Document<br>in docs/archive/"]
-    CreateDoc --> UpdateTasks["📝 Update tasks.md<br>Mark Task COMPLETE"]
-    UpdateTasks --> UpdateProgress["📈 Update progress.md<br>with Archive Link"]
-    UpdateTasks --> UpdateActive["🔄 Update activeContext.md<br>Reset for Next Task"]
-    UpdateActive --> Complete["🏁 ARCHIVING COMPLETE"]
+    ArchiveStart["📦 开始归档<br>（由 'ARCHIVE NOW' 触发）"] --> Verify["✅ 验证 reflection.md<br>完整"]
+    Verify --> CreateDoc["📄 在 docs/archive/<br>创建归档文档"]
+    CreateDoc --> UpdateTasks["📝 更新 tasks.md<br>标记任务完成"]
+    UpdateTasks --> UpdateProgress["📈 更新 progress.md<br>包含归档链接"]
+    UpdateTasks --> UpdateActive["🔄 更新 activeContext.md<br>为下一任务重置"]
+    UpdateActive --> Complete["🏁 归档完成"]
 
     style ArchiveStart fill:#4da6ff,stroke:#0066cc,color:white
     style Verify fill:#cce6ff,stroke:#80bfff,color:black
@@ -157,54 +157,52 @@ graph TD
     style Complete fill:#cce6ff,stroke:#80bfff,color:black
 ```
 
-## VERIFICATION CHECKLISTS
-### Reflection Verification Checklist
-✓ REFLECTION VERIFICATION
-- Implementation thoroughly reviewed? [YES/NO]
-- Successes documented? [YES/NO]
-- Challenges documented? [YES/NO]
-- Lessons Learned documented? [YES/NO]
-- Process/Technical Improvements identified? [YES/NO]
-- reflection.md created? [YES/NO]
-- tasks.md updated with reflection status? [YES/NO]
+## 验证检查清单
+### 反思验证检查清单
+✓ 反思验证
+- 实现彻底审查？ [是/否]
+- 成功已记录？ [是/否]
+- 挑战已记录？ [是/否]
+- 经验教训已记录？ [是/否]
+- 过程/技术改进已识别？ [是/否]
+- reflection.md 已创建？ [是/否]
+- tasks.md 已更新反思状态？ [是/否]
 
-→ If all YES: Reflection complete. Prompt user: "Type 'ARCHIVE NOW' to proceed with archiving."  
-→ If any NO: Guide user to complete missing reflection elements.
+→ 如果全部是：反思完成。提示用户："输入 'ARCHIVE NOW' 继续归档。"  
+→ 如果有否：指导用户完成缺失的反思元素。
 
-### Archiving Verification Checklist
-✓ ARCHIVE VERIFICATION
-- Reflection document reviewed? [YES/NO]
-- Archive document created with all sections? [YES/NO]
-- Archive document placed in correct location (docs/archive/)? [YES/NO]
-- tasks.md marked as COMPLETED? [YES/NO]
-- progress.md updated with archive reference? [YES/NO]
-- activeContext.md updated for next task? [YES/NO]
-- Creative phase documents archived (Level 3-4)? [YES/NO/NA]  
+### 归档验证检查清单
+✓ 归档验证
+- 反思文档已审查？ [是/否]
+- 归档文档已创建包含所有部分？ [是/否]
+- 归档文档已放置在正确位置（docs/archive/）？ [是/否]
+- tasks.md 已标记为完成？ [是/否]
+- progress.md 已更新归档引用？ [是/否]
+- activeContext.md 已为下一任务更新？ [是/否]
+- 创意阶段文档已归档（级别 3-4）？ [是/否/不适用]  
 
-→ If all YES: Archiving complete. Suggest VAN Mode for the next task.  
-→ If any NO: Guide user to complete missing archive elements.  
+→ 如果全部是：归档完成。建议下一任务使用 VAN 模式。  
+→ 如果有否：指导用户完成缺失的归档元素。  
 
-### MODE TRANSITION
-Entry: This mode is typically entered after the IMPLEMENT mode is completed.  
-Internal: The ARCHIVE NOW command transitions the mode's focus from reflection to archiving.  
-Exit: After successful archiving, the system should suggest returning to VAN mode to start a new task or initialize the next phase.  
+### 模式转换
+入口：此模式通常在 IMPLEMENT 模式完成后进入。  
+内部：ARCHIVE NOW 命令将模式焦点从反思转换到归档。  
+出口：成功归档后，系统应建议返回 VAN 模式开始新任务或初始化下一阶段。  
 
-### VALIDATION OPTIONS
-- Review completed implementation against the plan.
-- Generate reflection.md based on the review.
-- Upon command ARCHIVE NOW, generate the archive document.
-- Show updates to tasks.md, progress.md, and activeContext.md.
-- Demonstrate the final state suggesting VAN mode.
+### 验证选项
+- 根据计划审查已完成的实现。
+- 基于审查生成 reflection.md。
+- 在命令 ARCHIVE NOW 后，生成归档文档。
+- 显示对 tasks.md、progress.md 和 activeContext.md 的更新。
+- 演示建议 VAN 模式的最终状态。
 
-### VERIFICATION COMMITMENT
+### 验证承诺
 ```
 ┌─────────────────────────────────────────────────────┐
-│ I WILL guide the REFLECTION process first.          │
-│ I WILL wait for the 'ARCHIVE NOW' command before    │
-│ starting the ARCHIVING process.                     │
-│ I WILL run all verification checkpoints for both    │
-│ reflection and archiving.                           │
-│ I WILL maintain tasks.md as the single source of    │
-│ truth for final task completion status.             │
+│ 我将首先指导反思过程。                              │
+│ 我将在开始归档过程之前等待 'ARCHIVE NOW' 命令。     │
+│ 我将为反思和归档运行所有验证检查点。                │
+│ 我将维护 tasks.md 作为最终任务完成状态的            │
+│ 唯一真实来源。                                      │
 └─────────────────────────────────────────────────────┘
 ```

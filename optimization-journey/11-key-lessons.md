@@ -1,31 +1,31 @@
-# 📝 KEY LESSONS LEARNED
+# 📝 关键经验教训
 
-1. **Context Efficiency is Mission-Critical**
-   - Context window optimization directly impacts AI performance
-   - Selective document loading preserves context for complex processing
-   - Visual patterns require significantly less context space than text
-   - Single source of truth eliminates redundant information loading
+1. **上下文效率是关键任务**
+   - 上下文窗口优化直接影响AI性能
+   - 选择性文档加载为复杂处理保留上下文
+   - 可视化模式比文本需要显著更少的上下文空间
+   - 单一真实来源消除冗余信息加载
 
-2. **Visual Processing Dramatically Reduces Cognitive Load**
-   - Visual information processing is ~60,000× faster than text
-   - Pattern recognition enables rapid process state awareness
-   - Visual hierarchies improve information density
-   - Standardized visual markers reduce context requirements
+2. **可视化处理显著减少认知负荷**
+   - 可视化信息处理比文本快约60,000倍
+   - 模式识别实现快速流程状态感知
+   - 可视化层次改善信息密度
+   - 标准化可视化标记减少上下文需求
 
-3. **Selective Loading Beats Comprehensive Documentation**
-   - Loading only phase-relevant documents preserves context space
-   - Just-in-time reference loading prevents context overconsumption
-   - Complexity-based document loading scales efficiently
-   - Reference-based systems outperform duplication-based systems
+3. **选择性加载胜过综合文档**
+   - 仅加载阶段相关文档保留上下文空间
+   - 即时引用加载防止上下文过度消耗
+   - 基于复杂度的文档加载高效扩展
+   - 基于引用的系统优于基于重复的系统
 
-4. **Process Enforcement Requires Minimal Context**
-   - Visual checkpoints provide efficient verification
-   - Compact process state tracking preserves context
-   - Pattern-based violation detection requires minimal overhead
-   - Visual alerts communicate efficiently without verbose explanation
+4. **流程强制执行需要最小上下文**
+   - 可视化检查点提供高效验证
+   - 紧凑的流程状态跟踪保留上下文
+   - 基于模式的违规检测需要最小开销
+   - 可视化警报无需冗长解释即可高效沟通
 
-5. **Continuous Context Optimization Drives Performance**
-   - Regular context window assessments reveal optimization opportunities
-   - Context monitoring enables dynamic adjustments
-   - Minimal mode provides fallback for extreme constraints
-   - Context-aware process scaling adapts to available resources 
+5. **持续上下文优化驱动性能**
+   - 定期上下文窗口评估揭示优化机会
+   - 上下文监控实现动态调整
+   - 最小模式为极端约束提供后备
+   - 上下文感知流程扩展适应可用资源 
