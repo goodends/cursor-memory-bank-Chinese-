@@ -1,6 +1,6 @@
 ---
 description: creative phase architecture
-globs: creative-phase-architecture.md
+globs: creative-phase-architecture.mdc
 alwaysApply: false
 ---
 # 创意阶段：架构设计
