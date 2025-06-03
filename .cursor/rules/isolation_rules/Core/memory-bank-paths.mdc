@@ -1,7 +1,7 @@
 ---
-description: Defines canonical paths for core Memory Bank files.
+description: 
 globs: memory-bank-paths.mdc
-alwaysApply: true
+alwaysApply: false
 ---
 # 核心MEMORY BANK文件位置
 
