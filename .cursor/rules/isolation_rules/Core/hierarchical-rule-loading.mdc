@@ -1,6 +1,6 @@
 ---
 description: Hierarchical rule loading system for optimized token usage
-globs: "**/rule-loading*/**", "**/optimization*/**"
+globs: "**/rule-loading*/**", "**/optimization*/**",hierarchical-rule-loading.mdc
 alwaysApply: false
 ---
 # 分层规则加载系统

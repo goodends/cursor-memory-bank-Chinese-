@@ -1,6 +1,6 @@
 ---
 description: Process map for VAN QA dependency verification
-globs: van-qa-checks/dependency-check.mdc
+globs: dependency-check.mdc
 alwaysApply: false
 ---
 # VAN QA：依赖验证

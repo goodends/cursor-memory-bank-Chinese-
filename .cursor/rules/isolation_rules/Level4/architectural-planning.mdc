@@ -1,6 +1,6 @@
 ---
 description: Architectural planning guidelines for Level 4 Complex System tasks
-globs: "**/level4/**", "**/architecture/**"
+globs: architectural-planning.mdc
 alwaysApply: false
 ---
 # 四级任务架构规划

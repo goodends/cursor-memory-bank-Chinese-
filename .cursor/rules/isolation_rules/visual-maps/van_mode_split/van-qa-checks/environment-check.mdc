@@ -1,6 +1,6 @@
 ---
 description: Process map for VAN QA environment validation
-globs: van-qa-checks/environment-check.mdc
+globs: environment-check.mdc
 alwaysApply: false
 ---
 # VAN QA：环境验证

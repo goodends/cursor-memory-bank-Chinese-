@@ -1,6 +1,6 @@
 ---
 description: Advanced task tracking for Level 4 Complex System tasks
-globs: "**/level4/**", "**/task-tracking/**"
+globs: task-tracking-advanced.mdc
 alwaysApply: false
 ---
 # 四级任务的高级任务跟踪

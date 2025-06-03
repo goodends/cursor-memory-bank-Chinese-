@@ -1,6 +1,6 @@
 ---
 description: Utility for VAN QA mode transitions
-globs: van-qa-utils/mode-transitions.mdc
+globs: mode-transitions.mdc
 alwaysApply: false
 ---
 # VAN QA：模式转换

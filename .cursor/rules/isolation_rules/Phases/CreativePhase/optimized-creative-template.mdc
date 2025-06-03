@@ -1,6 +1,6 @@
 ---
 description: Optimized creative phase template with progressive documentation
-globs: "**/creative*/**", "**/design*/**", "**/decision*/**"
+globs: optimized-creative-template.mdc
 alwaysApply: false
 ---
 # 优化创意阶段模板

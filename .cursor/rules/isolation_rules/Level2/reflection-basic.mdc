@@ -1,6 +1,6 @@
 ---
 description: Basic reflection format for Level 2 Simple Enhancement tasks
-globs: "**/level2/**", "**/reflection/**"
+globs: reflection-basic.mdc
 alwaysApply: false
 ---
 # 级别2任务的基本反思

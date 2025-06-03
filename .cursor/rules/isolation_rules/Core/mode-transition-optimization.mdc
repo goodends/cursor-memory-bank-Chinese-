@@ -1,6 +1,6 @@
 ---
 description: Optimized mode transition protocol
-globs: "**/mode-transition*/**", "**/context-preservation*/**"
+globs: mode-transition-optimization.mdc
 alwaysApply: false
 ---
 # 模式转换优化

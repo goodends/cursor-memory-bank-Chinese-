@@ -1,6 +1,6 @@
 ---
 description: Comprehensive guide for calling VAN QA rules
-globs: van-qa-utils/rule-calling-guide.mdc
+globs: rule-calling-guide.mdc
 alwaysApply: false
 ---
 # VAN QA：综合规则调用指南

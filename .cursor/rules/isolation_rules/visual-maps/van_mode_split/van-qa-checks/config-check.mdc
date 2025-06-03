@@ -1,6 +1,6 @@
 ---
 description: Process map for VAN QA configuration validation
-globs: van-qa-checks/config-check.mdc
+globs: config-check.mdc
 alwaysApply: false
 ---
 # VAN QA：配置验证

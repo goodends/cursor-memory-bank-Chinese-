@@ -1,6 +1,6 @@
 ---
 description: Utility for VAN QA validation reports
-globs: van-qa-utils/reports.mdc
+globs: reports.mdc
 alwaysApply: false
 ---
 # VAN QA：验证报告

@@ -1,6 +1,6 @@
 ---
 description: Visual process map for ARCHIVE mode (Task Documentation)
-globs: "**/archive*/**", "**/document*/**", "**/complete*/**"
+globs: archive-mode-map.mdc
 alwaysApply: false
 ---
 # 归档模式：任务文档化流程图

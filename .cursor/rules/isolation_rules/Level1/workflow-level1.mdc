@@ -1,6 +1,6 @@
 ---
 description: Streamlined workflow for Level 1 Quick Bug Fix tasks
-globs: "**/level1/**", "**/workflow/**"
+globs: workflow-level1.mdc
 alwaysApply: false
 ---
 # 级别1任务的精简工作流程

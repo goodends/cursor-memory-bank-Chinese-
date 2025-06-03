@@ -1,6 +1,6 @@
 ---
 description: Integration hub for Memory Bank optimizations
-globs: "**/optimization*/**", "**/integration*/**"
+globs: optimization-integration.mdc
 alwaysApply: false
 ---
 # MEMORY BANK优化集成

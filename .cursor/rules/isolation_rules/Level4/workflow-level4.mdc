@@ -1,6 +1,6 @@
 ---
 description: Comprehensive workflow for Level 4 Complex System tasks
-globs: "**/level4/**", "**/workflow/**"
+globs: workflow-level4.mdc
 alwaysApply: false
 ---
 # 四级任务综合工作流程

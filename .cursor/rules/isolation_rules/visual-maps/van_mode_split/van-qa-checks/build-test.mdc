@@ -1,6 +1,6 @@
 ---
 description: Process map for VAN QA minimal build test
-globs: van-qa-checks/build-test.mdc
+globs: build-test.mdc
 alwaysApply: false
 ---
 # VAN QA：最小构建测试

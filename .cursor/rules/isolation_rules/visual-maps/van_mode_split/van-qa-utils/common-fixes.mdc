@@ -1,6 +1,6 @@
 ---
 description: Utility for VAN QA common validation fixes
-globs: van-qa-utils/common-fixes.mdc
+globs: common-fixes.mdc
 alwaysApply: false
 ---
 # VAN QA：常见验证修复

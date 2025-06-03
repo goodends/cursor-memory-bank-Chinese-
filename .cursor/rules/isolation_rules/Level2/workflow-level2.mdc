@@ -1,6 +1,6 @@
 ---
 description: Basic workflow for Level 2 Simple Enhancement tasks
-globs: "**/level2/**", "**/workflow/**"
+globs: workflow-level2.mdc
 alwaysApply: false
 ---
 # 级别2任务的工作流程

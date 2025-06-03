@@ -1,6 +1,6 @@
 ---
 description: Basic archiving approach for Level 2 Simple Enhancement tasks
-globs: "**/level2/**", "**/archive/**", "**/completion/**"
+globs: archive-basic.mdc
 alwaysApply: false
 ---
 # 级别2任务的基本归档
