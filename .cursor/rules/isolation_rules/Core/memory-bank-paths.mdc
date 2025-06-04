@@ -1,7 +1,7 @@
 ---
 description: 
-globs: memory-bank-paths.mdc
-alwaysApply: false
+globs: 
+alwaysApply: true
 ---
 # 核心MEMORY BANK文件位置
 
