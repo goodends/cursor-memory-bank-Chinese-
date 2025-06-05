@@ -4,13 +4,13 @@ globs: phased-implementation.mdc
 alwaysApply: false
 ---
 
-# PHASED IMPLEMENTATION FOR LEVEL 4 TASKS
+# 四级任务的分阶段实施
 
-> **TL;DR:** This document outlines a structured phased implementation approach for Level 4 (Complex System) tasks, ensuring controlled, incremental delivery of complex systems with appropriate verification at each phase.
+> **简要说明：** 本文档概述了四级（复杂系统）任务的结构化分阶段实施方法，确保复杂系统的受控、增量交付，并在每个阶段进行适当的验证。
 
-## 🔍 PHASED IMPLEMENTATION OVERVIEW
+## 🔍 分阶段实施概述
 
-Level 4 Complex System tasks require a controlled, incremental approach to implementation to manage complexity, reduce risk, and ensure quality. This document outlines a phased implementation methodology that divides complex system development into discrete, verifiable phases with clear entry and exit criteria.
+四级复杂系统任务需要采用受控的增量实施方法来管理复杂性、降低风险并确保质量。本文档概述了一种分阶段实施方法，将复杂系统开发划分为离散的、可验证的阶段，具有明确的进入和退出标准。
 
 ```mermaid
 flowchart TD
@@ -18,41 +18,41 @@ flowchart TD
     classDef artifact fill:#f4b8c4,stroke:#d498a4,color:#000
     classDef verification fill:#c5e8b7,stroke:#a5c897,color:#000
     
-    Start([Begin Implementation<br>Process]) --> Framework[Establish Implementation<br>Framework]
-    Framework --> Plan[Create Phasing<br>Plan]
-    Plan --> Foundation[Implement<br>Foundation Phase]
-    Foundation --> VerifyF{Foundation<br>Verification}
-    VerifyF -->|Pass| Core[Implement<br>Core Phase]
-    VerifyF -->|Fail| ReviseF[Revise<br>Foundation]
+    Start([开始实施<br>流程]) --> Framework[建立实施<br>框架]
+    Framework --> Plan[创建分阶段<br>计划]
+    Plan --> Foundation[实施<br>基础阶段]
+    Foundation --> VerifyF{基础<br>验证}
+    VerifyF -->|通过| Core[实施<br>核心阶段]
+    VerifyF -->|失败| ReviseF[修订<br>基础]
     ReviseF --> VerifyF
     
-    Core --> VerifyC{Core<br>Verification}
-    VerifyC -->|Pass| Extension[Implement<br>Extension Phase]
-    VerifyC -->|Fail| ReviseC[Revise<br>Core]
+    Core --> VerifyC{核心<br>验证}
+    VerifyC -->|通过| Extension[实施<br>扩展阶段]
+    VerifyC -->|失败| ReviseC[修订<br>核心]
     ReviseC --> VerifyC
     
-    Extension --> VerifyE{Extension<br>Verification}
-    VerifyE -->|Pass| Integration[Implement<br>Integration Phase]
-    VerifyE -->|Fail| ReviseE[Revise<br>Extension]
+    Extension --> VerifyE{扩展<br>验证}
+    VerifyE -->|通过| Integration[实施<br>集成阶段]
+    VerifyE -->|失败| ReviseE[修订<br>扩展]
     ReviseE --> VerifyE
     
-    Integration --> VerifyI{Integration<br>Verification}
-    VerifyI -->|Pass| Finalization[Implement<br>Finalization Phase]
-    VerifyI -->|Fail| ReviseI[Revise<br>Integration]
+    Integration --> VerifyI{集成<br>验证}
+    VerifyI -->|通过| Finalization[实施<br>完成阶段]
+    VerifyI -->|失败| ReviseI[修订<br>集成]
     ReviseI --> VerifyI
     
-    Finalization --> VerifyFin{Finalization<br>Verification}
-    VerifyFin -->|Pass| Complete([Implementation<br>Complete])
-    VerifyFin -->|Fail| ReviseFin[Revise<br>Finalization]
+    Finalization --> VerifyFin{完成<br>验证}
+    VerifyFin -->|通过| Complete([实施<br>完成])
+    VerifyFin -->|失败| ReviseFin[修订<br>完成]
     ReviseFin --> VerifyFin
     
-    Framework -.-> IF((Implementation<br>Framework))
-    Plan -.-> PP((Phasing<br>Plan))
-    Foundation -.-> FP((Foundation<br>Phase))
-    Core -.-> CP((Core<br>Phase))
-    Extension -.-> EP((Extension<br>Phase))
-    Integration -.-> IP((Integration<br>Phase))
-    Finalization -.-> FiP((Finalization<br>Phase))
+    Framework -.-> IF((实施<br>框架))
+    Plan -.-> PP((分阶段<br>计划))
+    Foundation -.-> FP((基础<br>阶段))
+    Core -.-> CP((核心<br>阶段))
+    Extension -.-> EP((扩展<br>阶段))
+    Integration -.-> IP((集成<br>阶段))
+    Finalization -.-> FiP((完成<br>阶段))
     
     class Start,Complete milestone
     class Framework,Plan,Foundation,Core,Extension,Integration,Finalization,ReviseF,ReviseC,ReviseE,ReviseI,ReviseFin step
@@ -60,190 +60,190 @@ flowchart TD
     class IF,PP,FP,CP,EP,IP,FiP artifact
 ```
 
-## 📋 IMPLEMENTATION PHASING PRINCIPLES
+## 📋 实施分阶段原则
 
-1. **Incremental Value Delivery**: Each phase delivers tangible, verifiable value.
-2. **Progressive Complexity**: Complexity increases gradually across phases.
-3. **Risk Mitigation**: Early phases address high-risk elements to fail fast if needed.
-4. **Verification Gates**: Each phase has explicit entry and exit criteria.
-5. **Business Alignment**: Phases align with business priorities and user needs.
-6. **Technical Integrity**: Each phase maintains architectural and technical integrity.
-7. **Continuous Integration**: Work is continuously integrated and tested.
-8. **Knowledge Building**: Each phase builds upon knowledge gained in previous phases.
-9. **Explicit Dependencies**: Dependencies between phases are clearly documented.
-10. **Adaptability**: The phasing plan can adapt to new information while maintaining structure.
+1. **增量价值交付**：每个阶段都交付有形的、可验证的价值。
+2. **渐进复杂性**：复杂性在各阶段中逐渐增加。
+3. **风险缓解**：早期阶段处理高风险元素，以便在需要时快速失败。
+4. **验证门控**：每个阶段都有明确的进入和退出标准。
+5. **业务对齐**：阶段与业务优先级和用户需求保持一致。
+6. **技术完整性**：每个阶段都保持架构和技术完整性。
+7. **持续集成**：工作持续集成和测试。
+8. **知识构建**：每个阶段都基于前一阶段获得的知识。
+9. **明确依赖关系**：阶段之间的依赖关系得到清楚记录。
+10. **适应性**：分阶段计划可以适应新信息，同时保持结构。
 
-## 📋 STANDARD IMPLEMENTATION PHASES
+## 📋 标准实施阶段
 
-Level 4 Complex System tasks typically follow a five-phase implementation approach:
+四级复杂系统任务通常遵循五阶段实施方法：
 
 ```mermaid
 flowchart LR
     classDef phase fill:#f9d77e,stroke:#d9b95c,color:#000
     
-    P1[1. Foundation<br>Phase] --> P2[2. Core<br>Phase]
-    P2 --> P3[3. Extension<br>Phase]
-    P3 --> P4[4. Integration<br>Phase]
-    P4 --> P5[5. Finalization<br>Phase]
+    P1[1. 基础<br>阶段] --> P2[2. 核心<br>阶段]
+    P2 --> P3[3. 扩展<br>阶段]
+    P3 --> P4[4. 集成<br>阶段]
+    P4 --> P5[5. 完成<br>阶段]
     
     class P1,P2,P3,P4,P5 phase
 ```
 
-### Phase 1: Foundation Phase
+### 阶段1：基础阶段
 
-The Foundation Phase establishes the basic architecture and infrastructure required for the system.
+基础阶段建立系统所需的基本架构和基础设施。
 
-**Key Activities:**
-- Set up development, testing, and deployment environments
-- Establish core architectural components and patterns
-- Implement database schema and basic data access
-- Create skeleton application structure
-- Implement authentication and authorization framework
-- Establish logging, monitoring, and error handling
-- Create basic CI/CD pipeline
+**关键活动：**
+- 设置开发、测试和部署环境
+- 建立核心架构组件和模式
+- 实施数据库架构和基本数据访问
+- 创建应用程序骨架结构
+- 实施身份验证和授权框架
+- 建立日志记录、监控和错误处理
+- 创建基本CI/CD管道
 
-**Exit Criteria:**
-- Basic architectural framework is functional
-- Environment setup is complete and documented
-- Core infrastructure components are in place
-- Basic CI/CD pipeline is operational
-- Architecture review confirms alignment with design
+**退出标准：**
+- 基本架构框架功能正常
+- 环境设置完成并记录
+- 核心基础设施组件就位
+- 基本CI/CD管道运行正常
+- 架构审查确认与设计一致
 
-### Phase 2: Core Phase
+### 阶段2：核心阶段
 
-The Core Phase implements the essential functionality that provides the minimum viable system.
+核心阶段实施提供最小可行系统的基本功能。
 
-**Key Activities:**
-- Implement core business logic
-- Develop primary user flows and interfaces
-- Create essential system services
-- Implement critical API endpoints
-- Develop basic reporting capabilities
-- Establish primary integration points
-- Create automated tests for core functionality
+**关键活动：**
+- 实施核心业务逻辑
+- 开发主要用户流程和界面
+- 创建基本系统服务
+- 实施关键API端点
+- 开发基本报告功能
+- 建立主要集成点
+- 为核心功能创建自动化测试
 
-**Exit Criteria:**
-- Core business functionality is implemented
-- Essential user flows are working
-- Primary APIs are functional
-- Core automated tests are passing
-- Business stakeholders verify core functionality
+**退出标准：**
+- 核心业务功能已实施
+- 基本用户流程正常工作
+- 主要API功能正常
+- 核心自动化测试通过
+- 业务利益相关者验证核心功能
 
-### Phase 3: Extension Phase
+### 阶段3：扩展阶段
 
-The Extension Phase adds additional features and capabilities to the core system.
+扩展阶段为核心系统添加额外的功能和能力。
 
-**Key Activities:**
-- Implement secondary business processes
-- Add additional user interfaces and features
-- Enhance existing functionality based on feedback
-- Implement advanced features
-- Extend integration capabilities
-- Enhance error handling and edge cases
-- Expand test coverage
+**关键活动：**
+- 实施次要业务流程
+- 添加额外的用户界面和功能
+- 基于反馈增强现有功能
+- 实施高级功能
+- 扩展集成能力
+- 增强错误处理和边缘情况
+- 扩大测试覆盖率
 
-**Exit Criteria:**
-- All planned features are implemented
-- Extended functionality is working correctly
-- Secondary business processes are functional
-- Enhanced features have been validated
-- Test coverage meets defined thresholds
+**退出标准：**
+- 所有计划功能已实施
+- 扩展功能正常工作
+- 次要业务流程功能正常
+- 增强功能已验证
+- 测试覆盖率达到定义的阈值
 
-### Phase 4: Integration Phase
+### 阶段4：集成阶段
 
-The Integration Phase ensures all components work together properly and integrates with external systems.
+集成阶段确保所有组件正确协作并与外部系统集成。
 
-**Key Activities:**
-- Perform deep integration testing
-- Implement all external system integrations
-- Conduct end-to-end testing
-- Perform performance and load testing
-- Conduct security testing
-- Implement any required data migrations
-- Verify system behavior under various conditions
+**关键活动：**
+- 执行深度集成测试
+- 实施所有外部系统集成
+- 进行端到端测试
+- 执行性能和负载测试
+- 进行安全测试
+- 实施任何必需的数据迁移
+- 验证各种条件下的系统行为
 
-**Exit Criteria:**
-- All integrations are working correctly
-- End-to-end tests are passing
-- Performance meets defined requirements
-- Security tests show no critical vulnerabilities
-- System handles error conditions gracefully
+**退出标准：**
+- 所有集成正常工作
+- 端到端测试通过
+- 性能满足定义的要求
+- 安全测试显示无关键漏洞
+- 系统优雅处理错误条件
 
-### Phase 5: Finalization Phase
+### 阶段5：完成阶段
 
-The Finalization Phase prepares the system for production release.
+完成阶段为系统的生产发布做准备。
 
-**Key Activities:**
-- Optimize performance
-- Conduct user acceptance testing
-- Finalize documentation
-- Conduct final security review
-- Create production deployment plan
-- Prepare support materials and training
-- Conduct final system review
+**关键活动：**
+- 优化性能
+- 进行用户验收测试
+- 完成文档
+- 进行最终安全审查
+- 创建生产部署计划
+- 准备支持材料和培训
+- 进行最终系统审查
 
-**Exit Criteria:**
-- All acceptance criteria are met
-- Documentation is complete
-- User acceptance testing is successful
-- Production deployment plan is approved
-- Support and maintenance procedures are established
+**退出标准：**
+- 所有验收标准得到满足
+- 文档完整
+- 用户验收测试成功
+- 生产部署计划获得批准
+- 支持和维护程序已建立
 
-## 📋 PHASE PLANNING TEMPLATE
+## 📋 阶段规划模板
 
-For each implementation phase, create a detailed plan using this template:
+为每个实施阶段创建详细计划，使用此模板：
 
 ```markdown
-## [Phase Name] Implementation Plan
+## [阶段名称] 实施计划
 
-### Phase Overview
-- **Purpose**: [Brief description of phase purpose]
-- **Timeline**: [Start and end dates]
-- **Dependencies**: [Dependencies on other phases or external factors]
-- **Key Stakeholders**: [List of key stakeholders for this phase]
+### 阶段概述
+- **目的**：[阶段目的的简要描述]
+- **时间线**：[开始和结束日期]
+- **依赖关系**：[对其他阶段或外部因素的依赖]
+- **关键利益相关者**：[此阶段的关键利益相关者列表]
 
-### Entry Criteria
-- [ ] [Criterion 1]
-- [ ] [Criterion 2]
-- [ ] [Criterion 3]
+### 进入标准
+- [ ] [标准1]
+- [ ] [标准2]
+- [ ] [标准3]
 
-### Implementation Components
-- **Component 1**: [Description]
-  - [ ] Task 1.1: [Description]
-  - [ ] Task 1.2: [Description]
+### 实施组件
+- **组件1**：[描述]
+  - [ ] 任务1.1：[描述]
+  - [ ] 任务1.2：[描述]
   
-- **Component 2**: [Description]
-  - [ ] Task 2.1: [Description]
-  - [ ] Task 2.2: [Description]
+- **组件2**：[描述]
+  - [ ] 任务2.1：[描述]
+  - [ ] 任务2.2：[描述]
 
-### Technical Considerations
-- [Key technical considerations for this phase]
+### 技术考虑
+- [此阶段的关键技术考虑]
 
-### Risk Assessment
-- **Risk 1**: [Description]
-  - Impact: [High/Medium/Low]
-  - Mitigation: [Strategy]
+### 风险评估
+- **风险1**：[描述]
+  - 影响：[高/中/低]
+  - 缓解：[策略]
   
-- **Risk 2**: [Description]
-  - Impact: [High/Medium/Low]
-  - Mitigation: [Strategy]
+- **风险2**：[描述]
+  - 影响：[高/中/低]
+  - 缓解：[策略]
 
-### Quality Assurance
-- [QA approach for this phase]
-- [Testing requirements]
+### 质量保证
+- [此阶段的QA方法]
+- [测试要求]
 
-### Exit Criteria
-- [ ] [Criterion 1]
-- [ ] [Criterion 2]
-- [ ] [Criterion 3]
+### 退出标准
+- [ ] [标准1]
+- [ ] [标准2]
+- [ ] [标准3]
 
-### Deliverables
-- [List of deliverables for this phase]
+### 交付物
+- [此阶段的交付物列表]
 ```
 
-## 📋 PHASE VERIFICATION
+## 📋 阶段验证
 
-Each phase requires formal verification before proceeding to the next phase.
+每个阶段在进入下一阶段之前都需要正式验证。
 
 ```mermaid
 flowchart TD
@@ -251,26 +251,26 @@ flowchart TD
     classDef artifact fill:#f4b8c4,stroke:#d498a4,color:#000
     classDef decision fill:#c5e8b7,stroke:#a5c897,color:#000
     
-    Start([Begin Phase<br>Verification]) --> CodeReview[Conduct Code<br>Review]
-    CodeReview --> TestExecution[Execute Automated<br>Tests]
-    TestExecution --> QAVerification[Perform QA<br>Verification]
-    QAVerification --> ArchReview[Conduct Architecture<br>Review]
-    ArchReview --> StakeholderReview[Conduct Stakeholder<br>Review]
-    StakeholderReview --> Checklist[Complete Verification<br>Checklist]
-    Checklist --> ExitCriteria{All Exit<br>Criteria Met?}
-    ExitCriteria -->|Yes| Approval[Obtain Phase<br>Approval]
-    ExitCriteria -->|No| Issues[Document<br>Issues]
-    Issues --> Remediation[Implement<br>Remediation]
-    Remediation --> Retest[Verify<br>Fixes]
+    Start([开始阶段<br>验证]) --> CodeReview[进行代码<br>审查]
+    CodeReview --> TestExecution[执行自动化<br>测试]
+    TestExecution --> QAVerification[执行QA<br>验证]
+    QAVerification --> ArchReview[进行架构<br>审查]
+    ArchReview --> StakeholderReview[进行利益相关者<br>审查]
+    StakeholderReview --> Checklist[完成验证<br>检查清单]
+    Checklist --> ExitCriteria{所有退出<br>标准满足？}
+    ExitCriteria -->|是| Approval[获得阶段<br>批准]
+    ExitCriteria -->|否| Issues[记录<br>问题]
+    Issues --> Remediation[实施<br>修复]
+    Remediation --> Retest[验证<br>修复]
     Retest --> ExitCriteria
-    Approval --> Complete([Verification<br>Complete])
+    Approval --> Complete([验证<br>完成])
     
-    CodeReview -.-> CodeReport((Code Review<br>Report))
-    TestExecution -.-> TestReport((Test<br>Report))
-    QAVerification -.-> QAReport((QA<br>Report))
-    ArchReview -.-> ArchReport((Architecture<br>Report))
-    StakeholderReview -.-> StakeReport((Stakeholder<br>Report))
-    Checklist -.-> CheckDoc((Verification<br>Checklist))
+    CodeReview -.-> CodeReport((代码审查<br>报告))
+    TestExecution -.-> TestReport((测试<br>报告))
+    QAVerification -.-> QAReport((QA<br>报告))
+    ArchReview -.-> ArchReport((架构<br>报告))
+    StakeholderReview -.-> StakeReport((利益相关者<br>报告))
+    Checklist -.-> CheckDoc((验证<br>检查清单))
     
     class Start,Complete milestone
     class CodeReview,TestExecution,QAVerification,ArchReview,StakeholderReview,Checklist,Approval,Issues,Remediation,Retest activity
@@ -278,65 +278,65 @@ flowchart TD
     class CodeReport,TestReport,QAReport,ArchReport,StakeReport,CheckDoc artifact
 ```
 
-### Phase Verification Checklist Template
+### 阶段验证检查清单模板
 
 ```markdown
-## Phase Verification Checklist
+## 阶段验证检查清单
 
-### Implementation Completeness
-- [ ] All planned components implemented
-- [ ] All tasks marked as complete
-- [ ] No outstanding TODOs in code
-- [ ] All documentation updated
+### 实施完整性
+- [ ] 所有计划组件已实施
+- [ ] 所有任务标记为完成
+- [ ] 代码中无未完成的TODO
+- [ ] 所有文档已更新
 
-### Code Quality
-- [ ] Code review completed
-- [ ] No critical issues found in static analysis
-- [ ] Code meets established standards
-- [ ] Technical debt documented
+### 代码质量
+- [ ] 代码审查已完成
+- [ ] 静态分析中未发现关键问题
+- [ ] 代码符合既定标准
+- [ ] 技术债务已记录
 
-### Testing
-- [ ] Unit tests completed and passing
-- [ ] Integration tests completed and passing
-- [ ] End-to-end tests completed and passing
-- [ ] Performance testing completed (if applicable)
-- [ ] Security testing completed (if applicable)
-- [ ] Test coverage meets requirements
+### 测试
+- [ ] 单元测试已完成并通过
+- [ ] 集成测试已完成并通过
+- [ ] 端到端测试已完成并通过
+- [ ] 性能测试已完成（如适用）
+- [ ] 安全测试已完成（如适用）
+- [ ] 测试覆盖率满足要求
 
-### Architecture
-- [ ] Implementation follows architectural design
-- [ ] No architectural violations introduced
-- [ ] Technical patterns correctly implemented
-- [ ] Non-functional requirements met
+### 架构
+- [ ] 实施遵循架构设计
+- [ ] 未引入架构违规
+- [ ] 技术模式正确实施
+- [ ] 非功能性要求得到满足
 
-### Stakeholder Verification
-- [ ] Business requirements met
-- [ ] Stakeholder demo completed
-- [ ] Feedback incorporated
-- [ ] Acceptance criteria verified
+### 利益相关者验证
+- [ ] 业务需求得到满足
+- [ ] 利益相关者演示已完成
+- [ ] 反馈已纳入
+- [ ] 验收标准已验证
 
-### Risk Assessment
-- [ ] All identified risks addressed
-- [ ] No new risks introduced
-- [ ] Contingency plans in place for known issues
+### 风险评估
+- [ ] 所有已识别风险已解决
+- [ ] 未引入新风险
+- [ ] 已知问题的应急计划已就位
 
-### Exit Criteria
-- [ ] All exit criteria met
-- [ ] Any exceptions documented and approved
-- [ ] Phase signoff obtained from required parties
+### 退出标准
+- [ ] 所有退出标准已满足
+- [ ] 任何例外已记录并批准
+- [ ] 已从所需方获得阶段签署
 ```
 
-## 📋 HANDLING PHASE DEPENDENCIES
+## 📋 处理阶段依赖关系
 
 ```mermaid
 flowchart TD
     classDef solid fill:#f9d77e,stroke:#d9b95c,color:#000
     classDef partial fill:#a8d5ff,stroke:#88b5e0,color:#000
     
-    F[Foundation<br>Phase] --> C[Core<br>Phase]
-    F --> E[Extension<br>Phase]
-    F --> I[Integration<br>Phase]
-    F --> FN[Finalization<br>Phase]
+    F[基础<br>阶段] --> C[核心<br>阶段]
+    F --> E[扩展<br>阶段]
+    F --> I[集成<br>阶段]
+    F --> FN[完成<br>阶段]
     
     C --> E
     C --> I
@@ -351,64 +351,64 @@ flowchart TD
     class E,I,FN partial
 ```
 
-### Dependency Management Strategies
+### 依赖关系管理策略
 
-1. **Vertical Slicing**: Implement complete features across all phases for priority functionality.
-2. **Stubbing and Mocking**: Create temporary implementations to allow progress on dependent components.
-3. **Interface Contracts**: Define clear interfaces between components to allow parallel development.
-4. **Feature Toggles**: Implement features but keep them disabled until dependencies are ready.
-5. **Incremental Integration**: Gradually integrate components as they become available.
+1. **垂直切片**：为优先功能在所有阶段实施完整功能。
+2. **存根和模拟**：创建临时实现以允许依赖组件的进展。
+3. **接口契约**：定义组件之间的清晰接口以允许并行开发。
+4. **功能开关**：实施功能但保持禁用状态直到依赖关系准备就绪。
+5. **增量集成**：随着组件可用逐步集成组件。
 
-### Dependency Documentation Format
+### 依赖关系文档格式
 
 ```markdown
-## Implementation Dependencies
+## 实施依赖关系
 
-### Foundation Phase Dependencies
-- **External Dependencies**:
-  - Development environment setup
-  - Access to source control
-  - Access to CI/CD pipeline
+### 基础阶段依赖关系
+- **外部依赖关系**：
+  - 开发环境设置
+  - 源代码控制访问
+  - CI/CD管道访问
 
-### Core Phase Dependencies
-- **Foundation Phase Dependencies**:
-  - Authentication framework
-  - Database schema
-  - Logging infrastructure
-  - Basic application skeleton
+### 核心阶段依赖关系
+- **基础阶段依赖关系**：
+  - 身份验证框架
+  - 数据库架构
+  - 日志记录基础设施
+  - 基本应用程序骨架
   
-- **External Dependencies**:
-  - API specifications from external systems
-  - Test data
+- **外部依赖关系**：
+  - 外部系统的API规范
+  - 测试数据
 
-### Extension Phase Dependencies
-- **Core Phase Dependencies**:
-  - Core business logic
-  - Primary user interface
-  - Essential services
+### 扩展阶段依赖关系
+- **核心阶段依赖关系**：
+  - 核心业务逻辑
+  - 主要用户界面
+  - 基本服务
   
-- **External Dependencies**:
-  - [List external dependencies]
+- **外部依赖关系**：
+  - [列出外部依赖关系]
 
-### Integration Phase Dependencies
-- **Core Phase Dependencies**:
-  - [List core dependencies]
+### 集成阶段依赖关系
+- **核心阶段依赖关系**：
+  - [列出核心依赖关系]
   
-- **Extension Phase Dependencies**:
-  - [List extension dependencies]
+- **扩展阶段依赖关系**：
+  - [列出扩展依赖关系]
   
-- **External Dependencies**:
-  - Access to integration test environments
-  - Test credentials for external systems
+- **外部依赖关系**：
+  - 集成测试环境访问
+  - 外部系统的测试凭据
 
-### Finalization Phase Dependencies
-- **All previous phases must be complete**
-- **External Dependencies**:
-  - User acceptance testing environment
-  - Production deployment approval
+### 完成阶段依赖关系
+- **所有前一阶段必须完成**
+- **外部依赖关系**：
+  - 用户验收测试环境
+  - 生产部署批准
 ```
 
-## 📋 PHASE TRANSITION PROCESS
+## 📋 阶段转换流程
 
 ```mermaid
 flowchart TD
@@ -416,21 +416,21 @@ flowchart TD
     classDef artifact fill:#f4b8c4,stroke:#d498a4,color:#000
     classDef verification fill:#c5e8b7,stroke:#a5c897,color:#000
     
-    Start([Begin Phase<br>Transition]) --> Verification[Verify Current<br>Phase Complete]
-    Verification --> Checkpoint{Phase<br>Verified?}
-    Checkpoint -->|No| Remediation[Remediate<br>Issues]
+    Start([开始阶段<br>转换]) --> Verification[验证当前<br>阶段完成]
+    Verification --> Checkpoint{阶段<br>已验证？}
+    Checkpoint -->|否| Remediation[修复<br>问题]
     Remediation --> Verification
-    Checkpoint -->|Yes| Documentation[Update<br>Documentation]
-    Documentation --> Reflection[Conduct Phase<br>Reflection]
-    Reflection --> NextPlan[Finalize Next<br>Phase Plan]
-    NextPlan --> Approvals[Obtain<br>Approvals]
-    Approvals --> Kickoff[Conduct Next<br>Phase Kickoff]
-    Kickoff --> End([Begin Next<br>Phase])
+    Checkpoint -->|是| Documentation[更新<br>文档]
+    Documentation --> Reflection[进行阶段<br>反思]
+    Reflection --> NextPlan[完成下一<br>阶段计划]
+    NextPlan --> Approvals[获得<br>批准]
+    Approvals --> Kickoff[进行下一<br>阶段启动]
+    Kickoff --> End([开始下一<br>阶段])
     
-    Verification -.-> VerifDoc((Verification<br>Checklist))
-    Documentation -.-> Docs((Updated<br>Documentation))
-    Reflection -.-> ReflectDoc((Reflection<br>Document))
-    NextPlan -.-> PlanDoc((Phase<br>Plan))
+    Verification -.-> VerifDoc((验证<br>检查清单))
+    Documentation -.-> Docs((更新的<br>文档))
+    Reflection -.-> ReflectDoc((反思<br>文档))
+    NextPlan -.-> PlanDoc((阶段<br>计划))
     
     class Start,End milestone
     class Verification,Remediation,Documentation,Reflection,NextPlan,Approvals,Kickoff step
@@ -438,218 +438,217 @@ flowchart TD
     class VerifDoc,Docs,ReflectDoc,PlanDoc artifact
 ```
 
-### Phase Transition Checklist
+### 阶段转换检查清单
 
 ```markdown
-## Phase Transition Checklist
+## 阶段转换检查清单
 
-### Current Phase Closure
-- [ ] All exit criteria met and documented
-- [ ] All verification steps completed
-- [ ] All issues resolved or documented
-- [ ] Phase retrospective completed
+### 当前阶段关闭
+- [ ] 所有退出标准已满足并记录
+- [ ] 所有验证步骤已完成
+- [ ] 所有问题已解决或记录
+- [ ] 阶段回顾已完成
 
-### Documentation Updates
-- [ ] Technical documentation updated
-- [ ] User documentation updated
-- [ ] Architecture documentation updated
-- [ ] Test documentation updated
+### 文档更新
+- [ ] 技术文档已更新
+- [ ] 用户文档已更新
+- [ ] 架构文档已更新
+- [ ] 测试文档已更新
 
-### Knowledge Transfer
-- [ ] Lessons learned documented
-- [ ] Knowledge shared with team
-- [ ] Training conducted if needed
+### 知识转移
+- [ ] 经验教训已记录
+- [ ] 知识已与团队分享
+- [ ] 如需要已进行培训
 
-### Next Phase Preparation
-- [ ] Next phase plan reviewed and updated
-- [ ] Resources aligned
-- [ ] Dependencies verified
-- [ ] Entry criteria confirmed
+### 下一阶段准备
+- [ ] 下一阶段计划已审查和更新
+- [ ] 资源已对齐
+- [ ] 依赖关系已验证
+- [ ] 进入标准已确认
 
-### Approvals
-- [ ] Technical lead approval
-- [ ] Business stakeholder approval
-- [ ] Project management approval
+### 批准
+- [ ] 技术负责人批准
+- [ ] 业务利益相关者批准
+- [ ] 项目管理批准
 ```
 
-## 📋 IMPLEMENTATION TRACKING IN TASKS.MD
+## 📋 在TASKS.MD中跟踪实施
 
-Update `tasks.md` to track phased implementation progress:
+更新`tasks.md`以跟踪分阶段实施进度：
 
 ```markdown
-## [SYSTEM-ID]: System Name
+## [系统ID]：系统名称
 
-### Implementation Phases
-#### 1. Foundation Phase
-- **Status**: [Not Started/In Progress/Complete]
-- **Progress**: [0-100%]
-- **Start Date**: [Date]
-- **Target Completion**: [Date]
-- **Actual Completion**: [Date]
+### 实施阶段
+#### 1. 基础阶段
+- **状态**：[未开始/进行中/完成]
+- **进度**：[0-100%]
+- **开始日期**：[日期]
+- **目标完成**：[日期]
+- **实际完成**：[日期]
 
-**Key Components**:
-- [ ] Component 1: [Status] - [Progress %]
-- [ ] Component 2: [Status] - [Progress %]
+**关键组件**：
+- [ ] 组件1：[状态] - [进度%]
+- [ ] 组件2：[状态] - [进度%]
 
-**Verification Status**:
-- [ ] Code Review: [Status]
-- [ ] Testing: [Status]
-- [ ] Architecture Review: [Status]
-- [ ] Stakeholder Approval: [Status]
+**验证状态**：
+- [ ] 代码审查：[状态]
+- [ ] 测试：[状态]
+- [ ] 架构审查：[状态]
+- [ ] 利益相关者批准：[状态]
 
-**Issues/Blockers**:
-- [List of issues if any]
+**问题/阻塞**：
+- [如有问题列表]
 
-#### 2. Core Phase
+#### 2. 核心阶段
 ...
 
-#### 3. Extension Phase
+#### 3. 扩展阶段
 ...
 
-#### 4. Integration Phase
+#### 4. 集成阶段
 ...
 
-#### 5. Finalization Phase
+#### 5. 完成阶段
 ...
 ```
 
-## 📋 MEMORY BANK INTEGRATION
+## 📋 记忆库集成
 
 ```mermaid
 flowchart TD
     classDef memfile fill:#f4b8c4,stroke:#d498a4,color:#000
     classDef process fill:#f9d77e,stroke:#d9b95c,color:#000
     
-    Implementation[Phased<br>Implementation] --> PB[projectbrief.md]
+    Implementation[分阶段<br>实施] --> PB[projectbrief.md]
     Implementation --> PC[productContext.md]
     Implementation --> AC[activeContext.md]
     Implementation --> SP[systemPatterns.md]
     Implementation --> TC[techContext.md]
     Implementation --> P[progress.md]
     
-    PB & PC & AC & SP & TC & P --> MBI[Memory Bank<br>Integration]
+    PB & PC & AC & SP & TC & P --> MBI[记忆库<br>集成]
     MBI --> Implementation
     
     class PB,PC,AC,SP,TC,P memfile
     class Implementation,MBI process
 ```
 
-### Memory Bank Updates
+### 记忆库更新
 
-Update the following Memory Bank files during phased implementation:
+在分阶段实施期间更新以下记忆库文件：
 
 1. **projectbrief.md**
-   - Update implementation approach
-   - Document phase-specific objectives
-   - Link to phase plans
+   - 更新实施方法
+   - 记录阶段特定目标
+   - 链接到阶段计划
 
 2. **activeContext.md**
-   - Update with current implementation phase
-   - Document active implementation tasks
-   - Highlight current focus areas
+   - 更新当前实施阶段
+   - 记录活跃的实施任务
+   - 突出当前关注领域
 
 3. **systemPatterns.md**
-   - Document implementation patterns used
-   - Update with architectural decisions made during implementation
-   - Record any pattern adaptations
+   - 记录使用的实施模式
+   - 更新实施期间做出的架构决策
+   - 记录任何模式适应
 
 4. **techContext.md**
-   - Update with implementation technologies
-   - Document technical constraints encountered
-   - Record technical decisions made
+   - 更新实施技术
+   - 记录遇到的技术约束
+   - 记录做出的技术决策
 
 5. **progress.md**
-   - Update implementation progress by phase
-   - Document completed components
-   - Track overall implementation status
+   - 按阶段更新实施进度
+   - 记录完成的组件
+   - 跟踪整体实施状态
 
-## 📋 IMPLEMENTATION VERIFICATION CHECKLIST
+## 📋 实施验证检查清单
 
 ```
-✓ IMPLEMENTATION VERIFICATION CHECKLIST
+✓ 实施验证检查清单
 
-Planning
-- Implementation framework established? [YES/NO]
-- Phasing plan created? [YES/NO]
-- Phase dependencies documented? [YES/NO]
-- Entry/exit criteria defined for all phases? [YES/NO]
-- Risk assessment performed? [YES/NO]
+规划
+- 实施框架已建立？[是/否]
+- 分阶段计划已创建？[是/否]
+- 阶段依赖关系已记录？[是/否]
+- 所有阶段的进入/退出标准已定义？[是/否]
+- 风险评估已执行？[是/否]
 
-Foundation Phase
-- Environment setup complete? [YES/NO]
-- Core architecture implemented? [YES/NO]
-- Basic infrastructure in place? [YES/NO]
-- CI/CD pipeline operational? [YES/NO]
-- Foundation verification completed? [YES/NO]
+基础阶段
+- 环境设置完成？[是/否]
+- 核心架构已实施？[是/否]
+- 基本基础设施就位？[是/否]
+- CI/CD管道运行正常？[是/否]
+- 基础验证已完成？[是/否]
 
-Core Phase
-- Core business logic implemented? [YES/NO]
-- Primary user flows working? [YES/NO]
-- Essential services operational? [YES/NO]
-- Core APIs implemented? [YES/NO]
-- Core verification completed? [YES/NO]
+核心阶段
+- 核心业务逻辑已实施？[是/否]
+- 主要用户流程正常工作？[是/否]
+- 基本服务运行正常？[是/否]
+- 核心API已实施？[是/否]
+- 核心验证已完成？[是/否]
 
-Extension Phase
-- Secondary features implemented? [YES/NO]
-- Enhanced functionality working? [YES/NO]
-- Additional user interfaces complete? [YES/NO]
-- Extended test coverage in place? [YES/NO]
-- Extension verification completed? [YES/NO]
+扩展阶段
+- 次要功能已实施？[是/否]
+- 增强功能正常工作？[是/否]
+- 额外用户界面完成？[是/否]
+- 扩展测试覆盖率就位？[是/否]
+- 扩展验证已完成？[是/否]
 
-Integration Phase
-- All components integrated? [YES/NO]
-- External integrations working? [YES/NO]
-- End-to-end testing completed? [YES/NO]
-- Performance testing executed? [YES/NO]
-- Integration verification completed? [YES/NO]
+集成阶段
+- 所有组件已集成？[是/否]
+- 外部集成正常工作？[是/否]
+- 端到端测试已完成？[是/否]
+- 性能测试已执行？[是/否]
+- 集成验证已完成？[是/否]
 
-Finalization Phase
-- All optimizations complete? [YES/NO]
-- User acceptance testing passed? [YES/NO]
-- Documentation finalized? [YES/NO]
-- Production deployment plan ready? [YES/NO]
-- Final system review completed? [YES/NO]
+完成阶段
+- 所有优化完成？[是/否]
+- 用户验收测试通过？[是/否]
+- 文档已完成？[是/否]
+- 生产部署计划准备就绪？[是/否]
+- 最终系统审查已完成？[是/否]
 
-Memory Bank Integration
-- All Memory Bank files updated? [YES/NO]
-- Implementation status reflected? [YES/NO]
-- Technical decisions documented? [YES/NO]
-- Progress tracking current? [YES/NO]
+记忆库集成
+- 所有记忆库文件已更新？[是/否]
+- 实施状态已反映？[是/否]
+- 技术决策已记录？[是/否]
+- 进度跟踪是最新的？[是/否]
 ```
 
-## 📋 MINIMAL MODE IMPLEMENTATION FORMAT
+## 📋 最小模式实施格式
 
-For situations requiring a more compact implementation approach:
+对于需要更紧凑实施方法的情况：
 
 ```markdown
-## [SYSTEM-ID]: Phased Implementation
+## [系统ID]：分阶段实施
 
-### Phase Status Summary
-- **Foundation**: [Status] - [Progress %]
-- **Core**: [Status] - [Progress %] 
-- **Extension**: [Status] - [Progress %]
-- **Integration**: [Status] - [Progress %]
-- **Finalization**: [Status] - [Progress %]
+### 阶段状态摘要
+- **基础**：[状态] - [进度%]
+- **核心**：[状态] - [进度%] 
+- **扩展**：[状态] - [进度%]
+- **集成**：[状态] - [进度%]
+- **完成**：[状态] - [进度%]
 
-### Current Phase: [Phase Name]
-- **Key Components**: [List of key components being implemented]
-- **Blockers**: [List of blockers if any]
-- **Next Steps**: [List of immediate next steps]
+### 当前阶段：[阶段名称]
+- **关键组件**：[正在实施的关键组件列表]
+- **阻塞**：[如有阻塞列表]
+- **下一步**：[即时下一步列表]
 
-### Verification Status
-- [List of verification steps and their status]
+### 验证状态
+- [验证步骤及其状态列表]
 
-### Memory Bank Updates
-- [List of Memory Bank files that need updating]
+### 记忆库更新
+- [需要更新的记忆库文件列表]
 ```
 
-## 🚨 IMPLEMENTATION VERIFICATION PRINCIPLE
+## 🚨 实施验证原则
 
 ```
 ┌─────────────────────────────────────────────────────┐
-│ NO PHASE IS CONSIDERED COMPLETE until all            │
-│ verification steps have been passed and documented.  │
-│ Phases MUST NOT be rushed to meet deadlines at the   │
-│ expense of quality or architectural integrity.       │
+│ 在所有验证步骤通过并记录之前，任何阶段都不被认为是完成的。│
+│ 阶段不得为了满足截止日期而匆忙进行，以牺牲质量或架构完整性│
+│ 为代价。                                              │
 └─────────────────────────────────────────────────────┘
 ``` 
