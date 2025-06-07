@@ -78,7 +78,9 @@ Memory Bank 中的 CREATIVE 模式在概念上基于 Anthropic 的 Claude "Think
 
 - **Cursor 编辑器**：需要版本 0.48 或更高版本。
 - **自定义模式**：必须在 Cursor 中启用该功能（设置 → 功能 → 聊天 → 自定义模式）。
-- **AI 模型**：建议使用 Claude 3.7 Sonnet 以获得最佳结果，特别是对于 CREATIVE 模式的"Think"工具方法论。
+<img src="assets/open_custom_modes.png" alt="Opening Custom Modes Menu"/>
+
+- **AI 模型**：建议使用 Claude 4 Sonnet 或 Claude 4 Opus 以获得最佳结果，特别是对于 CREATIVE 模式的"Think"工具方法论。
 
 ### 步骤 1：获取文件
 
@@ -88,12 +90,13 @@ Memory Bank 中的 CREATIVE 模式在概念上基于 Anthropic 的 Claude "Think
 git clone https://github.com/vanzan01/cursor-memory-bank.git
 ```
 
-或者，您可以从 GitHub 下载 ZIP 文件并将其解压到您的项目文件夹。
+#### 替代方法（手动）
 
-这为您提供了所有必要的文件，包括：
-- `.cursor/rules/isolation_rules/` 中的规则文件
-- `custom_modes/` 目录中的模式指令文件
-- `memory-bank/` 中的模板 Memory Bank 文件
+从 ZIP 文件解压后，按照以下步骤操作。
+
+- 将 `.cursor` 和 `custom_modes` 文件夹复制到项目目录
+
+注意：其他文档对于 memory bank 操作不是必需的，它们是说明文档。您可以将它们复制到像 `memory_bank_documents` 这样的文件夹中。
 
 ### 步骤 2：在 Cursor 中设置自定义模式
 
@@ -103,6 +106,8 @@ git clone https://github.com/vanzan01/cursor-memory-bank.git
 
 1. 打开 Cursor 并点击聊天面板中的模式选择器
 2. 选择"添加自定义模式"
+<img src="assets/add_custom_mode.png" alt="Add Custom Mode"/>
+
 3. 在配置屏幕中：
    - 输入模式名称（您可以通过在名称开头复制粘贴来包含表情符号图标，如 🔍、📋、🎨、⚒️）
    - 从 Cursor 的有限预定义选项中选择图标
@@ -110,6 +115,10 @@ git clone https://github.com/vanzan01/cursor-memory-bank.git
    - 检查所需工具
    - 点击**高级选项**
    - 在底部出现的空文本框中，粘贴相应文件中的自定义指令内容
+
+#### 模式配置
+
+为每个模式配置如下（如果显示 MCP，您可以保持开启，它们可能不会工作）：
 
 <table>
   <tr>
@@ -126,39 +135,41 @@ git clone https://github.com/vanzan01/cursor-memory-bank.git
   </tr>
 </table>
 
-#### 模式配置
-
-为每个模式配置如下：
-
 1. **VAN 模式**（初始化）
    - **名称**：🔍 VAN
    - **工具**：启用"代码库搜索"、"读取文件"、"终端"、"列出目录"
    - **高级选项**：从 `custom_modes/van_instructions.md` 粘贴
+
+
+<img src="assets/van_mode_1.png" height="300" style="display: inline-block;"/> <img src="assets/van_mode_2.png" height="300" style="display: inline-block;"/>
 
 2. **PLAN 模式**（任务规划）
    - **名称**：📋 PLAN
    - **工具**：启用"代码库搜索"、"读取文件"、"终端"、"列出目录"
    - **高级选项**：从 `custom_modes/plan_instructions.md` 粘贴
 
+<img src="assets/plan_mode_1.png" height="300"/> <img src="assets/plan_mode_2.png" height="300" style="display: inline-block;"/>
+
 3. **CREATIVE 模式**（设计决策）
    - **名称**：🎨 CREATIVE
    - **工具**：启用"代码库搜索"、"读取文件"、"终端"、"列出目录"、"编辑文件"
    - **高级选项**：从 `custom_modes/creative_instructions.md` 粘贴
+
+<img src="assets/creative_mode_1.png" height="300"/> <img src="assets/creative_mode_2.png" height="300" style="display: inline-block;"/>
 
 4. **IMPLEMENT 模式**（代码实现）
    - **名称**：⚒️ IMPLEMENT
    - **工具**：启用所有工具
    - **高级选项**：从 `custom_modes/implement_instructions.md` 粘贴
 
-5. **REFLECT 模式**（回顾）
-   - **名称**：🔍 REFLECT
+<img src="assets/implement_mode_1.png" height="300"/> <img src="assets/implement_mode_2.png" height="300" style="display: inline-block;"/>
+
+5. **REFLECT & ARCHIVE 模式**（回顾）
+   - **名称**：🔍 REFLECT 或 ARCHIVE
    - **工具**：启用"代码库搜索"、"读取文件"、"终端"、"列出目录"
-   - **高级选项**：从 `custom_modes/reflect_archive_instructions.md` 粘贴（REFLECT 部分）
-   
-6. **ARCHIVE 模式**（文档化）
-   - **名称**：📚 ARCHIVE
-   - **工具**：启用"代码库搜索"、"读取文件"、"终端"、"列出目录"、"编辑文件"
-   - **高级选项**：从 `custom_modes/reflect_archive_instructions.md` 粘贴（ARCHIVE 部分）
+   - **高级选项**：从 `custom_modes/reflect_archive_instructions.md` 粘贴
+
+<img src="assets/reflect_mode_1.png" height="300"/> <img src="assets/reflect_mode_2.png" height="300" style="display: inline-block;"/>
 
 > **注意**：REFLECT 和 ARCHIVE 指令合并在单个文件中，以优化 Cursor 的字符限制，同时保持功能。感谢 GitHub 用户 @joshmac007 实现了这个优化。
 
@@ -181,6 +192,9 @@ QA 不是单独的自定义模式，而是一组可以从任何模式调用的�
    - **级别 3-4 任务**：完整工作流（VAN → PLAN → CREATIVE → IMPLEMENT → REFLECT → ARCHIVE）
    - **任何时点**：输入"QA"执行技术验证
 
+
+<img src="assets/chat_van.png" height="50"/> <img src="assets/chat_plan.png" height="50" style="display: inline-block;"/> <img src="assets/chat_implement.png" height="50" style="display: inline-block;"/> <img src="assets/chat_creative.png" height="50" style="display: inline-block;"/> <img src="assets/chat_implement.png" height="50" style="display: inline-block;"/> <img src="assets/chat_reflect.png" height="50" style="display: inline-block;"/> <img src="assets/chat_archive.png" height="50" style="display: inline-block;"/>
+
 3. **模式特定命令**：
    ```
    VAN - 初始化项目并确定复杂性
@@ -191,6 +205,10 @@ QA 不是单独的自定义模式，而是一组可以从任何模式调用的�
    ARCHIVE - 创建全面的文档
    QA - 验证技术实现（可从任何模式调用）
    ```
+
+4. **开始使用您的项目**：
+   
+成功安装 Memory Bank 后...
 
 ## 核心文件及其用途
 
